@@ -6,6 +6,7 @@ target/
 
 ### IntelliJ IDEA ###
 target/
+src/main/resources/
 *.iml
 .idea/
 .idea/modules.xml
