@@ -10,7 +10,7 @@ It integrates Linked Open Data sources such as **Wikidata**, **DBpedia**, and **
 The platform uses **RDF, SPARQL, OWL, SKOS**, and exposes each resource with a unique URL.
 
 ## Wiki
-All project documentation, deliverables, and progress tracking are available in the [project Wiki](LINK_TO_WIKI).
+All project documentation, deliverables, and progress tracking are available in the [project Wiki](https://github.com/DianaCarcea/Web-Application-Development-PROJECT/wiki).
 
 ## Technologies
 - Semantic Web: RDF, SPARQL, OWL, SKOS  
