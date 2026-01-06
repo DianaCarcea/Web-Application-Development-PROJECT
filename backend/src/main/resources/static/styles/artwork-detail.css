@@ -1,0 +1,66 @@
+/* =========================
+   Artwork detail page only
+   ========================= */
+
+/* Buton Back */
+.back-nav {
+    top: 10px;
+    margin-bottom: 20px;
+}
+
+
+.back-nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: #eaf4fb;
+    transition: background 0.5s, color 0.5s;
+}
+
+.back-nav a:hover {
+    background: #c8cbcb;
+    color: #000000;
+
+}
+
+.artwork-detail img {
+    max-width: 420px;
+    margin: 0 auto;
+    display: block;
+}
+
+.artwork-detail .art-card {
+    padding: 30px;
+}
+
+/* Header title in dark header */
+.artwork-detail .card-header h1 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 2em;
+    font-weight: 500;
+}
+
+/* Keep badge aligned nicely */
+.artwork-detail .card-header {
+    border-radius: 6px;
+    margin-bottom: 25px;
+}
+
+/* Better spacing for image */
+.artwork-detail figure {
+    margin: 25px 0;
+}
+
+/* Description spacing */
+.artwork-detail .description {
+    margin-top: 20px;
+}
+
+/* Table spacing */
+.artwork-detail .meta-table {
+    margin-top: 25px;
+}

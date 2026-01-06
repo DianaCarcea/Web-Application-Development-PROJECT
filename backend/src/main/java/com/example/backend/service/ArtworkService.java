@@ -18,4 +18,8 @@ public class ArtworkService {
     public List<Artwork> getAllArtworks() {
         return repository.findAll(); // simplu, curat
     }
+
+    public Artwork getArtworkByUri(String uri) {
+        return repository.findByUri(uri);
+    }
 }

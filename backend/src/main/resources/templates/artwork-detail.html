@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ro"
+      prefix="arp: http://arp.ro/schema#
+              schema: http://schema.org/
+              prov: http://www.w3.org/ns/prov#
+              dct: http://purl.org/dc/terms/">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${art.title}">Artwork</title>
+    <link rel="stylesheet" th:href="@{/styles/artworks.css}">
+    <link rel="stylesheet" th:href="@{/styles/artwork-detail.css}">
+</head>
+
+<body>
+<nav class="back-nav">
+    <a th:href="@{/artworks}" aria-label="Înapoi la toate operele">
+        ← Back to all artworks
+    </a>
+</nav>
+<main class="artwork-detail">
+
+    <article class="art-card"
+             resource="[[${art.uri}]]"
+             typeof="arp:Artwork schema:VisualArtwork">
+
+        <header class="card-header">
+            <h1 property="arp:title schema:name">
+                [[${art.title}]]
+            </h1>
+
+            <span th:if="${art.category!= null}"
+                  class="badge category"
+                  property="arp:category">
+                [[${art.category}]]
+            </span>
+        </header>
+
+        <figure th:if="${art.imageLink != null}">
+            <img th:src="${art.imageLink}"
+                 th:alt="${art.title}"
+                 property="arp:imageLink schema:image">
+        </figure>
+
+        <section class="description"
+                 th:if="${art.description != null and !#strings.isEmpty(art.description)}">
+            <h2>Descriere</h2>
+            <p property="arp:description schema:description">
+                [[${art.description}]]
+            </p>
+        </section>
+
+        <table class="meta-table">
+            <tr th:if="${art.artist != null}">
+                <th>Artist</th>
+                <td property="arp:name schema:name"
+                    resource="[[${art.artist.uri}]]">
+                    [[${art.artist.name}]]
+                </td>
+            </tr>
+
+            <tr th:if="${art.creation != null}">
+                <th>Datare</th>
+                <td property="arp:startedAtTime schema:dateCreated">[[${art.creation.startedAtTime}]]</td>
+            </tr>
+
+            <tr th:if="${art.dimensions != null and !#strings.isEmpty(art.dimensions)}">
+                <th>Dimensiuni</th>
+                <td property="arp:dimensions">
+                    [[${art.dimensions}]]
+                </td>
+            </tr>
+
+            <tr th:if="${art.inventoryNumber!= null}">
+                <th>Nr. inventar</th>
+                <td property="arp:inventoryNumber">
+                    [[${art.inventoryNumber}]]
+                </td>
+            </tr>
+
+            <tr th:if="${art.condition!= null}">
+                <th>Stare</th>
+                <td property="arp:condition">
+                    [[${art.condition}]]
+                </td>
+            </tr>
+
+            <tr th:if="${art.classification != null and !#lists.isEmpty(art.classification)}">
+                <th>Clasificări</th>
+                <td>
+                    <span th:each="cls : ${art.classification}"
+                          property="arp:classification"
+                          class="tech-tag">
+                        [[${cls}]]
+                    </span>
+                </td>
+            </tr>
+
+            <tr th:if="${art.cultures != null and !#lists.isEmpty(art.cultures)}">
+                <th>Cultură</th>
+                <td>
+                    <span th:each="c : ${art.cultures}"
+                          property="arp:culture"
+                          class="tech-tag">
+                        [[${c}]]
+                    </span>
+                </td>
+            </tr>
+
+            <tr th:if="${art.techniques != null and !#lists.isEmpty(art.techniques)}">
+                <th>Tehnici</th>
+                <td>
+                    <span th:each="t : ${art.techniques}"
+                          property="arp:technique"
+                          class="tech-tag">
+                        [[${t}]]
+                    </span>
+                </td>
+            </tr>
+
+            <tr th:if="${art.materialsUsed != null and !#lists.isEmpty(art.materialsUsed)}">
+                <th>Materiale</th>
+                <td>
+                    <span th:each="m : ${art.materialsUsed}"
+                          property="arp:materialsUsed"
+                          class="tech-tag">
+                        [[${m}]]
+                    </span>
+                </td>
+            </tr>
+
+            <tr th:if="${art.currentLocation != null}">
+                <th>Deținător</th>
+                <td property="arp:currentLocation"
+                    resource="[[${art.currentLocation.uri}]]">
+                    [[${art.currentLocation.name}]]
+                </td>
+            </tr>
+        </table>
+
+        <footer class="links">
+            <a th:if="${art.cimecLink!= null}"
+               th:href="${art.cimecLink}"
+               target="_blank"
+               property="arp:cimecLink">
+                Vezi pe CIMEC
+            </a>
+
+            <a th:if="${art.license!= null}"
+               th:href="${art.license}"
+               target="_blank"
+               property="dct:license">
+                Licență
+            </a>
+        </footer>
+
+    </article>
+
+</main>
+
+</body>
+</html>

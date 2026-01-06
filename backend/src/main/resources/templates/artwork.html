@@ -17,7 +17,11 @@
 
         <div class="card-body">
             <figure th:if="${art.imageLink}">
-                <img th:src="${art.imageLink}" th:alt="${art.title}" property="arp:imageLink schema:image"/>
+                <a th:href="@{/artworks/{id}(id=${art.id})}">
+                    <img th:src="${art.imageLink}"
+                         th:alt="${art.title}"
+                         property="arp:imageLink schema:image"/>
+                </a>
             </figure>
 
             <div class="details">
@@ -30,9 +34,20 @@
                 <table class="meta-table">
                     <tr th:if="${art.artist!= null and !#lists.isEmpty(art.artist)}">
                         <th>Artist</th>
-                        <td property="arp:name schema:name" resource="[[${art.artist.uri}]]">[[${art.artist.name}]]</td>
+                        <td resource="[[${art.artist.uri}]]"
+                            typeof="arp:Artist schema:Person">
+                            <span property="arp:name schema:name">
+                                [[${art.artist.name}]]
+                            </span>
+                        </td>
                     </tr>
-                    <tr th:if="${art.dimensions!= null and !#lists.isEmpty(art.dimensions)}">
+
+                    <tr th:if="${art.creation != null}">
+                        <th>Datare</th>
+                        <td property="arp:startedAtTime schema:dateCreated">[[${art.creation.startedAtTime}]]</td>
+                    </tr>
+
+                    <tr th:if="${art.dimensions != null and !art.dimensions.isEmpty()}">
                         <th>Dimensiuni</th>
                         <td property="arp:dimensions">[[${art.dimensions}]]</td>
                     </tr>
@@ -92,9 +107,7 @@
                     <span class="source">
                         Sursa: <a href="http://www.patrimoniu.ro" target="_blank">Institutul Național al Patrimoniului</a>
                     </span>
-
                 </div>
-
             </div>
         </div>
     </article>
