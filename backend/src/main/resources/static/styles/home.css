@@ -1,0 +1,70 @@
+/* --- GRID COLAJ: max 3 pe rând --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* maxim 3 coloane */
+    grid-auto-rows: 200px; /* înălțime implicită */
+    grid-gap: 0px;
+    grid-auto-flow: dense; /* umple golurile */
+}
+
+/* Carduri imagine */
+.card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+/* Numele peste imagine */
+.card h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    text-align: center;
+}
+
+/* Dimensiuni diferite pentru colaj */
+.artist-grid .card {
+    grid-row: span 2; /* unele carduri mai mari */
+}
+
+.artworks-grid .card:nth-child(3n) {
+    grid-row: span 2;
+}
+
+.artworks-grid .card:nth-child(5n) {
+    grid-row: span 3;
+}
+
+
+
+/* Responsive tweaks */
+@media(max-width: 768px) {
+    .card img {
+        height: 180px;
+    }
+}
+
+@media(max-width: 480px) {
+    .card img {
+        height: 150px;
+    }
+}

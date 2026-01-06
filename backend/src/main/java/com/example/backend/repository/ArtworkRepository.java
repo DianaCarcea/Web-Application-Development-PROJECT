@@ -2,6 +2,8 @@ package com.example.backend.repository;
 
 import com.example.backend.model.Artwork;
 import com.example.backend.model.Creation;
+import com.example.backend.model.Registrar;
+import com.example.backend.model.Validator;
 import org.apache.jena.base.Sys;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
@@ -26,7 +28,7 @@ public class ArtworkRepository {
             PREFIX dct: <http://purl.org/dc/terms/>
     
             SELECT ?subject ?title ?img ?category ?condition ?inv ?desc ?cimec ?license
-                   ?date ?dimensions
+                   ?date ?dimensions ?registrarUri ?registrarName ?recordedAt ?validatorUri ?validatorName ?validatedAt
                    (GROUP_CONCAT(DISTINCT ?cls; separator="; ") AS ?classifications)
                    (GROUP_CONCAT(DISTINCT ?tech; separator="; ") AS ?techniques)
                    (GROUP_CONCAT(DISTINCT ?culture; separator="; ") AS ?cultures)
@@ -47,6 +49,16 @@ public class ArtworkRepository {
               OPTIONAL { ?subject arp:classification ?cls }
               OPTIONAL { ?subject arp:culture ?culture }
               OPTIONAL {
+                    ?subject arp:recordedAt ?recordedAt .
+                    ?subject arp:recordedBy ?registrarUri .
+                    ?registrarUri arp:name ?registrarName .
+              }
+              OPTIONAL {
+                  ?subject arp:validatedAt ?validatedAt .
+                  ?subject arp:validatedBy ?validatorUri .
+                  ?validatorUri arp:name ?validatorName .
+              }
+              OPTIONAL {
                   ?subject prov:wasGeneratedBy ?activity .
                   OPTIONAL { ?activity arp:startedAtTime ?date }
                   OPTIONAL { ?activity arp:technique ?tech }
@@ -62,7 +74,8 @@ public class ArtworkRepository {
                   ?museumUri arp:name ?museumName
                }
              }
-            GROUP BY ?subject ?title ?img ?category ?condition ?inv ?desc ?cimec ?license ?date ?dimensions ?artistName ?artistUri ?museumName ?museumUri
+            GROUP BY ?subject ?title ?img ?category ?condition ?inv ?desc ?cimec ?license ?date ?dimensions ?artistName ?artistUri ?museumName ?museumUri ?registrarUri ?registrarName ?recordedAt ?validatorUri ?validatorName ?validatedAt
+            LIMIT 30
         """;
 
         Query query = QueryFactory.create(sparql);
@@ -94,6 +107,9 @@ public class ArtworkRepository {
                 a.techniques = splitConcat(sol, "techniques");
                 a.materialsUsed = splitConcat(sol, "materialsUsed");
 
+                a.recordedAt = getLiteral(sol, "recordedAt");
+                a.validatedAt = getLiteral(sol, "validatedAt");
+
                 if (sol.contains("artistName")) {
                     a.artist = new com.example.backend.model.Artist();
                     a.artist.name = getLiteral(sol, "artistName");
@@ -104,6 +120,20 @@ public class ArtworkRepository {
                     a.currentLocation = new com.example.backend.model.Agent();
                     a.currentLocation.name = getLiteral(sol, "museumName");
                     a.currentLocation.uri = sol.getResource("museumUri").getURI();
+                }
+
+                if (sol.contains("registrarUri")) {
+                    Registrar registrar = new Registrar();
+                    registrar.uri = sol.getResource("registrarUri").getURI();
+                    registrar.name = getLiteral(sol, "registrarName");
+                    a.registrar = registrar;
+                }
+
+                if (sol.contains("validatorUri")) {
+                    Validator validator = new Validator();
+                    validator.uri = sol.getResource("validatorUri").getURI();
+                    validator.name = getLiteral(sol, "validatorName");
+                    a.validator = validator;
                 }
 
                 artworks.add(a);
@@ -119,7 +149,7 @@ public class ArtworkRepository {
             PREFIX dct: <http://purl.org/dc/terms/>
         
             SELECT ?title ?img ?category ?condition ?inv ?desc ?cimec ?license
-                 ?date ?dimensions
+                 ?date ?dimensions ?registrarUri ?registrarName ?recordedAt ?validatorUri ?validatorName ?validatedAt
                  (GROUP_CONCAT(DISTINCT ?cls; separator="; ") AS ?classifications)
                  (GROUP_CONCAT(DISTINCT ?tech; separator="; ") AS ?techniques)
                  (GROUP_CONCAT(DISTINCT ?culture; separator="; ") AS ?cultures)
@@ -130,37 +160,47 @@ public class ArtworkRepository {
             BIND(<%s> AS ?subject)
             ?subject a arp:Artwork .
 
-            OPTIONAL { ?subject arp:title ?title }
-            OPTIONAL { ?subject arp:imageLink ?img }
-            OPTIONAL { ?subject arp:dimensions ?dimensions }
-            OPTIONAL { ?subject arp:category ?category }
-            OPTIONAL { ?subject arp:condition ?condition }
-            OPTIONAL { ?subject arp:inventoryNumber ?inv }
-            OPTIONAL { ?subject arp:description ?desc }
-            OPTIONAL { ?subject arp:cimecLink ?cimec }
-            OPTIONAL { ?subject dct:license ?license }
-            OPTIONAL { ?subject arp:classification ?cls }
-            OPTIONAL { ?subject arp:culture ?culture }
-            
-            OPTIONAL {
-                ?subject prov:wasGeneratedBy ?activity .
-                OPTIONAL { ?activity arp:startedAtTime ?date }
-                OPTIONAL { ?activity arp:technique ?tech }
-                OPTIONAL { ?activity arp:materialsUsed ?mat }
-            }
-            
-            OPTIONAL {
-                ?subject prov:wasAttributedTo ?artistUri .
-                ?artistUri arp:name ?artistName
-            }
-            
-            OPTIONAL {
-                ?subject arp:currentLocation ?museumUri .
-                ?museumUri arp:name ?museumName
-            }
+                OPTIONAL { ?subject arp:title ?title }
+                OPTIONAL { ?subject arp:imageLink ?img }
+                OPTIONAL { ?subject arp:dimensions ?dimensions }
+                OPTIONAL { ?subject arp:category ?category }
+                OPTIONAL { ?subject arp:condition ?condition }
+                OPTIONAL { ?subject arp:inventoryNumber ?inv }
+                OPTIONAL { ?subject arp:description ?desc }
+                OPTIONAL { ?subject arp:cimecLink ?cimec }
+                OPTIONAL { ?subject dct:license ?license }
+                OPTIONAL { ?subject arp:classification ?cls }
+                OPTIONAL { ?subject arp:culture ?culture }
+                
+                OPTIONAL {
+                    ?subject prov:wasGeneratedBy ?activity .
+                    OPTIONAL { ?activity arp:startedAtTime ?date }
+                    OPTIONAL { ?activity arp:technique ?tech }
+                    OPTIONAL { ?activity arp:materialsUsed ?mat }
+                }
+                
+                OPTIONAL {
+                    ?subject prov:wasAttributedTo ?artistUri .
+                    ?artistUri arp:name ?artistName
+                }
+                
+                OPTIONAL {
+                    ?subject arp:currentLocation ?museumUri .
+                    ?museumUri arp:name ?museumName
+                }
+                OPTIONAL {
+                        ?subject arp:recordedAt ?recordedAt .
+                        ?subject arp:recordedBy ?registrarUri .
+                        ?registrarUri arp:name ?registrarName .
+                  }
+                OPTIONAL {
+                      ?subject arp:validatedAt ?validatedAt .
+                      ?subject arp:validatedBy ?validatorUri .
+                      ?validatorUri arp:name ?validatorName .
+                }
             }
             GROUP BY ?title ?img ?category ?condition ?inv ?desc ?cimec ?license ?date ?dimensions
-                   ?artistName ?artistUri ?museumName ?museumUri
+                   ?artistName ?artistUri ?museumName ?museumUri ?registrarUri ?registrarName ?recordedAt ?validatorUri ?validatorName ?validatedAt
                 
         """.formatted(uri);
 
@@ -193,6 +233,9 @@ public class ArtworkRepository {
             a.techniques = splitConcat(sol, "techniques");
             a.materialsUsed = splitConcat(sol, "materialsUsed");
 
+            a.recordedAt = getLiteral(sol, "recordedAt");
+            a.validatedAt = getLiteral(sol, "validatedAt");
+
             if (sol.contains("artistName")) {
                 a.artist = new com.example.backend.model.Artist();
                 a.artist.name = getLiteral(sol, "artistName");
@@ -203,6 +246,20 @@ public class ArtworkRepository {
                 a.currentLocation = new com.example.backend.model.Agent();
                 a.currentLocation.name = getLiteral(sol, "museumName");
                 a.currentLocation.uri = sol.getResource("museumUri").getURI();
+            }
+
+            if (sol.contains("registrarUri")) {
+                Registrar registrar = new Registrar();
+                registrar.uri = sol.getResource("registrarUri").getURI();
+                registrar.name = getLiteral(sol, "registrarName");
+                a.registrar = registrar;
+            }
+
+            if (sol.contains("validatorUri")) {
+                Validator validator = new Validator();
+                validator.uri = sol.getResource("validatorUri").getURI();
+                validator.name = getLiteral(sol, "validatorName");
+                a.validator = validator;
             }
 
             return a;

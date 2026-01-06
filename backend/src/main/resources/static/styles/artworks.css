@@ -93,12 +93,14 @@ img {
     color: #7f8c8d;
     font-weight: 600;
     vertical-align: top;
+    margin-right: 5px;
 }
 .meta-table td {
     padding: 10px 0;
     border-bottom: 1px solid #eee;
     vertical-align: top;
 }
+
 .tech-group {
     margin-bottom: 5px;
 }

@@ -135,6 +135,31 @@
                     [[${art.currentLocation.name}]]
                 </td>
             </tr>
+
+            <!-- Separator line -->
+            <tr th:if="${art.registrar!= null}">
+                <td colspan="2" style="border-top: 1px solid #7797af; padding: 0;"></td>
+            </tr>
+
+            <tr th:if="${art.registrar!= null}">
+                <th>Recorded by</th>
+                <td property="arp:inventoryNumber">[[${art.registrar.name}]]</td>
+            </tr>
+
+            <tr th:if="${art.recordedAt != null && art.recordedAt != ''}">
+                <th>Date of Record</th>
+                <td property="arp:recordedAt">[[${art.recordedAt}]]</td>
+            </tr>
+
+            <tr th:if="${art.validator!= null}">
+                <th>Validated by</th>
+                <td property="arp:inventoryNumber">[[${art.validator.name}]]</td>
+            </tr>
+
+            <tr th:if="${art.validatedAt != null && art.validatedAt != ''}">
+                <th>Date of Validation</th>
+                <td property="arp:validatedAt">[[${art.validatedAt}]]</td>
+            </tr>
         </table>
 
         <footer class="links">

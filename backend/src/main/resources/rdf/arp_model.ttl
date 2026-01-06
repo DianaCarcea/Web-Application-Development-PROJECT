@@ -51,6 +51,16 @@ arp:Artist a owl:Class ;
     rdfs:subClassOf arp:Person ;
     rdfs:label "Artist" .
 
+arp:Registrar a owl:Class ;
+    rdfs:subClassOf arp:Person ;
+    rdfs:label "Întocmitor Fișă Catalog / Registrar" ;
+    rdfs:comment "Persoană care înregistrează metadatele unei opere în catalog." .
+
+arp:Validator a owl:Class ;
+    rdfs:subClassOf arp:Person ;
+    rdfs:label "Validare Fișă Catalog" ;
+    rdfs:comment "Persoană care valideaza metadatele unei opere din catalog." .
+
 arp:Restorer a owl:Class ;
     rdfs:subClassOf arp:Person ;
     rdfs:label "Restaurator" .
@@ -178,6 +188,30 @@ dct:license a owl:ObjectProperty ; # Folosim standardul Dublin Core Terms
     rdfs:domain arp:Artwork ;
     rdfs:range rdfs:Resource ;
     rdfs:label "Licență / Drepturi" .
+
+arp:recordedBy a owl:ObjectProperty ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range arp:Registrar ;
+    rdfs:label "fișă întocmită de"@ro ;
+    rdfs:comment "Persoana care a întocmit fișa de catalog pentru această operă."@ro .
+
+arp:recordedAt a owl:DatatypeProperty ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range xsd:date ;
+    rdfs:label "Data întocmirii fișei" ;
+    rdfs:comment "Data la care a fost întocmită fișa metadatelor." .
+
+arp:validatedBy a owl:ObjectProperty ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range arp:Validator ;
+    rdfs:label "fișă validată de"@ro ;
+    rdfs:comment "Persoana care a validat fișa de catalog pentru această operă."@ro .
+
+arp:validatedAt a owl:DatatypeProperty ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range xsd:date ;
+    rdfs:label "Data validării fișei" ;
+    rdfs:comment "Data la care a fost validată fișa metadatelor." .
 
 # Specifice Artist/Persoană
 arp:name a owl:DatatypeProperty ;

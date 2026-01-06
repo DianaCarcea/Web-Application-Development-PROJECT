@@ -14,8 +14,16 @@ import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LidoToTtlConverter {
+
+    private static final Set<String> writtenArtists = new HashSet<>();
+    private static final Set<String> writtenMuseums = new HashSet<>();
+    private static final Set<String> writtenOrganizations = new HashSet<>();
+    private static final Set<String> writtenRegistrars = new HashSet<>();
+    private static final Set<String> writtenValidators = new HashSet<>();
 
     public static void main(String[] args) {
         // Asigură-te că path-ul este corect
@@ -32,7 +40,6 @@ public class LidoToTtlConverter {
             doc.getDocumentElement().normalize();
 
             NodeList nList = doc.getElementsByTagName("lido:lido");
-
             // Scriem cu UTF-8
             try (PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outputPath), StandardCharsets.UTF_8))) {
 
@@ -87,6 +94,17 @@ public class LidoToTtlConverter {
                         // Căutăm adânc pentru drepturi (Europeana rights)
                         String rightsLink = getDeepNestedValue(lidoRecord, "lido:rightsResource", "lido:rightsType", "lido:term");
 
+
+                        String[] recordedInfo = getRecordMetadataDate(lidoRecord, "creation date");
+                        String recordedAt = recordedInfo[0];
+                        String registrarName = recordedInfo[1];
+                        String registrarId = registrarName.replaceAll("[^a-zA-Z0-9]", "_");
+
+                        String[] validatedInfo = getRecordMetadataDate(lidoRecord, "validation date");
+                        String validatedAt = validatedInfo[0];
+                        String validatorName = validatedInfo[1];
+                        String validatorId = validatorName.replaceAll("[^a-zA-Z0-9]", "_");
+
                         // Muzeu & Sursă
                         String muzeuName = getNestedValue(lidoRecord, "lido:repositoryName", "lido:appellationValue");
                         String recordSourceAgent = "";
@@ -102,7 +120,8 @@ public class LidoToTtlConverter {
                         String ttl = generateTTL(id, titlu, artist, data,
                                 listMaterials, listTechniques, clasificari,
                                 dimensiuni, muzeuName, recordSourceAgent, sourceWebsite,
-                                imgLink, cimecLink, rightsLink,
+                                imgLink, cimecLink, rightsLink, recordedAt, registrarName, registrarId,
+                                validatedAt , validatorName,  validatorId,
                                 categorie, descriere, stare, nrInventar, cultureList);
 
                         writer.println(ttl);
@@ -118,8 +137,8 @@ public class LidoToTtlConverter {
     private static String generateTTL(String id, String titlu, String artist, String data,
                                      List<String> listMaterials, List<String> listTechniques, List<String> clasificari,
                                      String dims, String muzeuName, String sourceAgentName, String sourceWeb,
-                                     String img, String cimecUrl, String rightsUrl,
-                                     String categorie, String descriere, String stare, String nrInventar, List<String> cultureList) {
+                                     String img, String cimecUrl, String rightsUrl, String recordedAt , String registrarName, String registrarId,
+                                     String validatedAt , String validatorName, String validatorId, String categorie, String descriere, String stare, String nrInventar, List<String> cultureList) {
 
         StringBuilder sb = new StringBuilder();
         String safeId = id.replaceAll("[^a-zA-Z0-9]", "_");
@@ -146,18 +165,34 @@ public class LidoToTtlConverter {
         if (!nrInventar.isEmpty()) sb.append("    arp:inventoryNumber \"").append(escape(nrInventar)).append("\" ;\n");
         if (!descriere.isEmpty()) sb.append("    arp:description \"").append(escape(descriere)).append("\" ;\n");
 
-        // [NOU] Iterăm prin LISTA de clasificări și punem câte o linie pentru fiecare
-        for (String cls : clasificari) {
-            sb.append("    arp:classification \"").append(escape(cls)).append("\" ;\n");
+        List<String> predicates = new ArrayList<>();
+        if (!clasificari.isEmpty()) {
+            for (String cls : clasificari) {
+                predicates.add("arp:classification \"" + escape(cls) + "\"");
+            }
+        }
+        if (!registrarName.isEmpty()) {
+            predicates.add("arp:recordedBy <http://arp.ro/resource/registrar/" + registrarId + ">");
+        }
+        if (!recordedAt.isEmpty()) {
+            predicates.add("arp:recordedAt \"" + recordedAt + "\"^^xsd:date");
+        }
+        if (!validatorName.isEmpty()) {
+            predicates.add("arp:validatedBy <http://arp.ro/resource/validator/" + validatorId+ ">");
+        }
+        if (!validatedAt.isEmpty()) {
+            predicates.add("arp:validatedAt \"" + validatedAt + "\"^^xsd:date");
         }
 
-        // Finalizare Entity
-        sb.append("    prov:wasGeneratedBy <http://arp.ro/resource/activity/").append(activityId).append(">");
+        predicates.add("prov:wasGeneratedBy <http://arp.ro/resource/activity/" + activityId + ">");
         if (!artist.isEmpty()) {
-            sb.append(" ;\n");
-            sb.append("    prov:wasAttributedTo <http://arp.ro/resource/agent/").append(artistId).append("> .\n");
-        } else {
-            sb.append(" .\n");
+            predicates.add("prov:wasAttributedTo <http://arp.ro/resource/agent/" + artistId + ">");
+        }
+
+        for (int i = 0; i < predicates.size(); i++) {
+            sb.append("    ").append(predicates.get(i));
+            if (i < predicates.size() - 1) sb.append(" ;\n");
+            else sb.append(" .\n");
         }
 
         // ==========================================
@@ -205,25 +240,51 @@ public class LidoToTtlConverter {
         // ==========================================
         // 3. AGENTS
         // ==========================================
-        if (!artist.isEmpty()) {
+        if (!artist.isEmpty() && writtenArtists.add(artistId)) {
             sb.append("\n<http://arp.ro/resource/agent/").append(artistId).append("> a arp:Artist ;\n");
             sb.append("    arp:name \"").append(escape(artist)).append("\" .\n");
         }
 
-        if (!muzeuName.isEmpty()) {
+        if (!registrarName.isEmpty() && writtenRegistrars.add(registrarId)) {
+            sb.append("\n<http://arp.ro/resource/registrar/").append(registrarId).append("> a arp:Registrar ;\n");
+            sb.append("    arp:name \"").append(escape(registrarName)).append("\" .\n");
+        }
+
+        if (!validatorName.isEmpty() && writtenValidators.add(validatorId)) {
+            sb.append("\n<http://arp.ro/resource/validator/").append(validatorId).append("> a arp:Validator ;\n");
+            sb.append("    arp:name \"").append(escape(validatorName)).append("\" .\n");
+        }
+
+        if (!muzeuName.isEmpty() && writtenMuseums.add(museumId)) {
             sb.append("\n<http://arp.ro/resource/agent/").append(museumId).append("> a arp:Museum ;\n");
             sb.append("    arp:name \"").append(escape(muzeuName)).append("\" .\n");
         }
 
-        if (!sourceAgentName.isEmpty() && !muzeuName.isEmpty()) {
+        if (!sourceAgentName.isEmpty()) {
             String sourceId = sourceAgentName.replaceAll("[^a-zA-Z0-9]", "_");
-            sb.append("\n<http://arp.ro/resource/agent/").append(sourceId).append("> a arp:Organization ;\n");
-            sb.append("    arp:name \"").append(escape(sourceAgentName)).append("\" ;\n");
-            if (!sourceWeb.isEmpty()) {
-                sb.append("    foaf:homepage \"").append(sourceWeb).append("\"^^xsd:anyURI ;\n");
+
+            if (writtenOrganizations.add(sourceId)) {
+                sb.append("\n<http://arp.ro/resource/agent/").append(sourceId).append("> a arp:Organization ;\n");
+                sb.append("    arp:name \"").append(escape(sourceAgentName)).append("\" ;\n");
+
+                if (!sourceWeb.isEmpty()) {
+                    sb.append("    foaf:homepage \"")
+                            .append(sourceWeb)
+                            .append("\"^^xsd:anyURI ;\n");
+                }
+
+                if (!muzeuName.isEmpty()) {
+                    sb.append("    prov:actedOnBehalfOf <http://arp.ro/resource/agent/")
+                            .append(museumId)
+                            .append("> ;\n");
+                }
+
+                // închidem corect cu punct
+                sb.setLength(sb.length() - 2); // scoate " ;"
+                sb.append(" .\n");
             }
-            sb.append("    prov:actedOnBehalfOf <http://arp.ro/resource/agent/").append(museumId).append("> .\n");
         }
+
 
         return sb.toString();
     }
@@ -356,6 +417,26 @@ public class LidoToTtlConverter {
             }
         }
     }
+
+    private static String[] getRecordMetadataDate(Element lidoRecord, String type) {
+        NodeList nodes = lidoRecord.getElementsByTagName("lido:recordMetadataDate");
+        for (int i = 0; i < nodes.getLength(); i++) {
+            Element elem = (Element) nodes.item(i);
+            String elemType = elem.getAttribute("lido:type");
+            if (type.equalsIgnoreCase(elemType)) {
+                String text = elem.getTextContent().trim();
+                if (!text.isEmpty() && text.contains("/")) {
+                    String[] parts = text.split("/", 2);
+                    String date = parts[0].trim();
+                    String name = parts[1].trim();
+                    return new String[]{date, name};
+                }
+            }
+        }
+        return new String[]{"", ""};
+    }
+
+
 
     private static String escape(String val) {
         if (val == null) return "";
