@@ -1,0 +1,143 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef2f3;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #333;
+}
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 40px;
+}
+.art-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+.card-header {
+    background: #2c3e50;
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-header h2 {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+.badge {
+    background: #e74c3c;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.card-body {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px;
+    gap: 30px;
+}
+figure {
+    flex: 0 0 300px;
+    margin: 0;
+}
+img {
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.details {
+    flex: 1;
+    min-width: 300px;
+}
+.description {
+    background: #f8f9fa;
+    padding: 15px;
+    border-left: 4px solid #3498db;
+    margin-bottom: 25px;
+    border-radius: 0 4px 4px 0;
+}
+.description h4 {
+    margin: 0 0 8px 0;
+    color: #3498db;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+.description p {
+    margin: 0;
+    line-height: 1.5;
+    color: #555;
+}
+.meta-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.meta-table th {
+    text-align: left;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    width: 130px;
+    color: #7f8c8d;
+    font-weight: 600;
+    vertical-align: top;
+}
+.meta-table td {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+.tech-group {
+    margin-bottom: 5px;
+}
+.tech-tag {
+    display: inline-block;
+    background: #ecf0f1;
+    color: #2c3e50;
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #bdc3c7;
+}
+.links {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.links a {
+    text-decoration: none;
+    color: white;
+    background: #3498db;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: background 0.2s;
+}
+.links a:hover {
+    background: #2980b9;
+}
+.source {
+    font-size: 0.85em;
+    color: #95a5a6;
+    margin-left: auto;
+}
+.source a {
+    background: none;
+    color: #7f8c8d;
+    padding: 0;
+}

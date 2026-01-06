@@ -1,0 +1,228 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix arp: <http://arp.ro/schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+# ---------------------------------------------------------
+# DEFINIREA ONTOLOGIEI
+# ---------------------------------------------------------
+
+<http://arp.ro/schema#> a owl:Ontology ;
+    rdfs:label "ArP - Artwork Provenance Ontology" ;
+    rdfs:comment "Ontologie pentru proveniența operelor de artă, bazată pe PROV-O." .
+
+# ---------------------------------------------------------
+# CLASE PRINCIPALE (Mapping PROV)
+# ---------------------------------------------------------
+
+# --- ENTITY ---
+arp:Entity a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Entitate (General)" .
+
+arp:Artwork a owl:Class ;
+    rdfs:subClassOf arp:Entity ;
+    rdfs:label "Operă de Artă" .
+
+arp:Collection a owl:Class ;
+    rdfs:subClassOf arp:Entity, prov:Collection ;
+    rdfs:label "Colecție Muzeală" .
+
+# --- AGENT ---
+arp:Agent a owl:Class ;
+    rdfs:subClassOf prov:Agent ;
+    rdfs:label "Agent" .
+
+arp:Person a owl:Class ;
+    rdfs:subClassOf arp:Agent, prov:Person ;
+    rdfs:label "Persoană" .
+
+arp:Organization a owl:Class ;
+    rdfs:subClassOf arp:Agent, prov:Organization ;
+    rdfs:label "Organizație" .
+
+# Subclase Agent Specifice
+arp:Artist a owl:Class ;
+    rdfs:subClassOf arp:Person ;
+    rdfs:label "Artist" .
+
+arp:Restorer a owl:Class ;
+    rdfs:subClassOf arp:Person ;
+    rdfs:label "Restaurator" .
+
+arp:Collector a owl:Class ;
+    rdfs:subClassOf arp:Person ;
+    rdfs:label "Colecționar" .
+
+arp:Museum a owl:Class ;
+    rdfs:subClassOf arp:Organization ;
+    rdfs:label "Muzeu" .
+
+# --- ACTIVITY ---
+arp:Activity a owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    rdfs:label "Activitate (General)" .
+
+# Ramura CREATION
+arp:Create a owl:Class ;
+    rdfs:subClassOf arp:Activity, prov:Create ;
+    rdfs:label "Activitate de Creare (Generic)" .
+
+arp:Creation a owl:Class ;
+    rdfs:subClassOf arp:Create ;
+    rdfs:label "Creație Artistică" .
+
+# Ramura RESTORATION (Modify)
+arp:Modify a owl:Class ;
+    rdfs:subClassOf arp:Activity, prov:Modify ;
+    rdfs:label "Activitate de Modificare" .
+
+arp:Restoration a owl:Class ;
+    rdfs:subClassOf arp:Modify ;
+    rdfs:label "Restaurare" .
+
+# Ramura TRANSFER (RightsAssignment)
+arp:RightsAssignment a owl:Class ;
+    rdfs:subClassOf arp:Activity, prov:RightsAssignment ;
+    rdfs:label "Atribuire de Drepturi" .
+
+arp:TransferOfCustody a owl:Class ;
+    rdfs:subClassOf arp:RightsAssignment ;
+    rdfs:label "Transfer de Custodie/Vânzare" .
+
+# Ramura EXHIBITION (Publish)
+arp:Publish a owl:Class ;
+    rdfs:subClassOf arp:Activity, prov:Publish ;
+    rdfs:label "Activitate de Publicare" .
+
+arp:Exhibition a owl:Class ;
+    rdfs:subClassOf arp:Publish ;
+    rdfs:label "Expoziție" .
+
+
+# ---------------------------------------------------------
+# PROPRIETĂȚI (Data Properties - Atribute)
+# ---------------------------------------------------------
+
+# Comune (mostenite de Activity)
+arp:startedAtTime a owl:DatatypeProperty ;
+    rdfs:subPropertyOf prov:startedAtTime ;
+    rdfs:domain arp:Activity ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "Data Început" .
+
+arp:endedAtTime a owl:DatatypeProperty ;
+    rdfs:subPropertyOf prov:endedAtTime ;
+    rdfs:domain arp:Activity ;
+    rdfs:range rdfs:Literal ; # Modificat din xsd:date pentru flexibilitate istorică
+    rdfs:label "Data Sfârșit" .
+
+arp:currentLocation a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:atLocation ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range arp:Agent ; # Poate fi Muzeu sau Colecționar
+    rdfs:label "Locația Curentă" .
+
+# Specifice Artwork
+arp:title a owl:DatatypeProperty ;
+    rdfs:domain arp:Entity ; # Entity acoperă și Artwork și Collection
+    rdfs:range xsd:string ;
+    rdfs:label "Titlu" .
+
+arp:dimensions a owl:DatatypeProperty ;
+   rdfs:domain arp:Artwork ;
+   rdfs:range xsd:string ;
+   rdfs:label "Dimensiuni" .
+
+arp:classification a owl:DatatypeProperty ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range xsd:string ;
+    rdfs:label "Clasificare (ex: artă plastică, fine arts)" .
+
+arp:category a owl:DatatypeProperty ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range xsd:string ;
+    rdfs:label "Categorie (ex: Acuarelă, Pictură)" .
+
+arp:condition a owl:DatatypeProperty ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range xsd:string ;
+    rdfs:label "Stare de Conservare" .
+
+arp:inventoryNumber a owl:DatatypeProperty ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range xsd:string ;
+    rdfs:label "Număr Inventar" .
+
+arp:description a owl:DatatypeProperty ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range xsd:string ;
+    rdfs:label "Descriere / Proveniență" .
+
+arp:imageLink a owl:DatatypeProperty ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Link Imagine Digitală" .
+
+arp:cimecLink a owl:DatatypeProperty ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Link Detaliu CIMEC" .
+
+dct:license a owl:ObjectProperty ; # Folosim standardul Dublin Core Terms
+    rdfs:domain arp:Artwork ;
+    rdfs:range rdfs:Resource ;
+    rdfs:label "Licență / Drepturi" .
+
+# Specifice Artist/Persoană
+arp:name a owl:DatatypeProperty ;
+    rdfs:domain arp:Agent ;
+    rdfs:range xsd:string ;
+    rdfs:label "Nume" .
+
+arp:birthDate a owl:DatatypeProperty ;
+    rdfs:domain arp:Person ;
+    rdfs:range rdfs:Literal ; # Modificat din xsd:date (ex: "cca 1850" nu e dată validă)
+    rdfs:label "Data Nașterii" .
+
+foaf:homepage a owl:ObjectProperty ; # Standard pentru site-uri web
+    rdfs:domain arp:Agent ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Website Instituție" .
+
+# Specifice Activități
+arp:technique a owl:DatatypeProperty ;
+    rdfs:domain arp:Creation ;
+    rdfs:range xsd:string ; # Adăugat range
+    rdfs:label "Tehnică Artistică" .
+
+arp:materialsUsed a owl:DatatypeProperty ;
+    rdfs:domain arp:Creation ;
+    rdfs:domain arp:Restoration ;
+    rdfs:range xsd:string ; # Adăugat range
+    rdfs:label "Materiale Folosite" .
+
+arp:culture a owl:DatatypeProperty ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "Cultură / Școală Artistică" .
+
+arp:transactionType a owl:DatatypeProperty ;
+    rdfs:domain arp:TransferOfCustody ;
+    rdfs:range xsd:string ; # Adăugat range
+    rdfs:label "Tip Tranzacție" .
+
+arp:price a owl:DatatypeProperty ;
+    rdfs:domain arp:TransferOfCustody ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "Preț" .
+
+arp:exhibitionTitle a owl:DatatypeProperty ;
+    rdfs:domain arp:Exhibition ;
+    rdfs:range xsd:string ; # Adăugat range
+    rdfs:label "Titlu Expoziție" .
