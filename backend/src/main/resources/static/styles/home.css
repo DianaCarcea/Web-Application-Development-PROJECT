@@ -1,24 +1,107 @@
-/* --- GRID COLAJ: max 3 pe rând --- */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* maxim 3 coloane */
-    grid-auto-rows: 200px; /* înălțime implicită */
-    grid-gap: 0px;
-    grid-auto-flow: dense; /* umple golurile */
+/* ========== RESET & BASE ========== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+    color: #333;
 }
 
-/* Carduri imagine */
+/* ========== HEADER ========== */
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: #222;
+    color: #ffffff;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    color: #ffffff;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+/* ========== JUMP TO NAV ========== */
+.jump-to {
+    text-align: center;
+    padding: 1rem 0;
+    background: #eee;
+}
+
+.jump-to span {
+    margin-right: 0.5rem;
+    font-weight: bold;
+}
+
+.jump-to a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #0077cc;
+    font-weight: bold;
+}
+
+.jump-to a:hover {
+    text-decoration: underline;
+}
+
+/* ========== MAIN ========== */
+main {
+    padding: 2rem 0;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+section h2 {
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+    font-size: 2rem;
+}
+
+.details-link {
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    color: #777;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.details-link:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+
+/* ========== GRID COLAJ ========== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* max 3 pe rând */
+    grid-auto-rows: 200px;
+    grid-gap: 0;
+    grid-auto-flow: dense;
+}
+
+/* ========== CARD ========== */
 .card {
     position: relative;
     overflow: hidden;
     cursor: pointer;
 }
 
+/* Imagine */
 .card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    position: relative;
+    z-index: 0;
     transition: transform 0.3s ease;
 }
 
@@ -26,24 +109,45 @@
     transform: scale(1.05);
 }
 
-/* Numele peste imagine */
+/* Overlay gri transparent */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(71, 71, 71, 0.35);
+    z-index: 1;
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+/* Overlay mai deschis la hover */
+.card:hover::before {
+    background: rgba(120, 120, 120, 0.15);
+}
+
+/* Titlu peste imagine */
 .card h3 {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     margin: 0;
-    padding: 0.5rem;
+    padding: 0.6rem;
     color: #fff;
     font-size: 1rem;
     font-weight: bold;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
     text-align: center;
+    z-index: 2;
+    background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0)
+    );
 }
 
-/* Dimensiuni diferite pentru colaj */
+/* ========== DIMENSIUNI VARIABILE COLAJ ========== */
 .artist-grid .card {
-    grid-row: span 2; /* unele carduri mai mari */
+    grid-row: span 2;
 }
 
 .artworks-grid .card:nth-child(3n) {
@@ -54,17 +158,33 @@
     grid-row: span 3;
 }
 
+/* ========== LINKURI ÎN CARD ========== */
+.card a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+}
 
-
-/* Responsive tweaks */
-@media(max-width: 768px) {
-    .card img {
-        height: 180px;
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media(max-width: 480px) {
-    .card img {
-        height: 150px;
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 180px;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    section h2 {
+        font-size: 1.6rem;
     }
 }

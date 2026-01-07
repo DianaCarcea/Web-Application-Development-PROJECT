@@ -5,8 +5,15 @@
     <title>Digital Catalog ArP</title>
     <link rel="stylesheet" th:href="@{/styles/artworks.css}" />
 </head>
+
 <body>
-<h1>Digital Catalog - Linked Data & Provenance</h1>
+
+<nav class="top-nav">
+    <a href="javascript:history.back()" class="nav-back">< Back</a>
+    <a href="/" class="nav-home">Discover</a>
+</nav>
+
+<h1>Romanian Arts & Culture Catalog</h1>
 
 <div th:each="art : ${artworks}">
     <article resource="[[${art.uri}]]" typeof="arp:Artwork schema:VisualArtwork" class="art-card">

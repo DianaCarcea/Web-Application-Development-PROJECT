@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="ro" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Discover | ARP Collection</title>
@@ -59,7 +59,10 @@
 
     <!-- Romanian Arts Section -->
     <section id="ro-art">
-        <h2>Romanian Arts & Culture</h2>
+        <h2>
+            Romanian Arts & Culture
+            <a href="/artworks" class="details-link">(see the details)</a>
+        </h2>
         <div class="grid artworks-grid">
             <div th:each="art : ${artworks}" class="card">
                 <a th:href="@{/artworks/{id}(id=${art.id})}">
