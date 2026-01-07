@@ -9,6 +9,8 @@ import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
 import org.springframework.stereotype.Repository;
 
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,63 +24,9 @@ public class ArtworkRepository {
     }
 
     public List<Artwork> findAll() {
-        String sparql = """
-            PREFIX arp: <http://arp.ro/schema#>
-            PREFIX prov: <http://www.w3.org/ns/prov#>
-            PREFIX dct: <http://purl.org/dc/terms/>
-    
-            SELECT ?subject ?title ?img ?category ?condition ?inv ?desc ?cimec ?license
-                   ?date ?dimensions ?registrarUri ?registrarName ?recordedAt ?validatorUri ?validatorName ?validatedAt
-                   (GROUP_CONCAT(DISTINCT ?cls; separator="; ") AS ?classifications)
-                   (GROUP_CONCAT(DISTINCT ?tech; separator="; ") AS ?techniques)
-                   (GROUP_CONCAT(DISTINCT ?culture; separator="; ") AS ?cultures)
-                   (GROUP_CONCAT(DISTINCT ?mat; separator="; ") AS ?materialsUsed)
-                   ?artistName ?artistUri
-                   ?museumName ?museumUri
-            WHERE {
-              ?subject a arp:Artwork .
-              OPTIONAL { ?subject arp:title ?title }
-              OPTIONAL { ?subject arp:imageLink ?img }
-              OPTIONAL { ?subject arp:dimensions ?dimensions }
-              OPTIONAL { ?subject arp:category ?category }
-              OPTIONAL { ?subject arp:condition ?condition }
-              OPTIONAL { ?subject arp:inventoryNumber ?inv }
-              OPTIONAL { ?subject arp:description ?desc }
-              OPTIONAL { ?subject arp:cimecLink ?cimec }
-              OPTIONAL { ?subject dct:license ?license }
-              OPTIONAL { ?subject arp:classification ?cls }
-              OPTIONAL { ?subject arp:culture ?culture }
-              OPTIONAL {
-                    ?subject arp:recordedAt ?recordedAt .
-                    ?subject arp:recordedBy ?registrarUri .
-                    ?registrarUri arp:name ?registrarName .
-              }
-              OPTIONAL {
-                  ?subject arp:validatedAt ?validatedAt .
-                  ?subject arp:validatedBy ?validatorUri .
-                  ?validatorUri arp:name ?validatorName .
-              }
-              OPTIONAL {
-                  ?subject prov:wasGeneratedBy ?activity .
-                  OPTIONAL { ?activity arp:startedAtTime ?date }
-                  OPTIONAL { ?activity arp:technique ?tech }
-                  OPTIONAL { ?activity arp:culture ?culture }
-                  OPTIONAL { ?activity arp:materialsUsed ?mat }
-             }
-              OPTIONAL {
-                  ?subject prov:wasAttributedTo ?artistUri .
-                  ?artistUri arp:name ?artistName
-             }
-              OPTIONAL {
-                  ?subject arp:currentLocation ?museumUri .
-                  ?museumUri arp:name ?museumName
-               }
-             }
-            GROUP BY ?subject ?title ?img ?category ?condition ?inv ?desc ?cimec ?license ?date ?dimensions ?artistName ?artistUri ?museumName ?museumUri ?registrarUri ?registrarName ?recordedAt ?validatorUri ?validatorName ?validatedAt
-            LIMIT 30
-        """;
-
+        String sparql = loadSparql("/sparql/artwork-find-all.sparql");
         Query query = QueryFactory.create(sparql);
+
         List<Artwork> artworks = new ArrayList<>();
 
         try (QueryExecution qexec = QueryExecutionFactory.create(query, rdfModel)) {
@@ -143,67 +91,9 @@ public class ArtworkRepository {
     }
 
     public Artwork findByUri(String uri) {
-        String sparql = """
-            PREFIX arp: <http://arp.ro/schema#>
-            PREFIX prov: <http://www.w3.org/ns/prov#>
-            PREFIX dct: <http://purl.org/dc/terms/>
-        
-            SELECT ?title ?img ?category ?condition ?inv ?desc ?cimec ?license
-                 ?date ?dimensions ?registrarUri ?registrarName ?recordedAt ?validatorUri ?validatorName ?validatedAt
-                 (GROUP_CONCAT(DISTINCT ?cls; separator="; ") AS ?classifications)
-                 (GROUP_CONCAT(DISTINCT ?tech; separator="; ") AS ?techniques)
-                 (GROUP_CONCAT(DISTINCT ?culture; separator="; ") AS ?cultures)
-                 (GROUP_CONCAT(DISTINCT ?mat; separator="; ") AS ?materialsUsed)
-                 ?artistName ?artistUri
-                 ?museumName ?museumUri
-            WHERE {
-            BIND(<%s> AS ?subject)
-            ?subject a arp:Artwork .
+        String sparqlTemplate = loadSparql("/sparql/artwork-find-by-uri.sparql");
 
-                OPTIONAL { ?subject arp:title ?title }
-                OPTIONAL { ?subject arp:imageLink ?img }
-                OPTIONAL { ?subject arp:dimensions ?dimensions }
-                OPTIONAL { ?subject arp:category ?category }
-                OPTIONAL { ?subject arp:condition ?condition }
-                OPTIONAL { ?subject arp:inventoryNumber ?inv }
-                OPTIONAL { ?subject arp:description ?desc }
-                OPTIONAL { ?subject arp:cimecLink ?cimec }
-                OPTIONAL { ?subject dct:license ?license }
-                OPTIONAL { ?subject arp:classification ?cls }
-                OPTIONAL { ?subject arp:culture ?culture }
-                
-                OPTIONAL {
-                    ?subject prov:wasGeneratedBy ?activity .
-                    OPTIONAL { ?activity arp:startedAtTime ?date }
-                    OPTIONAL { ?activity arp:technique ?tech }
-                    OPTIONAL { ?activity arp:materialsUsed ?mat }
-                }
-                
-                OPTIONAL {
-                    ?subject prov:wasAttributedTo ?artistUri .
-                    ?artistUri arp:name ?artistName
-                }
-                
-                OPTIONAL {
-                    ?subject arp:currentLocation ?museumUri .
-                    ?museumUri arp:name ?museumName
-                }
-                OPTIONAL {
-                        ?subject arp:recordedAt ?recordedAt .
-                        ?subject arp:recordedBy ?registrarUri .
-                        ?registrarUri arp:name ?registrarName .
-                  }
-                OPTIONAL {
-                      ?subject arp:validatedAt ?validatedAt .
-                      ?subject arp:validatedBy ?validatorUri .
-                      ?validatorUri arp:name ?validatorName .
-                }
-            }
-            GROUP BY ?title ?img ?category ?condition ?inv ?desc ?cimec ?license ?date ?dimensions
-                   ?artistName ?artistUri ?museumName ?museumUri ?registrarUri ?registrarName ?recordedAt ?validatorUri ?validatorName ?validatedAt
-                
-        """.formatted(uri);
-
+        String sparql = sparqlTemplate.replace("{{URI}}", uri);
         Query query = QueryFactory.create(sparql);
 
         try (QueryExecution qexec = QueryExecutionFactory.create(query, rdfModel)) {
@@ -278,5 +168,12 @@ public class ArtworkRepository {
             for (String s : raw.split(";")) list.add(s.trim());
         }
         return list;
+    }
+    private String loadSparql(String path) {
+        try (InputStream is = getClass().getResourceAsStream(path)) {
+            return new String(is.readAllBytes(), StandardCharsets.UTF_8);
+        } catch (Exception e) {
+            throw new RuntimeException("Cannot load SPARQL: " + path, e);
+        }
     }
 }
