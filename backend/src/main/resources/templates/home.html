@@ -39,20 +39,36 @@
     </section>
 
     <!-- International Arts Section -->
+<!--    <section id="int-art">-->
+<!--        <h2>International Arts & Culture</h2>-->
+<!--        <div class="grid artworks-grid">-->
+<!--            <div class="card">-->
+<!--                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/300px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona Lisa">-->
+<!--                <h3>Mona Lisa</h3>-->
+<!--            </div>-->
+<!--            <div class="card">-->
+<!--                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Starry_Night_Over_the_Rhone.jpg/300px-Starry_Night_Over_the_Rhone.jpg" alt="Starry Night Over the Rhône">-->
+<!--                <h3>Starry Night Over the Rhône</h3>-->
+<!--            </div>-->
+<!--            <div class="card">-->
+<!--                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Guernica_by_Pablo_Picasso.jpg/300px-Guernica_by_Pablo_Picasso.jpg" alt="Guernica">-->
+<!--                <h3>Guernica</h3>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+
     <section id="int-art">
-        <h2>International Arts & Culture</h2>
+        <h2>
+            International Arts & Culture
+<!--            <a href="/artworks" class="details-link">(see the details)</a>-->
+        </h2>
         <div class="grid artworks-grid">
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/300px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona Lisa">
-                <h3>Mona Lisa</h3>
-            </div>
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Starry_Night_Over_the_Rhone.jpg/300px-Starry_Night_Over_the_Rhone.jpg" alt="Starry Night Over the Rhône">
-                <h3>Starry Night Over the Rhône</h3>
-            </div>
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Guernica_by_Pablo_Picasso.jpg/300px-Guernica_by_Pablo_Picasso.jpg" alt="Guernica">
-                <h3>Guernica</h3>
+            <div th:each="art : ${wikidataArtworks}" class="card">
+                <a th:href="@{/wiki-artworks/{id}(id=${art.id})}">
+                    <img th:src="${art.imageLink}" th:alt="${art.title}"/>
+                    <h3 th:text="${art.title}">Titlu</h3>
+                </a>
             </div>
         </div>
     </section>
@@ -72,6 +88,8 @@
             </div>
         </div>
     </section>
+
+
 </main>
 </body>
 </html>

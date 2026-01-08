@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" prefix="arp: http://arp.ro/schema# schema: http://schema.org/ prov: http://www.w3.org/ns/prov# dct: http://purl.org/dc/terms/">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Catalog ArP</title>
+    <link rel="stylesheet" th:href="@{/styles/artworks.css}" />
+</head>
+
+<body>
+
+<nav class="top-nav">
+    <a href="javascript:history.back()" class="nav-back">< Back</a>
+    <a href="/" class="nav-home">Discover</a>
+</nav>
+
+<h1>Romanian Arts & Culture Catalog</h1>
+
+<div th:each="art : ${artworks}">
+    <article resource="[[${art.uri}]]" typeof="arp:Artwork schema:VisualArtwork" class="art-card">
+        <div class="card-header">
+            <h2 property="arp:title schema:name">[[${art.title}]]</h2>
+            <span th:if="${art.category}" class="badge category" property="arp:category">[[${art.category}]]</span>
+        </div>
+
+        <div class="card-body">
+            <figure th:if="${art.imageLink}">
+                <a th:href="@{/artworks/{id}(id=${art.id})}">
+                    <img th:src="${art.imageLink}"
+                         th:alt="${art.title}"
+                         property="arp:imageLink schema:image"/>
+                </a>
+            </figure>
+
+            <div class="details">
+
+                <div class="description" th:if="${art.description!= null and !#lists.isEmpty(art.description)}">
+                    <h4>Description & Provenance</h4>
+                    <p property="arp:description schema:description">[[${art.description}]]</p>
+                </div>
+
+                <table class="meta-table">
+                    <tr th:if="${art.artist!= null and !#lists.isEmpty(art.artist)}">
+                        <th>Artist</th>
+                        <td resource="[[${art.artist.uri}]]"
+                            typeof="arp:Artist schema:Person">
+                            <span property="arp:name schema:name">
+                                [[${art.artist.name}]]
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr th:if="${art.creation != null}">
+                        <th>Creation Date</th>
+                        <td property="arp:startedAtTime schema:dateCreated">[[${art.creation.startedAtTime}]]</td>
+                    </tr>
+
+                    <tr th:if="${art.dimensions != null and !art.dimensions.isEmpty()}">
+                        <th>Dimensions</th>
+                        <td property="arp:dimensions">[[${art.dimensions}]]</td>
+                    </tr>
+
+                    <tr th:if="${art.condition!= null and !#lists.isEmpty(art.condition)}">
+                        <th>Condition</th>
+                        <td property="arp:condition">[[${art.condition}]]</td>
+                    </tr>
+
+                    <tr th:if="${art.classification!= null and !#lists.isEmpty(art.classification)}">
+                        <th>Classifications</th>
+                        <td>
+                            <span th:each="cls : ${art.classification}" property="arp:classification" class="tech-tag">[[${cls}]]</span>
+                        </td>
+                    </tr>
+
+                    <tr th:if="${art.cultures != null and !#lists.isEmpty(art.cultures)}">
+                        <th>Culture / School</th>
+                        <td>
+                            <span th:each="c : ${art.cultures}" property="arp:culture" class="tech-tag">[[${c}]]</span>
+                        </td>
+                    </tr>
+
+                    <tr th:if="${art.techniques!= null and !#lists.isEmpty(art.techniques)}">
+                        <th>Technique</th>
+                        <td>
+                            <span th:each="t : ${art.techniques}" property="arp:technique" class="tech-tag">[[${t}]]</span>
+                        </td>
+                    </tr>
+
+                    <tr th:if="${art.materialsUsed!= null and !#lists.isEmpty(art.materialsUsed)}">
+                        <th>Material</th>
+                        <td>
+                            <span th:each="m : ${art.materialsUsed}" property="arp:materialsUsed" class="tech-tag">[[${m}]]</span>
+                        </td>
+                    </tr>
+
+                    <tr th:if="${art.currentLocation!= null and !#lists.isEmpty(art.currentLocation)}">
+                        <th>Holder</th>
+                        <td property="arp:currentLocation" resource="[[${art.currentLocation.uri}]]">[[${art.currentLocation.name}]]</td>
+                    </tr>
+
+                    <tr th:if="${art.inventoryNumber!= null and !#lists.isEmpty(art.inventoryNumber)}">
+                        <th>Inventory Number</th>
+                        <td property="arp:inventoryNumber">[[${art.inventoryNumber}]]</td>
+                    </tr>
+
+                    <!-- Separator line -->
+                    <tr th:if="${art.registrar!= null}">
+                        <td colspan="2" style="border-top: 1px solid #7797af; padding: 0;"></td>
+                    </tr>
+
+                    <tr th:if="${art.registrar!= null}">
+                        <th>Recorded by</th>
+                        <td property="arp:inventoryNumber">[[${art.registrar.name}]]</td>
+                    </tr>
+
+                    <tr th:if="${art.recordedAt != null && art.recordedAt != ''}">
+                        <th>Date of Record</th>
+                        <td property="arp:recordedAt">[[${art.recordedAt}]]</td>
+                    </tr>
+
+                    <tr th:if="${art.validator!= null}">
+                        <th>Validated by</th>
+                        <td property="arp:inventoryNumber">[[${art.validator.name}]]</td>
+                    </tr>
+
+                    <tr th:if="${art.validatedAt != null && art.validatedAt != ''}">
+                        <th>Date of Validation</th>
+                        <td property="arp:validatedAt">[[${art.validatedAt}]]</td>
+                    </tr>
+                </table>
+
+                <div class="links">
+                    <a th:if="${art.cimecLink}" th:href="${art.cimecLink}" target="_blank" property="arp:cimecLink">View on CIMEC</a>
+                    <a th:if="${art.license}" th:href="${art.license}" target="_blank" property="dct:license">License (Europeana)</a>
+                    <span class="source">
+                        Source: <a href="http://www.patrimoniu.ro" target="_blank">National Heritage Institute</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+</body>
+</html>
