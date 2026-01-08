@@ -1,0 +1,60 @@
+PREFIX arp: <http://arp.ro/schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT ?subject ?title ?img ?category ?condition ?inv ?desc ?cimec ?license
+       ?date ?dimensions ?registrarUri ?registrarName ?recordedAt
+       ?validatorUri ?validatorName ?validatedAt
+       (GROUP_CONCAT(DISTINCT ?cls; separator="; ") AS ?classifications)
+       (GROUP_CONCAT(DISTINCT ?tech; separator="; ") AS ?techniques)
+       (GROUP_CONCAT(DISTINCT ?culture; separator="; ") AS ?cultures)
+       (GROUP_CONCAT(DISTINCT ?mat; separator="; ") AS ?materialsUsed)
+       ?artistName ?artistUri
+       ?museumName ?museumUri
+WHERE {
+  ?subject a arp:Artwork .
+  ?subject prov:wasAttributedTo <{{ARTIST_URI}}> .
+  <{{ARTIST_URI}}> arp:name ?artistName .
+
+  OPTIONAL { ?subject arp:title ?title }
+  OPTIONAL { ?subject arp:imageLink ?img }
+  OPTIONAL { ?subject arp:dimensions ?dimensions }
+  OPTIONAL { ?subject arp:category ?category }
+  OPTIONAL { ?subject arp:condition ?condition }
+  OPTIONAL { ?subject arp:inventoryNumber ?inv }
+  OPTIONAL { ?subject arp:description ?desc }
+  OPTIONAL { ?subject arp:cimecLink ?cimec }
+  OPTIONAL { ?subject dct:license ?license }
+  OPTIONAL { ?subject arp:classification ?cls }
+  OPTIONAL { ?subject arp:culture ?culture }
+
+  OPTIONAL {
+    ?subject prov:wasGeneratedBy ?activity .
+    OPTIONAL { ?activity arp:startedAtTime ?date }
+    OPTIONAL { ?activity arp:technique ?tech }
+    OPTIONAL { ?activity arp:materialsUsed ?mat }
+  }
+
+  OPTIONAL {
+    ?subject arp:currentLocation ?museumUri .
+    ?museumUri arp:name ?museumName
+  }
+
+  OPTIONAL {
+    ?subject arp:recordedAt ?recordedAt .
+    ?subject arp:recordedBy ?registrarUri .
+    ?registrarUri arp:name ?registrarName
+  }
+
+  OPTIONAL {
+    ?subject arp:validatedAt ?validatedAt .
+    ?subject arp:validatedBy ?validatorUri .
+    ?validatorUri arp:name ?validatorName
+  }
+}
+GROUP BY ?subject ?title ?img ?category ?condition ?inv ?desc ?cimec
+         ?license ?date ?dimensions
+         ?artistName ?artistUri
+         ?museumName ?museumUri
+         ?registrarUri ?registrarName ?recordedAt
+         ?validatorUri ?validatorName ?validatedAt

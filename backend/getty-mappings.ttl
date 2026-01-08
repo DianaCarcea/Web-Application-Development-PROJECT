@@ -1,0 +1,60 @@
+PREFIX aat:  <http://vocab.getty.edu/aat/>
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+<http://arp.ro/material/marmură>
+        rdfs:label       "marmură";
+        skos:exactMatch  aat:300015078 .
+
+<http://arp.ro/material/sticlă>
+        rdfs:label       "sticlă";
+        skos:exactMatch  aat:300015062 .
+
+<http://arp.ro/material/peniță>
+        rdfs:label       "peniță";
+        skos:exactMatch  aat:300014938 .
+
+<http://arp.ro/material/lemn>
+        rdfs:label       "lemn";
+        skos:exactMatch  aat:300015072 .
+
+<http://arp.ro/material/tempera>
+        rdfs:label       "tempera";
+        skos:exactMatch  aat:300015057 .
+
+<http://arp.ro/material/ulei>
+        rdfs:label       "ulei";
+        skos:exactMatch  aat:300015050 .
+
+<http://arp.ro/material/grafit>
+        rdfs:label       "grafit";
+        skos:exactMatch  aat:300014876 .
+
+<http://arp.ro/material/pastel>
+        rdfs:label       "pastel";
+        skos:exactMatch  aat:300015051 .
+
+<http://arp.ro/material/bronz>
+        rdfs:label       "bronz";
+        skos:exactMatch  aat:300015090 .
+
+<http://arp.ro/material/creion>
+        rdfs:label       "creion";
+        skos:exactMatch  aat:300014876 .
+
+<http://arp.ro/material/tuș>
+        rdfs:label       "tuș";
+        skos:exactMatch  aat:300014938 .
+
+<http://arp.ro/material/teracotă>
+        rdfs:label       "teracotă";
+        skos:exactMatch  aat:300015099 .
+
+<http://arp.ro/material/sanguină>
+        rdfs:label       "sanguină";
+        skos:exactMatch  aat:300015053 .
+
+<http://arp.ro/material/acuarel>
+        rdfs:label       "acuarel";
+        skos:exactMatch  aat:300015056 .

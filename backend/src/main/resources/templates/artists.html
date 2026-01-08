@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Artiști</title>
+</head>
+<body>
+<h1>Lista artiștilor</h1>
+
+<ul>
+    <li th:each="artist : ${artists}">
+        <h2 th:text="${artist.wikidataLabel}">Artist Wikidata</h2>
+        <p>Nume local: <span th:text="${artist.name}">Nume TTL</span></p>
+        <p th:text="'URI: ' + ${artist.uri}">URI</p>
+        <img th:if="${artist.imageLink != null}" th:src="${artist.imageLink}" alt="Poza artist">
+        <p th:if="${artist.imageLink == null}">Nu există imagine</p>
+    </li>
+</ul>
+
+</body>
+</html>

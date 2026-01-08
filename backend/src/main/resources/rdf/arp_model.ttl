@@ -229,6 +229,27 @@ foaf:homepage a owl:ObjectProperty ; # Standard pentru site-uri web
     rdfs:range xsd:anyURI ;
     rdfs:label "Website Instituție" .
 
+# URI-ul Wikidata al artistului
+arp:wikidataUri a owl:DatatypeProperty ;
+                rdfs:domain arp:Artist ;
+                rdfs:range xsd:anyURI ;
+                rdfs:label "URI Wikidata" ;
+                rdfs:comment "Link către entitatea Wikidata corespunzătoare artistului." .
+
+# Numele preferat al artistului de pe Wikidata
+arp:wikidataName a owl:DatatypeProperty ;
+     rdfs:domain arp:Artist ;
+     rdfs:range xsd:string ;
+     rdfs:label "Nume Wikidata" ;
+     rdfs:comment "Numele oficial al artistului așa cum apare pe Wikidata." .
+
+# Imagine digitală a artistului
+arp:imageLink a owl:DatatypeProperty ;
+      rdfs:domain arp:Artist ;
+      rdfs:range xsd:anyURI ;
+      rdfs:label "Link Imagine Digitală" ;
+      rdfs:comment "Link către o imagine digitală a artistului." .
+
 # Specifice Activități
 arp:technique a owl:DatatypeProperty ;
     rdfs:domain arp:Creation ;

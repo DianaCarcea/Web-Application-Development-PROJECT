@@ -1,0 +1,13 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+SELECT ?wikidataArtist ?wikidataArtistLabel ?image WHERE {
+  ?wikidataArtist rdfs:label "%s"@ro .
+  ?wikidataArtist wdt:P31 wd:Q5 .
+  OPTIONAL { ?wikidataArtist wdt:P18 ?image. }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "ro,en". }
+}
+LIMIT 5

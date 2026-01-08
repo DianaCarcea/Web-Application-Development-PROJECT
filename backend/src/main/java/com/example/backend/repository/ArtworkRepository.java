@@ -17,10 +17,10 @@ import java.util.List;
 @Repository
 public class ArtworkRepository {
 
-    private final Model rdfModel;
+    private final Model artworkModel;
 
-    public ArtworkRepository(Model rdfModel) {
-        this.rdfModel = rdfModel;
+    public ArtworkRepository(Model artworkModel) {
+        this.artworkModel = artworkModel;
     }
 
     public List<Artwork> findAll() {
@@ -29,8 +29,9 @@ public class ArtworkRepository {
 
         List<Artwork> artworks = new ArrayList<>();
 
-        try (QueryExecution qexec = QueryExecutionFactory.create(query, rdfModel)) {
+        try (QueryExecution qexec = QueryExecutionFactory.create(query, artworkModel)) {
             ResultSet rs = qexec.execSelect();
+
             while (rs.hasNext()) {
                 QuerySolution sol = rs.nextSolution();
                 Artwork a = new Artwork();
@@ -91,12 +92,12 @@ public class ArtworkRepository {
     }
 
     public Artwork findByUri(String uri) {
-        String sparqlTemplate = loadSparql("/sparql/artwork-find-by-uri.sparql");
+        String sparqlTemplate = loadSparql("/sparql/artist.sparql");
 
         String sparql = sparqlTemplate.replace("{{URI}}", uri);
         Query query = QueryFactory.create(sparql);
 
-        try (QueryExecution qexec = QueryExecutionFactory.create(query, rdfModel)) {
+        try (QueryExecution qexec = QueryExecutionFactory.create(query, artworkModel)) {
             ResultSet rs = qexec.execSelect();
             if (!rs.hasNext()) return null;
 
@@ -155,6 +156,78 @@ public class ArtworkRepository {
             return a;
         }
     }
+
+    public List<Artwork> findByArtist(String artistUri) {
+        // Încarci template-ul SPARQL din fișier
+        String sparqlTemplate = loadSparql("/sparql/artworks-by-artist.sparql");
+
+        // Înlocuiești {{ARTIST_URI}} cu URI-ul artistului
+        String sparql = sparqlTemplate.replace("{{ARTIST_URI}}", artistUri);
+        Query query = QueryFactory.create(sparql);
+        List<Artwork> artworks = new ArrayList<>();
+
+        try (QueryExecution qexec = QueryExecutionFactory.create(query, artworkModel)) {
+            ResultSet rs = qexec.execSelect();
+            while (rs.hasNext()) {
+                QuerySolution sol = rs.nextSolution();
+                Artwork a = new Artwork();
+                Creation creation = new Creation();
+
+                creation.startedAtTime  = getLiteral(sol, "date");
+                a.creation = creation;
+                a.uri = sol.getResource("subject").getURI();
+                a.id = a.uri.substring(a.uri.lastIndexOf("/") + 1);
+                a.title = getLiteral(sol, "title");
+                a.imageLink = getLiteral(sol, "img");
+                a.description = getLiteral(sol, "desc");
+                a.category = getLiteral(sol, "category");
+                a.condition = getLiteral(sol, "condition");
+                a.inventoryNumber = getLiteral(sol, "inv");
+                a.cimecLink = getLiteral(sol, "cimec");
+                a.license = sol.contains("license") ? sol.getResource("license").getURI() : "";
+                a.dimensions = getLiteral(sol, "dimensions");
+
+                a.classification = splitConcat(sol, "classifications");
+                a.cultures = splitConcat(sol, "cultures");
+                a.techniques = splitConcat(sol, "techniques");
+                a.materialsUsed = splitConcat(sol, "materialsUsed");
+
+                a.recordedAt = getLiteral(sol, "recordedAt");
+                a.validatedAt = getLiteral(sol, "validatedAt");
+
+                if (sol.contains("artistName") && sol.getResource("artistUri") != null) {
+                    a.artist = new com.example.backend.model.Artist();
+                    a.artist.name = getLiteral(sol, "artistName");
+                    a.artist.uri = sol.getResource("artistUri").getURI();
+                }
+
+                if (sol.contains("museumName")) {
+                    a.currentLocation = new com.example.backend.model.Agent();
+                    a.currentLocation.name = getLiteral(sol, "museumName");
+                    a.currentLocation.uri = sol.getResource("museumUri").getURI();
+                }
+
+                if (sol.contains("registrarUri")) {
+                    Registrar registrar = new Registrar();
+                    registrar.uri = sol.getResource("registrarUri").getURI();
+                    registrar.name = getLiteral(sol, "registrarName");
+                    a.registrar = registrar;
+                }
+
+                if (sol.contains("validatorUri")) {
+                    Validator validator = new Validator();
+                    validator.uri = sol.getResource("validatorUri").getURI();
+                    validator.name = getLiteral(sol, "validatorName");
+                    a.validator = validator;
+                }
+
+                artworks.add(a);
+            }
+        }
+
+        return artworks;
+    }
+
 
 
     private String getLiteral(QuerySolution sol, String var) {
