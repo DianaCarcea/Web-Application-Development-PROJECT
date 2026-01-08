@@ -1,0 +1,10 @@
+PREFIX arp: <http://arp.ro/schema#>
+
+SELECT ?name ?wikidataName ?imageLink
+WHERE {
+  BIND(<{{ARTIST_URI}}> AS ?artist)
+  ?artist a arp:Artist ;
+          arp:name ?name .
+  OPTIONAL { ?artist arp:wikidataName ?wikidataName }
+  OPTIONAL { ?artist arp:imageLink ?imageLink }
+}

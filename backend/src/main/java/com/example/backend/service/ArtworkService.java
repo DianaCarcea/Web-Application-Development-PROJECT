@@ -22,4 +22,7 @@ public class ArtworkService {
     public Artwork getArtworkByUri(String uri) {
         return repository.findByUri(uri);
     }
+    public List<Artwork> getArtworkByArtist(String artistUri) {
+        return repository.findByArtist(artistUri);
+    }
 }

@@ -1,6 +1,8 @@
 package com.example.backend.controller;
 
+import com.example.backend.model.Artist;
 import com.example.backend.model.Artwork;
+import com.example.backend.service.ArtistService;
 import com.example.backend.service.ArtworkService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,15 +14,17 @@ import java.util.List;
 @Controller
 public class ArtworkController {
 
-    private final ArtworkService service;
+    private final ArtworkService artworkService;
+    private final ArtistService artistService;
 
-    public ArtworkController(ArtworkService service) {
-        this.service = service;
+    public ArtworkController(ArtworkService artworkService, ArtistService artistService) {
+        this.artworkService = artworkService;
+        this.artistService = artistService;
     }
 
     @GetMapping("/artworks")
     public String showAllArtworks(Model model) {
-        List<Artwork> artworks = service.getAllArtworks();
+        List<Artwork> artworks = artworkService.getAllArtworks();
         model.addAttribute("artworks", artworks);
         return "artwork"; // Thymeleaf va încărca artwork.html
     }
@@ -31,7 +35,7 @@ public class ArtworkController {
             Model model) {
 
         String uri = "http://arp.ro/resource/artwork/" + id;
-        Artwork artwork = service.getArtworkByUri(uri);
+        Artwork artwork = artworkService.getArtworkByUri(uri);
 
         if (artwork == null) {
             return "404";
@@ -40,5 +44,19 @@ public class ArtworkController {
         model.addAttribute("art", artwork);
         return "artwork-detail";
     }
+    @GetMapping("artists/{id}/artworks")
+    public String showArtworksByArtist(@PathVariable("id") String artistId, Model model) {
+        String artistUri = "http://arp.ro/resource/agent/" + artistId;
 
+        // 1️⃣ Ia datele artistului (inclusiv poza)
+        Artist artist = artistService.getArtistByUri(artistUri);
+
+        // 2️⃣ Ia operele artistului
+        List<Artwork> artworks = artworkService.getArtworkByArtist(artistUri);
+
+        model.addAttribute("artist", artist);
+        model.addAttribute("artworks", artworks);
+
+        return "artist-artworks";
+    }
 }

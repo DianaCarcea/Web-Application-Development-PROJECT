@@ -10,9 +10,16 @@ import org.springframework.context.annotation.Configuration;
 public class RDFConfig {
 
     @Bean
-    public Model rdfModel() {
+    public Model artworkModel() {
         Model model = ModelFactory.createDefaultModel();
         RDFDataMgr.read(model, "output.ttl");
+        return model;
+    }
+
+    @Bean
+    public Model artistModel() {
+        Model model = ModelFactory.createDefaultModel();
+        RDFDataMgr.read(model, "artists_wikidata.ttl");
         return model;
     }
 }
