@@ -15,7 +15,10 @@ import org.springframework.stereotype.Repository;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Repository
 public class WikidataArtworkRepository {
@@ -429,6 +432,207 @@ public class WikidataArtworkRepository {
             if (!item.isEmpty()) list.add(item.trim());
         }
         return list;
+    }
+
+    public List<Artwork> findByIds(List<String> qIds) {
+
+        String idsBlock = qIds.stream()
+                .map(id -> "wd:" + id)
+                .collect(Collectors.joining("\n"));
+
+        String sparql = loadSparql("/sparql/wikidata-artwork-findby-ids.sparql")
+                .replace("{{ARTWORK_IDS}}", idsBlock);
+
+        List<Artwork> artworks = new ArrayList<>();
+
+        try (QueryExecution qexec = QueryExecutionHTTP
+                .service("https://query.wikidata.org/sparql")
+                .query(sparql)
+                .build()) {
+
+            ResultSet rs = qexec.execSelect();
+
+            while (rs.hasNext()) {
+                QuerySolution sol = rs.nextSolution();
+                Artwork a = new Artwork();
+                Creation creation = new Creation();
+
+                // --- Mapare câmpuri pentru modelul tău ---
+                // URI și ID
+                a.uri = getResourceUri(sol, "artwork");
+                a.id = a.uri.isEmpty() ? "" : a.uri.substring(a.uri.lastIndexOf("/") + 1);
+
+                // Titlu
+                a.title = getLiteral(sol, "title");
+
+                // Imagine
+                String wikidataImage = getResourceUri(sol, "image");
+
+                // dacă Wikidata nu are imagine
+                if (wikidataImage != null && !wikidataImage.isEmpty()) {
+                    a.imageLink = wikidataImage;
+                } else {
+                    a.imageLink = WikimediaUtils.getWikimediaImage(a.title); // caută pe Wikimedia
+                }
+
+                // Descriere
+                a.description = getLiteral(sol, "description"); // Wikidata nu are descriere direct, poți lăsa gol sau să faci alt query
+
+                // Dimensiuni
+                String heightValue = getLiteral(sol, "heightValue");
+                String heightUnit  = getLiteral(sol, "heightUnitLabel");
+
+                String widthValue  = getLiteral(sol, "widthValue");
+                String widthUnit   = getLiteral(sol, "widthUnitLabel");
+
+                String height = "";
+                String width  = "";
+
+                if (heightValue != null && !heightValue.isEmpty()) {
+                    height = heightValue + (heightUnit != null && !heightUnit.isEmpty() ? " " + heightUnit : "");
+                }
+
+                if (widthValue != null && !widthValue.isEmpty()) {
+                    width = widthValue + (widthUnit != null && !widthUnit.isEmpty() ? " " + widthUnit : "");
+                }
+
+                a.dimensions = (!width.isEmpty() && !height.isEmpty())
+                        ? width + " × " + height
+                        : "";
+
+                // Materiale folosite
+                a.materialsUsed = getListFromConcat(sol, "materialLabels");
+
+                // Tip / Clasificare
+                a.classification = new ArrayList<>();
+
+                a.classification.addAll(getListFromConcat(sol, "artFormLabels"));   // drawing
+                a.classification.addAll(getListFromConcat(sol, "genreLabels"));     // portrait
+                a.classification.addAll(getListFromConcat(sol, "instanceLabels"));  // wall painting
+                a.classification.addAll(getListFromConcat(sol, "subclassLabels"));  // fine art
+
+
+                // Artist
+                if (!getLiteral(sol, "artistName").isEmpty()) {
+                    a.artist = new com.example.backend.model.Artist();
+                    a.artist.name = getLiteral(sol, "artistName");
+                    a.artist.uri = getResourceUri(sol, "artist");
+                }
+
+                // Muzeu / Locație
+                if (!getLiteral(sol, "locationName").isEmpty()) {
+                    a.currentLocation = new com.example.backend.model.Agent();
+                    a.currentLocation.name = getLiteral(sol, "locationName");
+                    a.currentLocation.uri = getResourceUri(sol, "location");
+                }
+
+                String inception = getLiteral(sol, "inception"); // poate fi null
+                String startTime = getLiteral(sol, "startTime"); // poate fi null
+                String pointInTime = getLiteral(sol, "pointInTime");
+                String publicationDate = getLiteral(sol, "publicationDate"); // poate fi null
+
+
+                // folosește inception dacă există, altfel fallback la startTime
+                String year = null;
+                if (inception != null && !inception.isEmpty()) {
+                    // dacă e în format ISO (1712-01-01T00:00:00Z)
+                    if (inception.contains("T")) {
+                        year = inception.substring(0, 4);
+                    } else {
+                        // dacă e doar label numeric, extrage cifrele
+                        inception = inception.replaceAll("[^0-9]", "");
+                        if (inception.length() >= 4) {
+                            year = inception.substring(0, 4);
+                        } else {
+                            year = inception; // dacă e mai scurt, ia tot ce e
+                        }
+                    }
+                } else if (startTime != null && !startTime.isEmpty()) {
+                    // fallback: ia primele 4 cifre din startTimeLabel
+                    startTime = startTime.replaceAll("[^0-9]", "");
+                    if (startTime.length() >= 4) {
+                        year = startTime.substring(0, 4);
+                    } else {
+                        year = startTime;
+                    }
+                } else if (pointInTime != null && !pointInTime.isEmpty()) {
+                    // Extrage primul grup de 4 cifre → anul
+                    java.util.regex.Matcher matcher = java.util.regex.Pattern.compile("\\b(\\d{4})\\b").matcher(pointInTime);
+                    if (matcher.find()) {
+                        year = matcher.group(1);
+                    } else {
+                        year = null; // dacă nu găsește cifre, poți lăsa null
+                    }
+                } else if (publicationDate != null && !publicationDate.isEmpty()) {
+                    if (publicationDate.contains("T")) {
+                        year = publicationDate.substring(0, 4);
+                    } else {
+                        publicationDate = publicationDate.replaceAll("[^0-9]", "");
+                        if (publicationDate.length() >= 4) {
+                            year = publicationDate.substring(0, 4);
+                        } else {
+                            year = publicationDate;
+                        }
+                    }
+                }
+
+
+                String condition = getLiteral(sol, "conditionLabel");
+
+                if (condition != null && !condition.isEmpty()) {
+                    a.condition = condition; // ex: "good condition"
+                }
+
+                // setează în obiect
+                creation.startedAtTime = year;
+
+
+                // Alte câmpuri ARP care nu există în Wikidata
+                a.inventoryNumber = getLiteral(sol, "inventoryNumbers");
+                a.category = "";
+//                a.condition = "";
+                a.cimecLink = "";
+                a.license = "";
+                a.cultures = new ArrayList<>();
+                a.techniques = new ArrayList<>();
+                a.recordedAt = "";
+                a.validatedAt = "";
+                a.registrar = null;
+                a.validator = null;
+                a.creation = creation;
+
+                artworks.add(a);
+            }
+        }
+
+        return artworks;
+    }
+
+    public List<Artwork> findPopularArtworks(int limit, int offset) {
+
+        String sparql = loadSparql("/sparql/wikidata-artwork-find-next.sparql")
+                .replace("{{LIMIT}}", String.valueOf(limit))
+                .replace("{{OFFSET}}", String.valueOf(offset));
+
+        List<Artwork> results = new ArrayList<>();
+
+        try (QueryExecution qexec = QueryExecutionHTTP
+                .service("https://query.wikidata.org/sparql")
+                .query(sparql)
+                .build()) {
+
+            ResultSet rs = qexec.execSelect();
+            while (rs.hasNext()) {
+                QuerySolution sol = rs.next();
+                Artwork a = new Artwork();
+                a.uri = getResourceUri(sol, "artwork");
+                a.id = a.uri.substring(a.uri.lastIndexOf("/") + 1);
+                a.title = getLiteral(sol, "title");
+                a.imageLink = getResourceUri(sol, "imageSample");
+                results.add(a);
+            }
+        }
+        return results;
     }
 
 }

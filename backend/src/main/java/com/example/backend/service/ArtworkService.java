@@ -25,4 +25,9 @@ public class ArtworkService {
     public List<Artwork> getArtworkByArtist(String artistUri) {
         return repository.findByArtist(artistUri);
     }
+
+    public List<Artwork> getHomepageArtworks(int page, int pageSize) {
+        int offset = (page - 1) * pageSize;
+        return repository.findNext(pageSize, offset);
+    }
 }
