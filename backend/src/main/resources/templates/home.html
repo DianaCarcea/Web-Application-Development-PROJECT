@@ -61,11 +61,11 @@
     <section id="int-art">
         <h2>
             International Arts & Culture
-<!--            <a href="/artworks" class="details-link">(see the details)</a>-->
+            <a href="/artworks-int" class="details-link">(see the details)</a>
         </h2>
         <div class="grid artworks-grid">
             <div th:each="art : ${wikidataArtworks}" class="card">
-                <a th:href="@{/wiki-artworks/{id}(id=${art.id})}">
+                <a th:href="@{/artworks-int/{id}(id=${art.id})}">
                     <img th:src="${art.imageLink}" th:alt="${art.title}"/>
                     <h3 th:text="${art.title}">Titlu</h3>
                 </a>

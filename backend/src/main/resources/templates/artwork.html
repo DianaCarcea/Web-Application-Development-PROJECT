@@ -140,5 +140,18 @@
     </article>
 </div>
 
+<div class="pagination">
+    <a th:if="${currentPage > 1}"
+       th:href="@{/artworks-next(page=${currentPage - 1})}">
+        ← Back
+    </a>
+
+    <span>Page [[${currentPage}]]</span>
+
+    <a th:href="@{/artworks-next(page=${currentPage + 1})}">
+        Next →
+    </a>
+</div>
+
 </body>
 </html>

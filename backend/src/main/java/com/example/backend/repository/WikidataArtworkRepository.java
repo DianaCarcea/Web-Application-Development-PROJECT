@@ -431,4 +431,32 @@ public class WikidataArtworkRepository {
         return list;
     }
 
+
+    public List<Artwork> findPopularArtworks(int limit, int offset) {
+
+        String sparql = loadSparql("/sparql/wikidata-artwork-find-next.sparql")
+                .replace("{{LIMIT}}", String.valueOf(limit))
+                .replace("{{OFFSET}}", String.valueOf(offset));
+
+        List<Artwork> results = new ArrayList<>();
+
+        try (QueryExecution qexec = QueryExecutionHTTP
+                .service("https://query.wikidata.org/sparql")
+                .query(sparql)
+                .build()) {
+
+            ResultSet rs = qexec.execSelect();
+            while (rs.hasNext()) {
+                QuerySolution sol = rs.next();
+                Artwork a = new Artwork();
+                a.uri = getResourceUri(sol, "artwork");
+                a.id = a.uri.substring(a.uri.lastIndexOf("/") + 1);
+                a.title = getLiteral(sol, "title");
+                a.imageLink = getResourceUri(sol, "imageSample");
+                results.add(a);
+            }
+        }
+        return results;
+    }
+
 }
