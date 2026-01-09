@@ -1,7 +1,6 @@
 package com.example.backend.controller;
 
 import com.example.backend.model.Artwork;
-import com.example.backend.model.WikidataArtwork;
 import com.example.backend.service.WikidataArtworkService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

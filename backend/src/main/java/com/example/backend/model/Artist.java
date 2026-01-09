@@ -8,5 +8,7 @@ public class Artist extends Person {
     public String wikidataLabel; // Label de pe Wikidata
     public String imageLink;
     public String description;
+    public String firstArtworkImageLink;
+    public String firstArtworkUri;
     public Artist() {}
 }

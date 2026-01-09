@@ -92,7 +92,7 @@ public class ArtworkRepository {
     }
 
     public Artwork findByUri(String uri) {
-        String sparqlTemplate = loadSparql("/sparql/artist.sparql");
+        String sparqlTemplate = loadSparql("/sparql/artwork-find-by-uri.sparql");
 
         String sparql = sparqlTemplate.replace("{{URI}}", uri);
         Query query = QueryFactory.create(sparql);

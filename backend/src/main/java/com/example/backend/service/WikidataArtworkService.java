@@ -1,10 +1,8 @@
 package com.example.backend.service;
 
 import com.example.backend.model.Artwork;
-import com.example.backend.model.WikidataArtwork;
+
 import com.example.backend.repository.WikidataArtworkRepository;
-import com.example.backend.repository.WikidataArtworkRepository2;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
