@@ -1,0 +1,6 @@
+PREFIX arp: <http://arp.ro/schema#>
+SELECT ?artist ?name WHERE {
+  ?artist a arp:Artist ;
+          arp:name ?name .
+}
+ORDER BY ?name

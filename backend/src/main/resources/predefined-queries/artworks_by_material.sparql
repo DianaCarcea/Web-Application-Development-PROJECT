@@ -1,0 +1,35 @@
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX aat:  <http://vocab.getty.edu/aat/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+SELECT
+  ?material_ro
+  ?material_en
+  (COUNT(DISTINCT ?artwork) AS ?numArtworks)
+  ?aatCode
+WHERE {
+  ?creation arp:materialsUsed ?material ;
+            prov:generated ?artwork .
+
+  ?mapping skos:exactMatch ?aatCode ;
+           rdfs:label ?labelRo .
+
+  FILTER(LANG(?labelRo) = "ro")
+
+  OPTIONAL {
+    ?mapping rdfs:label ?labelEn .
+    FILTER(LANG(?labelEn) = "en")
+  }
+
+  FILTER(
+    CONTAINS(LCASE(STR(?material)), LCASE(STR(?labelRo))) ||
+    (BOUND(?labelEn) && CONTAINS(LCASE(STR(?material)), LCASE(STR(?labelEn))))
+  )
+
+  BIND(STR(?labelRo) AS ?material_ro)
+  BIND(IF(BOUND(?labelEn), STR(?labelEn), STR(?labelRo)) AS ?material_en)
+}
+GROUP BY ?material_ro ?material_en ?aatCode
+ORDER BY DESC(?numArtworks)

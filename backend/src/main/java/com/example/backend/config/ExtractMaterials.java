@@ -1,71 +1,137 @@
 package com.example.backend.config;
 
-import org.apache.jena.rdf.model.*;
-import org.apache.jena.riot.RDFDataMgr;
-import org.apache.jena.vocabulary.RDFS;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
-import java.util.HashMap;
+import java.net.URI;
+import java.net.URLEncoder;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 public class ExtractMaterials {
 
+    private static final String WIKIDATA_SPARQL = "https://query.wikidata.org/sparql";
+
     public static void main(String[] args) throws Exception {
-        // 1. Încarcă fisierul output.ttl
-        Model model = RDFDataMgr.loadModel("output.ttl");
 
-        // 2. Creează modelul TTL pentru getty-mapping
-        Model mappingModel = ModelFactory.createDefaultModel();
-        mappingModel.setNsPrefix("arp", "http://arp.ro/schema#");
-        mappingModel.setNsPrefix("aat", "http://vocab.getty.edu/aat/");
-        mappingModel.setNsPrefix("skos", "http://www.w3.org/2004/02/skos/core#");
-        mappingModel.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+        // SINGURA sursă de adevăr
+        Map<String, String> translations = getTranslations();
 
-        // 3. Mapare cuvinte-cheie -> coduri AAT
-        Map<String, String> aatMap = new HashMap<>();
-        aatMap.put("ulei", "300015050");
-        aatMap.put("creion", "300014876");
-        aatMap.put("acuarel", "300015056");
-        aatMap.put("sanguină", "300015053");
-        aatMap.put("peniță", "300014938");
-        aatMap.put("tuș", "300014938");
-        aatMap.put("lemn", "300015072");
-        aatMap.put("bronz", "300015090");
-        aatMap.put("marmură", "300015078");
-        aatMap.put("teracotă", "300015099");
-        aatMap.put("sticlă", "300015062");
-        aatMap.put("pastel", "300015051");
-        aatMap.put("tempera", "300015057");
-        aatMap.put("grafit", "300014876");
+        try (PrintWriter out = new PrintWriter(new FileOutputStream("getty-mappings.ttl"))) {
 
-        // 4. Iterează materialele din output.ttl
-        Property materialsUsed = model.getProperty("http://arp.ro/schema#materialsUsed");
-        Property rdfsLabel = mappingModel.createProperty("http://www.w3.org/2000/01/rdf-schema#label");
-        StmtIterator iter = model.listStatements(null, materialsUsed, (RDFNode) null);
+            out.println("@prefix aat:  <http://vocab.getty.edu/aat/> .");
+            out.println("@prefix arp:  <http://arp.ro/schema#> .");
+            out.println("@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .");
+            out.println("@prefix skos: <http://www.w3.org/2004/02/skos/core#> .\n");
 
-        while (iter.hasNext()) {
-            Statement stmt = iter.next();
-            String materialText = stmt.getObject().asLiteral().getString().toLowerCase();
+            for (Map.Entry<String, String> entry : translations.entrySet()) {
 
-            for (Map.Entry<String, String> entry : aatMap.entrySet()) {
-                if (materialText.contains(entry.getKey())) {
-                    String aatCode = entry.getValue();
-                    String safeName = entry.getKey().replaceAll("\\s+","_");
+                String ro = entry.getKey();
+                String en = entry.getValue();
 
-                    Resource concept = mappingModel.createResource("http://arp.ro/material/" + safeName);
-                    concept.addProperty(rdfsLabel, entry.getKey());
-                    concept.addProperty(mappingModel.createProperty("http://www.w3.org/2004/02/skos/core#exactMatch"),
-                            mappingModel.createResource("http://vocab.getty.edu/aat/" + aatCode));
+                String uriId = toUriSafe(ro);
+                String aatCode = queryGettyCode(en);
+
+                if (aatCode != null) {
+                    out.printf("<http://arp.ro/material/%s>\n", uriId);
+                    out.printf("    rdfs:label \"%s\"@ro;\n", ro);
+                    out.printf("    rdfs:label \"%s\"@en;\n", en);
+                    out.printf("    skos:exactMatch aat:%s .\n\n", aatCode);
+
+                    System.out.printf("✔ %s → %s%n", ro, aatCode);
+                } else {
+                    System.out.printf("✖ Nu am găsit AAT pentru: %s%n", ro);
                 }
             }
         }
 
-        // 5. Scrie TTL rezultat
-        try (PrintWriter out = new PrintWriter(new FileOutputStream("getty-mappings.ttl"))) {
-            mappingModel.write(out, "TURTLE");
-        }
+        System.out.println("✔ getty-mappings.ttl generat cu succes!");
+    }
 
-        System.out.println("getty-mappings.ttl generat cu succes!");
+    // URI safe (FĂRĂ spații / diacritice)
+    private static String toUriSafe(String input) {
+        return input
+                .toLowerCase()
+                .replace("ă", "a")
+                .replace("â", "a")
+                .replace("î", "i")
+                .replace("ș", "s")
+                .replace("ț", "t")
+                .replaceAll("[^a-z0-9]+", "_")
+                .replaceAll("^_|_$", "");
+    }
+
+    private static Map<String, String> getTranslations() {
+        return Map.ofEntries(
+                Map.entry("ulei","oil painting"),
+                Map.entry("creion","pencil"),
+                Map.entry("acuarel","watercolor"),
+                Map.entry("sanguină","red chalk"),
+                Map.entry("peniță","pen"),
+                Map.entry("tuș","ink"),
+                Map.entry("lemn","wood"),
+                Map.entry("bronz","bronze"),
+                Map.entry("marmură","marble"),
+                Map.entry("teracotă","terracotta"),
+                Map.entry("sticlă","glass"),
+                Map.entry("pastel","pastel"),
+                Map.entry("tempera","tempera"),
+                Map.entry("grafit","graphite"),
+                Map.entry("piatră prețioasă", "gemstone"),
+                Map.entry("oglindă", "mirror"),
+                Map.entry("chihlimbar", "amber"),
+                Map.entry("argint", "silver"),
+                Map.entry("gazar", "gazar"),
+                Map.entry("organza", "organza"),
+                Map.entry("tul", "tulle"),
+                Map.entry("dantelă", "lace"),
+                Map.entry("satin", "satin"),
+                Map.entry("pergament", "parchment"),
+                Map.entry("beton", "concrete"),
+                Map.entry("hârtie", "paper"),
+                Map.entry("lut", "clay"),
+                Map.entry("gresie", "sandstone"),
+                Map.entry("cuarț", "quartz")
+        );
+    }
+
+    private static String queryGettyCode(String term) throws Exception {
+
+        String sparql =
+                "PREFIX wdt: <http://www.wikidata.org/prop/direct/>\n" +
+                        "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                        "SELECT ?aatID WHERE {\n" +
+                        "  ?item wdt:P1014 ?aatID.\n" +
+                        "  ?item rdfs:label \"" + term + "\"@en.\n" +
+                        "} LIMIT 1";
+
+        HttpClient client = HttpClient.newHttpClient();
+        String url = WIKIDATA_SPARQL +
+                "?query=" + URLEncoder.encode(sparql, StandardCharsets.UTF_8) +
+                "&format=json";
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Accept", "application/sparql-results+json")
+                .GET()
+                .build();
+
+        HttpResponse<String> response =
+                client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        JsonNode bindings = new ObjectMapper()
+                .readTree(response.body())
+                .path("results")
+                .path("bindings");
+
+        if (bindings.isArray() && bindings.size() > 0) {
+            return bindings.get(0).path("aatID").path("value").asText();
+        }
+        return null;
     }
 }

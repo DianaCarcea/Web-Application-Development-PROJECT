@@ -34,7 +34,7 @@
             <div class="details">
 
                 <div class="description" th:if="${art.description!= null and !#lists.isEmpty(art.description)}">
-                    <h4>Description & Provenance</h4>
+                    <h4>Description</h4>
                     <p property="arp:description schema:description">[[${art.description}]]</p>
                 </div>
 
@@ -49,7 +49,7 @@
                         </td>
                     </tr>
 
-                    <tr th:if="${art.creation != null}">
+                    <tr th:if="${art.creation.startedAtTime != null}">
                         <th>Creation Date</th>
                         <td property="arp:startedAtTime schema:dateCreated">[[${art.creation.startedAtTime}]]</td>
                     </tr>
