@@ -228,13 +228,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Swanevelt__Hermann_van__>
         a         arp:Artist;
         arp:name  "Swanevelt, Hermann van ~" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Tamm__Franz_Werner__numit_Dapper>
         a         arp:Artist;
@@ -455,13 +448,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Deji__Ana>
         a         arp:Artist;
         arp:name  "Deji, Ana" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Lemeni__Gheorghe>
         a                 arp:Artist;
@@ -681,13 +667,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name          "Maniu, Rodica";
         arp:wikidataName  "Rodica Maniu"@ro;
         arp:wikidataUri   <http://www.wikidata.org/entity/Q12739478> .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Graf__Hans>
         a                 arp:Artist;
@@ -913,13 +892,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Sandor__Wagner>
         a         arp:Artist;
         arp:name  "Sandor, Wagner" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Storck__Karl>
         a                 arp:Artist;
@@ -1150,13 +1122,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name          "Aman, Theodor";
         arp:wikidataName  "Theodor Aman"@ro;
         arp:wikidataUri   <http://www.wikidata.org/entity/Q716808> .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Simonidi__Mihail>
         a         arp:Artist;
@@ -1383,13 +1348,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Sp_the__Oscar>
         a         arp:Artist;
         arp:name  "Späthe, Oscar" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Vlasiu__Ion>
         a                 arp:Artist;
@@ -1622,13 +1580,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Dupain__Edmond_Louis>
         a         arp:Artist;
         arp:name  "Dupain, Edmond Louis" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Turchi__Alessandro_zis_L_Orbetto___n_registrul_inventar__probabil_Bartholomeo_Schidone_>
         a         arp:Artist;
@@ -1860,13 +1811,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Thorma__Janos>
         a         arp:Artist;
         arp:name  "Thorma, Janos" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Le_Gout__Gerard_Fernand>
         a         arp:Artist;
@@ -2095,13 +2039,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Bubics__Zsigmond>
         a         arp:Artist;
         arp:name  "Bubics, Zsigmond" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/D_r_scu__Nicolae>
         a         arp:Artist;
@@ -2319,13 +2256,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Jackson__John_Baptist___SC____Jackson__John_Baptist___DEL____Ricci__Sebastiano__PX____Jackson__John_Baptist___EX__>
         a         arp:Artist;
         arp:name  "Jackson, John Baptist; (SC.); Jackson, John Baptist; (DEL.); Ricci, Sebastiano (PX.); Jackson, John Baptist; (EX.)" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Bouquet__Michel>
         a                 arp:Artist;
@@ -2538,13 +2468,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/B_ie_u__Aurel>
         a         arp:Artist;
         arp:name  "Băieșu, Aurel" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Kupeczky__Janos>
         a         arp:Artist;
@@ -2769,13 +2692,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Nasini__Giuseppe_Nicola>
         a         arp:Artist;
         arp:name  "Nasini, Giuseppe Nicola" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Vodak__Franz>
         a         arp:Artist;
@@ -3006,13 +2922,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Barye__Antoine_Louis>
         a         arp:Artist;
         arp:name  "Barye, Antoine-Louis" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Liberi__Pietro>
         a         arp:Artist;
@@ -3237,13 +3146,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Guys__Constantin>
         a         arp:Artist;
         arp:name  "Guys, Constantin" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Boudier__Paul>
         a         arp:Artist;
@@ -3457,13 +3359,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Fekete__Iosif__Negrulea_>
         a         arp:Artist;
         arp:name  "Fekete, Iosif (Negrulea)" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Caroto__Giovanni_Francesco>
         a         arp:Artist;
@@ -3697,13 +3592,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Luini__Tommaso>
         a         arp:Artist;
         arp:name  "Luini, Tommaso" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Pinelli__Bartolomeo>
         a         arp:Artist;
@@ -3933,13 +3821,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/P_tra_cu__Gheorghe>
         a         arp:Artist;
         arp:name  "Pătrașcu, Gheorghe" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Venzo__Gaetano___SC____Pierre__Jean_Baptiste_Marie__DEL__>
         a         arp:Artist;
@@ -4156,13 +4037,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name          "Dan, Mihail";
         arp:wikidataName  "Mihail Dan"@ro;
         arp:wikidataUri   <http://www.wikidata.org/entity/Q42412908> .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Arteaga_y_Alfaro__Matias_de>
         a         arp:Artist;
@@ -4387,13 +4261,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Beham__Hans_Sebald>
         a         arp:Artist;
         arp:name  "Beham, Hans Sebald" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Marchini__Tasso>
         a                 arp:Artist;
@@ -4622,13 +4489,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/De_Vois__Ary>
         a         arp:Artist;
         arp:name  "De Vois, Ary" .
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX dct:  <http://purl.org/dc/terms/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/agent/Kardos__Gyula>
         a                 arp:Artist;
