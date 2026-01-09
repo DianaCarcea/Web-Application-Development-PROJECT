@@ -33,6 +33,12 @@ public class WikidataArtworkService {
 
         return wikidataArtworkRepository.findById(qId);
     }
+
+    public List<Artwork> getByIds(List<String> artworksIds) {
+
+        return wikidataArtworkRepository.findByIds(artworksIds);
+    }
+
     public List<Artwork> getHomepageArtworks(int page, int pageSize) {
         int offset = (page - 1) * pageSize;
         return wikidataArtworkRepository.findPopularArtworks(pageSize, offset);

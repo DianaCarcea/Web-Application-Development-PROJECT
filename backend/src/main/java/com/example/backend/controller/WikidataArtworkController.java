@@ -32,12 +32,13 @@ public class WikidataArtworkController {
     public String showWikiHome(Model model) {
 
         List<Artwork> artworks = service.getHomepageArtworks();
-        List<Artwork> artworksWithDetails = new ArrayList<>();
 
-        for (Artwork artwork : artworks.subList(0, Math.min(5, artworks.size()))) {
-            Artwork artworkWithDetails = service.getById(artwork.id);
-            artworksWithDetails.add(artworkWithDetails);
-        }
+        List<String> ids = artworks.stream()
+                .limit(5)
+                .map(a -> a.id)
+                .toList();
+
+        List<Artwork> artworksWithDetails = service.getByIds(ids);
 
         model.addAttribute("artworks", artworksWithDetails);
         model.addAttribute("currentPage", 1);
@@ -68,10 +69,12 @@ public class WikidataArtworkController {
 
         List<Artwork> artworks = service.getHomepageArtworks(page, pageSize);
 
-        List<Artwork> artworksWithDetails = new ArrayList<>();
-        for (Artwork artwork : artworks) {
-            artworksWithDetails.add(service.getById(artwork.id));
-        }
+        List<String> ids = artworks.stream()
+                .limit(5)
+                .map(a -> a.id)
+                .toList();
+
+        List<Artwork> artworksWithDetails = service.getByIds(ids);
 
         model.addAttribute("artworks", artworksWithDetails);
         model.addAttribute("currentPage", page);
