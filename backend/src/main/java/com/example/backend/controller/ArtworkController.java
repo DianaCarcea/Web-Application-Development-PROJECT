@@ -61,10 +61,8 @@ public class ArtworkController {
 
         String artistUri = "http://arp.ro/resource/agent/" + artistId;
 
-        // 1️⃣ Ia datele artistului (inclusiv poza)
         Artist artist = artistService.getArtistByUri(artistUri);
 
-        // 2️⃣ Ia operele artistului
         List<Artwork> artworks = artworkService.getArtworkByArtist(artistUri);
 
         model.addAttribute("artist", artist);
