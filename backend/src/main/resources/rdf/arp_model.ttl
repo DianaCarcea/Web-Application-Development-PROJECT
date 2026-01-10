@@ -171,6 +171,11 @@ arp:cimecLink a owl:DatatypeProperty ;
     rdfs:range xsd:anyURI ;
     rdfs:label "Link Detaliu CIMEC" .
 
+arp:wikidataLink a owl:DatatypeProperty ;
+    rdfs:domain arp:Artwork ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Link Wikidata" .
+
 dct:license a owl:ObjectProperty ; # Folosim standardul Dublin Core Terms
     rdfs:domain arp:Artwork ;
     rdfs:range rdfs:Resource ;
