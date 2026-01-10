@@ -34,7 +34,7 @@
 
             <div class="card-body">
                 <figure th:if="${art.imageLink}">
-                    <a th:href="@{/artworks/{id}(id=${art.id})}">
+                    <a th:href="@{/artworks/{id}(id=${art.id}, domain='ro')}">
                         <img th:src="${art.imageLink}" th:alt="${art.title}" property="arp:imageLink schema:image"/>
                     </a>
                 </figure>

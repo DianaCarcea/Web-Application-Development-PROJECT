@@ -54,7 +54,11 @@ public class ArtworkController {
         return "artwork-detail";
     }
     @GetMapping("artists/{id}/artworks")
-    public String showArtworksByArtist(@PathVariable("id") String artistId, Model model) {
+    public String showArtworksByArtist(
+            @PathVariable("id") String artistId,
+            @RequestParam(name = "domain", defaultValue = "int") String domain,
+            Model model) {
+
         String artistUri = "http://arp.ro/resource/agent/" + artistId;
 
         // 1️⃣ Ia datele artistului (inclusiv poza)
@@ -65,6 +69,7 @@ public class ArtworkController {
 
         model.addAttribute("artist", artist);
         model.addAttribute("artworks", artworks);
+        model.addAttribute("domain", domain);
 
         return "artist-artworks";
     }
