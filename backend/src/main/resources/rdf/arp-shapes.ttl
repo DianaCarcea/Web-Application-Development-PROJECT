@@ -1,0 +1,193 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix arp: <http://arp.ro/schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# =========================================================
+# SHAPE: ARTWORK
+# =========================================================
+
+arp:AgentShape
+    a sh:NodeShape ;
+    sh:targetClass arp:Agent ;
+
+    sh:property [
+          sh:path arp:name ;
+          sh:datatype xsd:string ;
+          sh:minCount 1 ;
+          sh:message "Agentul trebuie să aibă un nume." ;
+      ] .
+
+arp:OrganizationShape
+    a sh:NodeShape ;
+    sh:targetClass arp:Organization ;
+
+    sh:node arp:AgentShape ;
+
+    # Validare actedOnBehalfOf
+    sh:property [
+          sh:path prov:actedOnBehalfOf ;
+          sh:or (
+                      [ sh:class arp:Museum ]
+                      [ sh:class arp:Collector ]
+                  ) ;
+          sh:message "Organizația trebuie să acționeze în numele unui agent valid." ;
+      ] .
+
+arp:MuseumShape
+    a sh:NodeShape ;
+    sh:targetClass arp:Museum ;
+    sh:node arp:AgentShape .
+
+arp:ArtistShape
+    a sh:NodeShape ;
+    sh:targetClass arp:Artist ;
+    sh:node arp:AgentShape ;
+
+    sh:property [
+        sh:path arp:wikidataName ;
+        sh:nodeKind sh:Literal ;
+        sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] );
+        sh:minCount 0 ;
+    ] ;
+
+    sh:property [
+        sh:path arp:wikidataUri ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path arp:imageLink ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] .
+
+
+arp:EntityShape
+    a sh:NodeShape ;
+    sh:targetClass arp:Entity .
+
+arp:ArtworkShape
+    a sh:NodeShape ;
+    sh:targetClass arp:Artwork ;
+    sh:node arp:EntityShape ;
+
+    sh:property [
+          sh:path arp:title ;
+          sh:datatype xsd:string ;
+          sh:minCount 1 ;
+          sh:maxCount 1 ;
+          sh:message "O operă trebuie să aibă exact un titlu." ;
+      ] ;
+
+    sh:property [
+          sh:path arp:inventoryNumber ;
+          sh:datatype xsd:string ;
+          sh:minCount 1 ;
+          sh:maxCount 1 ;
+          sh:message "Numărul de inventar este obligatoriu și unic." ;
+      ] ;
+
+    sh:property [
+          sh:path arp:category ;
+          sh:datatype xsd:string ;
+          sh:minCount 1 ;
+      ] ;
+
+    sh:property [
+          sh:path arp:condition ;
+          sh:datatype xsd:string ;
+      ] ;
+
+    sh:property [
+          sh:path arp:currentLocation ;
+          sh:or (
+                      [ sh:class arp:Museum ]
+                      [ sh:class arp:Collector ]
+                  ) ;
+          sh:minCount 1 ;
+          sh:message "Locația trebuie să fie Muzeu sau Colecționar." ;
+      ] ;
+
+    sh:property [
+          sh:path arp:recordedBy ;
+          sh:class arp:Registrar ;
+      ] ;
+
+    sh:property [
+          sh:path arp:recordedAt ;
+          sh:datatype xsd:date ;
+      ] ;
+
+    sh:property [
+          sh:path arp:validatedBy ;
+          sh:class arp:Validator ;
+      ] ;
+
+    sh:property [
+          sh:path arp:validatedAt ;
+          sh:datatype xsd:date ;
+      ] .
+
+# =========================================================
+# SHAPE: CREATION (ACTIVITY)
+# =========================================================
+
+arp:ActivityShape
+    a sh:NodeShape ;
+    sh:targetClass arp:Activity ;
+    sh:property [
+          sh:path arp:startedAtTime ;
+          sh:minCount 0 ;
+          sh:maxCount 1 ;
+          sh:message "Activitatea poate avea cel mult o dată de început." ;
+      ] .
+
+arp:CreationShape
+    a sh:NodeShape ;
+    sh:targetClass arp:Creation ;
+    sh:node arp:ActivityShape ;   # validează proprietățile comune ale activităților
+
+    sh:property [
+          sh:path prov:generated ;
+          sh:class arp:Artwork ;
+          sh:minCount 1 ;
+          sh:message "Activitatea de creație trebuie să folosească cel puțin o operă." ;
+      ] ;
+
+    # Asociere calificată cu un artist
+    sh:property [
+          sh:path prov:qualifiedAssociation ;
+          sh:minCount 1 ;
+          sh:node arp:AssociationShape ;
+          sh:message "Creația trebuie să aibă o asociere calificată cu un artist." ;
+      ] ;
+
+    sh:property [
+          sh:path arp:technique ;
+          sh:datatype xsd:string ;
+          sh:minCount 0 ;
+      ] ;
+
+    sh:property [
+          sh:path arp:materialsUsed ;
+          sh:datatype xsd:string ;
+          sh:minCount 0 ;
+      ] .
+
+
+arp:AssociationShape
+    a sh:NodeShape ;
+    sh:targetClass prov:qualifiedAssociation ;
+    sh:property [
+          sh:path prov:agent ;
+          sh:class arp:Artist ;
+          sh:minCount 1 ;
+          sh:message "Asocierea trebuie să aibă un agent de tip Artist (poate fi Anonim)." ;
+      ] .

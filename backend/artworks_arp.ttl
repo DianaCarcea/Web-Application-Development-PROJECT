@@ -1,0 +1,883 @@
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+<http://arp.ro/resource/artwork/Q247262>
+        a                     arp:Artwork;
+        arp:category          "fashion style from cinema";
+        arp:classification    "fashion style from cinema" , "cocktail dress" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "dress worn by Marilyn Monroe in The Seven Year Itch";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Marilyn%20Monroe%20-%20Seven%20Year%20Itch.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "white dress of Marilyn Monroe";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/William_Travilla>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q247262> .
+
+<http://arp.ro/resource/artwork/Q1062404>
+        a                    arp:Artwork;
+        arp:category         "book form";
+        arp:classification   "art genre" , "work of art" , "book form";
+        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description      "work of art realized in the form of a book";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Diskussiya-kniga-khudozhnika.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "unknown";
+        arp:title            "artist's book";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q1062404> .
+
+<http://arp.ro/resource/agent/Bertil_Almqvist>
+        a         arp:Artist;
+        arp:name  "Bertil Almqvist" .
+
+<http://arp.ro/resource/artwork/Q1757822>
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Neues_Museum>;
+        arp:description       "1961 artwork by Piero Manzoni consisting of 90 cans filled with his faeces";
+        arp:dimensions        "4.8 x 6 centimetre";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Piero%20Manzoni%20-%20Merda%20D%27artista%20%281961%29%20-%20panoramio.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Artist's Shit";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/Piero_Manzoni>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q1757822> .
+
+<http://arp.ro/resource/agent/Maurizio_Cattelan>
+        a         arp:Artist;
+        arp:name  "Maurizio Cattelan" .
+
+<http://arp.ro/resource/agent/Albrecht_D_rer>
+        a         arp:Artist;
+        arp:name  "Albrecht Dürer" .
+
+<http://arp.ro/resource/activity/creation_Q254170>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei crystal skull";
+        arp:materialsUsed          "quartz";
+        arp:startedAtTime          "1881"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q254170>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/artwork/Q20386392>
+        a                    arp:Artwork;
+        arp:category         "architectural structure";
+        arp:classification   "work of art" , "architectural structure";
+        arp:currentLocation  <http://arp.ro/resource/agent/Zabeel_Park>;
+        arp:description      "architectural landmark in Dubai";
+        arp:dimensions       "150 x 93 metre";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/DONIS%20Dubai%20Frame%20Nighttime.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "unknown";
+        arp:title            "Dubai Frame";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q20386392> .
+
+<http://arp.ro/resource/artwork/Q609292>
+        a                    arp:Artwork;
+        arp:category         "work of art";
+        arp:classification   "work of art" , "vase" , "archaeological artefact";
+        arp:currentLocation  <http://arp.ro/resource/agent/British_Museum>;
+        arp:description      "Roman cameo glass vase";
+        arp:dimensions       "24.5 x 1.8 centimetre";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Portland%20Vase%20BM%20Gem4036%20n4.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "GR 1945";
+        arp:title            "Portland Vase";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q609292> .
+
+<http://arp.ro/resource/activity/creation_Q2313006>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Battle of the Centaurs";
+        arp:materialsUsed          "marble";
+        arp:startedAtTime          "1492"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q2313006>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Michelangelo>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/agent/Buckingham_Palace>
+        a         arp:Museum;
+        arp:name  "Buckingham Palace" .
+
+<http://arp.ro/resource/artwork/Q1106387>
+        a                    arp:Artwork;
+        arp:category         "Gospel Book";
+        arp:classification   "Gospel Book" , "work of art" , "illuminated manuscript";
+        arp:currentLocation  <http://arp.ro/resource/agent/Germanisches_Nationalmuseum>;
+        arp:description      "11th-century illuminated Gospel Book at the Germanisches Nationalmuseum, Nuremberg, Germany";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Meister%20des%20Codex%20Aureus%20Epternacensis%20001.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "KG1138";
+        arp:title            "Codex Aureus of Echternach";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q1106387> .
+
+<http://arp.ro/resource/agent/Rock_and_Roll_Hall_of_Fame>
+        a         arp:Museum;
+        arp:name  "Rock and Roll Hall of Fame" .
+
+<http://arp.ro/resource/agent/Piero_Manzoni>
+        a         arp:Artist;
+        arp:name  "Piero Manzoni" .
+
+<http://arp.ro/resource/activity/event_Q20386392_2>
+        a           arp:TransferOfCustody;
+        rdfs:label  "construction";
+        prov:used   <http://arp.ro/resource/artwork/Q20386392> .
+
+<http://arp.ro/resource/artwork/Q157012>
+        a                     arp:Artwork;
+        arp:category          "cladding";
+        arp:classification    "work of art" , "room" , "cladding";
+        arp:currentLocation   <http://arp.ro/resource/agent/Berlin_Palace>;
+        arp:description       "room made of amber";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Catherine%20Palace%20interior%20-%20Amber%20Room%20%281%29.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Amber Room";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/Andreas_Schl_ter>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q157012> .
+
+<http://arp.ro/resource/activity/creation_Q3517517>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Temple of Ellesyia";
+        arp:materialsUsed          "sandstone";
+        arp:startedAtTime          "-2000"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q3517517>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/creation_Q1476013>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei plastic flamingo";
+        arp:startedAtTime          "1957"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q1476013>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/creation_Q77715187>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Comedian";
+        arp:materialsUsed          "banana";
+        arp:startedAtTime          "2019"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q77715187>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Maurizio_Cattelan>;
+                                     prov:hadRole  arp:Artist
+                                   ];
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/David_Datuna>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/agent/Ellesiya_Temple_Nubian_Hall_room_15>
+        a         arp:Museum;
+        arp:name  "Ellesiya Temple/Nubian Hall, room 15" .
+
+<http://arp.ro/resource/agent/Pompeii>
+        a         arp:Museum;
+        arp:name  "Pompeii" .
+
+<http://arp.ro/resource/activity/creation_Q1062404>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei artist's book";
+        prov:generated             <http://arp.ro/resource/artwork/Q1062404>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/creation_Q1757822>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Artist's Shit";
+        arp:materialsUsed          "human feces; can";
+        arp:startedAtTime          "1961"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q1757822>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Piero_Manzoni>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/creation_Q471379>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei The Scream";
+        arp:startedAtTime          "1893"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q471379>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Edvard_Munch>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/creation_Q279559>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Babylonian Map of the pop World";
+        arp:materialsUsed          "clay";
+        arp:startedAtTime          "-0550"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q279559>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/agent/William_Travilla>
+        a         arp:Artist;
+        arp:name  "William Travilla" .
+
+<http://arp.ro/resource/agent/National_Gallery_of_Norway>
+        a         arp:Museum;
+        arp:name  "National Gallery of Norway" .
+
+<http://arp.ro/resource/agent/Michelangelo>
+        a         arp:Artist;
+        arp:name  "Michelangelo" .
+
+<http://arp.ro/resource/activity/creation_Q699552>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Praying Hands";
+        arp:materialsUsed          "ink; paper";
+        arp:startedAtTime          "1500"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q699552>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Albrecht_D_rer>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/creation_Q3399457>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Portrait of Terentius Neo";
+        arp:startedAtTime          "0079"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q3399457>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/agent/Metropolitan_Museum_of_Art>
+        a         arp:Museum;
+        arp:name  "Metropolitan Museum of Art" .
+
+<http://arp.ro/resource/activity/event_Q599_1>
+        a           arp:TransferOfCustody;
+        rdfs:label  "wedding of Prince William and Catherine Middleton";
+        prov:used   <http://arp.ro/resource/artwork/Q599> .
+
+<http://arp.ro/resource/artwork/Q938131>
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "dress" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Rock_and_Roll_Hall_of_Fame>;
+        arp:description       "dress made of raw beef worn by Lady Gaga";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Lady%20Gaga%20Americano%20meat%20dress.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "meat dress of Lady Gaga";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/Nicola_Formichetti> , <http://arp.ro/resource/agent/Franc_Fernandez>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q938131> .
+
+<http://arp.ro/resource/agent/Albertina>
+        a         arp:Museum;
+        arp:name  "Albertina" .
+
+<http://arp.ro/resource/agent/Monti>
+        a         arp:Museum;
+        arp:name  "Monti" .
+
+<http://arp.ro/resource/agent/Santa_Maria_delle_Grazie>
+        a         arp:Museum;
+        arp:name  "Santa Maria delle Grazie" .
+
+<http://arp.ro/resource/agent/Edvard_Munch>
+        a         arp:Artist;
+        arp:name  "Edvard Munch" .
+
+<http://arp.ro/resource/activity/creation_Q20386392>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Dubai Frame";
+        arp:startedAtTime          "2018"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q20386392>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/creation_Q284053>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei dado";
+        prov:generated             <http://arp.ro/resource/artwork/Q284053>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/artwork/Q1339914>
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art" , "slogan";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "slogan and image in Swedish WWII propaganda campaign";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Ensvensktigerskylt2%20djuramossa.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "En svensk tiger";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/Bertil_Almqvist>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q1339914> .
+
+<http://arp.ro/resource/artwork/Q18207282>
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "library" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "collection of works set to be published in 2114";
+        arp:inventoryNumber   "unknown";
+        arp:title             "Future Library project";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/Katie_Paterson>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q18207282> .
+
+<http://arp.ro/resource/agent/British_Museum>
+        a         arp:Museum;
+        arp:name  "British Museum" .
+
+<http://arp.ro/resource/agent/Andreas_Schl_ter>
+        a         arp:Artist;
+        arp:name  "Andreas Schlüter" .
+
+<http://arp.ro/resource/agent/Casa_Buonarroti>
+        a         arp:Museum;
+        arp:name  "Casa Buonarroti" .
+
+<http://arp.ro/resource/activity/creation_Q275924>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei The Turk";
+        arp:startedAtTime          "1769"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q275924>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Wolfgang_von_Kempelen>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/agent/Wolfgang_von_Kempelen>
+        a         arp:Artist;
+        arp:name  "Wolfgang von Kempelen" .
+
+<http://arp.ro/resource/artwork/Q279559>
+        a                    arp:Artwork;
+        arp:category         "work of art";
+        arp:classification   "archaeological artefact" , "work of art" , "world map" , "antique map";
+        arp:currentLocation  <http://arp.ro/resource/agent/British_Museum>;
+        arp:description      "6th century BCE Babylonian clay tablet written in Akkadian with a labeled depiction of the known world";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/BabylonianWorldMap2.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "92687";
+        arp:title            "Babylonian Map of the pop World";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q279559> .
+
+<http://arp.ro/resource/activity/creation_Q733890>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Santa Prassede";
+        arp:startedAtTime          "0780"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q733890>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/agent/Zabeel_Park>
+        a         arp:Museum;
+        arp:name  "Zabeel Park" .
+
+<http://arp.ro/resource/artwork/Q28114063>
+        a                    arp:Artwork;
+        arp:category         "work of art";
+        arp:classification   "work of art";
+        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description      "artwork";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Babylonokia.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "unknown";
+        arp:title            "Babylonokia";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q28114063> .
+
+<http://arp.ro/resource/agent/Unknown_Location>
+        a         arp:Museum;
+        arp:name  "Unknown Location" .
+
+<http://arp.ro/resource/agent/Germanisches_Nationalmuseum>
+        a         arp:Museum;
+        arp:name  "Germanisches Nationalmuseum" .
+
+<http://arp.ro/resource/agent/Neues_Museum>
+        a         arp:Museum;
+        arp:name  "Neues Museum" .
+
+<http://arp.ro/resource/activity/creation_Q247262>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei white dress of Marilyn Monroe";
+        arp:startedAtTime          "1955"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q247262>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/William_Travilla>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/artwork/Q3000066>
+        a                    arp:Artwork;
+        arp:category         "work of art";
+        arp:classification   "cage cup" , "work of art";
+        arp:currentLocation  <http://arp.ro/resource/agent/London>;
+        arp:description      "4th-century Roman cup with unusual properties";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Front%20of%204th%20century%20CE%20Roman%20Lycurgus%20Cup%2C%20British%20Museum%20%281958%2C1202.1%29.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "1958";
+        arp:title            "Lycurgus Cup";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q3000066> .
+
+<http://arp.ro/resource/agent/Katie_Paterson>
+        a         arp:Artist;
+        arp:name  "Katie Paterson" .
+
+<http://arp.ro/resource/artwork/Q3332083>
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art" , "photograph";
+        arp:currentLocation   <http://arp.ro/resource/agent/Metropolitan_Museum_of_Art>;
+        arp:description       "photograph by Dorothea Lange";
+        arp:dimensions        "5 x 4 centimetre";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Lange-MigrantMother02.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "71.71.10";
+        arp:title             "Migrant Mother, Nipomo, California";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/Dorothea_Lange>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q3332083> .
+
+<http://arp.ro/resource/activity/creation_Q128910>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei The Last Supper";
+        arp:materialsUsed          "gesso; tempera";
+        arp:startedAtTime          "1490"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q128910>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Leonardo_da_Vinci>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/creation_Q186556>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Zeitpyramide";
+        arp:materialsUsed          "concrete";
+        prov:generated             <http://arp.ro/resource/artwork/Q186556>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Manfred_Laber>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/event_Q20386392_1>
+        a                  arp:TransferOfCustody;
+        rdfs:label         "service entry";
+        arp:startedAtTime  "2018"^^xsd:gYear;
+        prov:used          <http://arp.ro/resource/artwork/Q20386392> .
+
+<http://arp.ro/resource/agent/Peale_Museum>
+        a         arp:Museum;
+        arp:name  "Peale Museum" .
+
+<http://arp.ro/resource/agent/Nicola_Formichetti>
+        a         arp:Artist;
+        arp:name  "Nicola Formichetti" .
+
+<http://arp.ro/resource/artwork/Q254170>
+        a                    arp:Artwork;
+        arp:category         "sculpture";
+        arp:classification   "sculpture" , "work of art";
+        arp:currentLocation  <http://arp.ro/resource/agent/British_Museum>;
+        arp:description      "human skull stone carvings made of clear quartz, claimed to be pre-Columbian Mesoamerican";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Crystal%20skull%20british%20museum%20random9834672.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "Am1898";
+        arp:title            "crystal skull";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q254170> .
+
+<http://arp.ro/resource/activity/creation_Q1106387>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Codex Aureus of Echternach";
+        arp:materialsUsed          "parchment";
+        arp:startedAtTime          "1100"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q1106387>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/creation_Q1339914>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei En svensk tiger";
+        prov:generated             <http://arp.ro/resource/artwork/Q1339914>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Bertil_Almqvist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/artwork/Q284053>
+        a                    arp:Artwork;
+        arp:category         "work of art";
+        arp:classification   "work of art";
+        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description      "architectural element";
+        arp:inventoryNumber  "unknown";
+        arp:title            "dado";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q284053> .
+
+<http://arp.ro/resource/activity/creation_Q609292>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Portland Vase";
+        arp:materialsUsed          "cameo glass";
+        arp:startedAtTime          "0100"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q609292>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/agent/London>
+        a         arp:Museum;
+        arp:name  "London" .
+
+<http://arp.ro/resource/agent/Dorothea_Lange>
+        a         arp:Artist;
+        arp:name  "Dorothea Lange" .
+
+<http://arp.ro/resource/artwork/Q275924>
+        a                     arp:Artwork;
+        arp:category          "hoax chess automaton";
+        arp:classification    "hoax chess automaton" , "appliance" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Peale_Museum>;
+        arp:description       "chess automaton hoax";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Racknitz%20-%20The%20Turk%201.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "The Turk";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/Wolfgang_von_Kempelen>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q275924> .
+
+<http://arp.ro/resource/artwork/Q2313006>
+        a                     arp:Artwork;
+        arp:category          "sculpture";
+        arp:classification    "sculpture" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Casa_Buonarroti>;
+        arp:description       "sculpture by Michelangelo";
+        arp:dimensions        "84.5 x 90.5 centimetre";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Michelangelo%2C%20centauromachia%2C%201492%20ca.%2C%2001.JPG"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Battle of the Centaurs";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/Michelangelo>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q2313006> .
+
+<http://arp.ro/resource/activity/creation_Q599>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei wedding dress of Catherine Middleton";
+        arp:materialsUsed          "gazar; organza; tulle; lace; satin";
+        arp:startedAtTime          "2011"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q599>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/event_Q186556_1>
+        a                  arp:TransferOfCustody;
+        rdfs:label         "finishing time";
+        arp:startedAtTime  "3183"^^xsd:gYear;
+        prov:used          <http://arp.ro/resource/artwork/Q186556> .
+
+<http://arp.ro/resource/artwork/Q733890>
+        a                    arp:Artwork;
+        arp:category         "work of art";
+        arp:classification   "work of art" , "minor basilica" , "church building";
+        arp:currentLocation  <http://arp.ro/resource/agent/Monti>;
+        arp:description      "medieval church in Rome";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Basilica%20di%20Santa%20Prassede%20-%20esterno.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "unknown";
+        arp:title            "Santa Prassede";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q733890> .
+
+<http://arp.ro/resource/activity/event_Q77715187_1>
+        a                  arp:TransferOfCustody;
+        rdfs:label         "art intervention";
+        arp:startedAtTime  "2019"^^xsd:gYear;
+        prov:used          <http://arp.ro/resource/artwork/Q77715187> .
+
+<http://arp.ro/resource/artwork/Q471379>
+        a                     arp:Artwork;
+        arp:category          "group of paintings";
+        arp:classification    "group of paintings" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/National_Gallery_of_Norway>;
+        arp:description       "group of paintings by Edvard Munch";
+        arp:dimensions        "91 x 73.5 centimetre";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Edvard%20Munch%2C%201893%2C%20The%20Scream%2C%20oil%2C%20tempera%20and%20pastel%20on%20cardboard%2C%2091%20x%2073%20cm%2C%20National%20Gallery%20of%20Norway.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "The Scream";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/Edvard_Munch>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q471379> .
+
+<http://arp.ro/resource/artwork/Q3517517>
+        a                    arp:Artwork;
+        arp:category         "temple";
+        arp:classification   "temple" , "work of art";
+        arp:currentLocation  <http://arp.ro/resource/agent/Ellesiya_Temple_Nubian_Hall_room_15>;
+        arp:description      "ancient Egyptian rock-cut temple";
+        arp:dimensions       "850 x 460 centimetre";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Tempio%20di%20Ellesiya%208SA0459.tif"^^xsd:anyURI;
+        arp:inventoryNumber  "S. 18016";
+        arp:title            "Temple of Ellesyia";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q3517517> .
+
+<http://arp.ro/resource/agent/Berlin_Palace>
+        a         arp:Museum;
+        arp:name  "Berlin Palace" .
+
+<http://arp.ro/resource/activity/creation_Q3000066>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Lycurgus Cup";
+        arp:materialsUsed          "dichroic glass; silver";
+        arp:startedAtTime          "0350"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q3000066>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/agent/Leonardo_da_Vinci>
+        a         arp:Artist;
+        arp:name  "Leonardo da Vinci" .
+
+<http://arp.ro/resource/activity/creation_Q3332083>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Migrant Mother, Nipomo, California";
+        arp:startedAtTime          "1936"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q3332083>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Dorothea_Lange>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/creation_Q282129>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei miniature";
+        prov:generated             <http://arp.ro/resource/artwork/Q282129>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/creation_Q28114063>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Babylonokia";
+        arp:startedAtTime          "2012"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q28114063>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/artwork/Q699552>
+        a                     arp:Artwork;
+        arp:category          "study";
+        arp:classification    "work of art" , "study" , "drawing";
+        arp:currentLocation   <http://arp.ro/resource/agent/Albertina>;
+        arp:description       "drawing by Albrecht Dürer";
+        arp:dimensions        "29.1 x 19.7 centimetre";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Albrecht%20D%C3%BCrer%20-%20Praying%20Hands%2C%201508%20-%20Google%20Art%20Project.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "3113";
+        arp:title             "Praying Hands";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/Albrecht_D_rer>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q699552> .
+
+<http://arp.ro/resource/activity/creation_Q721657>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Gundestrup cauldron";
+        arp:materialsUsed          "silver";
+        arp:startedAtTime          "-0149"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q721657>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/artwork/Q128910>
+        a                     arp:Artwork;
+        arp:category          "wall painting";
+        arp:classification    "work of art" , "wall painting" , "fresco painting";
+        arp:currentLocation   <http://arp.ro/resource/agent/Santa_Maria_delle_Grazie>;
+        arp:description       "mural painting by Leonardo da Vinci";
+        arp:dimensions        "700 x 880 centimetre";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Leonardo%20da%20Vinci%20%281452-1519%29%20-%20The%20Last%20Supper%20%281495-1498%29.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "The Last Supper";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/Leonardo_da_Vinci>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q128910> .
+
+<http://arp.ro/resource/artwork/Q186556>
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Wemding>;
+        arp:description       "work of public art by Manfred Laber under construction in Wemding, Germany";
+        arp:dimensions        "9.2 x 15 metre";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Zeitpyramide%202023%20B.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Zeitpyramide";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/Manfred_Laber>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q186556> .
+
+<http://arp.ro/resource/agent/Manfred_Laber>
+        a         arp:Artist;
+        arp:name  "Manfred Laber" .
+
+<http://arp.ro/resource/agent/Franc_Fernandez>
+        a         arp:Artist;
+        arp:name  "Franc Fernandez" .
+
+<http://arp.ro/resource/artwork/Q3399457>
+        a                    arp:Artwork;
+        arp:category         "fresco";
+        arp:classification   "fresco" , "work of art";
+        arp:currentLocation  <http://arp.ro/resource/agent/Pompeii>;
+        arp:description      "portrait fresco, Pompeii";
+        arp:dimensions       "58 x 53 centimetre";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20de%20Paquius%20Proculus%20et%20son%20%C3%A9pouse.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "unknown";
+        arp:title            "Portrait of Terentius Neo";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q3399457> .
+
+<http://arp.ro/resource/activity/creation_Q938131>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei meat dress of Lady Gaga";
+        arp:materialsUsed          "flank steak";
+        arp:startedAtTime          "2010"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q938131>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Nicola_Formichetti>;
+                                     prov:hadRole  arp:Artist
+                                   ];
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Franc_Fernandez>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/agent/Unknown_Artist>
+        a         arp:Artist;
+        arp:name  "Unknown Artist" .
+
+<http://arp.ro/resource/agent/National_Museum_of_Denmark>
+        a         arp:Museum;
+        arp:name  "National Museum of Denmark" .
+
+<http://arp.ro/resource/agent/Wemding>
+        a         arp:Museum;
+        arp:name  "Wemding" .
+
+<http://arp.ro/resource/artwork/Q77715187>
+        a                     arp:Artwork;
+        arp:category          "installation artwork";
+        arp:classification    "installation artwork" , "sculpture" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "Maurizio Cattelan artwork";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Banana%20duct%20taped%20to%20fridge%20as%20a%20reminder%20to%20eat%20less%20meat.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Comedian";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/David_Datuna> , <http://arp.ro/resource/agent/Maurizio_Cattelan>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q77715187> .
+
+<http://arp.ro/resource/activity/creation_Q18207282>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Future Library project";
+        prov:generated             <http://arp.ro/resource/artwork/Q18207282>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Katie_Paterson>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/creation_Q157012>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Amber Room";
+        arp:materialsUsed          "gold leaf; gemstone; mirror; amber";
+        arp:startedAtTime          "1712"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q157012>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Andreas_Schl_ter>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/agent/David_Datuna>
+        a         arp:Artist;
+        arp:name  "David Datuna" .
+
+<http://arp.ro/resource/artwork/Q599>
+        a                    arp:Artwork;
+        arp:category         "work of art";
+        arp:classification   "dress" , "wedding dress" , "work of art";
+        arp:currentLocation  <http://arp.ro/resource/agent/Buckingham_Palace>;
+        arp:description      "dress worn by Catherine Middleton on the day of her wedding to Prince William, Duke of Cambridge, in 2011";
+        arp:inventoryNumber  "unknown";
+        arp:title            "wedding dress of Catherine Middleton";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q599> .
+
+<http://arp.ro/resource/artwork/Q282129>
+        a                    arp:Artwork;
+        arp:category         "genre of painting";
+        arp:classification   "genre of painting" , "work of art";
+        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description      "very small painting";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Jean%20Fouquet%20-%20Self-portrait%20-%20WGA08041.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "unknown";
+        arp:title            "miniature";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q282129> .
+
+<http://arp.ro/resource/artwork/Q1476013>
+        a                    arp:Artwork;
+        arp:category         "work of art";
+        arp:classification   "work of art";
+        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description      "type of lawn ornament";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/At%20the%20junction%20of%20Bee%20Caves%20Road%20and%20Capital%20of%20Texas%20Highway%2C%20is%20this%20flock%20of%20plastic%20pink%20flamingos%20-%20at%20a%20local%20nursery%20in%20Austin%20%282458613657%29.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "unknown";
+        arp:title            "plastic flamingo";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q1476013> .
+
+<http://arp.ro/resource/artwork/Q721657>
+        a                    arp:Artwork;
+        arp:category         "archaeological find";
+        arp:classification   "archaeological find" , "work of art" , "cauldron";
+        arp:currentLocation  <http://arp.ro/resource/agent/National_Museum_of_Denmark>;
+        arp:description      "iron age silver cauldron found in Denmark";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Gundestrupkarret%20F.I.7074b.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "C6562-76";
+        arp:title            "Gundestrup cauldron";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q721657> .

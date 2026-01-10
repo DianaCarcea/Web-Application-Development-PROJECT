@@ -21,4 +21,7 @@ public class ArtistService {
     public Artist getArtistByUri(String artistUri) {
         return repository.findByUri(artistUri);
     }
+    public List<Artist> getAllArtistsWithFirstArtwork() {
+        return repository.findAllArtistWithFirstArtwork();
+    }
 }

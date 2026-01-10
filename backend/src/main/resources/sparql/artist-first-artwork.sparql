@@ -1,0 +1,13 @@
+PREFIX arp: <http://arp.ro/schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+SELECT ?artist ?name ?wikidataName ?artwork ?imageLink
+WHERE {
+  ?artist a arp:Artist .
+  OPTIONAL { ?artist arp:name ?name }
+  OPTIONAL { ?artist arp:wikidataName ?wikidataName }
+
+  ?artwork a arp:Artwork ;
+           prov:wasAttributedTo ?artist ;
+           arp:imageLink ?imageLink .
+}

@@ -78,42 +78,23 @@ arp:Activity a owl:Class ;
     rdfs:subClassOf prov:Activity ;
     rdfs:label "Activitate (General)" .
 
-# Ramura CREATION
-arp:Create a owl:Class ;
-    rdfs:subClassOf arp:Activity, prov:Create ;
-    rdfs:label "Activitate de Creare (Generic)" .
-
 arp:Creation a owl:Class ;
-    rdfs:subClassOf arp:Create ;
+    rdfs:subClassOf arp:Activity, prov:Create ;
     rdfs:label "Creație Artistică" .
 
-# Ramura RESTORATION (Modify)
-arp:Modify a owl:Class ;
-    rdfs:subClassOf arp:Activity, prov:Modify ;
-    rdfs:label "Activitate de Modificare" .
-
 arp:Restoration a owl:Class ;
-    rdfs:subClassOf arp:Modify ;
+    rdfs:subClassOf arp:Activity, prov:Modify ;
     rdfs:label "Restaurare" .
 
-# Ramura TRANSFER (RightsAssignment)
-arp:RightsAssignment a owl:Class ;
-    rdfs:subClassOf arp:Activity, prov:RightsAssignment ;
-    rdfs:label "Atribuire de Drepturi" .
 
 arp:TransferOfCustody a owl:Class ;
-    rdfs:subClassOf arp:RightsAssignment ;
+    rdfs:subClassOf arp:Activity, prov:RightsAssignment ;
     rdfs:label "Transfer de Custodie/Vânzare" .
 
-# Ramura EXHIBITION (Publish)
-arp:Publish a owl:Class ;
-    rdfs:subClassOf arp:Activity, prov:Publish ;
-    rdfs:label "Activitate de Publicare" .
 
 arp:Exhibition a owl:Class ;
-    rdfs:subClassOf arp:Publish ;
+    rdfs:subClassOf arp:Activity, prov:Publish ;
     rdfs:label "Expoziție" .
-
 
 # ---------------------------------------------------------
 # PROPRIETĂȚI (Data Properties - Atribute)
@@ -224,17 +205,12 @@ arp:birthDate a owl:DatatypeProperty ;
     rdfs:range rdfs:Literal ; # Modificat din xsd:date (ex: "cca 1850" nu e dată validă)
     rdfs:label "Data Nașterii" .
 
-foaf:homepage a owl:ObjectProperty ; # Standard pentru site-uri web
-    rdfs:domain arp:Agent ;
-    rdfs:range xsd:anyURI ;
-    rdfs:label "Website Instituție" .
-
 # URI-ul Wikidata al artistului
 arp:wikidataUri a owl:DatatypeProperty ;
-                rdfs:domain arp:Artist ;
-                rdfs:range xsd:anyURI ;
-                rdfs:label "URI Wikidata" ;
-                rdfs:comment "Link către entitatea Wikidata corespunzătoare artistului." .
+    rdfs:domain arp:Artist ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "URI Wikidata" ;
+    rdfs:comment "Link către entitatea Wikidata corespunzătoare artistului." .
 
 # Numele preferat al artistului de pe Wikidata
 arp:wikidataName a owl:DatatypeProperty ;

@@ -1,60 +1,145 @@
-PREFIX aat:  <http://vocab.getty.edu/aat/>
-PREFIX arp:  <http://arp.ro/schema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-
-<http://arp.ro/material/marmură>
-        rdfs:label       "marmură";
-        skos:exactMatch  aat:300015078 .
-
-<http://arp.ro/material/sticlă>
-        rdfs:label       "sticlă";
-        skos:exactMatch  aat:300015062 .
-
-<http://arp.ro/material/peniță>
-        rdfs:label       "peniță";
-        skos:exactMatch  aat:300014938 .
+@prefix aat:  <http://vocab.getty.edu/aat/> .
+@prefix arp:  <http://arp.ro/schema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 <http://arp.ro/material/lemn>
-        rdfs:label       "lemn";
-        skos:exactMatch  aat:300015072 .
-
-<http://arp.ro/material/tempera>
-        rdfs:label       "tempera";
-        skos:exactMatch  aat:300015057 .
-
-<http://arp.ro/material/ulei>
-        rdfs:label       "ulei";
-        skos:exactMatch  aat:300015050 .
+    rdfs:label "lemn"@ro;
+    rdfs:label "wood"@en;
+    skos:exactMatch aat:300011914 .
 
 <http://arp.ro/material/grafit>
-        rdfs:label       "grafit";
-        skos:exactMatch  aat:300014876 .
+    rdfs:label "grafit"@ro;
+    rdfs:label "graphite"@en;
+    skos:exactMatch aat:300011098 .
 
-<http://arp.ro/material/pastel>
-        rdfs:label       "pastel";
-        skos:exactMatch  aat:300015051 .
+<http://arp.ro/material/organza>
+    rdfs:label "organza"@ro;
+    rdfs:label "organza"@en;
+    skos:exactMatch aat:300310123 .
 
-<http://arp.ro/material/bronz>
-        rdfs:label       "bronz";
-        skos:exactMatch  aat:300015090 .
+<http://arp.ro/material/dantela>
+    rdfs:label "dantelă"@ro;
+    rdfs:label "lace"@en;
+    skos:exactMatch aat:300132861 .
+
+<http://arp.ro/material/piatra_pretioasa>
+    rdfs:label "piatră prețioasă"@ro;
+    rdfs:label "gemstone"@en;
+    skos:exactMatch aat:300201964 .
 
 <http://arp.ro/material/creion>
-        rdfs:label       "creion";
-        skos:exactMatch  aat:300014876 .
+    rdfs:label "creion"@ro;
+    rdfs:label "pencil"@en;
+    skos:exactMatch aat:300022439 .
 
-<http://arp.ro/material/tuș>
-        rdfs:label       "tuș";
-        skos:exactMatch  aat:300014938 .
+<http://arp.ro/material/beton>
+    rdfs:label "beton"@ro;
+    rdfs:label "concrete"@en;
+    skos:exactMatch aat:300010737 .
 
-<http://arp.ro/material/teracotă>
-        rdfs:label       "teracotă";
-        skos:exactMatch  aat:300015099 .
+<http://arp.ro/material/tus>
+    rdfs:label "tuș"@ro;
+    rdfs:label "ink"@en;
+    skos:exactMatch aat:300015012 .
 
-<http://arp.ro/material/sanguină>
-        rdfs:label       "sanguină";
-        skos:exactMatch  aat:300015053 .
+<http://arp.ro/material/bronz>
+    rdfs:label "bronz"@ro;
+    rdfs:label "bronze"@en;
+    skos:exactMatch aat:300010957 .
+
+<http://arp.ro/material/teracota>
+    rdfs:label "teracotă"@ro;
+    rdfs:label "terracotta"@en;
+    skos:exactMatch aat:300010669 .
+
+<http://arp.ro/material/cuart>
+    rdfs:label "cuarț"@ro;
+    rdfs:label "quartz"@en;
+    skos:exactMatch aat:300011132 .
+
+<http://arp.ro/material/ulei>
+    rdfs:label "ulei"@ro;
+    rdfs:label "oil painting"@en;
+    skos:exactMatch aat:300178684 .
+
+<http://arp.ro/material/oglinda>
+    rdfs:label "oglindă"@ro;
+    rdfs:label "mirror"@en;
+    skos:exactMatch aat:300037682 .
+
+<http://arp.ro/material/pastel>
+    rdfs:label "pastel"@ro;
+    rdfs:label "pastel"@en;
+    skos:exactMatch aat:300122621 .
+
+<http://arp.ro/material/lut>
+    rdfs:label "lut"@ro;
+    rdfs:label "clay"@en;
+    skos:exactMatch aat:300010439 .
+
+<http://arp.ro/material/hartie>
+    rdfs:label "hârtie"@ro;
+    rdfs:label "paper"@en;
+    skos:exactMatch aat:300014109 .
+
+<http://arp.ro/material/satin>
+    rdfs:label "satin"@ro;
+    rdfs:label "satin"@en;
+    skos:exactMatch aat:300132902 .
+
+<http://arp.ro/material/sticla>
+    rdfs:label "sticlă"@ro;
+    rdfs:label "glass"@en;
+    skos:exactMatch aat:300010797 .
 
 <http://arp.ro/material/acuarel>
-        rdfs:label       "acuarel";
-        skos:exactMatch  aat:300015056 .
+    rdfs:label "acuarel"@ro;
+    rdfs:label "watercolor"@en;
+    skos:exactMatch aat:300389895 .
+
+<http://arp.ro/material/sanguina>
+    rdfs:label "sanguină"@ro;
+    rdfs:label "red chalk"@en;
+    skos:exactMatch aat:300080064 .
+
+<http://arp.ro/material/gresie>
+    rdfs:label "gresie"@ro;
+    rdfs:label "sandstone"@en;
+    skos:exactMatch aat:300011376 .
+
+<http://arp.ro/material/penita>
+    rdfs:label "peniță"@ro;
+    rdfs:label "pen"@en;
+    skos:exactMatch aat:300022452 .
+
+<http://arp.ro/material/pergament>
+    rdfs:label "pergament"@ro;
+    rdfs:label "parchment"@en;
+    skos:exactMatch aat:300011851 .
+
+<http://arp.ro/material/marmura>
+    rdfs:label "marmură"@ro;
+    rdfs:label "marble"@en;
+    skos:exactMatch aat:300011443 .
+
+<http://arp.ro/material/tempera>
+    rdfs:label "tempera"@ro;
+    rdfs:label "tempera"@en;
+    skos:exactMatch aat:300015062 .
+
+<http://arp.ro/material/chihlimbar>
+    rdfs:label "chihlimbar"@ro;
+    rdfs:label "amber"@en;
+    skos:exactMatch aat:300012934 .
+
+<http://arp.ro/material/argint>
+    rdfs:label "argint"@ro;
+    rdfs:label "silver"@en;
+    skos:exactMatch aat:300011029 .
+
+<http://arp.ro/material/tul>
+    rdfs:label "tul"@ro;
+    rdfs:label "tulle"@en;
+    skos:exactMatch aat:300256611 .
+

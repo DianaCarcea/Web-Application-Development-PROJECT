@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="/styles/home.css">
 </head>
 <body>
+
+<div style="text-align: right; margin: 10px 20px;">
+    <a href="http://localhost:8080/arp-query.html"
+       target="_blank"
+       style="background-color: #007acc; color: white; padding: 6px 12px; border-radius: 5px; text-decoration: none; font-weight: bold;">
+        ArP Query Service
+    </a>
+</div>
+
 <header>
     <h1>Discover</h1>
     <p>Explore Our Collection Thematically</p>
@@ -22,41 +31,15 @@
     <!-- Artists Section -->
     <section id="artists">
         <h2>Artists</h2>
-        <div class="grid artist-grid">
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Leonardo_da_Vinci.jpg/300px-Leonardo_da_Vinci.jpg" alt="Leonardo da Vinci">
-                <h3>Leonardo da Vinci</h3>
-            </div>
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Vincent_van_Gogh_1887.jpg/300px-Vincent_van_Gogh_1887.jpg" alt="Vincent van Gogh">
-                <h3>Vincent van Gogh</h3>
-            </div>
-            <div class="card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Pablo_Picasso_1908.jpg/300px-Pablo_Picasso_1908.jpg" alt="Pablo Picasso">
-                <h3>Pablo Picasso</h3>
+        <div class="grid artworks-grid">
+            <div class="card" th:each="artist : ${artists}">
+                <a th:href="@{/artists/{id}/artworks(id=${artist.id})}">
+                    <img th:src="${artist.firstArtworkImageLink}" th:alt="${artist.name}">
+                </a>
+                <h3 th:text="${artist.name}"></h3>
             </div>
         </div>
     </section>
-
-    <!-- International Arts Section -->
-<!--    <section id="int-art">-->
-<!--        <h2>International Arts & Culture</h2>-->
-<!--        <div class="grid artworks-grid">-->
-<!--            <div class="card">-->
-<!--                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/300px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona Lisa">-->
-<!--                <h3>Mona Lisa</h3>-->
-<!--            </div>-->
-<!--            <div class="card">-->
-<!--                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Starry_Night_Over_the_Rhone.jpg/300px-Starry_Night_Over_the_Rhone.jpg" alt="Starry Night Over the Rhône">-->
-<!--                <h3>Starry Night Over the Rhône</h3>-->
-<!--            </div>-->
-<!--            <div class="card">-->
-<!--                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Guernica_by_Pablo_Picasso.jpg/300px-Guernica_by_Pablo_Picasso.jpg" alt="Guernica">-->
-<!--                <h3>Guernica</h3>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-
 
     <section id="int-art">
         <h2>

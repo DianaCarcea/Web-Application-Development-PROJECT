@@ -42,14 +42,14 @@
 
         <section class="description"
                  th:if="${art.description != null and !#strings.isEmpty(art.description)}">
-            <h2>Descriere</h2>
+            <h2>Description</h2>
             <p property="arp:description schema:description">
                 [[${art.description}]]
             </p>
         </section>
 
         <table class="meta-table">
-            <tr th:if="${art.artist != null}">
+            <tr th:if="${art.artist!= null and !#lists.isEmpty(art.artist)}">
                 <th>Artist</th>
                 <td property="arp:name schema:name"
                     resource="[[${art.artist.uri}]]">
@@ -57,34 +57,34 @@
                 </td>
             </tr>
 
-            <tr th:if="${art.creation != null}">
-                <th>Datare</th>
+            <tr th:if="${art.creation.startedAtTime != null and !#lists.isEmpty(art.creation.startedAtTime)}">
+                <th>Creation Date</th>
                 <td property="arp:startedAtTime schema:dateCreated">[[${art.creation.startedAtTime}]]</td>
             </tr>
 
-            <tr th:if="${art.dimensions != null and !#strings.isEmpty(art.dimensions)}">
+            <tr th:if="${art.dimensions != null and !art.dimensions.isEmpty()}">
                 <th>Dimensiuni</th>
                 <td property="arp:dimensions">
                     [[${art.dimensions}]]
                 </td>
             </tr>
 
-            <tr th:if="${art.inventoryNumber!= null}">
-                <th>Nr. inventar</th>
+            <tr th:if="${art.inventoryNumber!= null and !#lists.isEmpty(art.inventoryNumber)}">
+                <th>Inventory Number</th>
                 <td property="arp:inventoryNumber">
                     [[${art.inventoryNumber}]]
                 </td>
             </tr>
 
-            <tr th:if="${art.condition!= null}">
-                <th>Stare</th>
+            <tr th:if="${art.condition!= null and !#lists.isEmpty(art.condition)}">
+                <th>Condition</th>
                 <td property="arp:condition">
                     [[${art.condition}]]
                 </td>
             </tr>
 
             <tr th:if="${art.classification != null and !#lists.isEmpty(art.classification)}">
-                <th>Clasificări</th>
+                <th>Classifications</th>
                 <td>
                     <span th:each="cls : ${art.classification}"
                           property="arp:classification"
@@ -95,7 +95,7 @@
             </tr>
 
             <tr th:if="${art.cultures != null and !#lists.isEmpty(art.cultures)}">
-                <th>Cultură</th>
+                <th>Culture / School</th>
                 <td>
                     <span th:each="c : ${art.cultures}"
                           property="arp:culture"
@@ -106,7 +106,7 @@
             </tr>
 
             <tr th:if="${art.techniques != null and !#lists.isEmpty(art.techniques)}">
-                <th>Tehnici</th>
+                <th>Technique</th>
                 <td>
                     <span th:each="t : ${art.techniques}"
                           property="arp:technique"
@@ -117,7 +117,7 @@
             </tr>
 
             <tr th:if="${art.materialsUsed != null and !#lists.isEmpty(art.materialsUsed)}">
-                <th>Materiale</th>
+                <th>Material</th>
                 <td>
                     <span th:each="m : ${art.materialsUsed}"
                           property="arp:materialsUsed"
