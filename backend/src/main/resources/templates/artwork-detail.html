@@ -181,7 +181,7 @@
         </table>
 
         <footer class="links">
-            <a th:if="${art.cimecLink!= null && !#strings.isEmpty(art.cimecLink)}"
+            <a th:if="${art.cimecLink!= null && !#strings.isEmpty(art.cimecLink)} "
                th:href="${art.cimecLink}"
                target="_blank"
                property="arp:cimecLink"

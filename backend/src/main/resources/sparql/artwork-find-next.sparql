@@ -12,6 +12,7 @@ SELECT ?subject
        (SAMPLE(?inv_val) AS ?inv)
        (SAMPLE(?desc_val) AS ?desc)
        (SAMPLE(?cimec_val) AS ?cimec)
+       (SAMPLE(?wikidataLink_val) AS ?wikidataLink)
        (SAMPLE(?license_val) AS ?license)
        (SAMPLE(?date_val) AS ?date)
        (SAMPLE(?dimensions_val) AS ?dimensions)
@@ -24,20 +25,29 @@ SELECT ?subject
        (SAMPLE(?validatorName_val) AS ?validatorName)
        (SAMPLE(?validatedAt_val) AS ?validatedAt)
 
-       # --- Valori Multiple (GROUP_CONCAT) ---
-       (GROUP_CONCAT(DISTINCT ?cls; separator="; ") AS ?classifications)
-       (GROUP_CONCAT(DISTINCT ?tech; separator="; ") AS ?techniques)
-       (GROUP_CONCAT(DISTINCT ?culture; separator="; ") AS ?cultures)
-       (GROUP_CONCAT(DISTINCT ?mat; separator="; ") AS ?materialsUsed)
-
-       # --- Istoric Proprietari ---
-       (GROUP_CONCAT(DISTINCT ?ownerInfo; separator="|") AS ?ownershipHistory)
-
        # --- Artist & Muzeu ---
        (SAMPLE(?artistName_val) AS ?artistName)
        (SAMPLE(?artistUri_val) AS ?artistUri)
        (SAMPLE(?museumName_val) AS ?museumName)
        (SAMPLE(?museumUri_val) AS ?museumUri)
+
+      # --- Valori Multiple (GROUP_CONCAT) ---
+      (GROUP_CONCAT(DISTINCT ?cls; separator="; ") AS ?classifications)
+      (GROUP_CONCAT(DISTINCT ?tech; separator="; ") AS ?techniques)
+      (GROUP_CONCAT(DISTINCT ?culture; separator="; ") AS ?cultures)
+      (GROUP_CONCAT(DISTINCT ?mat; separator="; ") AS ?materialsUsed)
+
+      # --- Istoric Proprietari ---
+      (GROUP_CONCAT(
+               DISTINCT CONCAT(
+                 COALESCE(?ownerName, STR(?ownerUri)),
+                 "||",
+                 COALESCE(STR(?ownStart), ""),
+                 "||",
+                 COALESCE(STR(?ownEnd), "")
+               );
+               separator=";;"
+            ) AS ?ownershipHistory)
 
 WHERE {
   ?subject a arp:Artwork .
@@ -51,6 +61,7 @@ WHERE {
   OPTIONAL { ?subject arp:inventoryNumber ?inv_val }
   OPTIONAL { ?subject arp:description ?desc_val }
   OPTIONAL { ?subject arp:cimecLink ?cimec_val }
+  OPTIONAL { ?subject arp:wikidataLink ?wikidataLink_val }
   OPTIONAL { ?subject dct:license ?license_val }
 
   # --- Liste (fără _val) ---
@@ -90,25 +101,19 @@ WHERE {
     OPTIONAL { ?museumUri_val arp:name ?museumName_val }
   }
 
-  # --- OWNERSHIP HISTORY ---
   OPTIONAL {
-    ?subject arp:hasOwnership ?custodyNode .
-    ?custodyNode prov:wasAssociatedWith ?ownerAgent .
+          ?subject arp:hasOwnership ?ownership .
+          ?ownership a arp:TransferOfCustody .
 
-    OPTIONAL { ?custodyNode arp:startedAtTime ?oStart }
-    OPTIONAL { ?custodyNode arp:endedAtTime ?oEnd }
-    OPTIONAL { ?ownerAgent arp:name ?oName }
+          OPTIONAL { ?ownership arp:startedAtTime ?ownStart }
+          OPTIONAL { ?ownership arp:endedAtTime ?ownEnd }
+          OPTIONAL {
+            ?ownership prov:wasAssociatedWith ?ownerUri .
+            OPTIONAL { ?ownerUri arp:name ?ownerName }
+          }
+        }
 
-    # Fallback pentru nume
-    BIND(COALESCE(?oName, REPLACE(STR(?ownerAgent), "^.*/([^/]*)$", "$1")) AS ?resolvedOwnerName)
 
-    # Construire string
-    BIND(CONCAT(
-        ?resolvedOwnerName, "::",
-        COALESCE(STR(?oStart), ""), "::",
-        COALESCE(STR(?oEnd), "")
-    ) AS ?ownerInfo)
-  }
 }
 GROUP BY ?subject
 # IMPORTANT: Adaugă ORDER BY când folosești paginare pentru a garanta ordinea rezultatelor

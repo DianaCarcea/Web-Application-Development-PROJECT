@@ -51,7 +51,7 @@
                         </td>
                     </tr>
 
-                    <tr th:if="${art.creation.startedAtTime != null}">
+                    <tr th:if="${art.creation.startedAtTime != null and !#lists.isEmpty(art.creation.startedAtTime)}">
                         <th>Creation Date</th>
                         <td property="arp:startedAtTime schema:dateCreated">[[${art.creation.startedAtTime}]]</td>
                     </tr>
@@ -128,14 +128,58 @@
                         <th>Date of Validation</th>
                         <td property="arp:validatedAt">[[${art.validatedAt}]]</td>
                     </tr>
+
+                    <tr th:if="${art.ownershipHistory != null and #lists.size(art.ownershipHistory) > 0}">
+                        <th>Ownership history</th>
+                        <td>
+                            <table>
+                                <tr th:each="o : ${art.ownershipHistory}">
+                                    <td>
+                                        <strong th:text="${o.ownerName}">Owner</strong>
+                                        <span th:if="${o.startedAt != null}">
+                        (<span th:text="${o.startedAt}"></span>
+                        <span th:if="${o.endedAt != null}"> – <span th:text="${o.endedAt}"></span></span>)
+                    </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
                 </table>
 
                 <div class="links">
-                    <a th:if="${art.cimecLink}" th:href="${art.cimecLink}" target="_blank" property="arp:cimecLink">View on CIMEC</a>
-                    <a th:if="${art.license}" th:href="${art.license}" target="_blank" property="dct:license">License (Europeana)</a>
-                    <span class="source">
-                        Source: <a href="http://www.patrimoniu.ro" target="_blank">National Heritage Institute</a>
+                    <a th:if="${art.cimecLink!= null && !#strings.isEmpty(art.cimecLink)} "
+                       th:href="${art.cimecLink}"
+                       target="_blank"
+                       property="arp:cimecLink"
+                       class="btn-link">
+                        Vezi pe CIMEC
+                    </a>
+
+                    <a th:if="${art.wikidataLink!=null and !#strings.isEmpty(art.wikidataLink)}"
+                       th:href="${art.wikidataLink}"
+                       target="_blank"
+                       class="btn-link">
+                        Vezi pe Wikidata
+                    </a>
+
+                    <a th:if="${art.license!= null && !#strings.isEmpty(art.license)}"
+                       th:href="${art.license}"
+                       target="_blank"
+                       property="dct:license"
+                       class="btn-link">
+                        Licență
+                    </a>
+
+                    <span th:if="${art.cimecLink!= null && !#strings.isEmpty(art.cimecLink)}" class="source">
+                         Source: <a href="http://www.patrimoniu.ro" target="_blank">National Heritage Institute</a>
                     </span>
+
+                    <span th:if="${art.wikidataLink!=null and !#strings.isEmpty(art.wikidataLink)}" class="source">
+                         Source: <a href="https://www.wikidata.org/wiki/Wikidata" target="_blank">Wikidata</a>
+                    </span>
+
                 </div>
             </div>
         </div>
