@@ -2180,15 +2180,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:wikidataName  "Q310973";
         arp:wikidataUri   <http://www.wikidata.org/entity/Q310973> .
 
-<http://arp.ro/resource/agent/Arnold__Max_W_>
-        a                 arp:Artist;
-        arp:gettyId       "500482084";
-        arp:gettyUri      ulan:500482084;
-        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Max%20W.%20Arnold.jpg>;
-        arp:name          "Arnold, Max W.";
-        arp:wikidataName  "Max W. Arnold"@ro;
-        arp:wikidataUri   <http://www.wikidata.org/entity/Q12735184> .
-
 <http://arp.ro/resource/agent/Istvan__Nagy>
         a                 arp:Artist;
         arp:gettyId       "500000353";
@@ -5561,15 +5552,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:gettyUri  ulan:500095998;
         arp:name      "Domșa, Flaviu" .
 
-<http://arp.ro/resource/agent/Brill__Paul>
-        a                 arp:Artist;
-        arp:gettyId       "500005652";
-        arp:gettyUri      ulan:500005652;
-        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Bril%2C%20Paul%20-%20Self-Portrait%20-%201595-1600%20%28cropped%29.jpg>;
-        arp:name          "Brill, Paul";
-        arp:wikidataName  "Paul Bril"@en;
-        arp:wikidataUri   <http://www.wikidata.org/entity/Q540753> .
-
 <http://arp.ro/resource/agent/Huet__Paul>
         a                 arp:Artist;
         arp:gettyId       "500010823";
@@ -5851,15 +5833,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:gettyId   "500029963";
         arp:gettyUri  ulan:500029963;
         arp:name      "Bezzi, Giovani Francesco, zis Il Nosadella" .
-
-<http://arp.ro/resource/agent/Andreescu__Ioan>
-        a                 arp:Artist;
-        arp:gettyId       "500011952";
-        arp:gettyUri      ulan:500011952;
-        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Self-Portrait%20Ion%20Andreescu%201882.jpg>;
-        arp:name          "Andreescu, Ioan";
-        arp:wikidataName  "Ion Andreescu"@ro;
-        arp:wikidataUri   <http://www.wikidata.org/entity/Q723350> .
 
 <http://arp.ro/resource/agent/Savery__Jakob_II>
         a             arp:Artist;
@@ -7152,11 +7125,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:wikidataName  "Lucas Cranach cel Bătrân"@ro;
         arp:wikidataUri   <http://www.wikidata.org/entity/Q191748> .
 
-<http://arp.ro/resource/agent/Gheorghe__Anghel>
-        a             arp:Artist;
-        arp:gettyId   "500061709";
-        arp:gettyUri  ulan:500061709;
-        arp:name      "Gheorghe, Anghel" .
 
 <http://arp.ro/resource/agent/Rocca__Michele_zis_t_n_rul_Parmigianino___n_registrul_inventar__Genul_lui_Francesco_Solimena_>
         a             arp:Artist;
@@ -7193,14 +7161,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:gettyId   "500109677";
         arp:gettyUri  ulan:500109677;
         arp:name      "Mirea Demetrescu George" .
-
-<http://arp.ro/resource/agent/Anghel__Gheorghe>
-        a                 arp:Artist;
-        arp:gettyId       "500101884";
-        arp:gettyUri      ulan:500101884;
-        arp:name          "Anghel, Gheorghe";
-        arp:wikidataName  "Gheorghe D. Anghel"@ro;
-        arp:wikidataUri   <http://www.wikidata.org/entity/Q3761597> .
 
 <http://arp.ro/resource/agent/Paciurea__Dimitrie>
         a                 arp:Artist;

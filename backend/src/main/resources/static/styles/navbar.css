@@ -1,0 +1,23 @@
+.top-nav {
+    display: flex;
+    justify-content: flex-start; /* Back și Discover pe stânga */
+    gap: 1rem;
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.25);
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.top-nav a:hover {
+    text-decoration: underline;
+}
+
+.nav-back {
+    margin-right: 2rem;
+}

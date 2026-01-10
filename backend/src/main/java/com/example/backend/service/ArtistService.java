@@ -15,9 +15,9 @@ public class ArtistService {
         this.repository = repository;
     }
 
-    public List<Artist> getAllArtists() {
-        return repository.findAll();
-    }
+//    public List<Artist> getAllArtists() {
+//        return repository.findAll();
+//    }
     public Artist getArtistByUri(String artistUri) {
         return repository.findByUri(artistUri);
     }

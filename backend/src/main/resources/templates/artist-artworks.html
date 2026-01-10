@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title th:text="${artist?.wikidataLabel ?: artist.name}">Artist</title>
     <link rel="stylesheet" th:href="@{/styles/artworks.css}" />
+    <link rel="stylesheet" th:href="@{/styles/navbar.css}">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
 
 <header>
     <h1>
-        [[${artist?.wikidataLabel ?: artist?.name}]] - Artworks
+        Artworks by<br>[[${artist?.wikidataLabel ?: artist?.name}]]
     </h1>
     <img th:if="${artist?.imageLink}"
          th:src="${artist.imageLink}"
@@ -34,8 +35,10 @@
 
             <div class="card-body">
                 <figure th:if="${art.imageLink}">
-                    <a th:href="@{/artworks/{id}(id=${art.id})}">
-                        <img th:src="${art.imageLink}" th:alt="${art.title}" property="arp:imageLink schema:image"/>
+                    <a th:href="@{/artworks/{id}(id=${art.id}, domain=${domain})}">
+                        <img th:src="${art.imageLink}"
+                             th:alt="${art.title}"
+                             property="arp:imageLink schema:image"/>
                     </a>
                 </figure>
 
@@ -46,17 +49,17 @@
                     </div>
 
                     <table class="meta-table">
-                        <tr th:if="${art.creation != null}">
+                        <tr th:if="${art.creation != null and !#lists.isEmpty(art.creation)}">
                             <th>Creation Date</th>
                             <td property="arp:startedAtTime schema:dateCreated">[[${art.creation.startedAtTime}]]</td>
                         </tr>
 
-                        <tr th:if="${art.dimensions != null}">
+                        <tr th:if="${art.dimensions != null and !#lists.isEmpty(art.dimensions)}">
                             <th>Dimensions</th>
                             <td property="arp:dimensions">[[${art.dimensions}]]</td>
                         </tr>
 
-                        <tr th:if="${art.condition != null}">
+                        <tr th:if="${art.condition != null and !#lists.isEmpty(art.condition)}">
                             <th>Condition</th>
                             <td property="arp:condition">[[${art.condition}]]</td>
                         </tr>

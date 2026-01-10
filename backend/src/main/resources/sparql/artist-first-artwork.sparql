@@ -1,13 +1,23 @@
 PREFIX arp: <http://arp.ro/schema#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 
-SELECT ?artist ?name ?wikidataName ?artwork ?imageLink
+SELECT ?artist ?name ?wikidataName
+       (COALESCE(SAMPLE(?artistImg), SAMPLE(?artworkImg)) AS ?artistImage)
 WHERE {
   ?artist a arp:Artist .
+
   OPTIONAL { ?artist arp:name ?name }
   OPTIONAL { ?artist arp:wikidataName ?wikidataName }
 
-  ?artwork a arp:Artwork ;
-           prov:wasAttributedTo ?artist ;
-           arp:imageLink ?imageLink .
+  OPTIONAL {
+    ?artist arp:imageLink ?artistImg .
+  }
+
+  OPTIONAL {
+    ?artwork a arp:Artwork ;
+             prov:wasAttributedTo ?artist ;
+             arp:imageLink ?artworkImg .
+  }
 }
+GROUP BY ?artist ?name ?wikidataName
+ORDER BY ?name
