@@ -17,7 +17,7 @@ public class PredefinedQueryLoader {
     public Map<String, String> getPredefinedQueries() {
         Map<String, String> predefinedQueries = new HashMap<>();
 
-        String[] files = {"artists.sparql","artworks.sparql","artworks_by_material.sparql"};
+        String[] files = {"artists.sparql","artworks.sparql","artworks_count_by_material.sparql","artworks_by_getty_material.sparql"};
 
         for (String file : files) {
             try (InputStream is = getClass().getResourceAsStream(QUERY_PATH + file)) {

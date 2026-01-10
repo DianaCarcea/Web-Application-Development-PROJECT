@@ -1,6 +1,8 @@
 PREFIX arp: <http://arp.ro/schema#>
-SELECT ?artwork ?title WHERE {
+
+SELECT ?artworkUri ?title WHERE {
   ?artwork a arp:Artwork ;
            arp:title ?title .
+  BIND(?artwork AS ?artworkUri)
 }
 ORDER BY ?title

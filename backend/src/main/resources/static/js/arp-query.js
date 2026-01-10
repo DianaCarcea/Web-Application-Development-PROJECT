@@ -9,7 +9,8 @@ async function loadPredefinedQueries() {
     const labelsMain = {
         artists: "List all artists",
         artworks:"List all artworks",
-        artworks_by_material:"Count Artworks by Material",
+        artworks_by_getty_material:"Artworks by Material (Getty AAT)",
+        artworks_count_by_material:"Count Artworks by Material",
     };
     // const labelsStatistics = {
     //     artists: "List all artists",
@@ -19,8 +20,12 @@ async function loadPredefinedQueries() {
 
     Object.keys(queries).forEach(key => {
         const btn = document.createElement("button");
-        btn.textContent = labelsMain[key] || key; // dacă nu există etichetă, afișează cheia
-        btn.onclick = () => document.getElementById("query").value = queries[key];
+        btn.textContent = labelsMain[key] || key;
+        btn.onclick = () => {
+            clearResult();
+            document.getElementById("query").value = queries[key];
+        };
+
         container.appendChild(btn);
     });
 }
@@ -89,4 +94,13 @@ function renderTable(data) {
 
     html += "</tbody></table>";
     container.innerHTML = html;
+}
+function clearResult() {
+    const resultContainer = document.getElementById("result");
+    const loader = document.getElementById("loader");
+
+    resultContainer.innerHTML = "";
+    if (loader) {
+        loader.style.display = "none";
+    }
 }

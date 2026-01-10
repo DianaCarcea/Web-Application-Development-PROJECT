@@ -119,6 +119,12 @@ arp:currentLocation a owl:ObjectProperty ;
     rdfs:range arp:Agent ; # Poate fi Muzeu sau Colecționar
     rdfs:label "Locația Curentă" .
 
+arp:hasOwnership a owl:ObjectProperty ;
+     rdfs:domain arp:Artwork ;
+     rdfs:range arp:TransferOfCustody ;  # sau :OwnershipEvent dacă creezi subclasă
+     rdfs:label "Evenimente de proprietate / deținere"@ro ;
+     rdfs:comment "Leagă o operă de artă de activitățile prin care a fost deținută de colectori, muzee etc., incluzând perioada și tipul de tranzacție."@ro .
+
 # Specifice Artwork
 arp:title a owl:DatatypeProperty ;
     rdfs:domain arp:Entity ; # Entity acoperă și Artwork și Collection
