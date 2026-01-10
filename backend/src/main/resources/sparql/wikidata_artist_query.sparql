@@ -1,13 +1,29 @@
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX bd: <http://www.bigdata.com/rdf#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+PREFIX mwapi: <https://www.mediawiki.org/ontology#API/>
 
-SELECT ?wikidataArtist ?wikidataArtistLabel ?image WHERE {
-  ?wikidataArtist rdfs:label "%s"@ro .
-  ?wikidataArtist wdt:P31 wd:Q5 .
-  OPTIONAL { ?wikidataArtist wdt:P18 ?image. }
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "ro,en". }
+SELECT ?item ?itemLabel ?image ?ulan WHERE {
+  # Cautare Full-Text
+  SERVICE wikibase:mwapi {
+      bd:serviceParam wikibase:api "EntitySearch" .
+      bd:serviceParam wikibase:endpoint "www.wikidata.org" .
+
+      # %s va fi inlocuit de Java cu numele artistului (ex: "Nicolae Grigorescu")
+      bd:serviceParam mwapi:search "%s" .
+
+      bd:serviceParam mwapi:language "en" .
+      ?item wikibase:apiOutputItem mwapi:item .
+  }
+
+  # Obtinem imaginea (optional)
+  OPTIONAL { ?item wdt:P18 ?image. }
+
+  # Obtinem ULAN ID (P245) - ID-ul Getty pentru Artisti
+  OPTIONAL { ?item wdt:P245 ?ulan. }
+
+  # Obtinem eticheta
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "ro,en,fr,de". }
 }
-LIMIT 5
+LIMIT 1

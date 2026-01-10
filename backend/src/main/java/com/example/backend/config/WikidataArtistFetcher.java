@@ -2,125 +2,210 @@ package com.example.backend.config;
 
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.*;
-import org.apache.jena.sparql.exec.http.QueryExecutionHTTP;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
+import org.apache.jena.sparql.exec.http.QueryExecutionHTTP;
 import org.apache.jena.vocabulary.RDF;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.text.Normalizer;
 import java.util.List;
 
 public class WikidataArtistFetcher {
 
     private static final int BATCH_SIZE = 50;
+    // Asigura-te ca fisierul de intrare este corect
     private static final String INPUT_FILE = "output.ttl";
-    private static final String OUTPUT_FILE = "artists_wikidata.ttl";
+    private static final String OUTPUT_FILE = "artists_wikidata_getty.ttl";
+
+    // Endpoint oficial Getty
+    private static final String GETTY_SPARQL_ENDPOINT = "http://vocab.getty.edu/sparql";
+
+    private Property wikidataUriProp;
+    private Property wikidataNameProp;
+    private Property imageLinkProp;
+    private Property gettyUriProp;
+    private Property gettyIdProp;
+    private Property nameProp;
 
     public static void main(String[] args) throws Exception {
         new WikidataArtistFetcher().run();
     }
 
     public void run() throws Exception {
-        // 1️⃣ Încarcă TTL-ul existent
+        System.out.println("--- START PROCESARE ARTISTI (Wikidata + Fallback Getty) ---");
+
+        File inFile = new File(INPUT_FILE);
+        if (!inFile.exists()) {
+            System.err.println("EROARE: Fisierul " + INPUT_FILE + " nu exista!");
+            return;
+        }
+
         Model model = RDFDataMgr.loadModel(INPUT_FILE);
 
-        // Prefixe
         String ARP_NS = "http://arp.ro/schema#";
         model.setNsPrefix("arp", ARP_NS);
+        // Prefixele Getty
+        model.setNsPrefix("ulan", "http://vocab.getty.edu/ulan/");
+        model.setNsPrefix("tgn", "http://vocab.getty.edu/tgn/");
 
-        Property wikidataUriProp = model.createProperty(ARP_NS, "wikidataUri");
-        Property imageLinkProp = model.createProperty(ARP_NS, "imageLink");
-        Property wikidataNameProp = model.createProperty(ARP_NS, "wikidataName");
-        Property nameProp = model.createProperty(ARP_NS, "name");
+        // Initializare Proprietati
+        wikidataUriProp = model.createProperty(ARP_NS, "wikidataUri");
+        wikidataNameProp = model.createProperty(ARP_NS, "wikidataName");
+        imageLinkProp = model.createProperty(ARP_NS, "imageLink");
+        nameProp = model.createProperty(ARP_NS, "name");
+        gettyUriProp = model.createProperty(ARP_NS, "gettyUri");
+        gettyIdProp = model.createProperty(ARP_NS, "gettyId");
+
         Resource artistType = model.createResource(ARP_NS + "Artist");
 
         List<Resource> artists = model.listResourcesWithProperty(RDF.type, artistType).toList();
+        System.out.println("Total artisti de procesat: " + artists.size());
 
-        // Pregătim batch-ul
         Model batchModel = ModelFactory.createDefaultModel();
         batchModel.setNsPrefixes(model.getNsPrefixMap());
+
+        File outFile = new File(OUTPUT_FILE);
+        if (outFile.exists()) outFile.delete();
+
+        // Incarcam template-ul SPARQL pentru Wikidata (adaptat pentru artisti)
+        String wdSparqlTemplate = loadSparql("/sparql/wikidata_artist_query.sparql");
+
+        // Template Getty Universal (ULAN pt artisti)
+        String gettySparqlTemplate =
+                "PREFIX luc: <http://www.ontotext.com/owlim/lucene#> " +
+                        "PREFIX gvp: <http://vocab.getty.edu/ontology#> " +
+                        "SELECT ?subject ?shortId WHERE { " +
+                        "  ?subject luc:term \"%s\" . " +
+                        "  ?subject a gvp:Subject . " +
+                        "  FILTER (REGEX(STR(?subject), \"/(ulan|tgn)/\", \"i\")) ." +
+                        "  BIND(REPLACE(STR(?subject), \"http://vocab.getty.edu/(ulan|tgn)/\", \"\") AS ?shortId) " +
+                        "} LIMIT 1";
 
         int count = 0;
         boolean firstBatch = true;
 
-        // Ștergem fișierul vechi dacă există
-        File outFile = new File(OUTPUT_FILE);
-        if (outFile.exists()) outFile.delete();
-
         for (Resource artistRes : artists) {
-            Literal nameLit = artistRes.getProperty(nameProp).getLiteral();
-            String name = nameLit.getString();
+            if (!artistRes.hasProperty(nameProp)) continue;
 
-            String[] parts = name.split(",\\s*");
-            String searchName = parts.length == 2 ? parts[1] + " " + parts[0] : name;
-            searchName = toWikidataName(searchName);
+            String originalName = artistRes.getProperty(nameProp).getLiteral().getString();
 
-            // Query Wikidata
-            String wdQueryTemplate = loadSparql("/sparql/wikidata_artist_query.sparql");
-            String wdQuery = String.format(wdQueryTemplate, searchName);
+            // PRELUCRARE NUME: "Nume, Prenume" -> "Prenume Nume"
+            String searchName = formatArtistName(originalName);
 
-            try (QueryExecution qexecWd = QueryExecutionHTTP.service(
-                    "https://query.wikidata.org/sparql", wdQuery)) {
+            // Escapare ghilimele pentru query
+            String safeSearchName = searchName.replace("\"", "\\\"");
 
-                ResultSet wdResults = qexecWd.execSelect();
-                Resource resCopy = batchModel.createResource(artistRes.getURI());
-                resCopy.addProperty(RDF.type, artistType);
-                resCopy.addProperty(nameProp, nameLit);
-                if (wdResults.hasNext()) {
+            Resource resCopy = batchModel.createResource(artistRes.getURI());
+            resCopy.addProperty(RDF.type, artistType);
+            resCopy.addProperty(nameProp, originalName);
 
-                    QuerySolution wdSol = wdResults.nextSolution();
-                        Resource wdArtist = wdSol.getResource("wikidataArtist");
-                        Resource image = wdSol.contains("image") ? wdSol.getResource("image") : null;
-                        Literal wdLabel = wdSol.getLiteral("wikidataArtistLabel"); // nou
-                        resCopy.addProperty(wikidataUriProp, wdArtist);
-                        resCopy.addProperty(wikidataNameProp, wdLabel);
-                        if (image != null) {
-                            resCopy.addProperty(imageLinkProp, image);
-                        }
+            // 1. CAUTARE WIKIDATA
+            QuerySolution wdSol = executeSearch(wdSparqlTemplate, safeSearchName, "https://query.wikidata.org/sparql");
+            boolean foundGettyInWiki = false;
 
-                    System.out.println("Appended Wikidata info for " + name);
+            if (wdSol != null) {
+                processWikidataSolution(wdSol, resCopy, batchModel);
+                if (wdSol.contains("ulan")) {
+                    foundGettyInWiki = true;
+                    System.out.println("✔ Wikidata + Getty: " + searchName);
+                } else {
+                    System.out.println("⚠ Wikidata gasit (FARA Getty): " + searchName);
                 }
-            } catch (Exception e) {
-                System.err.println("⚠ Error fetching Wikidata for " + name + ": " + e.getMessage());
+            } else {
+                System.out.println("✖ Wikidata nu a gasit nimic: " + searchName);
+            }
+
+            // 2. CAUTARE DIRECTA IN GETTY (Fallback)
+            if (!foundGettyInWiki) {
+                QuerySolution gettySol = executeSearch(gettySparqlTemplate, safeSearchName, GETTY_SPARQL_ENDPOINT);
+
+                if (gettySol != null) {
+                    String cleanId = gettySol.getLiteral("shortId").getString();
+                    String fullUri = gettySol.getResource("subject").getURI();
+
+                    resCopy.addProperty(gettyIdProp, cleanId);
+                    resCopy.addProperty(gettyUriProp, batchModel.createResource(fullUri));
+
+                    System.out.println("   ★ RECUPERAT DIN GETTY: " + cleanId);
+                }
             }
 
             count++;
-
-            // Scriem batch-ul
             if (count % BATCH_SIZE == 0) {
                 appendBatchToFile(batchModel, firstBatch);
-                batchModel.removeAll(); // reset batch
+                batchModel.removeAll();
                 firstBatch = false;
             }
         }
 
-        // Scriem restul artiștilor rămași
         if (!batchModel.isEmpty()) {
             appendBatchToFile(batchModel, firstBatch);
         }
-
-        System.out.println("✅ Finished processing all artists!");
+        System.out.println("✅ Gata! Vezi fisierul: " + OUTPUT_FILE);
     }
 
-    private void appendBatchToFile(Model batchModel, boolean writePrefixes) throws Exception {
-        try (FileOutputStream out = new FileOutputStream(OUTPUT_FILE, true)) {
-            if (writePrefixes) {
-                RDFDataMgr.write(out, batchModel, RDFFormat.TURTLE_PRETTY);
-            } else {
-                RDFDataMgr.write(out, batchModel, RDFFormat.TURTLE_PRETTY);
+    private QuerySolution executeSearch(String template, String name, String endpoint) {
+        try {
+            // Folosim replace simplu, nu String.format, pentru siguranta
+            String query = template.replace("%s", name);
+            try (QueryExecution qexec = QueryExecutionHTTP.service(endpoint, query)) {
+                ResultSet results = qexec.execSelect();
+                if (results.hasNext()) {
+                    return results.nextSolution();
+                }
             }
+        } catch (Exception e) {
+            // Silent catch
+        }
+        return null;
+    }
+
+    private void processWikidataSolution(QuerySolution sol, Resource res, Model model) {
+        Resource wdItem = sol.getResource("item");
+        res.addProperty(wikidataUriProp, wdItem);
+
+        if (sol.contains("itemLabel")) {
+            res.addProperty(wikidataNameProp, sol.getLiteral("itemLabel"));
+        }
+
+        if (sol.contains("image")) {
+            String imgUrl = sol.getResource("image").getURI();
+            if (imgUrl.contains("/wiki/File:")) {
+                imgUrl = imgUrl.replace("/wiki/File:", "/wiki/Special:FilePath/");
+            }
+            res.addProperty(imageLinkProp, model.createResource(imgUrl));
+        }
+
+        if (sol.contains("ulan")) {
+            String ulanId = sol.getLiteral("ulan").getString();
+            res.addProperty(gettyIdProp, ulanId);
+            res.addProperty(gettyUriProp, model.createResource("http://vocab.getty.edu/ulan/" + ulanId));
         }
     }
 
+    private void appendBatchToFile(Model batchModel, boolean firstBatch) throws Exception {
+        try (FileOutputStream out = new FileOutputStream(OUTPUT_FILE, true)) {
+            RDFDataMgr.write(out, batchModel, RDFFormat.TURTLE_PRETTY);
+        }
+    }
 
-    // Helper: normalizează numele pentru căutarea pe Wikidata
-    private String toWikidataName(String original) {
-        return Normalizer.normalize(original, Normalizer.Form.NFD)
-                .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+    // Functie specifica pentru artisti: "Grigorescu, Nicolae" -> "Nicolae Grigorescu"
+    private String formatArtistName(String rawName) {
+        if (rawName == null) return "";
+        String clean = rawName.trim();
+
+        // Daca contine virgula, inversam partile
+        if (clean.contains(",")) {
+            String[] parts = clean.split(",");
+            if (parts.length >= 2) {
+                // parts[1] (Prenume) + parts[0] (Nume)
+                clean = parts[1].trim() + " " + parts[0].trim();
+            }
+        }
+        return clean.replace("\"", "");
     }
 
     private String loadSparql(String path) throws Exception {
