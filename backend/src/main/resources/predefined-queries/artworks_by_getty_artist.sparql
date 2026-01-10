@@ -1,0 +1,17 @@
+PREFIX arp: <http://arp.ro/schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+SELECT ?artwork ?title ?artistName ?wikidataUri ?gettyUri ?imageLink
+WHERE {
+
+  ?artist a arp:Artist ;
+          arp:gettyId "500028596" .  # înlocuiește cu ID-ul dorit
+  OPTIONAL { ?artist arp:name ?artistName }
+  OPTIONAL { ?artist arp:gettyUri ?gettyUri }
+  OPTIONAL { ?artist arp:wikidataUri ?wikidataUri }
+  OPTIONAL { ?artist arp:imageLink ?imageLink }
+
+  ?artwork a arp:Artwork ;
+           prov:wasAttributedTo ?artist .
+  OPTIONAL { ?artwork arp:title ?title }
+}

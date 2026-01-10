@@ -16,6 +16,8 @@ async function loadPredefinedQueries() {
         "artworks_by_getty_category",
         "artworks_count_by_museum",
         "artworks_by_getty_museum",
+        "artworks_count_by_artist",
+        "artworks_by_getty_artist"
 
 
     ];
@@ -30,7 +32,9 @@ async function loadPredefinedQueries() {
         artworks_count_by_category:"Count Artworks by Categories",
         artworks_by_getty_category:"Artworks by Category (Getty AAT)",
         artworks_count_by_museum:"Count Artworks by Museum",
-        artworks_by_getty_museum:"Artworks by Museum (Getty AAT)"
+        artworks_by_getty_museum:"Artworks by Museum (Getty AAT)",
+        artworks_count_by_artist:"Count Artworks by Artist",
+        artworks_by_getty_artist:"Artworks by Artist (Getty AAT)",
     };
 
     order.forEach(key => {

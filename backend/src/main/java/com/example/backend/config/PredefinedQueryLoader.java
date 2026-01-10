@@ -20,7 +20,7 @@ public class PredefinedQueryLoader {
 
 
         String[] files = {"artists.sparql","artworks.sparql","artworks_count_by_material.sparql","artworks_by_getty_material.sparql","artworks_all_details.sparql","artworks_count_by_category.sparql",
-                "artworks_by_getty_category.sparql","museums.sparql","artworks_count_by_museum.sparql","artworks_by_getty_museum.sparql"};
+                "artworks_by_getty_category.sparql","museums.sparql","artworks_count_by_museum.sparql","artworks_by_getty_museum.sparql","artworks_count_by_artist.sparql","artworks_by_getty_artist.sparql"};
 
         for (String file : files) {
             try (InputStream is = getClass().getResourceAsStream(QUERY_PATH + file)) {

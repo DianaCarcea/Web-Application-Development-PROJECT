@@ -46,7 +46,7 @@ public class RDFConfig {
         RDFDataMgr.read(ds, "getty-categories.ttl");
         RDFDataMgr.read(ds, "museums_wikidata_getty.ttl");
         RDFDataMgr.read(ds, "museums_wikidata_getty_int.ttl");
-
+        RDFDataMgr.read(ds, "artists_wikidata_getty.ttl");
         return ds;
     }
 }

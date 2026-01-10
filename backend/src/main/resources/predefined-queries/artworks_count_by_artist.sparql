@@ -1,0 +1,16 @@
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?artist ?artistName ?wikidataUri (COUNT(DISTINCT ?artwork) AS ?numArtworks) ?gettyUri
+WHERE {
+  ?artwork a arp:Artwork ;
+           prov:wasAttributedTo ?artist .
+
+  ?artist a arp:Artist .
+
+  OPTIONAL { ?artist arp:name ?artistName }
+  OPTIONAL { ?artist arp:gettyUri ?gettyUri }
+  OPTIONAL { ?artist arp:wikidataUri ?wikidataUri }
+}
+GROUP BY ?artist ?artistName ?gettyUri ?wikidataUri
+ORDER BY DESC(?numArtworks)
