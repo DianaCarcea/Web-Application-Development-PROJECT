@@ -13,23 +13,34 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class ArtworkRepository {
 
     private final Model artworkModel;
+    private final Model wikiModel;
 
-    public ArtworkRepository(Model artworkModel) {
+    public ArtworkRepository(Model artworkModel, Model wikiModel) {
         this.artworkModel = artworkModel;
+        this.wikiModel = wikiModel;
     }
 
-    public List<Artwork> findAll() {
+    public List<Artwork> findAll(String domain) {
         String sparql = loadSparql("/sparql/artwork-find-all.sparql");
         Query query = QueryFactory.create(sparql);
 
         List<Artwork> artworks = new ArrayList<>();
 
-        try (QueryExecution qexec = QueryExecutionFactory.create(query, artworkModel)) {
+        Model modelChosen;
+        if(Objects.equals(domain, "ro")) {
+            modelChosen = artworkModel;
+        } else {
+            modelChosen = wikiModel;
+        }
+
+
+        try (QueryExecution qexec = QueryExecutionFactory.create(query, modelChosen)) {
             ResultSet rs = qexec.execSelect();
 
             while (rs.hasNext()) {
@@ -91,13 +102,20 @@ public class ArtworkRepository {
         return artworks;
     }
 
-    public Artwork findByUri(String uri) {
+    public Artwork findByUri(String uri, String domain) {
         String sparqlTemplate = loadSparql("/sparql/artwork-find-by-uri.sparql");
 
         String sparql = sparqlTemplate.replace("{{URI}}", uri);
         Query query = QueryFactory.create(sparql);
 
-        try (QueryExecution qexec = QueryExecutionFactory.create(query, artworkModel)) {
+        Model modelChosen;
+        if(Objects.equals(domain, "ro")) {
+            modelChosen = artworkModel;
+        } else {
+            modelChosen = wikiModel;
+        }
+
+        try (QueryExecution qexec = QueryExecutionFactory.create(query, modelChosen)) {
             ResultSet rs = qexec.execSelect();
             if (!rs.hasNext()) return null;
 
@@ -250,7 +268,7 @@ public class ArtworkRepository {
         }
     }
 
-    public List<Artwork> findNext(int pageSize, int offset) {
+    public List<Artwork> findNext(int pageSize, int offset, String domain) {
 
 
         String sparql = loadSparql("/sparql/artwork-find-next.sparql")
@@ -260,7 +278,14 @@ public class ArtworkRepository {
 
         List<Artwork> results = new ArrayList<>();
 
-        try (QueryExecution qexec = QueryExecutionFactory.create(sparql, artworkModel)) {
+        Model modelChosen;
+        if(Objects.equals(domain, "ro")) {
+            modelChosen = artworkModel;
+        } else {
+            modelChosen = wikiModel;
+        }
+
+        try (QueryExecution qexec = QueryExecutionFactory.create(sparql, modelChosen)) {
             ResultSet rs = qexec.execSelect();
 
             while (rs.hasNext()) {

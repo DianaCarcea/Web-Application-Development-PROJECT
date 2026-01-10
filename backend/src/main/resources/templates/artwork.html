@@ -13,7 +13,9 @@
     <a href="/" class="nav-home">Discover</a>
 </nav>
 
-<h1>Romanian Arts & Culture Catalog</h1>
+<h1 th:text="${domain == 'ro' ? 'Romanian Arts & Culture Catalog' : 'International Arts & Culture'}">
+    International Arts & Culture
+</h1>
 
 <div th:each="art : ${artworks}">
     <article resource="[[${art.uri}]]" typeof="arp:Artwork schema:VisualArtwork" class="art-card">
@@ -24,7 +26,7 @@
 
         <div class="card-body">
             <figure th:if="${art.imageLink}">
-                <a th:href="@{/artworks/{id}(id=${art.id})}">
+                <a th:href="@{/artworks/{id}(id=${art.id}, domain=${domain})}">
                     <img th:src="${art.imageLink}"
                          th:alt="${art.title}"
                          property="arp:imageLink schema:image"/>
@@ -142,13 +144,15 @@
 
 <div class="pagination">
     <a th:if="${currentPage > 1}"
-       th:href="@{/artworks-next(page=${currentPage - 1})}">
+       th:href="@{/artworks-next(page=${currentPage - 1}, domain=${domain})}"
+       class="btn-nav">
         ← Back
     </a>
 
     <span>Page [[${currentPage}]]</span>
 
-    <a th:href="@{/artworks-next(page=${currentPage + 1})}">
+    <a th:href="@{/artworks-next(page=${currentPage + 1}, domain=${domain})}"
+       class="btn-nav">
         Next →
     </a>
 </div>

@@ -25,8 +25,12 @@ public class ArtworkController {
     }
 
     @GetMapping("/artworks")
-    public String showAllArtworks(Model model) {
-        List<Artwork> artworks = artworkService.getAllArtworks();
+    public String showAllArtworks(
+            @RequestParam(name = "domain", defaultValue = "int") String domain,
+            Model model) {
+
+        List<Artwork> artworks = artworkService.getHomepageArtworks(1, 30, domain);
+        model.addAttribute("domain", domain);
         model.addAttribute("artworks", artworks);
         model.addAttribute("currentPage", 1);
         return "artwork"; // Thymeleaf va încărca artwork.html
@@ -35,16 +39,18 @@ public class ArtworkController {
     @GetMapping("/artworks/{id}")
     public String showArtwork(
             @PathVariable String id,
+            @RequestParam(name = "domain", defaultValue = "int") String domain,
             Model model) {
 
         String uri = "http://arp.ro/resource/artwork/" + id;
-        Artwork artwork = artworkService.getArtworkByUri(uri);
+        Artwork artwork = artworkService.getArtworkByUri(uri, domain);
 
         if (artwork == null) {
             return "404";
         }
 
         model.addAttribute("art", artwork);
+        model.addAttribute("domain", domain);
         return "artwork-detail";
     }
     @GetMapping("artists/{id}/artworks")
@@ -66,11 +72,12 @@ public class ArtworkController {
     @GetMapping("/artworks-next")
     public String showWikiHome(
             @RequestParam(defaultValue = "1") int page,
+            @RequestParam(name = "domain", defaultValue = "int") String domain,
             Model model) {
 
         int pageSize = 30;
 
-        List<Artwork> artworks = artworkService.getHomepageArtworks(page, pageSize);
+        List<Artwork> artworks = artworkService.getHomepageArtworks(page, pageSize, domain);
 
         model.addAttribute("artworks", artworks);
         model.addAttribute("currentPage", page);

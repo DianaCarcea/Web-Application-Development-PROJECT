@@ -1,64 +1,126 @@
 PREFIX arp: <http://arp.ro/schema#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?title ?img ?category ?condition ?inv ?desc ?cimec ?license
-       ?date ?dimensions ?registrarUri ?registrarName ?recordedAt
-       ?validatorUri ?validatorName ?validatedAt
+SELECT
+       # --- Date Generale (Folosim SAMPLE pentru valori unice) ---
+       (SAMPLE(?title_val) AS ?title)
+       (SAMPLE(?img_val) AS ?img)
+       (SAMPLE(?category_val) AS ?category)
+       (SAMPLE(?condition_val) AS ?condition)
+       (SAMPLE(?inv_val) AS ?inv)
+       (SAMPLE(?desc_val) AS ?desc)
+       (SAMPLE(?cimec_val) AS ?cimec)
+       (SAMPLE(?license_val) AS ?license)
+       (SAMPLE(?date_val) AS ?date)
+       (SAMPLE(?dimensions_val) AS ?dimensions)
+
+       # --- Date despre Înregistrare/Validare ---
+       (SAMPLE(?registrarUri_val) AS ?registrarUri)
+       (SAMPLE(?registrarName_val) AS ?registrarName)
+       (SAMPLE(?recordedAt_val) AS ?recordedAt)
+       (SAMPLE(?validatorUri_val) AS ?validatorUri)
+       (SAMPLE(?validatorName_val) AS ?validatorName)
+       (SAMPLE(?validatedAt_val) AS ?validatedAt)
+
+       # --- Artist & Muzeu ---
+       (SAMPLE(?artistName_val) AS ?artistName)
+       (SAMPLE(?artistUri_val) AS ?artistUri)
+       (SAMPLE(?museumName_val) AS ?museumName)
+       (SAMPLE(?museumUri_val) AS ?museumUri)
+
+       # --- Liste simple (concatenare cu ; ) ---
        (GROUP_CONCAT(DISTINCT ?cls; separator="; ") AS ?classifications)
        (GROUP_CONCAT(DISTINCT ?tech; separator="; ") AS ?techniques)
        (GROUP_CONCAT(DISTINCT ?culture; separator="; ") AS ?cultures)
        (GROUP_CONCAT(DISTINCT ?mat; separator="; ") AS ?materialsUsed)
-       ?artistName ?artistUri
-       ?museumName ?museumUri
+
+       # --- NOU: Istoricul Proprietarilor (concatenare cu | ) ---
+       # Format rezultat: Nume::Start::Sfârșit | Nume2::Start2::Sfârșit2 ...
+       (GROUP_CONCAT(DISTINCT ?ownerInfo; separator="|") AS ?ownershipHistory)
+
 WHERE {
+  # Definim subiectul (înlocuiește {{URI}} cu <http://arp.ro/resource/artwork/Q275924>)
   BIND(<{{URI}}> AS ?subject)
+
   ?subject a arp:Artwork .
 
-  OPTIONAL { ?subject arp:title ?title }
-  OPTIONAL { ?subject arp:imageLink ?img }
-  OPTIONAL { ?subject arp:dimensions ?dimensions }
-  OPTIONAL { ?subject arp:category ?category }
-  OPTIONAL { ?subject arp:condition ?condition }
-  OPTIONAL { ?subject arp:inventoryNumber ?inv }
-  OPTIONAL { ?subject arp:description ?desc }
-  OPTIONAL { ?subject arp:cimecLink ?cimec }
-  OPTIONAL { ?subject dct:license ?license }
+  # --- Proprietăți de bază (folosim variabile temporare _val) ---
+  OPTIONAL { ?subject arp:title ?title_val }
+  OPTIONAL { ?subject arp:imageLink ?img_val }
+  OPTIONAL { ?subject arp:dimensions ?dimensions_val }
+  OPTIONAL { ?subject arp:category ?category_val }
+  OPTIONAL { ?subject arp:condition ?condition_val }
+  OPTIONAL { ?subject arp:inventoryNumber ?inv_val }
+  OPTIONAL { ?subject arp:description ?desc_val }
+  OPTIONAL { ?subject arp:cimecLink ?cimec_val }
+  OPTIONAL { ?subject dct:license ?license_val }
+
+  # Liste (fără _val pentru că le agregăm în GROUP_CONCAT)
   OPTIONAL { ?subject arp:classification ?cls }
   OPTIONAL { ?subject arp:culture ?culture }
 
+  # --- Activitatea de Creație ---
   OPTIONAL {
     ?subject prov:wasGeneratedBy ?activity .
-    OPTIONAL { ?activity arp:startedAtTime ?date }
+    OPTIONAL { ?activity arp:startedAtTime ?date_val }
     OPTIONAL { ?activity arp:technique ?tech }
     OPTIONAL { ?activity arp:materialsUsed ?mat }
   }
 
+  # --- Artist ---
   OPTIONAL {
-    ?subject prov:wasAttributedTo ?artistUri .
-    ?artistUri arp:name ?artistName
+    ?subject prov:wasAttributedTo ?artistUri_val .
+    OPTIONAL { ?artistUri_val arp:name ?artistName_val }
+  }
+
+  # --- Locație Curentă ---
+  OPTIONAL {
+    ?subject arp:currentLocation ?museumUri_val .
+    OPTIONAL { ?museumUri_val arp:name ?museumName_val }
+  }
+
+  # --- Metadate Administrative ---
+  OPTIONAL {
+    ?subject arp:recordedAt ?recordedAt_val .
+    ?subject arp:recordedBy ?registrarUri_val .
+    OPTIONAL { ?registrarUri_val arp:name ?registrarName_val }
   }
 
   OPTIONAL {
-    ?subject arp:currentLocation ?museumUri .
-    ?museumUri arp:name ?museumName
+    ?subject arp:validatedAt ?validatedAt_val .
+    ?subject arp:validatedBy ?validatorUri_val .
+    OPTIONAL { ?validatorUri_val arp:name ?validatorName_val }
   }
 
+  # --- SECȚIUNEA OWNERSHIP (Combinată) ---
   OPTIONAL {
-    ?subject arp:recordedAt ?recordedAt .
-    ?subject arp:recordedBy ?registrarUri .
-    ?registrarUri arp:name ?registrarName .
+    # 1. Navigăm prin nodul anonim
+    ?subject arp:hasOwnership ?custodyNode .
+
+    # 2. Găsim agentul proprietar
+    ?custodyNode prov:wasAssociatedWith ?ownerAgent .
+
+    # 3. Extragem datele (dacă există)
+    OPTIONAL { ?custodyNode arp:startedAtTime ?oStart }
+    OPTIONAL { ?custodyNode arp:endedAtTime ?oEnd }
+
+    # 4. Extragem numele (sau fallback la URI)
+    OPTIONAL { ?ownerAgent arp:name ?oName }
+
+    # Logică: Dacă arp:name lipsește, ia ultima parte din URI (ex: Collector_John_Ohl)
+    BIND(COALESCE(?oName, REPLACE(STR(?ownerAgent), "^.*/([^/]*)$", "$1")) AS ?resolvedOwnerName)
+
+    # 5. Formatăm string-ul pentru o singură intrare
+    BIND(CONCAT(
+        ?resolvedOwnerName, "::",
+        COALESCE(STR(?oStart), ""), "::",
+        COALESCE(STR(?oEnd), "")
+    ) AS ?ownerInfo)
   }
 
-  OPTIONAL {
-    ?subject arp:validatedAt ?validatedAt .
-    ?subject arp:validatedBy ?validatorUri .
-    ?validatorUri arp:name ?validatorName .
-  }
 }
-GROUP BY ?title ?img ?category ?condition ?inv ?desc ?cimec
-         ?license ?date ?dimensions
-         ?artistName ?artistUri
-         ?museumName ?museumUri
-         ?registrarUri ?registrarName ?recordedAt
-         ?validatorUri ?validatorName ?validatedAt
+# Grupăm doar după subiect pentru a evita erorile de memorie
+GROUP BY ?subject

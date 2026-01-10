@@ -31,7 +31,7 @@ public class SparqlToTTLArp {
     public static void main(String[] args) throws Exception {
         System.out.println("Se caută ID-urile operelor de artă populare...");
 
-        List<String> qIds = fetchPopularArtworkIds(30, 0);
+        List<String> qIds = fetchPopularArtworkIds(100, 0);
 
         System.out.println("S-au găsit " + qIds.size() + " opere: " + qIds);
 
@@ -72,7 +72,7 @@ public class SparqlToTTLArp {
         return ids;
     }
 
-    // --- Funcția Helper cerută ---
+    // --- Funcția Helper ---
     private static String getLiteral(QuerySolution sol, String var) {
         return sol.contains(var) && sol.get(var).isLiteral() ? sol.getLiteral(var).getString() : "";
     }
@@ -112,25 +112,22 @@ public class SparqlToTTLArp {
                 Resource artRes = model.createResource(NS_RES_ARTWORK + qId);
                 artRes.addProperty(RDF.type, model.createResource(NS_ARP + "Artwork"));
 
-                // Title
+                // Metadata de bază
                 String title = getLiteral(sol, "title");
-                if (!title.isEmpty()) {
-                    artRes.addProperty(model.createProperty(NS_ARP + "title"), title);
-                }
+                if (!title.isEmpty()) artRes.addProperty(model.createProperty(NS_ARP + "title"), title);
 
-                // Description
                 String desc = getLiteral(sol, "description");
-                if (!desc.isEmpty()) {
-                    artRes.addProperty(model.createProperty(NS_ARP + "description"), desc);
-                }
+                if (!desc.isEmpty()) artRes.addProperty(model.createProperty(NS_ARP + "description"), desc);
 
-                // Image (Aici nu folosim getLiteral pentru că este o Resursă URI)
-                if (sol.contains("image")) {
+                if (sol.contains("image") && sol.get("image").isResource()) {
                     String imgUrl = sol.getResource("image").getURI();
+                    imgUrl = ImageOrchestrator.fixCommonsUrl(imgUrl);
+                    artRes.addProperty(model.createProperty(NS_ARP + "imageLink"), imgUrl, XSDDatatype.XSDanyURI);
+                } else {
+                    String imgUrl = ImageOrchestrator.getBestImage(title);
                     artRes.addProperty(model.createProperty(NS_ARP + "imageLink"), imgUrl, XSDDatatype.XSDanyURI);
                 }
 
-                // Inventory Number (Mandatory)
                 String invNums = getLiteral(sol, "inventoryNumbers");
                 if (!invNums.isEmpty()) {
                     String inv = invNums.split(",")[0].trim();
@@ -143,19 +140,14 @@ public class SparqlToTTLArp {
                 String hVal = getLiteral(sol, "heightValue");
                 String wVal = getLiteral(sol, "widthValue");
                 String uLabel = getLiteral(sol, "heightUnitLabel");
-
                 if (!hVal.isEmpty() && !wVal.isEmpty()) {
                     String dim = hVal + " x " + wVal + " " + uLabel;
                     artRes.addProperty(model.createProperty(NS_ARP + "dimensions"), dim);
                 }
 
-                // Category & Classification
                 processClassifications(model, artRes, sol);
-
-                // Current Location
                 processLocation(model, artRes, sol);
 
-                // License
                 artRes.addProperty(model.createProperty(NS_DCT + "license"),
                         model.createResource("http://www.europeana.eu/rights/rr-f/"));
 
@@ -168,29 +160,27 @@ public class SparqlToTTLArp {
                 String titleStr = !title.isEmpty() ? title : "Unknown";
                 creationRes.addProperty(RDFS.label, "Crearea operei " + titleStr);
 
-                // Links
                 artRes.addProperty(model.createProperty(NS_PROV + "wasGeneratedBy"), creationRes);
                 creationRes.addProperty(model.createProperty(NS_PROV + "generated"), artRes);
 
-                // Date
                 String inception = getLiteral(sol, "inception");
-                if (!inception.isEmpty()) {
-                    String year = inception.length() >= 4 ? inception.substring(0, 4) : inception;
-                    if (inception.startsWith("-")) year = inception.substring(0, 5);
-                    creationRes.addProperty(model.createProperty(NS_ARP + "startedAtTime"), year, XSDDatatype.XSDgYear);
-                }
+                String startTime = getLiteral(sol, "startTime");
+                String publicationDate = getLiteral(sol, "publicationDate");
+                String pointInTime = getLiteral(sol, "pointInTime");
 
-                // Materials (AICI ESTE IMPLEMENTAREA CERUTĂ SPECIFIC)
-                // Folosim getLiteral si verificam isEmpty()
+                setCreationYear(model, creationRes, inception, startTime, publicationDate, pointInTime);
+
                 if (!getLiteral(sol, "materialLabels").isEmpty()) {
                     String materials = getLiteral(sol, "materialLabels").replace("|", "; ");
                     creationRes.addProperty(model.createProperty(NS_ARP + "materialsUsed"), materials);
                 }
 
-                // ==========================================
-                // 3. ARTIST
-                // ==========================================
                 processArtist(model, artRes, creationRes, sol);
+
+                // ==========================================
+                // 3. OWNERSHIP HISTORY (arp:hasOwnership) -> NOU!
+                // ==========================================
+                processOwnershipHistory(model, artRes, sol, "ownersData");
 
                 // ==========================================
                 // 4. SIGNIFICANT EVENTS
@@ -205,32 +195,70 @@ public class SparqlToTTLArp {
         }
     }
 
-    // --- Helper Methods actualizate cu getLiteral ---
+    // --- Helper Methods ---
+
+    private static void processOwnershipHistory(Model model, Resource artRes, QuerySolution sol, String varName) {
+        String rawData = getLiteral(sol, varName);
+
+        if (!rawData.isEmpty()) {
+            for (String entry : rawData.split("\\|")) {
+                String[] parts = entry.split("::", -1);
+                // Format: OwnerName::Start::End
+                if (parts.length > 0 && !parts[0].isBlank()) {
+                    String ownerName = parts[0];
+                    String startDate = (parts.length > 1) ? parts[1] : "";
+                    String endDate = (parts.length > 2) ? parts[2] : "";
+
+                    // 1. Creăm Agentul (Collector)
+                    // Folosim prefixul "Collector_" în URI pentru a-l distinge
+                    String collectorUri = NS_RES_AGENT + "Collector_" + sanitizeURI(ownerName);
+                    Resource collectorRes = model.createResource(collectorUri);
+
+                    if (!model.contains(collectorRes, RDF.type)) {
+                        collectorRes.addProperty(RDF.type, model.createResource(NS_ARP + "Collector"));
+                        collectorRes.addProperty(model.createProperty(NS_ARP + "name"), ownerName);
+                    }
+
+                    // 2. Creăm Blank Node pentru hasOwnership
+                    Resource ownershipNode = model.createResource(); // Nod anonim []
+                    ownershipNode.addProperty(RDF.type, model.createResource(NS_ARP + "TransferOfCustody"));
+
+                    // Link către Collector
+                    ownershipNode.addProperty(model.createProperty(NS_PROV + "wasAssociatedWith"), collectorRes);
+
+                    // Date (formatăm xsd:date, tăiem ora dacă există)
+                    if (!startDate.isBlank()) {
+                        String dateOnly = startDate.length() >= 10 ? startDate.substring(0, 10) : startDate;
+                        ownershipNode.addProperty(model.createProperty(NS_ARP + "startedAtTime"), dateOnly, XSDDatatype.XSDdate);
+                    }
+                    if (!endDate.isBlank()) {
+                        String dateOnly = endDate.length() >= 10 ? endDate.substring(0, 10) : endDate;
+                        ownershipNode.addProperty(model.createProperty(NS_ARP + "endedAtTime"), dateOnly, XSDDatatype.XSDdate);
+                    }
+
+                    // 3. Legăm opera de acest ownership
+                    artRes.addProperty(model.createProperty(NS_ARP + "hasOwnership"), ownershipNode);
+                }
+            }
+        }
+    }
 
     private static void processClassifications(Model model, Resource artRes, QuerySolution sol) {
         String instanceLabels = getLiteral(sol, "instanceLabels");
-
         if (!instanceLabels.isEmpty()) {
             String[] cats = instanceLabels.split("\\|");
             if (cats.length > 0) artRes.addProperty(model.createProperty(NS_ARP + "category"), cats[0]);
-        } else {
-            artRes.addProperty(model.createProperty(NS_ARP + "category"), "Unknown");
-        }
-
-        // artRes.addProperty(model.createProperty(NS_ARP + "classification"), "IMAGE");
-        // artRes.addProperty(model.createProperty(NS_ARP + "classification"), "artă plastică");
-
-        if (!instanceLabels.isEmpty()) {
-            for (String c : instanceLabels.split("\\|")) {
+            for (String c : cats) {
                 if (!c.isBlank()) artRes.addProperty(model.createProperty(NS_ARP + "classification"), c);
             }
+        } else {
+            artRes.addProperty(model.createProperty(NS_ARP + "category"), "Unknown");
         }
     }
 
     private static void processLocation(Model model, Resource artRes, QuerySolution sol) {
         Resource museumRes = null;
         String locName = "";
-
         String locationNames = getLiteral(sol, "locationNames");
 
         if (!locationNames.isEmpty()) {
@@ -242,7 +270,6 @@ public class SparqlToTTLArp {
             }
         }
 
-        // Fallback la Collection
         if (museumRes == null) {
             String collectionsData = getLiteral(sol, "collectionsData");
             if (!collectionsData.isEmpty()) {
@@ -278,7 +305,6 @@ public class SparqlToTTLArp {
             String[] artists = artistNames.split("\\|");
             for (String artistName : artists) {
                 if (artistName.isBlank()) continue;
-
                 artistFound = true;
                 String artistUri = NS_RES_AGENT + sanitizeURI(artistName);
                 Resource artistRes = model.createResource(artistUri);
@@ -313,7 +339,6 @@ public class SparqlToTTLArp {
 
     private static void processSignificantEvents(Model model, Resource artRes, QuerySolution sol, String varName, String qId) {
         String rawData = getLiteral(sol, varName);
-
         if (!rawData.isEmpty()) {
             int counter = 1;
             for (String entry : rawData.split("\\|")) {
@@ -358,4 +383,30 @@ public class SparqlToTTLArp {
         if (is == null) throw new RuntimeException("Fișier SPARQL nu a fost găsit: " + path);
         return new String(is.readAllBytes(), StandardCharsets.UTF_8);
     }
+
+    /**
+     * Caută prima dată validă dintr-o listă de candidați, extrage anul și îl adaugă în model.
+     */
+    private static void setCreationYear(Model model, Resource res, String... potentialDates) {
+        for (String dateStr : potentialDates) {
+            // Verificăm dacă data nu e goală
+            if (!dateStr.isEmpty()) {
+                String year;
+
+                // Logica de extragere a anului (inclusiv pentru anii negativi/BC)
+                if (dateStr.startsWith("-")) {
+                    // Ex: "-0500-01-01" -> "-0500"
+                    year = dateStr.length() >= 5 ? dateStr.substring(0, 5) : dateStr;
+                } else {
+                    // Ex: "1990-05-20" -> "1990"
+                    year = dateStr.length() >= 4 ? dateStr.substring(0, 4) : dateStr;
+                }
+
+                // Adăugăm proprietatea și ne oprim (break/return) pentru a respecta prioritatea
+                res.addProperty(model.createProperty(NS_ARP + "startedAtTime"), year, XSDDatatype.XSDgYear);
+                return;
+            }
+        }
+    }
+
 }

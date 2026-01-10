@@ -1,65 +1,117 @@
 PREFIX arp: <http://arp.ro/schema#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ?subject ?title ?img ?category ?condition ?inv ?desc ?cimec ?license
-       ?date ?dimensions ?registrarUri ?registrarName ?recordedAt
-       ?validatorUri ?validatorName ?validatedAt
+SELECT ?subject
+       # --- Valori Unice (SAMPLE) ---
+       (SAMPLE(?title_val) AS ?title)
+       (SAMPLE(?img_val) AS ?img)
+       (SAMPLE(?category_val) AS ?category)
+       (SAMPLE(?condition_val) AS ?condition)
+       (SAMPLE(?inv_val) AS ?inv)
+       (SAMPLE(?desc_val) AS ?desc)
+       (SAMPLE(?cimec_val) AS ?cimec)
+       (SAMPLE(?license_val) AS ?license)
+       (SAMPLE(?date_val) AS ?date)
+       (SAMPLE(?dimensions_val) AS ?dimensions)
+
+       # --- Metadate Administrative ---
+       (SAMPLE(?registrarUri_val) AS ?registrarUri)
+       (SAMPLE(?registrarName_val) AS ?registrarName)
+       (SAMPLE(?recordedAt_val) AS ?recordedAt)
+       (SAMPLE(?validatorUri_val) AS ?validatorUri)
+       (SAMPLE(?validatorName_val) AS ?validatorName)
+       (SAMPLE(?validatedAt_val) AS ?validatedAt)
+
+       # --- Valori Multiple (GROUP_CONCAT) ---
        (GROUP_CONCAT(DISTINCT ?cls; separator="; ") AS ?classifications)
        (GROUP_CONCAT(DISTINCT ?tech; separator="; ") AS ?techniques)
        (GROUP_CONCAT(DISTINCT ?culture; separator="; ") AS ?cultures)
        (GROUP_CONCAT(DISTINCT ?mat; separator="; ") AS ?materialsUsed)
-       ?artistName ?artistUri
-       ?museumName ?museumUri
+
+       # --- Istoric Proprietari ---
+       (GROUP_CONCAT(DISTINCT ?ownerInfo; separator="|") AS ?ownershipHistory)
+
+       # --- Artist & Muzeu ---
+       (SAMPLE(?artistName_val) AS ?artistName)
+       (SAMPLE(?artistUri_val) AS ?artistUri)
+       (SAMPLE(?museumName_val) AS ?museumName)
+       (SAMPLE(?museumUri_val) AS ?museumUri)
+
 WHERE {
   ?subject a arp:Artwork .
 
-  OPTIONAL { ?subject arp:title ?title }
-  OPTIONAL { ?subject arp:imageLink ?img }
-  OPTIONAL { ?subject arp:dimensions ?dimensions }
-  OPTIONAL { ?subject arp:category ?category }
-  OPTIONAL { ?subject arp:condition ?condition }
-  OPTIONAL { ?subject arp:inventoryNumber ?inv }
-  OPTIONAL { ?subject arp:description ?desc }
-  OPTIONAL { ?subject arp:cimecLink ?cimec }
-  OPTIONAL { ?subject dct:license ?license }
+  # --- Proprietăți simple (folosim _val) ---
+  OPTIONAL { ?subject arp:title ?title_val }
+  OPTIONAL { ?subject arp:imageLink ?img_val }
+  OPTIONAL { ?subject arp:dimensions ?dimensions_val }
+  OPTIONAL { ?subject arp:category ?category_val }
+  OPTIONAL { ?subject arp:condition ?condition_val }
+  OPTIONAL { ?subject arp:inventoryNumber ?inv_val }
+  OPTIONAL { ?subject arp:description ?desc_val }
+  OPTIONAL { ?subject arp:cimecLink ?cimec_val }
+  OPTIONAL { ?subject dct:license ?license_val }
 
+  # --- Liste (fără _val) ---
   OPTIONAL { ?subject arp:classification ?cls }
   OPTIONAL { ?subject arp:culture ?culture }
 
+  # --- Metadate ---
   OPTIONAL {
-    ?subject arp:recordedAt ?recordedAt .
-    ?subject arp:recordedBy ?registrarUri .
-    ?registrarUri arp:name ?registrarName .
+    ?subject arp:recordedAt ?recordedAt_val .
+    ?subject arp:recordedBy ?registrarUri_val .
+    OPTIONAL { ?registrarUri_val arp:name ?registrarName_val }
   }
 
   OPTIONAL {
-    ?subject arp:validatedAt ?validatedAt .
-    ?subject arp:validatedBy ?validatorUri .
-    ?validatorUri arp:name ?validatorName .
+    ?subject arp:validatedAt ?validatedAt_val .
+    ?subject arp:validatedBy ?validatorUri_val .
+    OPTIONAL { ?validatorUri_val arp:name ?validatorName_val }
   }
 
+  # --- Activitate (Creație) ---
   OPTIONAL {
     ?subject prov:wasGeneratedBy ?activity .
-    OPTIONAL { ?activity arp:startedAtTime ?date }
+    OPTIONAL { ?activity arp:startedAtTime ?date_val }
     OPTIONAL { ?activity arp:technique ?tech }
     OPTIONAL { ?activity arp:materialsUsed ?mat }
   }
 
+  # --- Artist ---
   OPTIONAL {
-    ?subject prov:wasAttributedTo ?artistUri .
-    ?artistUri arp:name ?artistName
+    ?subject prov:wasAttributedTo ?artistUri_val .
+    OPTIONAL { ?artistUri_val arp:name ?artistName_val }
   }
 
+  # --- Muzeu ---
   OPTIONAL {
-    ?subject arp:currentLocation ?museumUri .
-    ?museumUri arp:name ?museumName
+    ?subject arp:currentLocation ?museumUri_val .
+    OPTIONAL { ?museumUri_val arp:name ?museumName_val }
+  }
+
+  # --- OWNERSHIP HISTORY ---
+  OPTIONAL {
+    ?subject arp:hasOwnership ?custodyNode .
+    ?custodyNode prov:wasAssociatedWith ?ownerAgent .
+
+    OPTIONAL { ?custodyNode arp:startedAtTime ?oStart }
+    OPTIONAL { ?custodyNode arp:endedAtTime ?oEnd }
+    OPTIONAL { ?ownerAgent arp:name ?oName }
+
+    # Fallback pentru nume
+    BIND(COALESCE(?oName, REPLACE(STR(?ownerAgent), "^.*/([^/]*)$", "$1")) AS ?resolvedOwnerName)
+
+    # Construire string
+    BIND(CONCAT(
+        ?resolvedOwnerName, "::",
+        COALESCE(STR(?oStart), ""), "::",
+        COALESCE(STR(?oEnd), "")
+    ) AS ?ownerInfo)
   }
 }
-GROUP BY ?subject ?title ?img ?category ?condition ?inv ?desc ?cimec
-         ?license ?date ?dimensions ?artistName ?artistUri
-         ?museumName ?museumUri
-         ?registrarUri ?registrarName ?recordedAt
-         ?validatorUri ?validatorName ?validatedAt
+GROUP BY ?subject
+# IMPORTANT: Adaugă ORDER BY când folosești paginare pentru a garanta ordinea rezultatelor
+ORDER BY ?subject
 LIMIT {{LIMIT}}
 OFFSET {{OFFSET}}

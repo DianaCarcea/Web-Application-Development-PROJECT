@@ -15,19 +15,19 @@ public class ArtworkService {
         this.repository = repository;
     }
 
-    public List<Artwork> getAllArtworks() {
-        return repository.findAll(); // simplu, curat
-    }
+//    public List<Artwork> getAllArtworks(String domain) {
+//        return repository.findAll(domain); // simplu, curat
+//    }
 
-    public Artwork getArtworkByUri(String uri) {
-        return repository.findByUri(uri);
+    public Artwork getArtworkByUri(String uri, String domain) {
+        return repository.findByUri(uri, domain);
     }
     public List<Artwork> getArtworkByArtist(String artistUri) {
         return repository.findByArtist(artistUri);
     }
 
-    public List<Artwork> getHomepageArtworks(int page, int pageSize) {
+    public List<Artwork> getHomepageArtworks(int page, int pageSize, String domain) {
         int offset = (page - 1) * pageSize;
-        return repository.findNext(pageSize, offset);
+        return repository.findNext(pageSize, offset, domain);
     }
 }

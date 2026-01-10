@@ -1,6 +1,7 @@
 package com.example.backend.repository;
 
 //import com.example.backend.config.WikimediaUtils;
+import com.example.backend.config.ImageOrchestrator;
 import com.example.backend.config.WikimediaUtils;
 import com.example.backend.model.Artwork;
 import com.example.backend.model.Creation;
@@ -53,7 +54,7 @@ public class WikidataArtworkRepository {
                 if (wikidataImage != null && !wikidataImage.isEmpty()) {
                     a.imageLink = wikidataImage;
                 } else {
-                    a.imageLink = WikimediaUtils.getWikimediaImage(a.title);
+                    a.imageLink = ImageOrchestrator.getBestImage(a.title);
                 }
 
                 artworks.add(a);
@@ -97,7 +98,7 @@ public class WikidataArtworkRepository {
                 if (wikidataImage != null && !wikidataImage.isEmpty()) {
                     a.imageLink = wikidataImage;
                 } else {
-                    a.imageLink = WikimediaUtils.getWikimediaImage(a.title); // caută pe Wikimedia
+                    a.imageLink = ImageOrchestrator.getBestImage(a.title);
                 }
 
                 // Descriere
@@ -265,7 +266,7 @@ public class WikidataArtworkRepository {
                 if (wikidataImage != null && !wikidataImage.isEmpty()) {
                     a.imageLink = wikidataImage;
                 } else {
-                    a.imageLink = WikimediaUtils.getWikimediaImage(a.title); // caută pe Wikimedia
+                    a.imageLink = ImageOrchestrator.getBestImage(a.title);
                 }
 
                 // Descriere
@@ -472,7 +473,7 @@ public class WikidataArtworkRepository {
                 if (wikidataImage != null && !wikidataImage.isEmpty()) {
                     a.imageLink = wikidataImage;
                 } else {
-                    a.imageLink = WikimediaUtils.getWikimediaImage(a.title); // caută pe Wikimedia
+                    a.imageLink = ImageOrchestrator.getBestImage(a.title);
                 }
 
                 // Descriere
