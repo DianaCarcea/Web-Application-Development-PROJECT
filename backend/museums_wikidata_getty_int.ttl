@@ -1,0 +1,549 @@
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tgn:  <http://vocab.getty.edu/tgn/>
+PREFIX ulan: <http://vocab.getty.edu/ulan/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+<http://arp.ro/resource/agent/Museum_Boijmans_Van_Beuningen>
+        a                 arp:Museum;
+        arp:gettyId       "500308264";
+        arp:gettyUri      ulan:500308264;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Museumpark%2002.JPG>;
+        arp:name          "Museum Boijmans Van Beuningen";
+        arp:wikidataName  "Museum Boijmans Van Beuningen"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q679527> .
+
+<http://arp.ro/resource/agent/British_Museum>
+        a                 arp:Museum;
+        arp:gettyId       "500125180";
+        arp:gettyUri      ulan:500125180;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/British%20Museum%20from%20NE%202%20%28cropped%29.JPG>;
+        arp:name          "British Museum";
+        arp:wikidataName  "British Museum"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q6373> .
+
+<http://arp.ro/resource/agent/Casa_Buonarroti>
+        a                 arp:Museum;
+        arp:gettyId       "500288855";
+        arp:gettyUri      ulan:500288855;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/3035%20-%20Firenze%20-%20Busto%20sopra%20l%27ingresso%20di%20Casa%20Buonarroti%20-%20Foto%20Giovanni%20Dall%27Orto%2C%2028-Oct-2007.jpg>;
+        arp:name          "Casa Buonarroti";
+        arp:wikidataName  "Casa Buonarroti"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q2418618> .
+
+<http://arp.ro/resource/agent/Evoluon>
+        a                 arp:Museum;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Overzicht%20-%20Eindhoven%20-%2020396820%20-%20RCE.jpg>;
+        arp:name          "Evoluon";
+        arp:wikidataName  "Evoluon"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q23212> .
+
+<http://arp.ro/resource/agent/National_Gallery_of_Norway>
+        a                 arp:Museum;
+        arp:gettyId       "500301612";
+        arp:gettyUri      ulan:500301612;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Nye%20Nasjonalmuseet%20%282022%29%20%282%29.jpg>;
+        arp:name          "National Gallery of Norway";
+        arp:wikidataName  "Muzeul Național de Artă, Arhitectură și Design"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q1132918> .
+
+<http://arp.ro/resource/agent/Syracuse_University_campus>
+        a                 arp:Museum;
+        arp:gettyId       "500312938";
+        arp:gettyUri      ulan:500312938;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Syracuse-university%201916%20campus.jpg>;
+        arp:name          "Syracuse University campus";
+        arp:wikidataName  "Syracuse University campus"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q120633655> .
+
+<http://arp.ro/resource/agent/Germanisches_Nationalmuseum>
+        a                 arp:Museum;
+        arp:gettyId       "500303791";
+        arp:gettyUri      ulan:500303791;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Nuernberg%20gnm%20haupteingang%20menschenrechte%20v%20nnw.jpg>;
+        arp:name          "Germanisches Nationalmuseum";
+        arp:wikidataName  "Muzeul Național German"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q478695> .
+
+<http://arp.ro/resource/agent/Buckingham_Palace>
+        a                 arp:Museum;
+        arp:gettyId       "500301709";
+        arp:gettyUri      ulan:500301709;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Buckingham%20Palace%2C%20London%20-%20April%202009.jpg>;
+        arp:name          "Buckingham Palace";
+        arp:wikidataName  "Palatul Buckingham"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q42182> .
+
+<http://arp.ro/resource/agent/London>
+        a                 arp:Museum;
+        arp:gettyId       "500523110";
+        arp:gettyUri      ulan:500523110;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/London%20Skyline%20%28125508655%29.jpeg>;
+        arp:name          "London";
+        arp:wikidataName  "Londra"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q84> .
+
+<http://arp.ro/resource/agent/Rock_and_Roll_Hall_of_Fame>
+        a                 arp:Museum;
+        arp:gettyId       "500303336";
+        arp:gettyUri      ulan:500303336;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Rock%20and%20Roll%20Hall%20of%20Fame%2C%20May%202016.jpg>;
+        arp:name          "Rock and Roll Hall of Fame";
+        arp:wikidataName  "Rock and Roll Hall of Fame"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q179191> .
+
+<http://arp.ro/resource/agent/Basilica_of_Saint-Denis>
+        a                 arp:Museum;
+        arp:gettyId       "500356951";
+        arp:gettyUri      ulan:500356951;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Basilique%20St%20Denis%20fa%C3%A7ade%20ouest%20St%20Denis%20Seine%20St%20Denis%2020.jpg>;
+        arp:name          "Basilica of Saint-Denis";
+        arp:wikidataName  "Catedrala din Saint-Denis"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q184407> .
+
+<http://arp.ro/resource/agent/Sentrum>
+        a                 arp:Museum;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Circle-withsegments.svg>;
+        arp:name          "Sentrum";
+        arp:wikidataName  "Centru"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q23595> .
+
+<http://arp.ro/resource/agent/Mus_e_du_quai_Branly>
+        a                 arp:Museum;
+        arp:gettyId       "500355211";
+        arp:gettyUri      ulan:500355211;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Mus%C3%A9e%20du%20quai%20Branly%20-%2020150801%2016h07%20%2810629%29.jpg>;
+        arp:name          "Musée du quai Branly";
+        arp:wikidataName  "Musée du quai Branly"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q167863> .
+
+<http://arp.ro/resource/agent/Neues_Museum>
+        a                 arp:Museum;
+        arp:gettyId       "500300372";
+        arp:gettyUri      ulan:500300372;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Neues%20Museum%20Biel%2C%20Eingang.jpg>;
+        arp:name          "Neues Museum";
+        arp:wikidataName  "New Museum Biel"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q74516> .
+
+<http://arp.ro/resource/agent/Albertina>
+        a                 arp:Museum;
+        arp:gettyId       "500224093";
+        arp:gettyUri      ulan:500224093;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Tina%20Majorino%20by%20Gage%20Skidmore.jpg>;
+        arp:name          "Albertina";
+        arp:wikidataName  "Tina Majorino"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q234321> .
+
+<http://arp.ro/resource/agent/National_Museum_of_Denmark>
+        a                 arp:Museum;
+        arp:gettyId       "500253098";
+        arp:gettyUri      ulan:500253098;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Nationalmuseet%20kbh.jpg>;
+        arp:name          "National Museum of Denmark";
+        arp:wikidataName  "Muzeul Național al Danemarcei"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q648166> .
+
+<http://arp.ro/resource/agent/Egyptian_Museum>
+        a                 arp:Museum;
+        arp:gettyId       "500284802";
+        arp:gettyUri      ulan:500284802;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/The%20Egyptian%20Museum.jpg>;
+        arp:name          "Egyptian Museum";
+        arp:wikidataName  "Muzeul Egiptean din Cairo"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q201219> .
+
+<http://arp.ro/resource/agent/Iraq>
+        a                 arp:Museum;
+        arp:gettyId       "500273329";
+        arp:gettyUri      ulan:500273329;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/View%20of%20Sulaymaniyah%20%28Slemani%29%20City%20in%20Winter%20-%20Snow%202015.JPG>;
+        arp:name          "Iraq";
+        arp:wikidataName  "Irak"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q796> .
+
+<http://arp.ro/resource/agent/Royal_Collection>
+        a                 arp:Museum;
+        arp:gettyId       "500302083";
+        arp:gettyUri      ulan:500302083;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Windsor%20Castle%20at%20Sunset%20-%20Nov%202006.jpg>;
+        arp:name          "Royal Collection";
+        arp:wikidataName  "Royal Collection"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q1459037> .
+
+<http://arp.ro/resource/agent/Peale_Museum>
+        a                 arp:Museum;
+        arp:gettyId       "500019719";
+        arp:gettyUri      ulan:500019719;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Rembrandt%20Peale%20Museum%2C%20225%20North%20Holliday%20Street%20%28Baltimore%2C%20Independent%20City%2C%20Maryland%29.jpg>;
+        arp:name          "Peale Museum";
+        arp:wikidataName  "Peale Museum"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q3373833> .
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tgn:  <http://vocab.getty.edu/tgn/>
+PREFIX ulan: <http://vocab.getty.edu/ulan/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+<http://arp.ro/resource/agent/Mexico_City>
+        a                 arp:Museum;
+        arp:gettyId       "2507401";
+        arp:gettyUri      tgn:2507401;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Sobrevuelos%20CDMX%20HJ2A5091%20%2840386338731%29.jpg>;
+        arp:name          "Mexico City";
+        arp:wikidataName  "Ciudad de México"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q1489> .
+
+<http://arp.ro/resource/agent/Berlin_Palace>
+        a                 arp:Museum;
+        arp:gettyId       "7458514";
+        arp:gettyUri      tgn:7458514;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Berlin-Mitte-Ehemaliges%20Berliner%20Schloss-ZI-0136-06-Th176311.jpg>;
+        arp:name          "Berlin Palace";
+        arp:wikidataName  "Berlin Palace"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q170119> .
+
+<http://arp.ro/resource/agent/Santa_Maria_delle_Grazie>
+        a                 arp:Museum;
+        arp:gettyId       "4010069";
+        arp:gettyUri      tgn:4010069;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Santa%20Maria%20delle%20Grazie%20Milan%202013.jpg>;
+        arp:name          "Santa Maria delle Grazie";
+        arp:wikidataName  "Biserica Santa Maria delle Grazie"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q244952> .
+
+<http://arp.ro/resource/agent/Metropolitan_Museum_of_Art>
+        a                 arp:Museum;
+        arp:gettyId       "500125157";
+        arp:gettyUri      ulan:500125157;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Metropolitan%20Museum%20of%20Art%20%28The%20Met%29%20-%20Central%20Park%2C%20NYC.jpg>;
+        arp:name          "Metropolitan Museum of Art";
+        arp:wikidataName  "Metropolitan Museum of Art"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q160236> .
+
+<http://arp.ro/resource/agent/National_Archives_and_Records_Administration>
+        a                 arp:Museum;
+        arp:gettyId       "500263780";
+        arp:gettyUri      ulan:500263780;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/GLAMcamp%20DC%202012%20-%20National%20Archives%20building%204.jpg>;
+        arp:name          "National Archives and Records Administration";
+        arp:wikidataName  "National Archives and Records Administration"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q518155> .
+
+<http://arp.ro/resource/agent/Art_Institute_of_Chicago>
+        a                 arp:Museum;
+        arp:gettyId       "500304669";
+        arp:gettyUri      ulan:500304669;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Art%20Institute%20of%20Chicago%20%2851575570710%29.jpg>;
+        arp:name          "Art Institute of Chicago";
+        arp:wikidataName  "Art Institute of Chicago"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q239303> .
+
+<http://arp.ro/resource/agent/Nasher_Museum_of_Art>
+        a                 arp:Museum;
+        arp:gettyId       "500308037";
+        arp:gettyUri      ulan:500308037;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/NasherMuseum.jpg>;
+        arp:name          "Nasher Museum of Art";
+        arp:wikidataName  "Nasher Museum of Art"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q6966836> .
+
+<http://arp.ro/resource/agent/Victoria_and_Albert_Museum>
+        a                 arp:Museum;
+        arp:gettyId       "500302040";
+        arp:gettyUri      ulan:500302040;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Victoria%20%26%20Albert%20Museum%20Entrance%2C%20London%2C%20UK%20-%20Diliff.jpg>;
+        arp:name          "Victoria and Albert Museum";
+        arp:wikidataName  "Victoria and Albert Museum"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q213322> .
+
+<http://arp.ro/resource/agent/Church_of_Sant_Andrea>
+        a                 arp:Museum;
+        arp:gettyId       "7033140";
+        arp:gettyUri      tgn:7033140;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Pistoia%2C%20sant%27andrea%2C%20esterno%2C%20facciata%2002.jpg>;
+        arp:name          "Church of Sant' Andrea";
+        arp:wikidataName  "Church of Sant' Andrea"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q1148335> .
+
+<http://arp.ro/resource/agent/Kassel>
+        a                 arp:Museum;
+        arp:gettyId       "7152229";
+        arp:gettyUri      tgn:7152229;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/00%201189%20Blick%20vom%20Bergpark%20Wilhelmsh%C3%B6he%2C%20Kassel.jpg>;
+        arp:name          "Kassel";
+        arp:wikidataName  "Kassel"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q2865> .
+
+<http://arp.ro/resource/agent/Biblioth_que_nationale_de_France>
+        a                 arp:Museum;
+        arp:gettyId       "500309981";
+        arp:gettyUri      ulan:500309981;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Biblioth%C3%A8que%20Mitterrand%20Mai%202022.jpg>;
+        arp:name          "Bibliothèque nationale de France";
+        arp:wikidataName  "Bibliothèque nationale de France"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q193563> .
+
+<http://arp.ro/resource/agent/Erriadh>
+        a                 arp:Museum;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Djerba%20Er%20Riadh%20Street%20Art%2019.JPG>;
+        arp:name          "Erriadh";
+        arp:wikidataName  "Erriadh"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q9158760> .
+
+<http://arp.ro/resource/agent/Museum_of_Navarre>
+        a                 arp:Museum;
+        arp:gettyId       "500309954";
+        arp:gettyUri      ulan:500309954;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Exterior%20of%20the%20Museo%20de%20Navarra%2001.jpg>;
+        arp:name          "Museum of Navarre";
+        arp:wikidataName  "Museum of Navarre"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q2887569> .
+
+<http://arp.ro/resource/agent/Historical_Museum_of_the_Palatinate>
+        a                 arp:Museum;
+        arp:gettyId       "500309146";
+        arp:gettyUri      ulan:500309146;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Speyer%2C%20Museum%20der%20Pfalz.JPG>;
+        arp:name          "Historical Museum of the Palatinate";
+        arp:wikidataName  "Historical Museum of the Palatinate"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q1325163> .
+
+<http://arp.ro/resource/agent/Wemding>
+        a                 arp:Museum;
+        arp:gettyId       "1041739";
+        arp:gettyUri      tgn:1041739;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Wemding%20-%20Marktplatz%20mit%20histor.%20Rathaus%20links.jpg>;
+        arp:name          "Wemding";
+        arp:wikidataName  "Wemding"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q502758> .
+
+<http://arp.ro/resource/agent/Spijkenisse>
+        a                 arp:Museum;
+        arp:gettyId       "1048128";
+        arp:gettyUri      tgn:1048128;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/De%20boekenberg%20grote%20bibliotheek%20in%20Spijkenisse%20cropped.jpg>;
+        arp:name          "Spijkenisse";
+        arp:wikidataName  "Spijkenisse"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q488545> .
+
+<http://arp.ro/resource/agent/Palais-Royal>
+        a                 arp:Museum;
+        arp:gettyId       "500306188";
+        arp:gettyUri      ulan:500306188;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Torino%20-%20Palazzo%20Reale%20-%201.jpg>;
+        arp:name          "Palais-Royal";
+        arp:wikidataName  "Royal Palace of Turin"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q19824> .
+
+<http://arp.ro/resource/agent/Room_236_display_case_6>
+        a                 arp:Museum;
+        arp:gettyId       "500062128";
+        arp:gettyUri      ulan:500062128;
+        arp:name          "Room 236, display case 6";
+        arp:wikidataName  "Room 236, display case 6"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q58359086> .
+
+<http://arp.ro/resource/agent/Philippe_M_aille_Collection>
+        a                 arp:Museum;
+        arp:gettyId       "500309977";
+        arp:gettyUri      ulan:500309977;
+        arp:name          "Philippe Méaille Collection";
+        arp:wikidataName  "Philippe Méaille Collection"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q49129365> .
+
+<http://arp.ro/resource/agent/Church_of_the_Eremitani>
+        a                 arp:Museum;
+        arp:gettyId       "500079271";
+        arp:gettyUri      ulan:500079271;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/%28Padua%29%20Chiesa%20degli%20Eremitani%20-%20Facade.jpg>;
+        arp:name          "Church of the Eremitani";
+        arp:wikidataName  "Church of the Eremitani"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q3585946> .
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tgn:  <http://vocab.getty.edu/tgn/>
+PREFIX ulan: <http://vocab.getty.edu/ulan/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+<http://arp.ro/resource/agent/Zabeel_Park>
+        a                 arp:Museum;
+        arp:gettyId       "7458285";
+        arp:gettyUri      tgn:7458285;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Zabeel%20Park.jpg>;
+        arp:name          "Zabeel Park";
+        arp:wikidataName  "Zabeel Park"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q23583803> .
+
+<http://arp.ro/resource/agent/Vatican_Museums>
+        a                 arp:Museum;
+        arp:gettyId       "500356366";
+        arp:gettyUri      ulan:500356366;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Mura%20vaticane%20-%20ingresso%20ai%20Musei%2000410.JPG>;
+        arp:name          "Vatican Museums";
+        arp:wikidataName  "Muzeele Vaticane"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q182955> .
+
+<http://arp.ro/resource/agent/Ellesiya_Temple_Nubian_Hall_room_15>
+        a                 arp:Museum;
+        arp:gettyId       "500190312";
+        arp:gettyUri      ulan:500190312;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Tempio%20di%20Ellesiya%208SA0459.tif>;
+        arp:name          "Ellesiya Temple/Nubian Hall, room 15";
+        arp:wikidataName  "Ellesiya Temple/Nubian Hall, room 15"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q115898897> .
+
+<http://arp.ro/resource/agent/Cappella_Sansevero>
+        a                 arp:Museum;
+        arp:gettyId       "500518288";
+        arp:gettyUri      ulan:500518288;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Immagine%20d%27insieme%202%2C%20Cappella%20Sansevero.jpg>;
+        arp:name          "Cappella Sansevero";
+        arp:wikidataName  "Cappella Sansevero"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q897839> .
+
+<http://arp.ro/resource/agent/Solomon_R_Guggenheim_Museum>
+        a                 arp:Museum;
+        arp:gettyId       "500303631";
+        arp:gettyUri      ulan:500303631;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/NYC%20-%20Guggenheim%20Museum.jpg>;
+        arp:name          "Solomon R. Guggenheim Museum";
+        arp:wikidataName  "Muzeul Solomon R. Guggenheim"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q201469> .
+
+<http://arp.ro/resource/agent/Museo_Pio-Clementino_-_Sala_rotonda>
+        a                 arp:Museum;
+        arp:gettyId       "500308626";
+        arp:gettyUri      ulan:500308626;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Museo%20Pio-Clementino%20cortile%20ottagono.JPG>;
+        arp:name          "Museo Pio-Clementino - Sala rotonda";
+        arp:wikidataName  "muzeul Pio-Clementino"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q1439912> .
+
+<http://arp.ro/resource/agent/Tintagel_Castle>
+        a                 arp:Museum;
+        arp:gettyId       "7011329";
+        arp:gettyUri      tgn:7011329;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Tintagel%20Ruins%20-%20Mainland%20Courtyard%2001.JPG>;
+        arp:name          "Tintagel Castle";
+        arp:wikidataName  "Tintagel Castle"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q934922> .
+
+<http://arp.ro/resource/agent/Bronx_Zoo>
+        a                 arp:Museum;
+        arp:gettyId       "7022658";
+        arp:gettyUri      tgn:7022658;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Stavenn%20Bronx%20Zoo%2000.jpg>;
+        arp:name          "Bronx Zoo";
+        arp:wikidataName  "Bronx Zoo"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q739792> .
+
+<http://arp.ro/resource/agent/Hildesheim_Cathedral>
+        a                 arp:Museum;
+        arp:gettyId       "7172026";
+        arp:gettyUri      tgn:7172026;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Hildesheimer%20Dom%202015.JPG>;
+        arp:name          "Hildesheim Cathedral";
+        arp:wikidataName  "Hildesheim Cathedral"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q167231> .
+
+<http://arp.ro/resource/agent/Museum_of_Fine_Arts_of_Lyon>
+        a                 arp:Museum;
+        arp:gettyId       "500309387";
+        arp:gettyUri      ulan:500309387;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Palais%20St%20Pierre%20Lyon1%20fr%20facade%20Terreaux.JPG>;
+        arp:name          "Museum of Fine Arts of Lyon";
+        arp:wikidataName  "Musée des Beaux-Arts din Lyon"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q511> .
+
+<http://arp.ro/resource/agent/Pompeii>
+        a                 arp:Museum;
+        arp:gettyId       "500234555";
+        arp:gettyUri      ulan:500234555;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Campanile%20Pompei%2008%20-%20Vs%20Vesuvio.jpg>;
+        arp:name          "Pompeii";
+        arp:wikidataName  "Pompei"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q36471> .
+
+<http://arp.ro/resource/agent/Uffizi_Gallery>
+        a                 arp:Museum;
+        arp:gettyId       "500125191";
+        arp:gettyUri      ulan:500125191;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Florence%2C%20Italy%20-%20panoramio%20%28125%29.jpg>;
+        arp:name          "Uffizi Gallery";
+        arp:wikidataName  "Galeria Uffizi"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q51252> .
+
+<http://arp.ro/resource/agent/Burgerbibliothek_of_Berne>
+        a                 arp:Museum;
+        arp:gettyId       "500293989";
+        arp:gettyUri      ulan:500293989;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Zentralbibliothek%20bern.jpg>;
+        arp:name          "Burgerbibliothek of Berne";
+        arp:wikidataName  "Burgerbibliothek of Berne and university library (building)"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q190254> .
+
+<http://arp.ro/resource/agent/T_ebechovick_muzeum_betl_m_>
+        a                 arp:Museum;
+        arp:gettyId       "500308220";
+        arp:gettyUri      ulan:500308220;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/TMB20130905-01.jpg>;
+        arp:name          "Třebechovické muzeum betlémů";
+        arp:wikidataName  "Třebechovické muzeum betlémů"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q12060266> .
+
+<http://arp.ro/resource/agent/Unknown_Location>
+        a                 arp:Museum;
+        arp:gettyId       "2150152";
+        arp:gettyUri      tgn:2150152;
+        arp:name          "Unknown Location";
+        arp:wikidataName  "unknown location"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q62077203> .
+
+<http://arp.ro/resource/agent/Monti>
+        a                 arp:Museum;
+        arp:gettyId       "500099400";
+        arp:gettyUri      ulan:500099400;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Montigny-L%C3%A8s-Metz.jpg>;
+        arp:name          "Monti";
+        arp:wikidataName  "Montigny-lès-Metz"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q22752> .
+
+<http://arp.ro/resource/agent/Natural_and_Cultural_Gardens>
+        a                 arp:Museum;
+        arp:gettyId       "500475809";
+        arp:gettyUri      ulan:500475809;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/131116%20Expo%20Commemoration%20Park%20Suita%20Osaka%20pref%20Japan04s3.jpg>;
+        arp:name          "Natural and Cultural Gardens";
+        arp:wikidataName  "Natural and Cultural Gardens"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q11353780> .
+
+<http://arp.ro/resource/agent/San_Polo>
+        a                 arp:Museum;
+        arp:gettyId       "7040702";
+        arp:gettyUri      tgn:7040702;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Sao%20Paulo%20Skyline%20in%20Brazil.jpg>;
+        arp:name          "San Polo";
+        arp:wikidataName  "São Paulo"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q174> .
+
+<http://arp.ro/resource/agent/Arc_de_Triomphe>
+        a                 arp:Museum;
+        arp:gettyId       "7666310";
+        arp:gettyUri      tgn:7666310;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Arc%20de%20Triomphe%2C%20Paris%2021%20October%202010.jpg>;
+        arp:name          "Arc de Triomphe";
+        arp:wikidataName  "Arcul de Triumf din Paris"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q64436> .

@@ -169,9 +169,10 @@ public class SparqlToTTLArp {
                 String inception = getLiteral(sol, "inception");
                 String startTime = getLiteral(sol, "startTime");
                 String publicationDate = getLiteral(sol, "publicationDate");
+                String officialOpening = getLiteral(sol, "officialOpening");
                 String pointInTime = getLiteral(sol, "pointInTime");
 
-                setCreationYear(model, creationRes, inception, startTime, publicationDate, pointInTime);
+                setCreationYear(model, creationRes, inception, startTime, publicationDate, pointInTime, officialOpening);
 
                 if (!getLiteral(sol, "materialLabels").isEmpty()) {
                     String materials = getLiteral(sol, "materialLabels").replace("|", "; ");
@@ -392,22 +393,30 @@ public class SparqlToTTLArp {
      */
     private static void setCreationYear(Model model, Resource res, String... potentialDates) {
         for (String dateStr : potentialDates) {
-            // Verificăm dacă data nu e goală
-            if (!dateStr.isEmpty()) {
-                String year;
+            if (dateStr != null && !dateStr.isEmpty()) {
 
-                // Logica de extragere a anului (inclusiv pentru anii negativi/BC)
-                if (dateStr.startsWith("-")) {
-                    // Ex: "-0500-01-01" -> "-0500"
-                    year = dateStr.length() >= 5 ? dateStr.substring(0, 5) : dateStr;
-                } else {
-                    // Ex: "1990-05-20" -> "1990"
-                    year = dateStr.length() >= 4 ? dateStr.substring(0, 4) : dateStr;
+                // Elimină ora dacă există (ex: 1990-05-20T14:30:00Z → 1990-05-20)
+                String dateOnly = dateStr.split("T")[0];
+
+                // Acceptă YYYY-MM-DD sau -YYYY-MM-DD
+                if (dateOnly.matches("-?\\d{4}-\\d{2}-\\d{2}")) {
+                    res.addProperty(
+                            model.createProperty(NS_ARP + "startedAtTime"),
+                            dateOnly,
+                            XSDDatatype.XSDdate
+                    );
+                    return;
                 }
 
-                // Adăugăm proprietatea și ne oprim (break/return) pentru a respecta prioritatea
-                res.addProperty(model.createProperty(NS_ARP + "startedAtTime"), year, XSDDatatype.XSDgYear);
-                return;
+                // Fallback: doar anul
+                if (dateOnly.matches("-?\\d{4}")) {
+                    res.addProperty(
+                            model.createProperty(NS_ARP + "startedAtTime"),
+                            dateOnly,
+                            XSDDatatype.XSDgYear
+                    );
+                    return;
+                }
             }
         }
     }

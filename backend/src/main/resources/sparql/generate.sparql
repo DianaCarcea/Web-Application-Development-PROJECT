@@ -18,6 +18,7 @@ SELECT ?artwork
        (SAMPLE(?startTime_) AS ?startTime)
        (SAMPLE(?pointInTime_) AS ?pointInTime)
        (SAMPLE(?publicationDate_) AS ?publicationDate)
+       (SAMPLE(?officialOpening_) AS ?officialOpening)
 
        # --- Destruction (Complex) ---
        (SAMPLE(?dissolved_) AS ?dissolved)
@@ -60,6 +61,7 @@ WHERE {
   OPTIONAL { ?artwork wdt:P580 ?startTime_ }
   OPTIONAL { ?artwork wdt:P585 ?pointInTime_ }
   OPTIONAL { ?artwork wdt:P577 ?publicationDate_ }
+  OPTIONAL { ?artwork wdt:P1619 ?officialOpening_ }
 
   # --- DESTRUCTION (P576) & CAUSE (P770) ---
   OPTIONAL {
