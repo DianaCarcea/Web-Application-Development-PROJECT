@@ -1,9 +1,6 @@
 package com.example.backend.repository;
 
-import com.example.backend.model.Artwork;
-import com.example.backend.model.Creation;
-import com.example.backend.model.Registrar;
-import com.example.backend.model.Validator;
+import com.example.backend.model.*;
 import org.apache.jena.base.Sys;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
@@ -122,6 +119,8 @@ public class ArtworkRepository {
             QuerySolution sol = rs.nextSolution();
             Artwork a = new Artwork();
             Creation creation = new Creation();
+            List<Collector> ownershipHistory = new ArrayList<>();
+
 
             creation.startedAtTime  = getLiteral(sol, "date");
             a.creation = creation;
@@ -134,6 +133,7 @@ public class ArtworkRepository {
             a.condition = getLiteral(sol, "condition");
             a.inventoryNumber = getLiteral(sol, "inv");
             a.cimecLink = getLiteral(sol, "cimec");
+            a.wikidataLink = getLiteral(sol, "wikidataLink");
             a.license = sol.contains("license") ? sol.getResource("license").getURI() : "";
             a.dimensions = getLiteral(sol, "dimensions");
 
@@ -170,6 +170,36 @@ public class ArtworkRepository {
                 validator.name = getLiteral(sol, "validatorName");
                 a.validator = validator;
             }
+
+            if (sol.contains("ownershipHistory")) {
+                String raw = sol.getLiteral("ownershipHistory").getString();
+
+                for (String entry : raw.split(";;")) {
+                    String[] parts = entry.split("\\|\\|", -1);
+
+                    Collector o = new Collector();
+                    o.ownerName = parts.length > 0 ? parts[0] : "?";
+                    o.startedAt = parts.length > 1 && !parts[1].isEmpty() ? parts[1] : null;
+                    o.endedAt = parts.length > 2 && !parts[2].isEmpty() ? parts[2] : null;
+
+                    if (o.startedAt == null) {
+                        o.startedAt = "?";
+                    }
+                    if (o.endedAt == null) {
+                        o.endedAt = "?";
+                    }
+
+                    a.ownershipHistory.add(o);
+                }
+            }
+
+// Sortare crescătoare după startedAt
+            a.ownershipHistory.sort((o1, o2) -> {
+                // Păstrăm entry-urile cu "?" la final
+                if ("?".equals(o1.startedAt)) return 1;
+                if ("?".equals(o2.startedAt)) return -1;
+                return o1.startedAt.compareTo(o2.startedAt);
+            });
 
             return a;
         }

@@ -1,5 +1,6 @@
 package com.example.backend.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Artwork extends Entity{
@@ -9,6 +10,7 @@ public class Artwork extends Entity{
     public String condition;
     public String imageLink;
     public String cimecLink;
+    public String wikidataLink;
     public String license;
 
 
@@ -21,5 +23,7 @@ public class Artwork extends Entity{
     public String recordedAt;
     public Validator validator;
     public String validatedAt;
+    public List<Collector> ownershipHistory = new ArrayList<>();
+
     public Artwork() {}
 }

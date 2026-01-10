@@ -39,7 +39,17 @@ SELECT
 
        # --- NOU: Istoricul Proprietarilor (concatenare cu | ) ---
        # Format rezultat: Nume::Start::Sfârșit | Nume2::Start2::Sfârșit2 ...
-       (GROUP_CONCAT(DISTINCT ?ownerInfo; separator="|") AS ?ownershipHistory)
+       (GROUP_CONCAT(
+          DISTINCT CONCAT(
+            COALESCE(?ownerName, STR(?ownerUri)),
+            "||",
+            COALESCE(STR(?ownStart), ""),
+            "||",
+            COALESCE(STR(?ownEnd), "")
+          );
+          separator=";;"
+       ) AS ?ownershipHistory)
+
 
 WHERE {
   # Definim subiectul (înlocuiește {{URI}} cu <http://arp.ro/resource/artwork/Q275924>)
@@ -94,32 +104,17 @@ WHERE {
     ?subject arp:validatedBy ?validatorUri_val .
     OPTIONAL { ?validatorUri_val arp:name ?validatorName_val }
   }
-
-  # --- SECȚIUNEA OWNERSHIP (Combinată) ---
   OPTIONAL {
-    # 1. Navigăm prin nodul anonim
-    ?subject arp:hasOwnership ?custodyNode .
+      ?subject arp:hasOwnership ?ownership .
+      ?ownership a arp:TransferOfCustody .
 
-    # 2. Găsim agentul proprietar
-    ?custodyNode prov:wasAssociatedWith ?ownerAgent .
-
-    # 3. Extragem datele (dacă există)
-    OPTIONAL { ?custodyNode arp:startedAtTime ?oStart }
-    OPTIONAL { ?custodyNode arp:endedAtTime ?oEnd }
-
-    # 4. Extragem numele (sau fallback la URI)
-    OPTIONAL { ?ownerAgent arp:name ?oName }
-
-    # Logică: Dacă arp:name lipsește, ia ultima parte din URI (ex: Collector_John_Ohl)
-    BIND(COALESCE(?oName, REPLACE(STR(?ownerAgent), "^.*/([^/]*)$", "$1")) AS ?resolvedOwnerName)
-
-    # 5. Formatăm string-ul pentru o singură intrare
-    BIND(CONCAT(
-        ?resolvedOwnerName, "::",
-        COALESCE(STR(?oStart), ""), "::",
-        COALESCE(STR(?oEnd), "")
-    ) AS ?ownerInfo)
-  }
+      OPTIONAL { ?ownership arp:startedAtTime ?ownStart }
+      OPTIONAL { ?ownership arp:endedAtTime ?ownEnd }
+      OPTIONAL {
+        ?ownership prov:wasAssociatedWith ?ownerUri .
+        OPTIONAL { ?ownerUri arp:name ?ownerName }
+      }
+    }
 
 }
 # Grupăm doar după subiect pentru a evita erorile de memorie
