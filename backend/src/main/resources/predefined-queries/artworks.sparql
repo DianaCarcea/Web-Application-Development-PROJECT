@@ -1,8 +1,18 @@
 PREFIX arp: <http://arp.ro/schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
 
-SELECT ?artworkUri ?title WHERE {
+SELECT DISTINCT ?artworkUri ?title ?category ?artistName
+WHERE {
   ?artwork a arp:Artwork ;
            arp:title ?title .
+
+  OPTIONAL { ?artwork arp:category ?category }
+
+  OPTIONAL {
+    ?artwork prov:wasAttributedTo ?artist .
+    ?artist arp:name ?artistName .
+  }
+
   BIND(?artwork AS ?artworkUri)
 }
 ORDER BY ?title

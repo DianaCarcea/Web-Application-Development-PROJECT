@@ -100,10 +100,19 @@ table {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-th, td {
+th {
     padding: 10px 12px;
     border-bottom: 1px solid #eee;
     text-align: left;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    vertical-align: top;
+    word-break: break-word; /* sparge cuvinte lungi */
+    overflow-wrap: break-word; /* suport suplimentar */
+    max-width: 300px; /* opțional: limitează lățimea celulei */
 }
 
 th {

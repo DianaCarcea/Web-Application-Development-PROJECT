@@ -1,6 +1,16 @@
 PREFIX arp: <http://arp.ro/schema#>
-SELECT ?artist ?name WHERE {
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT DISTINCT ?artist ?name ?imageLink ?wikidataUri
+WHERE {
   ?artist a arp:Artist ;
           arp:name ?name .
+
+  OPTIONAL { ?artist arp:imageLink ?imageLink }
+
+  OPTIONAL {
+    ?artist arp:wikidataUri ?wikidataUri .
+  }
 }
 ORDER BY ?name
