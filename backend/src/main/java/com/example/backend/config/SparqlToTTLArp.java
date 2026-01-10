@@ -128,6 +128,9 @@ public class SparqlToTTLArp {
                     artRes.addProperty(model.createProperty(NS_ARP + "imageLink"), imgUrl, XSDDatatype.XSDanyURI);
                 }
 
+                String wikiDataLink = "https://www.wikidata.org/wiki/" + qId;
+                artRes.addProperty(model.createProperty(NS_ARP + "wikidataLink"), wikiDataLink, XSDDatatype.XSDanyURI);
+
                 String invNums = getLiteral(sol, "inventoryNumbers");
                 if (!invNums.isEmpty()) {
                     String inv = invNums.split(",")[0].trim();
@@ -149,7 +152,7 @@ public class SparqlToTTLArp {
                 processLocation(model, artRes, sol);
 
                 artRes.addProperty(model.createProperty(NS_DCT + "license"),
-                        model.createResource("http://www.europeana.eu/rights/rr-f/"));
+                        model.createResource("http://creativecommons.org/publicdomain/zero/1.0/"));
 
                 // ==========================================
                 // 2. ENTITATEA CREATION

@@ -18,6 +18,7 @@ public class WikimediaUtils {
     private static final String COMMONS_API_URL = "https://commons.wikimedia.org/w/api.php";
     // User-Agent obligatoriu pentru Wikimedia
     private static final String USER_AGENT = "Java:ArtCatalogApp/1.0 (contact@example.com)";
+    private static final String WIKIDATA_API_URL = "https://www.wikidata.org/w/api.php";
 
     // --- METODA 1: Wikipedia PageImages (De obicei returnează link bun) ---
     public static String searchWikipediaPageImage(String query) {
@@ -115,4 +116,100 @@ public class WikimediaUtils {
 
         return new ObjectMapper().readTree(content.toString());
     }
+
+
+    /**
+     * Cleans the query to improve Wikidata matching chances.
+     * Removes text after " - ", ",", or "(" which often confuses the strict search.
+     */
+    private static String cleanQuery(String query) {
+        if (query == null) return "";
+
+        // 1. Remove text after hyphen (e.g. "Museum Name - CITY" -> "Museum Name")
+        if (query.contains(" - ")) {
+            query = query.split(" - ")[0];
+        }
+        // 2. Remove text after comma (e.g. "Museum Name, Country" -> "Museum Name")
+        if (query.contains(",")) {
+            query = query.split(",")[0];
+        }
+        // 3. Remove parentheses (e.g. "Museum Name (City)" -> "Museum Name")
+        if (query.contains("(")) {
+            query = query.split("\\(")[0];
+        }
+
+        return query.trim();
+    }
+
+    /**
+     * Caută o entitate pe Wikidata după nume și returnează ID-ul (ex: Q19675).
+     * @param query Numele muzeului sau entității (ex: "Louvre Museum")
+     * @return ID-ul Wikidata (ex: "Q19675") sau null dacă nu găsește nimic.
+     */
+    public static String searchWikidataId(String query) {
+        try {
+            if (query == null || query.trim().isEmpty()) return null;
+
+            // STEP 1: Smart Cleaning
+            // "Muzeul Național de Artă al României - BUCUREȘTI" -> "Muzeul Național de Artă al României"
+            String cleanedQuery = cleanQuery(query);
+
+            // System.out.println("🔍 Searching Wikidata for cleaned query: " + cleanedQuery);
+
+            String encodedQuery = URLEncoder.encode(cleanedQuery, StandardCharsets.UTF_8);
+
+            // STEP 2: Construct API URL
+            // Using 'wbsearchentities' is correct, but cleaning the input makes it robust.
+            String urlString = WIKIDATA_API_URL + "?action=wbsearchentities"
+                    + "&search=" + encodedQuery
+                    + "&language=en"
+                    + "&limit=1" // Take the first result
+                    + "&format=json";
+
+            JsonNode rootNode = fetchJson(urlString);
+
+            if (rootNode != null) {
+                JsonNode searchArray = rootNode.path("search");
+                if (searchArray.isArray() && searchArray.size() > 0) {
+                    // Return the ID of the first match
+                    return searchArray.get(0).path("id").asText();
+                }
+            }
+
+            // Fallback: If cleaned search fails, try the original query just in case
+            if (!cleanedQuery.equals(query)) {
+                return searchWikidataId(query); // Recursive retry with original
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * Helper care returnează URL-ul complet RDF sau Web.
+     */
+    public static String searchWikidataUrl(String query) {
+        String id = searchWikidataId(query);
+        if (id != null) {
+            // Returnează URL-ul entității (bun pentru RDF)
+            return "http://www.wikidata.org/entity/" + id;
+        }
+        return null;
+    }
+
+    // Test rapid
+    public static void main(String[] args) {
+        // Test Cases
+        System.out.println(searchWikidataId("Muzeul Național de Artă al României"));
+        // Expected: Q1377755
+
+        System.out.println(searchWikidataUrl("Muzeul Național de Artă al României - BUCUREȘTI"));
+        // Expected: Q1377755 (Now works because of cleaning)
+
+        System.out.println(searchWikidataUrl("Louvre Museum, Paris"));
+        // Expected: http://www.wikidata.org/entity/Q19675
+    }
+
 }
