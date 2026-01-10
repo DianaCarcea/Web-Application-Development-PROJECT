@@ -30,21 +30,16 @@
 <main>
     <!-- Artists Section -->
     <section id="artists">
-        <h2>Artists
-            <a href="/artists" class="details-link">(see more)</a>
-        </h2>
-            <div class="grid artworks-grid">
-                <div class="card" th:each="artist : ${artists}">
-                    <a th:href="@{/artists/{id}/artworks(id=${artist.id})}">
-                        <img th:src="${artist.imageLink != null
-                          ? artist.imageLink
-                          : '/images/no-artist.png'}"
-                             th:alt="${artist.name}">
-                    </a>
-                    <h3 th:text="${artist.name}"></h3>
-                </div>
+        <h2>Artists</h2>
+        <div class="grid artworks-grid">
+            <div class="card" th:each="artist : ${artists}">
+                <a th:href="@{/artists/{id}/artworks(id=${artist.id})}">
+                    <img th:src="${artist.firstArtworkImageLink}" th:alt="${artist.name}">
+                </a>
+                <h3 th:text="${artist.name}"></h3>
             </div>
-        </section>
+        </div>
+    </section>
 
     <section id="int-art">
         <h2>
