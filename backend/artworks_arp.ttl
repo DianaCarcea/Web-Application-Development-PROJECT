@@ -6,19 +6,6 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
-<http://arp.ro/resource/artwork/Q247262>
-        a                     arp:Artwork;
-        arp:category          "fashion style from cinema";
-        arp:classification    "fashion style from cinema" , "cocktail dress" , "work of art";
-        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description       "dress worn by Marilyn Monroe in The Seven Year Itch";
-        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Marilyn%20Monroe%20-%20Seven%20Year%20Itch.jpg"^^xsd:anyURI;
-        arp:inventoryNumber   "unknown";
-        arp:title             "white dress of Marilyn Monroe";
-        dct:license           <http://www.europeana.eu/rights/rr-f/>;
-        prov:wasAttributedTo  <http://arp.ro/resource/agent/William_Travilla>;
-        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q247262> .
-
 <http://arp.ro/resource/artwork/Q1062404>
         a                    arp:Artwork;
         arp:category         "book form";
@@ -31,15 +18,33 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         dct:license          <http://www.europeana.eu/rights/rr-f/>;
         prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q1062404> .
 
+<http://arp.ro/resource/artwork/Q247262>
+        a                     arp:Artwork;
+        arp:category          "cocktail dress";
+        arp:classification    "fashion style from cinema" , "cocktail dress" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "dress worn by Marilyn Monroe in The Seven Year Itch";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Marilyn%20Monroe%20-%20Seven%20Year%20Itch.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "white dress of Marilyn Monroe";
+        dct:license           <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/William_Travilla>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q247262> .
+
 <http://arp.ro/resource/agent/Bertil_Almqvist>
         a         arp:Artist;
         arp:name  "Bertil Almqvist" .
+
+<http://arp.ro/resource/activity/event_Q302371_1>
+        a           arp:TransferOfCustody;
+        rdfs:label  "wedding of Charles, Prince of Wales, and Lady Diana Spencer";
+        prov:used   <http://arp.ro/resource/artwork/Q302371> .
 
 <http://arp.ro/resource/artwork/Q1757822>
         a                     arp:Artwork;
         arp:category          "work of art";
         arp:classification    "work of art";
-        arp:currentLocation   <http://arp.ro/resource/agent/Neues_Museum>;
+        arp:currentLocation   <http://arp.ro/resource/agent/Centre_Georges_Pompidou>;
         arp:description       "1961 artwork by Piero Manzoni consisting of 90 cans filled with his faeces";
         arp:dimensions        "4.8 x 6 centimetre";
         arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Piero%20Manzoni%20-%20Merda%20D%27artista%20%281961%29%20-%20panoramio.jpg"^^xsd:anyURI;
@@ -48,6 +53,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         dct:license           <http://www.europeana.eu/rights/rr-f/>;
         prov:wasAttributedTo  <http://arp.ro/resource/agent/Piero_Manzoni>;
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q1757822> .
+
+<http://arp.ro/resource/agent/Centre_Georges_Pompidou>
+        a         arp:Museum;
+        arp:name  "Centre Georges Pompidou" .
 
 <http://arp.ro/resource/agent/Maurizio_Cattelan>
         a         arp:Artist;
@@ -80,6 +89,15 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:title            "Dubai Frame";
         dct:license          <http://www.europeana.eu/rights/rr-f/>;
         prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q20386392> .
+
+<http://arp.ro/resource/activity/creation_Q2447023>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Toynbee tiles";
+        prov:generated             <http://arp.ro/resource/artwork/Q2447023>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
 
 <http://arp.ro/resource/artwork/Q609292>
         a                    arp:Artwork;
@@ -121,6 +139,17 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         dct:license          <http://www.europeana.eu/rights/rr-f/>;
         prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q1106387> .
 
+<http://arp.ro/resource/activity/creation_Q302371>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei wedding dress of Lady Diana Spencer";
+        arp:materialsUsed          "tulle; taffeta; silk fabric; Carrickmacross lace; lace; pearl; nacre";
+        arp:startedAtTime          "1981"^^xsd:gYear;
+        prov:generated             <http://arp.ro/resource/artwork/Q302371>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
 <http://arp.ro/resource/agent/Rock_and_Roll_Hall_of_Fame>
         a         arp:Museum;
         arp:name  "Rock and Roll Hall of Fame" .
@@ -147,17 +176,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasAttributedTo  <http://arp.ro/resource/agent/Andreas_Schl_ter>;
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q157012> .
 
-<http://arp.ro/resource/activity/creation_Q3517517>
-        a                          arp:Creation;
-        rdfs:label                 "Crearea operei Temple of Ellesyia";
-        arp:materialsUsed          "sandstone";
-        arp:startedAtTime          "-2000"^^xsd:gYear;
-        prov:generated             <http://arp.ro/resource/artwork/Q3517517>;
-        prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
-                                     prov:hadRole  arp:Artist
-                                   ] .
-
 <http://arp.ro/resource/activity/creation_Q1476013>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei plastic flamingo";
@@ -182,10 +200,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                      prov:agent    <http://arp.ro/resource/agent/David_Datuna>;
                                      prov:hadRole  arp:Artist
                                    ] .
-
-<http://arp.ro/resource/agent/Ellesiya_Temple_Nubian_Hall_room_15>
-        a         arp:Museum;
-        arp:name  "Ellesiya Temple/Nubian Hall, room 15" .
 
 <http://arp.ro/resource/agent/Pompeii>
         a         arp:Museum;
@@ -265,10 +279,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                      prov:hadRole  arp:Artist
                                    ] .
 
-<http://arp.ro/resource/agent/Metropolitan_Museum_of_Art>
-        a         arp:Museum;
-        arp:name  "Metropolitan Museum of Art" .
-
 <http://arp.ro/resource/activity/event_Q599_1>
         a           arp:TransferOfCustody;
         rdfs:label  "wedding of Prince William and Catherine Middleton";
@@ -287,6 +297,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasAttributedTo  <http://arp.ro/resource/agent/Nicola_Formichetti> , <http://arp.ro/resource/agent/Franc_Fernandez>;
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q938131> .
 
+<http://arp.ro/resource/agent/Collector_John_Ohl>
+        a         arp:Collector;
+        arp:name  "John Ohl" .
+
 <http://arp.ro/resource/agent/Albertina>
         a         arp:Museum;
         arp:name  "Albertina" .
@@ -299,9 +313,37 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a         arp:Museum;
         arp:name  "Santa Maria delle Grazie" .
 
+<http://arp.ro/resource/artwork/Q302371>
+        a                    arp:Artwork;
+        arp:category         "work of art";
+        arp:classification   "wedding dress" , "work of art";
+        arp:currentLocation  <http://arp.ro/resource/agent/Royal_Collection>;
+        arp:description      "dress worn by Lady Diana Spencer on the day of her wedding to Charles, Prince of Wales, in 1981";
+        arp:hasOwnership     [ a                       arp:TransferOfCustody;
+                               prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Diana_Princess_of_Wales>
+                             ];
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Diana%20Spencer%20wedding%20dress.png"^^xsd:anyURI;
+        arp:inventoryNumber  "unknown";
+        arp:title            "wedding dress of Lady Diana Spencer";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q302371> .
+
+<http://arp.ro/resource/agent/Royal_Collection>
+        a         arp:Museum;
+        arp:name  "Royal Collection" .
+
 <http://arp.ro/resource/agent/Edvard_Munch>
         a         arp:Artist;
         arp:name  "Edvard Munch" .
+
+<http://arp.ro/resource/activity/creation_Q284053>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei dado";
+        prov:generated             <http://arp.ro/resource/artwork/Q284053>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
 
 <http://arp.ro/resource/activity/creation_Q20386392>
         a                          arp:Creation;
@@ -313,21 +355,15 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                      prov:hadRole  arp:Artist
                                    ] .
 
-<http://arp.ro/resource/activity/creation_Q284053>
-        a                          arp:Creation;
-        rdfs:label                 "Crearea operei dado";
-        prov:generated             <http://arp.ro/resource/artwork/Q284053>;
-        prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
-                                     prov:hadRole  arp:Artist
-                                   ] .
-
 <http://arp.ro/resource/artwork/Q1339914>
         a                     arp:Artwork;
         arp:category          "work of art";
         arp:classification    "work of art" , "slogan";
         arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
         arp:description       "slogan and image in Swedish WWII propaganda campaign";
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Military_Preparedness_Museum>
+                              ];
         arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Ensvensktigerskylt2%20djuramossa.jpg"^^xsd:anyURI;
         arp:inventoryNumber   "unknown";
         arp:title             "En svensk tiger";
@@ -373,9 +409,13 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a         arp:Artist;
         arp:name  "Wolfgang von Kempelen" .
 
+<http://arp.ro/resource/agent/Collector_Eug_ne_de_Beauharnais>
+        a         arp:Collector;
+        arp:name  "Eugène de Beauharnais" .
+
 <http://arp.ro/resource/artwork/Q279559>
         a                    arp:Artwork;
-        arp:category         "work of art";
+        arp:category         "world map";
         arp:classification   "archaeological artefact" , "work of art" , "world map" , "antique map";
         arp:currentLocation  <http://arp.ro/resource/agent/British_Museum>;
         arp:description      "6th century BCE Babylonian clay tablet written in Akkadian with a labeled depiction of the known world";
@@ -419,9 +459,13 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a         arp:Museum;
         arp:name  "Germanisches Nationalmuseum" .
 
-<http://arp.ro/resource/agent/Neues_Museum>
-        a         arp:Museum;
-        arp:name  "Neues Museum" .
+<http://arp.ro/resource/agent/Collector_Johann_Nepomuk_Maelzel>
+        a         arp:Collector;
+        arp:name  "Johann Nepomuk Maelzel" .
+
+<http://arp.ro/resource/agent/Katie_Paterson>
+        a         arp:Artist;
+        arp:name  "Katie Paterson" .
 
 <http://arp.ro/resource/activity/creation_Q247262>
         a                          arp:Creation;
@@ -435,33 +479,18 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/artwork/Q3000066>
         a                    arp:Artwork;
-        arp:category         "work of art";
+        arp:category         "cage cup";
         arp:classification   "cage cup" , "work of art";
         arp:currentLocation  <http://arp.ro/resource/agent/London>;
         arp:description      "4th-century Roman cup with unusual properties";
+        arp:hasOwnership     [ a                       arp:TransferOfCustody;
+                               prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_British_Museum>
+                             ];
         arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Front%20of%204th%20century%20CE%20Roman%20Lycurgus%20Cup%2C%20British%20Museum%20%281958%2C1202.1%29.jpg"^^xsd:anyURI;
         arp:inventoryNumber  "1958";
         arp:title            "Lycurgus Cup";
         dct:license          <http://www.europeana.eu/rights/rr-f/>;
         prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q3000066> .
-
-<http://arp.ro/resource/agent/Katie_Paterson>
-        a         arp:Artist;
-        arp:name  "Katie Paterson" .
-
-<http://arp.ro/resource/artwork/Q3332083>
-        a                     arp:Artwork;
-        arp:category          "work of art";
-        arp:classification    "work of art" , "photograph";
-        arp:currentLocation   <http://arp.ro/resource/agent/Metropolitan_Museum_of_Art>;
-        arp:description       "photograph by Dorothea Lange";
-        arp:dimensions        "5 x 4 centimetre";
-        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Lange-MigrantMother02.jpg"^^xsd:anyURI;
-        arp:inventoryNumber   "71.71.10";
-        arp:title             "Migrant Mother, Nipomo, California";
-        dct:license           <http://www.europeana.eu/rights/rr-f/>;
-        prov:wasAttributedTo  <http://arp.ro/resource/agent/Dorothea_Lange>;
-        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q3332083> .
 
 <http://arp.ro/resource/activity/creation_Q128910>
         a                          arp:Creation;
@@ -490,13 +519,13 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:startedAtTime  "2018"^^xsd:gYear;
         prov:used          <http://arp.ro/resource/artwork/Q20386392> .
 
-<http://arp.ro/resource/agent/Peale_Museum>
-        a         arp:Museum;
-        arp:name  "Peale Museum" .
-
 <http://arp.ro/resource/agent/Nicola_Formichetti>
         a         arp:Artist;
         arp:name  "Nicola Formichetti" .
+
+<http://arp.ro/resource/agent/Peale_Museum>
+        a         arp:Museum;
+        arp:name  "Peale Museum" .
 
 <http://arp.ro/resource/artwork/Q254170>
         a                    arp:Artwork;
@@ -556,9 +585,21 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a         arp:Museum;
         arp:name  "London" .
 
-<http://arp.ro/resource/agent/Dorothea_Lange>
-        a         arp:Artist;
-        arp:name  "Dorothea Lange" .
+<http://arp.ro/resource/agent/Collector_British_Museum>
+        a         arp:Collector;
+        arp:name  "British Museum" .
+
+<http://arp.ro/resource/artwork/Q2447023>
+        a                    arp:Artwork;
+        arp:category         "work of art";
+        arp:classification   "work of art" , "street art";
+        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description      "messages of unknown origin found embedded in asphalt of streets";
+        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Toynbee%20tile%20at%20franklin%20square%202002.jpg"^^xsd:anyURI;
+        arp:inventoryNumber  "unknown";
+        arp:title            "Toynbee tiles";
+        dct:license          <http://www.europeana.eu/rights/rr-f/>;
+        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q2447023> .
 
 <http://arp.ro/resource/artwork/Q275924>
         a                     arp:Artwork;
@@ -566,6 +607,38 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:classification    "hoax chess automaton" , "appliance" , "work of art";
         arp:currentLocation   <http://arp.ro/resource/agent/Peale_Museum>;
         arp:description       "chess automaton hoax";
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                arp:endedAtTime         "1838-01-01"^^xsd:date;
+                                arp:startedAtTime       "1815-01-01"^^xsd:date;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Johann_Nepomuk_Maelzel>
+                              ];
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                arp:endedAtTime         "1815-01-01"^^xsd:date;
+                                arp:startedAtTime       "1811-01-01"^^xsd:date;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Eug_ne_de_Beauharnais>
+                              ];
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                arp:endedAtTime         "1854-07-05"^^xsd:date;
+                                arp:startedAtTime       "1840-01-01"^^xsd:date;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Peale_Museum>
+                              ];
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                arp:endedAtTime         "1811-01-01"^^xsd:date;
+                                arp:startedAtTime       "1804-01-01"^^xsd:date;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Johann_Nepomuk_Maelzel>
+                              ];
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                arp:startedAtTime       "1838-01-01"^^xsd:date;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_John_Ohl>
+                              ];
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_John_Kearsley_Mitchell>
+                              ];
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                arp:endedAtTime         "1804-01-01"^^xsd:date;
+                                arp:startedAtTime       "1769-01-01"^^xsd:date;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Wolfgang_von_Kempelen>
+                              ];
         arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Racknitz%20-%20The%20Turk%201.jpg"^^xsd:anyURI;
         arp:inventoryNumber   "unknown";
         arp:title             "The Turk";
@@ -590,7 +663,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q599>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei wedding dress of Catherine Middleton";
-        arp:materialsUsed          "gazar; organza; tulle; lace; satin";
+        arp:materialsUsed          "lace; satin; organza; tulle; gazar";
         arp:startedAtTime          "2011"^^xsd:gYear;
         prov:generated             <http://arp.ro/resource/artwork/Q599>;
         prov:qualifiedAssociation  [ a             prov:Association;
@@ -636,18 +709,13 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasAttributedTo  <http://arp.ro/resource/agent/Edvard_Munch>;
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q471379> .
 
-<http://arp.ro/resource/artwork/Q3517517>
-        a                    arp:Artwork;
-        arp:category         "temple";
-        arp:classification   "temple" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Ellesiya_Temple_Nubian_Hall_room_15>;
-        arp:description      "ancient Egyptian rock-cut temple";
-        arp:dimensions       "850 x 460 centimetre";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Tempio%20di%20Ellesiya%208SA0459.tif"^^xsd:anyURI;
-        arp:inventoryNumber  "S. 18016";
-        arp:title            "Temple of Ellesyia";
-        dct:license          <http://www.europeana.eu/rights/rr-f/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q3517517> .
+<http://arp.ro/resource/agent/Collector_Military_Preparedness_Museum>
+        a         arp:Collector;
+        arp:name  "Military Preparedness Museum" .
+
+<http://arp.ro/resource/agent/Collector_Diana_Princess_of_Wales>
+        a         arp:Collector;
+        arp:name  "Diana, Princess of Wales" .
 
 <http://arp.ro/resource/agent/Berlin_Palace>
         a         arp:Museum;
@@ -667,16 +735,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Leonardo_da_Vinci>
         a         arp:Artist;
         arp:name  "Leonardo da Vinci" .
-
-<http://arp.ro/resource/activity/creation_Q3332083>
-        a                          arp:Creation;
-        rdfs:label                 "Crearea operei Migrant Mother, Nipomo, California";
-        arp:startedAtTime          "1936"^^xsd:gYear;
-        prov:generated             <http://arp.ro/resource/artwork/Q3332083>;
-        prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Dorothea_Lange>;
-                                     prov:hadRole  arp:Artist
-                                   ] .
 
 <http://arp.ro/resource/activity/creation_Q282129>
         a                          arp:Creation;
@@ -794,6 +852,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a         arp:Museum;
         arp:name  "National Museum of Denmark" .
 
+<http://arp.ro/resource/agent/Collector_Peale_Museum>
+        a         arp:Collector;
+        arp:name  "Peale Museum" .
+
 <http://arp.ro/resource/agent/Wemding>
         a         arp:Museum;
         arp:name  "Wemding" .
@@ -823,7 +885,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q157012>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Amber Room";
-        arp:materialsUsed          "gold leaf; gemstone; mirror; amber";
+        arp:materialsUsed          "gold leaf; gemstone; amber; mirror";
         arp:startedAtTime          "1712"^^xsd:gYear;
         prov:generated             <http://arp.ro/resource/artwork/Q157012>;
         prov:qualifiedAssociation  [ a             prov:Association;
@@ -837,7 +899,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
 <http://arp.ro/resource/artwork/Q599>
         a                    arp:Artwork;
-        arp:category         "work of art";
+        arp:category         "wedding dress";
         arp:classification   "dress" , "wedding dress" , "work of art";
         arp:currentLocation  <http://arp.ro/resource/agent/Buckingham_Palace>;
         arp:description      "dress worn by Catherine Middleton on the day of her wedding to Prince William, Duke of Cambridge, in 2011";
@@ -845,6 +907,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:title            "wedding dress of Catherine Middleton";
         dct:license          <http://www.europeana.eu/rights/rr-f/>;
         prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q599> .
+
+<http://arp.ro/resource/agent/Collector_Wolfgang_von_Kempelen>
+        a         arp:Collector;
+        arp:name  "Wolfgang von Kempelen" .
 
 <http://arp.ro/resource/artwork/Q282129>
         a                    arp:Artwork;
@@ -870,9 +936,13 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         dct:license          <http://www.europeana.eu/rights/rr-f/>;
         prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q1476013> .
 
+<http://arp.ro/resource/agent/Collector_John_Kearsley_Mitchell>
+        a         arp:Collector;
+        arp:name  "John Kearsley Mitchell" .
+
 <http://arp.ro/resource/artwork/Q721657>
         a                    arp:Artwork;
-        arp:category         "archaeological find";
+        arp:category         "cauldron";
         arp:classification   "archaeological find" , "work of art" , "cauldron";
         arp:currentLocation  <http://arp.ro/resource/agent/National_Museum_of_Denmark>;
         arp:description      "iron age silver cauldron found in Denmark";

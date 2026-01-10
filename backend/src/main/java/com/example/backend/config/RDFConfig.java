@@ -42,7 +42,8 @@ public class RDFConfig {
         RDFDataMgr.read(ds, "output.ttl");
         RDFDataMgr.read(ds, "artists_wikidata.ttl");
         RDFDataMgr.read(ds, "artworks_arp.ttl");
-        RDFDataMgr.read(ds, "getty-mappings.ttl");
+        RDFDataMgr.read(ds, "getty-materials.ttl");
+        RDFDataMgr.read(ds, "getty-categories.ttl");
 
         return ds;
     }

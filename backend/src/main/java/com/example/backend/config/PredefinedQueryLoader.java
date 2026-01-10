@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -15,9 +16,10 @@ public class PredefinedQueryLoader {
     private static final String QUERY_PATH = "/predefined-queries/";
 
     public Map<String, String> getPredefinedQueries() {
-        Map<String, String> predefinedQueries = new HashMap<>();
+        Map<String, String> predefinedQueries = new LinkedHashMap<>();
 
-        String[] files = {"artists.sparql","artworks.sparql","artworks_count_by_material.sparql","artworks_by_getty_material.sparql"};
+
+        String[] files = {"artists.sparql","artworks.sparql","artworks_count_by_material.sparql","artworks_by_getty_material.sparql","artworks_all_details.sparql","artworks_count_by_category.sparql","artworks_by_getty_category.sparql"};
 
         for (String file : files) {
             try (InputStream is = getClass().getResourceAsStream(QUERY_PATH + file)) {

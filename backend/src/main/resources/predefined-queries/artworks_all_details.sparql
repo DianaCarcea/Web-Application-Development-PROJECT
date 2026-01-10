@@ -1,0 +1,28 @@
+PREFIX arp: <http://arp.ro/schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?artworkUri ?title ?category ?artistName ?dimensions ?currentLocation ?imageLink ?cimecLink ?license ?condition ?inventoryNumber (GROUP_CONCAT(DISTINCT ?classification; separator=", ") AS ?classifications)
+WHERE {
+  ?artwork a arp:Artwork .
+  BIND(?artwork AS ?artworkUri)
+
+  OPTIONAL { ?artwork arp:title ?title }
+  OPTIONAL { ?artwork arp:category ?category }
+  OPTIONAL {
+    ?artwork prov:wasAttributedTo ?artist .
+    ?artist arp:name ?artistName .
+  }
+
+  OPTIONAL { ?artwork arp:dimensions ?dimensions }
+  OPTIONAL { ?artwork arp:currentLocation ?currentLocation }
+  OPTIONAL { ?artwork arp:imageLink ?imageLink }
+  OPTIONAL { ?artwork arp:cimecLink ?cimecLink }
+  OPTIONAL { ?artwork dct:license ?license }
+  OPTIONAL { ?artwork arp:condition ?condition }
+  OPTIONAL { ?artwork arp:inventoryNumber ?inventoryNumber }
+  OPTIONAL { ?artwork arp:classification ?classification }
+}
+GROUP BY ?artworkUri ?title ?category ?artistName ?dimensions ?currentLocation ?imageLink ?cimecLink ?license ?condition ?inventoryNumber
+ORDER BY ?title

@@ -13,7 +13,7 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
-public class ExtractMaterials {
+public class GettyMaterialsFetcher {
 
     private static final String WIKIDATA_SPARQL = "https://query.wikidata.org/sparql";
 
@@ -22,7 +22,7 @@ public class ExtractMaterials {
         // SINGURA sursă de adevăr
         Map<String, String> translations = getTranslations();
 
-        try (PrintWriter out = new PrintWriter(new FileOutputStream("getty-mappings.ttl"))) {
+        try (PrintWriter out = new PrintWriter(new FileOutputStream("getty-materials.ttl"))) {
 
             out.println("@prefix aat:  <http://vocab.getty.edu/aat/> .");
             out.println("@prefix arp:  <http://arp.ro/schema#> .");
@@ -50,7 +50,7 @@ public class ExtractMaterials {
             }
         }
 
-        System.out.println("✔ getty-mappings.ttl generat cu succes!");
+        System.out.println("✔ getty-materials.ttl generat cu succes!");
     }
 
     // URI safe (FĂRĂ spații / diacritice)

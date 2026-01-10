@@ -5,28 +5,36 @@ async function loadPredefinedQueries() {
     const queries = await response.json();
     const container = document.getElementById("query-buttons");
 
-    // Mapează cheia la eticheta dorită
+    const order = [
+        "artworks",
+        "artists",
+        "artworks_all_details",
+        "artworks_count_by_material",
+        "artworks_by_getty_material",
+        "artworks_count_by_category",
+        "artworks_by_getty_category"
+    ];
+
     const labelsMain = {
-        artists: "List all artists",
         artworks:"List all artworks",
-        artworks_by_getty_material:"Artworks by Material (Getty AAT)",
+        artists: "List all artists",
+        artworks_all_details:"All details for artworks",
         artworks_count_by_material:"Count Artworks by Material",
+        artworks_by_getty_material:"Artworks by Material (Getty AAT)",
+        artworks_count_by_category:"Count Artworks by Categories",
+        artworks_by_getty_category:"Artworks by Category (Getty AAT)",
     };
-    // const labelsStatistics = {
-    //     artists: "List all artists",
-    //     artworks:"List all artworks"
-    // };
 
-
-    Object.keys(queries).forEach(key => {
-        const btn = document.createElement("button");
-        btn.textContent = labelsMain[key] || key;
-        btn.onclick = () => {
-            clearResult();
-            document.getElementById("query").value = queries[key];
-        };
-
-        container.appendChild(btn);
+    order.forEach(key => {
+        if (queries[key]) {
+            const btn = document.createElement("button");
+            btn.textContent = labelsMain[key] || key;
+            btn.onclick = () => {
+                clearResult();
+                document.getElementById("query").value = queries[key];
+            };
+            container.appendChild(btn);
+        }
     });
 }
 
