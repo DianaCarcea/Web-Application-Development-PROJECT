@@ -1,0 +1,16 @@
+PREFIX arp: <http://arp.ro/schema#>
+
+SELECT ?artwork ?title ?currentLocation ?wikidataUri ?museumName ?gettyUri  WHERE {
+
+  ?museum a arp:Museum ;
+          arp:gettyId "500305940" .  # înlocuiește cu ID-ul dorit
+  OPTIONAL { ?museum arp:name ?museumName }
+  OPTIONAL { ?museum arp:gettyUri ?gettyUri }
+  OPTIONAL { ?museum arp:wikidataUri ?wikidataUri }
+
+
+  ?artwork a arp:Artwork ;
+           arp:currentLocation ?museum .
+  OPTIONAL { ?artwork arp:title ?title }
+  BIND(?museum AS ?currentLocation)
+}

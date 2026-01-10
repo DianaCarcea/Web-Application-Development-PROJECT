@@ -8,21 +8,29 @@ async function loadPredefinedQueries() {
     const order = [
         "artworks",
         "artists",
+        "museums",
         "artworks_all_details",
         "artworks_count_by_material",
         "artworks_by_getty_material",
         "artworks_count_by_category",
-        "artworks_by_getty_category"
+        "artworks_by_getty_category",
+        "artworks_count_by_museum",
+        "artworks_by_getty_museum",
+
+
     ];
 
     const labelsMain = {
         artworks:"List all artworks",
         artists: "List all artists",
+        museums:"List all museums",
         artworks_all_details:"All details for artworks",
         artworks_count_by_material:"Count Artworks by Material",
         artworks_by_getty_material:"Artworks by Material (Getty AAT)",
         artworks_count_by_category:"Count Artworks by Categories",
         artworks_by_getty_category:"Artworks by Category (Getty AAT)",
+        artworks_count_by_museum:"Count Artworks by Museum",
+        artworks_by_getty_museum:"Artworks by Museum (Getty AAT)"
     };
 
     order.forEach(key => {
