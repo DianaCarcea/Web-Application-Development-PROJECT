@@ -1,0 +1,295 @@
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+<http://arp.ro/resource/agent/Maurizio_Cattelan>
+        a                 arp:Artist;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Museum%20Boijmans%20Van%20Beuningen%202009-02-15%20-%20interior%20-%2002.jpg>;
+        arp:name          "Maurizio Cattelan";
+        arp:wikidataName  "Maurizio Cattelan"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q655398> .
+
+<http://arp.ro/resource/agent/Bertil_Almqvist>
+        a         arp:Artist;
+        arp:name  "Bertil Almqvist" .
+
+<http://arp.ro/resource/agent/Nichiren>
+        a                 arp:Artist;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Ryukoji-C7229.jpg>;
+        arp:name          "Nichiren";
+        arp:wikidataName  "Nichiren"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q311478> .
+
+<http://arp.ro/resource/agent/Albrecht_D_rer>
+        a         arp:Artist;
+        arp:name  "Albrecht Dürer" .
+
+<http://arp.ro/resource/agent/Piero_Manzoni>
+        a                 arp:Artist;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Piero%20manzoni%2012.png>;
+        arp:name          "Piero Manzoni";
+        arp:wikidataName  "Piero Manzoni"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q472756> .
+
+<http://arp.ro/resource/agent/Eugene_Jarecki>
+        a         arp:Artist;
+        arp:name  "Eugene Jarecki" .
+
+<http://arp.ro/resource/agent/William_Hogarth>
+        a                 arp:Artist;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/The%20Painter%20and%20His%20Pug%20by%20William%20Hogarth.jpg>;
+        arp:name          "William Hogarth";
+        arp:wikidataName  "William Hogarth"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q171344> .
+
+<http://arp.ro/resource/agent/Rubin_Eynon>
+        a         arp:Artist;
+        arp:name  "Rubin Eynon" .
+
+<http://arp.ro/resource/agent/Antonio_Corradini>
+        a         arp:Artist;
+        arp:name  "Antonio Corradini" .
+
+<http://arp.ro/resource/agent/Versace>
+        a         arp:Artist;
+        arp:name  "Versace" .
+
+<http://arp.ro/resource/agent/Andrea_Mantegna>
+        a                 arp:Artist;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Andrea%20Mantegna%20049%20detail%20possible%20self-portrait.jpg>;
+        arp:name          "Andrea Mantegna";
+        arp:wikidataName  "Andrea Mantegna"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q5681> .
+
+<http://arp.ro/resource/agent/William_Travilla>
+        a         arp:Artist;
+        arp:name  "William Travilla" .
+
+<http://arp.ro/resource/agent/Willem_de_Kooning>
+        a                 arp:Artist;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Willem%20de%20Kooning%20in%20his%20studio.jpg>;
+        arp:name          "Willem de Kooning";
+        arp:wikidataName  "Willem de Kooning"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q132305> .
+
+<http://arp.ro/resource/agent/Michelangelo>
+        a         arp:Artist;
+        arp:name  "Michelangelo" .
+
+<http://arp.ro/resource/agent/Sam_Van_Aken>
+        a         arp:Artist;
+        arp:name  "Sam Van Aken" .
+
+<http://arp.ro/resource/agent/Edvard_Munch>
+        a                 arp:Artist;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Edvard%20Munch%201933-2.jpg>;
+        arp:name          "Edvard Munch";
+        arp:wikidataName  "Edvard Munch"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q41406> .
+
+<http://arp.ro/resource/agent/Giambologna>
+        a         arp:Artist;
+        arp:name  "Giambologna" .
+
+<http://arp.ro/resource/agent/Huang_Yung-fu>
+        a         arp:Artist;
+        arp:name  "Huang Yung-fu" .
+
+<http://arp.ro/resource/agent/Jacopo_Tintoretto>
+        a         arp:Artist;
+        arp:name  "Jacopo Tintoretto" .
+
+<http://arp.ro/resource/agent/Andreas_Schl_ter>
+        a         arp:Artist;
+        arp:name  "Andreas Schlüter" .
+
+<http://arp.ro/resource/agent/Daniel_Buren>
+        a         arp:Artist;
+        arp:name  "Daniel Buren" .
+
+<http://arp.ro/resource/agent/Wolfgang_von_Kempelen>
+        a                 arp:Artist;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Kempelen-charcoal.jpg>;
+        arp:name          "Wolfgang von Kempelen";
+        arp:wikidataName  "Wolfgang von Kempelen"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q252041> .
+
+<http://arp.ro/resource/agent/Niki_de_Saint_Phalle>
+        a                 arp:Artist;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Niki%20de%20Saint%20Phalle%20%281964%29%20by%20Erling%20Mandelmann.jpg>;
+        arp:name          "Niki de Saint Phalle";
+        arp:wikidataName  "Niki de Saint Phalle"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q168704> .
+
+<http://arp.ro/resource/agent/Nicola_Formichetti>
+        a         arp:Artist;
+        arp:name  "Nicola Formichetti" .
+
+<http://arp.ro/resource/agent/Chez_Ninon>
+        a         arp:Artist;
+        arp:name  "Chez Ninon" .
+
+<http://arp.ro/resource/agent/Niccol_Pizzolo>
+        a         arp:Artist;
+        arp:name  "Niccolò Pizzolo" .
+
+<http://arp.ro/resource/agent/Art_Language>
+        a         arp:Artist;
+        arp:name  "Art & Language" .
+
+<http://arp.ro/resource/agent/Charles_Henri_Joseph_Cordier>
+        a         arp:Artist;
+        arp:name  "Charles Henri Joseph Cordier" .
+
+<http://arp.ro/resource/agent/Frank_Gehry>
+        a                 arp:Artist;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Frank%20Gehry%2C%20Viljo%20Revell%20Centenary%20reception%2C%202010%20%28S2311%20fl2969%20it0089%29%20%28cropped%29.jpg>;
+        arp:name          "Frank Gehry";
+        arp:wikidataName  "Frank Gehry"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q180374> .
+
+<http://arp.ro/resource/agent/Noah_Kalina>
+        a         arp:Artist;
+        arp:name  "Noah Kalina" .
+
+<http://arp.ro/resource/agent/Josef_Probo_t>
+        a         arp:Artist;
+        arp:name  "Josef Probošt" .
+
+<http://arp.ro/resource/agent/Mike_Winkelmann>
+        a         arp:Artist;
+        arp:name  "Mike Winkelmann" .
+
+<http://arp.ro/resource/agent/Giovanni_Pisano>
+        a                 arp:Artist;
+        arp:name          "Giovanni Pisano";
+        arp:wikidataName  "Giovanni Pisano"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q314932> .
+
+<http://arp.ro/resource/agent/Salvador_Dal_>
+        a         arp:Artist;
+        arp:name  "Salvador Dalí" .
+
+<http://arp.ro/resource/agent/Leonardo_da_Vinci>
+        a         arp:Artist;
+        arp:name  "Leonardo da Vinci" .
+
+<http://arp.ro/resource/agent/Sun_Yuan_Peng_Yu>
+        a         arp:Artist;
+        arp:name  "Sun Yuan & Peng Yu" .
+
+<http://arp.ro/resource/agent/Manfred_Laber>
+        a         arp:Artist;
+        arp:name  "Manfred Laber" .
+
+<http://arp.ro/resource/agent/Christo_and_Jeanne-Claude>
+        a         arp:Artist;
+        arp:name  "Christo and Jeanne-Claude" .
+
+<http://arp.ro/resource/agent/Jean_Verame>
+        a         arp:Artist;
+        arp:name  "Jean Verame" .
+
+<http://arp.ro/resource/agent/Franc_Fernandez>
+        a         arp:Artist;
+        arp:name  "Franc Fernandez" .
+
+<http://arp.ro/resource/agent/Ansuino_da_Forl_>
+        a         arp:Artist;
+        arp:name  "Ansuino da Forlì" .
+
+<http://arp.ro/resource/agent/Unknown_Artist>
+        a         arp:Artist;
+        arp:name  "Unknown Artist" .
+
+<http://arp.ro/resource/agent/Joaqu_n_Sorolla>
+        a         arp:Artist;
+        arp:name  "Joaquín Sorolla" .
+
+<http://arp.ro/resource/agent/Shepard_Fairey>
+        a         arp:Artist;
+        arp:name  "Shepard Fairey" .
+
+<http://arp.ro/resource/agent/Bono_da_Ferrara>
+        a                 arp:Artist;
+        arp:name          "Bono da Ferrara";
+        arp:wikidataName  "Bono da Ferrara"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q2910322> .
+
+<http://arp.ro/resource/agent/group_of_authors>
+        a         arp:Artist;
+        arp:name  "group of authors" .
+
+<http://arp.ro/resource/agent/Giovanni_d_Alemagna>
+        a         arp:Artist;
+        arp:name  "Giovanni d'Alemagna" .
+
+<http://arp.ro/resource/agent/David_Datuna>
+        a                 arp:Artist;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/6%20Glass.jpg>;
+        arp:name          "David Datuna";
+        arp:wikidataName  "David Datuna"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q4155206> .
+
+<http://arp.ro/resource/agent/Josef_Kapuci_n>
+        a         arp:Artist;
+        arp:name  "Josef Kapucián" .
+
+<http://arp.ro/resource/agent/Patrick_Bouchain>
+        a                 arp:Artist;
+        arp:name          "Patrick Bouchain";
+        arp:wikidataName  "Patrick Bouchain"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q3369266> .
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+<http://arp.ro/resource/agent/Chanel>
+        a         arp:Artist;
+        arp:name  "Chanel" .
+
+<http://arp.ro/resource/agent/Josef_Friml>
+        a         arp:Artist;
+        arp:name  "Josef Friml" .
+
+<http://arp.ro/resource/agent/Diebold_Schilling_the_Elder>
+        a         arp:Artist;
+        arp:name  "Diebold Schilling the Elder" .
+
+<http://arp.ro/resource/agent/Antonio_Vivarini>
+        a         arp:Artist;
+        arp:name  "Antonio Vivarini" .
+
+<http://arp.ro/resource/agent/Katie_Paterson>
+        a         arp:Artist;
+        arp:name  "Katie Paterson" .
+
+<http://arp.ro/resource/agent/Edward_Ihnatowicz>
+        a         arp:Artist;
+        arp:name  "Edward Ihnatowicz" .
+
+<http://arp.ro/resource/agent/Dorothea_Lange>
+        a                 arp:Artist;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Dorothea%20Lange%201936%20portrait.jpg>;
+        arp:name          "Dorothea Lange";
+        arp:wikidataName  "Dorothea Lange"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q230673> .
+
+<http://arp.ro/resource/agent/Auguste_Rodin>
+        a                 arp:Artist;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Auguste%20Rodin%20fotografato%20da%20Nadar%20nel%201891.jpg>;
+        arp:name          "Auguste Rodin";
+        arp:wikidataName  "Auguste Rodin"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q30755> .
+
+<http://arp.ro/resource/agent/Walter_De_Maria>
+        a         arp:Artist;
+        arp:name  "Walter De Maria" .

@@ -10,6 +10,7 @@ SELECT ?subject
        (SAMPLE(?inv_raw) AS ?inv)
        (SAMPLE(?desc_raw) AS ?desc)
        (SAMPLE(?cimec_raw) AS ?cimec)
+       (SAMPLE(?wikidataLink_val) AS ?wikidataLink)
        (SAMPLE(?license_raw) AS ?license)
        (SAMPLE(?date_raw) AS ?date)
        (SAMPLE(?dimensions_raw) AS ?dimensions)
@@ -19,14 +20,26 @@ SELECT ?subject
        (SAMPLE(?validatorUri_raw) AS ?validatorUri)
        (SAMPLE(?validatorName_raw) AS ?validatorName)
        (SAMPLE(?validatedAt_raw) AS ?validatedAt)
-       (GROUP_CONCAT(DISTINCT ?cls; separator="; ") AS ?classifications)
-       (GROUP_CONCAT(DISTINCT ?tech; separator="; ") AS ?techniques)
-       (GROUP_CONCAT(DISTINCT ?culture; separator="; ") AS ?cultures)
-       (GROUP_CONCAT(DISTINCT ?mat; separator="; ") AS ?materialsUsed)
        (SAMPLE(?artistName_raw) AS ?artistName)
        (SAMPLE(?artistUri_raw) AS ?artistUri)
        (SAMPLE(?museumName_raw) AS ?museumName)
        (SAMPLE(?museumUri_raw) AS ?museumUri)
+       (GROUP_CONCAT(DISTINCT ?cls; separator="; ") AS ?classifications)
+       (GROUP_CONCAT(DISTINCT ?tech; separator="; ") AS ?techniques)
+       (GROUP_CONCAT(DISTINCT ?culture; separator="; ") AS ?cultures)
+       (GROUP_CONCAT(DISTINCT ?mat; separator="; ") AS ?materialsUsed)
+
+       (GROUP_CONCAT(
+         DISTINCT CONCAT(
+           COALESCE(?ownerName, STR(?ownerUri)),
+           "||",
+           COALESCE(STR(?ownStart), ""),
+           "||",
+           COALESCE(STR(?ownEnd), "")
+         );
+         separator=";;"
+      ) AS ?ownershipHistory)
+
 WHERE {
   ?subject a arp:Artwork .
 
@@ -39,6 +52,7 @@ WHERE {
   OPTIONAL { ?subject arp:inventoryNumber ?inv_raw }
   OPTIONAL { ?subject arp:description ?desc_raw }
   OPTIONAL { ?subject arp:cimecLink ?cimec_raw }
+  OPTIONAL { ?subject arp:wikidataLink ?wikidataLink_val }
   OPTIONAL { ?subject dct:license ?license_raw }
 
   OPTIONAL { ?subject arp:classification ?cls }
@@ -72,6 +86,18 @@ WHERE {
     ?subject arp:currentLocation ?museumUri_raw .
     ?museumUri_raw arp:name ?museumName_raw
   }
+
+  OPTIONAL {
+        ?subject arp:hasOwnership ?ownership .
+        ?ownership a arp:TransferOfCustody .
+
+        OPTIONAL { ?ownership arp:startedAtTime ?ownStart }
+        OPTIONAL { ?ownership arp:endedAtTime ?ownEnd }
+        OPTIONAL {
+          ?ownership prov:wasAssociatedWith ?ownerUri .
+          OPTIONAL { ?ownerUri arp:name ?ownerName }
+        }
+      }
 }
 GROUP BY ?subject
 LIMIT 30

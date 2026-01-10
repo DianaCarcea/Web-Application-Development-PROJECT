@@ -171,9 +171,14 @@ img {
     font-size: 0.9em;
     transition: background 0.2s;
 }
-.links a:hover {
+/*.links a:hover {*/
+/*    background: #2980b9;*/
+/*}*/
+
+.btn-link:hover{
     background: #2980b9;
 }
+
 .source {
     font-size: 0.85em;
     color: #95a5a6;
@@ -184,6 +189,12 @@ img {
     color: #7f8c8d;
     padding: 0;
 }
+
+.source a:hover {
+    text-decoration: underline;
+}
+
+
 .pagination {
     display: flex;
     justify-content: center;

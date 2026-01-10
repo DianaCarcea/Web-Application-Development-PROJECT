@@ -13,6 +13,7 @@ SELECT
        (SAMPLE(?inv_val) AS ?inv)
        (SAMPLE(?desc_val) AS ?desc)
        (SAMPLE(?cimec_val) AS ?cimec)
+       (SAMPLE(?wikidataLink_val) AS ?wikidataLink)
        (SAMPLE(?license_val) AS ?license)
        (SAMPLE(?date_val) AS ?date)
        (SAMPLE(?dimensions_val) AS ?dimensions)
@@ -66,6 +67,7 @@ WHERE {
   OPTIONAL { ?subject arp:inventoryNumber ?inv_val }
   OPTIONAL { ?subject arp:description ?desc_val }
   OPTIONAL { ?subject arp:cimecLink ?cimec_val }
+  OPTIONAL { ?subject arp:wikidataLink ?wikidataLink_val }
   OPTIONAL { ?subject dct:license ?license_val }
 
   # Liste (fără _val pentru că le agregăm în GROUP_CONCAT)
