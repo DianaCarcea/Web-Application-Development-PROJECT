@@ -8,61 +8,72 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX schema: <http://schema.org/>
 
 SELECT ?artwork
-       ?title
-       ?image
-       ?inception
-       ?startTime
-       ?pointInTime
-       ?publicationDate
-       ?description
-       ?artist
-       ?artistName
-       ?heightValue
-       ?heightUnitLabel
-       ?widthValue
-       ?widthUnitLabel
-       ?conditionLabel
-       ?location ?locationName
+       (SAMPLE(?title_) AS ?title)
+       (SAMPLE(?image_) AS ?image)
+       (SAMPLE(?inception_) AS ?inception)
+       (SAMPLE(?startTime_) AS ?startTime)
+       (SAMPLE(?pointInTime_) AS ?pointInTime)
+       (SAMPLE(?publicationDate_) AS ?publicationDate)
+       (SAMPLE(?description_) AS ?description)
+
+       # Agregare cu separator pentru liste
+       # Aici nu aveam conflict (artistName vs artistNames), dar e bine sa fim consistenti
+       (GROUP_CONCAT(DISTINCT ?artistName; separator="|") AS ?artistNames)
+       (GROUP_CONCAT(DISTINCT ?locationName; separator="|") AS ?locationNames)
+
+       # Dimensiuni - redenumim variabilele interne cu sufixul _
+       (SAMPLE(?heightValue_) AS ?heightValue)
+       (SAMPLE(?heightUnitLabel_) AS ?heightUnitLabel)
+       (SAMPLE(?widthValue_) AS ?widthValue)
+       (SAMPLE(?widthUnitLabel_) AS ?widthUnitLabel)
+       (SAMPLE(?conditionLabel_) AS ?conditionLabel)
+
+       # Liste
        (GROUP_CONCAT(DISTINCT ?instanceLabel; separator="|") AS ?instanceLabels)
        (GROUP_CONCAT(DISTINCT ?subclassLabel; separator="|") AS ?subclassLabels)
        (GROUP_CONCAT(DISTINCT ?artFormLabel; separator="|") AS ?artFormLabels)
        (GROUP_CONCAT(DISTINCT ?genreLabel; separator="|") AS ?genreLabels)
        (GROUP_CONCAT(DISTINCT ?materialLabel; separator="|") AS ?materialLabels)
        (GROUP_CONCAT(DISTINCT ?inventoryNumber; separator=", ") AS ?inventoryNumbers)
+
 WHERE {
   VALUES ?artwork {
     {{ARTWORK_IDS}}
   }
 
-  OPTIONAL { ?artwork rdfs:label ?title FILTER(LANG(?title)="en") }
-  OPTIONAL { ?artwork wdt:P18 ?image }
-  OPTIONAL { ?artwork wdt:P571 ?inception }
-  OPTIONAL { ?artwork wdt:P580 ?startTime }
-  OPTIONAL { ?artwork wdt:P585 ?pointInTime }
-  OPTIONAL { ?artwork wdt:P577 ?publicationDate }
-  OPTIONAL { ?artwork schema:description ?description FILTER(LANG(?description)="en") }
+  # Am adaugat _ la variabilele interne pentru a evita conflictul de scope
+  OPTIONAL { ?artwork rdfs:label ?title_ FILTER(LANG(?title_)="en") }
+  OPTIONAL { ?artwork wdt:P18 ?image_ }
+  OPTIONAL { ?artwork wdt:P571 ?inception_ }
+  OPTIONAL { ?artwork wdt:P580 ?startTime_ }
+  OPTIONAL { ?artwork wdt:P585 ?pointInTime_ }
+  OPTIONAL { ?artwork wdt:P577 ?publicationDate_ }
+  OPTIONAL { ?artwork schema:description ?description_ FILTER(LANG(?description_)="en") }
 
+  # Dimensiuni (Înălțime)
   OPTIONAL {
       ?artwork p:P2048 ?heightStmt .
-      ?heightStmt ps:P2048 ?heightValue .
+      ?heightStmt ps:P2048 ?heightValue_ .
       ?heightStmt psv:P2048 ?heightValueNode .
       ?heightValueNode wikibase:quantityUnit ?heightUnit .
-      ?heightUnit rdfs:label ?heightUnitLabel FILTER(LANG(?heightUnitLabel)="en")
+      ?heightUnit rdfs:label ?heightUnitLabel_ FILTER(LANG(?heightUnitLabel_)="en")
   }
 
+  # Dimensiuni (Lățime)
   OPTIONAL {
       ?artwork p:P2049 ?widthStmt .
-      ?widthStmt ps:P2049 ?widthValue .
+      ?widthStmt ps:P2049 ?widthValue_ .
       ?widthStmt psv:P2049 ?widthValueNode .
       ?widthValueNode wikibase:quantityUnit ?widthUnit .
-      ?widthUnit rdfs:label ?widthUnitLabel FILTER(LANG(?widthUnitLabel)="en")
+      ?widthUnit rdfs:label ?widthUnitLabel_ FILTER(LANG(?widthUnitLabel_)="en")
   }
 
   OPTIONAL {
       ?artwork wdt:P5816 ?condition .
-      ?condition rdfs:label ?conditionLabel FILTER(LANG(?conditionLabel)="en")
+      ?condition rdfs:label ?conditionLabel_ FILTER(LANG(?conditionLabel_)="en")
   }
 
+  # Instanță și Subclasă
   OPTIONAL {
       ?artwork wdt:P31 ?instance .
       ?instance rdfs:label ?instanceLabel FILTER(LANG(?instanceLabel)="en") .
@@ -92,16 +103,16 @@ WHERE {
       ?inventoryStmt ps:P217 ?inventoryNumber .
   }
 
+  # Locație
   OPTIONAL {
       ?artwork wdt:P276 ?location .
       ?location rdfs:label ?locationName FILTER(LANG(?locationName)="en")
   }
 
+  # Artist
   OPTIONAL {
       ?artwork wdt:P170 ?artist .
       ?artist rdfs:label ?artistName FILTER(LANG(?artistName)="en")
   }
 }
-GROUP BY ?artwork ?title ?image ?inception ?startTime ?pointInTime ?publicationDate
-         ?description ?artist ?artistName ?heightValue ?heightUnitLabel
-         ?widthValue ?widthUnitLabel ?conditionLabel ?location ?locationName
+GROUP BY ?artwork

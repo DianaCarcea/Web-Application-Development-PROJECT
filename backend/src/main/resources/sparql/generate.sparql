@@ -1,0 +1,152 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?artwork
+       (SAMPLE(?title_) AS ?title)
+       (SAMPLE(?description_) AS ?description)
+       (SAMPLE(?image_) AS ?image)
+
+       # --- Lifecycle & Dates ---
+       (SAMPLE(?inception_) AS ?inception)
+       (SAMPLE(?startTime_) AS ?startTime)
+       (SAMPLE(?pointInTime_) AS ?pointInTime)
+       (SAMPLE(?publicationDate_) AS ?publicationDate)
+
+       # --- Destruction (Complex) ---
+       (SAMPLE(?dissolved_) AS ?dissolved)
+       (SAMPLE(?destructionCause_) AS ?destructionCause)
+
+       # --- Dimensions ---
+       (SAMPLE(?heightValue_) AS ?heightValue)
+       (SAMPLE(?heightUnitLabel_) AS ?heightUnitLabel)
+       (SAMPLE(?widthValue_) AS ?widthValue)
+       (SAMPLE(?widthUnitLabel_) AS ?widthUnitLabel)
+       (SAMPLE(?conditionLabel_) AS ?conditionLabel)
+
+       # --- Simple Lists ---
+       (GROUP_CONCAT(DISTINCT ?artistName; separator="|") AS ?artistNames)
+       (GROUP_CONCAT(DISTINCT ?locationName; separator="|") AS ?locationNames)
+       (GROUP_CONCAT(DISTINCT ?materialLabel; separator="|") AS ?materialLabels)
+       (GROUP_CONCAT(DISTINCT ?instanceLabel; separator="|") AS ?instanceLabels)
+       (GROUP_CONCAT(DISTINCT ?subclassLabel; separator="|") AS ?subclassLabels)
+       (GROUP_CONCAT(DISTINCT ?artFormLabel; separator="|") AS ?artFormLabels)
+       (GROUP_CONCAT(DISTINCT ?genreLabel; separator="|") AS ?genreLabels)
+       (GROUP_CONCAT(DISTINCT ?inventoryNumber; separator=", ") AS ?inventoryNumbers)
+       (GROUP_CONCAT(DISTINCT ?describedByLabel; separator="|") AS ?describedByLabels)
+
+       # --- Complex Provenance Data ---
+       (GROUP_CONCAT(DISTINCT ?ownerInfo; separator="|") AS ?ownersData)
+       (GROUP_CONCAT(DISTINCT ?collectionInfo; separator="|") AS ?collectionsData)
+
+       # --- NOU: Significant Events (Purchasing, Theft, etc.) ---
+       (GROUP_CONCAT(DISTINCT ?eventInfo; separator="|") AS ?significantEvents)
+
+WHERE {
+  VALUES ?artwork { {{ARTWORK_IDS}} }
+
+  OPTIONAL { ?artwork rdfs:label ?title_ FILTER(LANG(?title_)="en") }
+  OPTIONAL { ?artwork schema:description ?description_ FILTER(LANG(?description_)="en") }
+  OPTIONAL { ?artwork wdt:P18 ?image_ }
+
+  # Date simple
+  OPTIONAL { ?artwork wdt:P571 ?inception_ }
+  OPTIONAL { ?artwork wdt:P580 ?startTime_ }
+  OPTIONAL { ?artwork wdt:P585 ?pointInTime_ }
+  OPTIONAL { ?artwork wdt:P577 ?publicationDate_ }
+
+  # --- DESTRUCTION (P576) & CAUSE (P770) ---
+  OPTIONAL {
+      ?artwork p:P576 ?destStmt .
+      ?destStmt ps:P576 ?dissolved_ .
+      OPTIONAL {
+          ?destStmt pq:P770 ?cause .
+          ?cause rdfs:label ?destructionCause_ FILTER(LANG(?destructionCause_)="en")
+      }
+  }
+
+  # --- 1. PROVENANCE: OWNED BY (P127) ---
+  OPTIONAL {
+      ?artwork p:P127 ?ownerStmt .
+      ?ownerStmt ps:P127 ?ownerNode .
+      ?ownerNode rdfs:label ?ownerLabel FILTER(LANG(?ownerLabel)="en") .
+      OPTIONAL { ?ownerStmt pq:P580 ?oStart . }
+      OPTIONAL { ?ownerStmt pq:P582 ?oEnd . }
+      BIND(CONCAT(?ownerLabel, "::", COALESCE(STR(?oStart), ""), "::", COALESCE(STR(?oEnd), "")) AS ?ownerInfo)
+  }
+
+  # --- 2. PROVENANCE: COLLECTION (P195) ---
+  OPTIONAL {
+      ?artwork p:P195 ?collStmt .
+      ?collStmt ps:P195 ?collNode .
+      ?collNode rdfs:label ?collLabel FILTER(LANG(?collLabel)="en") .
+      OPTIONAL { ?collStmt pq:P580 ?cStart . }
+      OPTIONAL { ?collStmt pq:P582 ?cEnd . }
+      BIND(CONCAT(?collLabel, "::", COALESCE(STR(?cStart), ""), "::", COALESCE(STR(?cEnd), "")) AS ?collectionInfo)
+  }
+
+  # --- 3. SIGNIFICANT EVENTS (P793) - Purchasing, Theft, etc. ---
+  OPTIONAL {
+      ?artwork p:P793 ?eventStmt .
+      ?eventStmt ps:P793 ?eventNode .
+      ?eventNode rdfs:label ?eventLabel FILTER(LANG(?eventLabel)="en") .
+
+      # Point in Time (P585)
+      OPTIONAL { ?eventStmt pq:P585 ?evDate . }
+
+      # Location (P276)
+      OPTIONAL {
+          ?eventStmt pq:P276 ?evLocNode .
+          ?evLocNode rdfs:label ?evLocLabel FILTER(LANG(?evLocLabel)="en")
+      }
+
+      # Beforehand owned by / Follows (P155) - De la cine a fost luată/cumpărată
+      OPTIONAL {
+          ?eventStmt pq:P155 ?evFromNode .
+          ?evFromNode rdfs:label ?evFromLabel FILTER(LANG(?evFromLabel)="en")
+      }
+
+      # Afterward owned by / Followed by (P156) - Către cine a ajuns
+      OPTIONAL {
+          ?eventStmt pq:P156 ?evToNode .
+          ?evToNode rdfs:label ?evToLabel FILTER(LANG(?evToLabel)="en")
+      }
+
+      # Formatare String: Event::Data::Locatie::DeLa::Catre
+      BIND(CONCAT(
+          ?eventLabel, "::",
+          COALESCE(STR(?evDate), ""), "::",
+          COALESCE(?evLocLabel, ""), "::",
+          COALESCE(?evFromLabel, ""), "::",
+          COALESCE(?evToLabel, "")
+      ) AS ?eventInfo)
+  }
+
+  # --- DESCRIBED BY SOURCE (P1343) ---
+  OPTIONAL {
+      ?artwork wdt:P1343 ?source .
+      ?source rdfs:label ?describedByLabel FILTER(LANG(?describedByLabel)="en")
+  }
+
+  # Dimensiuni & Condition
+  OPTIONAL { ?artwork p:P2048/ps:P2048 ?heightValue_ . ?artwork p:P2048/psv:P2048/wikibase:quantityUnit/rdfs:label ?heightUnitLabel_ FILTER(LANG(?heightUnitLabel_)="en") }
+  OPTIONAL { ?artwork p:P2049/ps:P2049 ?widthValue_ . ?artwork p:P2049/psv:P2049/wikibase:quantityUnit/rdfs:label ?widthUnitLabel_ FILTER(LANG(?widthUnitLabel_)="en") }
+  OPTIONAL { ?artwork wdt:P5816/rdfs:label ?conditionLabel_ FILTER(LANG(?conditionLabel_)="en") }
+
+  # Liste standard
+  OPTIONAL { ?artwork wdt:P31/rdfs:label ?instanceLabel FILTER(LANG(?instanceLabel)="en") }
+  OPTIONAL { ?artwork wdt:P31/wdt:P279/rdfs:label ?subclassLabel FILTER(LANG(?subclassLabel)="en") }
+  OPTIONAL { ?artwork wdt:P2596/rdfs:label ?artFormLabel FILTER(LANG(?artFormLabel)="en") }
+  OPTIONAL { ?artwork wdt:P136/rdfs:label ?genreLabel FILTER(LANG(?genreLabel)="en") }
+  OPTIONAL { ?artwork wdt:P186/rdfs:label ?materialLabel FILTER(LANG(?materialLabel)="en") }
+  OPTIONAL { ?artwork wdt:P276/rdfs:label ?locationName FILTER(LANG(?locationName)="en") }
+  OPTIONAL { ?artwork wdt:P170/rdfs:label ?artistName FILTER(LANG(?artistName)="en") }
+  OPTIONAL { ?artwork p:P217/ps:P217 ?inventoryNumber . }
+}
+GROUP BY ?artwork
