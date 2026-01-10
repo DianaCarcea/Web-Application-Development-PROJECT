@@ -1,0 +1,16 @@
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?museum ?museumName ?wikidataUri (COUNT(DISTINCT ?artwork) AS ?numArtworks) ?gettyUri
+WHERE {
+  ?artwork a arp:Artwork ;
+           arp:currentLocation ?museum .
+
+  ?museum a arp:Museum .
+
+  OPTIONAL { ?museum arp:name ?museumName }
+  OPTIONAL { ?museum arp:gettyUri ?gettyUri }
+  OPTIONAL { ?museum arp:wikidataUri ?wikidataUri }
+}
+GROUP BY ?museum ?museumName ?gettyUri ?wikidataUri
+ORDER BY DESC(?numArtworks)

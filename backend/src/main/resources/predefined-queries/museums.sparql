@@ -1,0 +1,13 @@
+PREFIX arp: <http://arp.ro/schema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT ?museum ?name ?gettyId ?gettyUri ?wikidataUri ?imageLink WHERE {
+  ?museum a arp:Museum .
+
+  OPTIONAL { ?museum arp:name ?name }
+  OPTIONAL { ?museum arp:gettyId ?gettyId }
+  OPTIONAL { ?museum arp:gettyUri ?gettyUri }
+  OPTIONAL { ?museum arp:wikidataUri ?wikidataUri }
+  OPTIONAL { ?museum arp:imageLink ?imageLink }
+}

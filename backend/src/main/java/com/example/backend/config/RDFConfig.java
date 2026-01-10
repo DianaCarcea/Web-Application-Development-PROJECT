@@ -44,6 +44,8 @@ public class RDFConfig {
         RDFDataMgr.read(ds, "artworks_arp.ttl");
         RDFDataMgr.read(ds, "getty-materials.ttl");
         RDFDataMgr.read(ds, "getty-categories.ttl");
+        RDFDataMgr.read(ds, "museums_wikidata_getty.ttl");
+        RDFDataMgr.read(ds, "museums_wikidata_getty_int.ttl");
 
         return ds;
     }
