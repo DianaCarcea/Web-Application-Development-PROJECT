@@ -81,6 +81,7 @@ public class ArtworkController {
 
         model.addAttribute("artworks", artworks);
         model.addAttribute("currentPage", page);
+        model.addAttribute("domain",domain);
 
         return "artwork";
     }
