@@ -3,6 +3,7 @@ package com.example.backend.repository;
 import com.example.backend.model.*;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.springframework.stereotype.Repository;
 
 import java.io.InputStream;
@@ -107,8 +108,10 @@ public class ArtworkRepository {
         Model modelChosen;
         if(Objects.equals(domain, "ro")) {
             modelChosen = artworkModel;
-        } else {
+        } else if(Objects.equals(domain, "int")) {
             modelChosen = wikiModel;
+        } else {
+            modelChosen = ModelFactory.createUnion(artworkModel, wikiModel);
         }
 
         try (QueryExecution qexec = QueryExecutionFactory.create(query, modelChosen)) {

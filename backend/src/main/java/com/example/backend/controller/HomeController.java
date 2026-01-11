@@ -1,11 +1,14 @@
 package com.example.backend.controller;
 
+import com.example.backend.model.Artist;
 import com.example.backend.service.ArtistService;
 import com.example.backend.service.ArtworkService;
 import com.example.backend.service.WikidataArtworkService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -22,8 +25,15 @@ public class HomeController {
     public String home(Model model) {
         model.addAttribute("artworks", artworkService.getHomepageArtworks(1, 30, "ro"));
         model.addAttribute("wikidataArtworks", artworkService.getHomepageArtworks(1, 30,"int"));
-        model.addAttribute("artists", artistService.getAllArtistsWithFirstArtwork());
-        return "home"; // Thymeleaf template home.html
+        List<Artist> allArtists = artistService.getAllArtistsWithFirstArtwork();
+
+        int maxHomepageArtists = 60;
+        List<Artist> homepageArtists = allArtists.size() > maxHomepageArtists
+                ? allArtists.subList(0, maxHomepageArtists)
+                : allArtists;
+
+        model.addAttribute("artists", homepageArtists);
+        return "home";
     }
 
 
