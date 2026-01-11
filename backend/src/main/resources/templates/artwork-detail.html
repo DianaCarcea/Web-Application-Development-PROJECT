@@ -216,6 +216,89 @@
 
     </article>
 
+    <section class="recommendations-section" th:if="${recommendations != null}">
+
+        <h2 th:if="${art.artist != null}">
+            Alte opere de <span th:text="${art.artist.name}">Artist</span>
+        </h2>
+        <h2 th:unless="${art.artist != null}">S-ar putea să îți placă și</h2>
+
+        <div id="rec-wrapper"
+             th:data-uri="${art.uri}"
+             th:data-domain="${domain}"
+             data-offset="0"
+             data-limit="8">
+
+            <button type="button" class="nav-btn prev-btn" onclick="changeRecommendationPage(-1)" disabled>
+                &#10094;
+            </button>
+
+            <th:block th:replace="~{rec-fragment}"></th:block>
+
+            <button type="button" class="nav-btn next-btn" onclick="changeRecommendationPage(1)">
+                &#10095;
+            </button>
+
+        </div>
+    </section>
+
+    <script>
+        function changeRecommendationPage(direction) {
+            const wrapper = document.getElementById('rec-wrapper');
+            const uri = wrapper.getAttribute('data-uri');
+            const domain = wrapper.getAttribute('data-domain');
+
+            // Citim limita (care e 8 în cazul tău)
+            const limit = parseInt(wrapper.getAttribute('data-limit'));
+            let currentOffset = parseInt(wrapper.getAttribute('data-offset'));
+
+            // Calculăm noul offset
+            let newOffset = currentOffset + (direction * limit);
+            if (newOffset < 0) newOffset = 0;
+
+            const url = `/artworks/recommendations-fragment?uri=${encodeURIComponent(uri)}&offset=${newOffset}&limit=${limit}&domain=${domain}`;
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.text();
+                })
+                .then(html => {
+                    // 1. Înlocuim conținutul grilei
+                    // Nota: outerHTML înlocuiește elementul complet, deci trebuie să-l recăutăm după
+                    const oldGrid = document.getElementById('rec-grid-content');
+                    oldGrid.outerHTML = html;
+
+                    // 2. Actualizăm offset-ul curent în DOM
+                    wrapper.setAttribute('data-offset', newOffset);
+
+                    // --- LOGICA NOUĂ PENTRU BUTOANE ---
+
+                    // Selectăm butoanele
+                    const prevBtn = document.querySelector('.prev-btn');
+                    const nextBtn = document.querySelector('.next-btn');
+
+                    // 3. Numărăm câte carduri am primit
+                    // Recăutăm grid-ul nou introdus în DOM
+                    const newGrid = document.getElementById('rec-grid-content');
+                    const itemsCount = newGrid.querySelectorAll('.rec-card').length;
+
+                    // A. Dezactivare PREV: Dacă suntem la început (offset 0)
+                    prevBtn.disabled = (newOffset === 0);
+
+                    // B. Dezactivare NEXT:
+                    // Dacă am primit mai puține elemente decât limita (ex: am cerut 8, am primit 3 sau 0),
+                    // înseamnă că nu mai sunt pagini următoare.
+                    if (itemsCount < limit) {
+                        nextBtn.disabled = true;
+                    } else {
+                        nextBtn.disabled = false;
+                    }
+                })
+                .catch(error => console.error('Error loading recommendations:', error));
+        }
+    </script>
+
 </main>
 
 </body>

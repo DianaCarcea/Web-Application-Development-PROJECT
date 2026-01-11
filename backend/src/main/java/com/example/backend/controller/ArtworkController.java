@@ -39,6 +39,8 @@ public class ArtworkController {
     @GetMapping("/artworks/{id}")
     public String showArtwork(
             @PathVariable String id,
+            @RequestParam(value = "offset", defaultValue = "0") int offset,
+            @RequestParam(value = "limit", defaultValue = "8") int limit,
             @RequestParam(name = "domain", defaultValue = "int") String domain,
             Model model) {
 
@@ -51,6 +53,11 @@ public class ArtworkController {
 
         model.addAttribute("art", artwork);
         model.addAttribute("domain", domain);
+
+
+        List<Artwork> recommendations = artworkService.getRecommendations(uri, offset, limit, domain);
+        model.addAttribute("recommendations", recommendations);
+
         return "artwork-detail";
     }
     @GetMapping("artists/{id}/artworks")
@@ -87,5 +94,25 @@ public class ArtworkController {
         model.addAttribute("domain",domain);
 
         return "artwork";
+    }
+
+    @GetMapping("/artworks/recommendations-fragment")
+    public String getRecommendationsFragment(
+            @RequestParam("uri") String uri,
+            @RequestParam(value = "offset", defaultValue = "0") int offset,
+            @RequestParam(value = "limit", defaultValue = "8") int limit,
+            @RequestParam(value = "domain", defaultValue = "int") String domain,
+            Model model) {
+
+        // 1. Luăm datele
+        List<Artwork> recommendations = artworkService.getRecommendations(uri, offset, limit, domain);
+
+        // 2. Le punem în model
+        model.addAttribute("recommendations", recommendations);
+        model.addAttribute("domain", domain);
+
+        // 3. RETURNĂM NUMELE FIȘIERULUI NOU
+        // Spring va randa tot conținutul din rec-fragment.html
+        return "rec-fragment";
     }
 }

@@ -1,7 +1,6 @@
 package com.example.backend.repository;
 
 import com.example.backend.model.*;
-import org.apache.jena.base.Sys;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -437,5 +436,51 @@ public class ArtworkRepository {
         }
         return results;
 
+    }
+
+    public List<Artwork> getRecommendationsByArtist(String uri, int pageSize, int offset, String domain) {
+
+        // 1. Încarcă și pregătește query-ul
+        // Nota: URI-ul trebuie să fie curat, fără < > (le-am pus în fișierul SPARQL)
+        String sparql = loadSparql("/sparql/artwork-recommendations.sparql")
+                .replace("{{INPUT_URI}}", uri)
+                .replace("{{LIMIT}}", String.valueOf(pageSize))
+                .replace("{{OFFSET}}", String.valueOf(offset));
+
+        List<Artwork> results = new ArrayList<>();
+
+        // 2. Alege modelul
+        Model modelChosen;
+        if(Objects.equals(domain, "ro")) {
+            modelChosen = artworkModel;
+        } else {
+            modelChosen = wikiModel; // sau cum se numește modelul tău pentru extern
+        }
+
+        // 3. Execută Query-ul
+        try (QueryExecution qexec = QueryExecutionFactory.create(sparql, modelChosen)) {
+            ResultSet rs = qexec.execSelect();
+
+            while (rs.hasNext()) {
+                QuerySolution sol = rs.nextSolution();
+
+                // Creăm un obiect Artwork nou (adaptează constructorul la clasa ta)
+                Artwork a = new Artwork();
+
+                a.uri = sol.getResource("subject").getURI();
+                a.id = a.uri.substring(a.uri.lastIndexOf("/") + 1);
+                a.title = getLiteral(sol, "title");
+                a.imageLink = getLiteral(sol, "image");
+
+
+
+                results.add(a);
+            }
+        } catch (Exception e) {
+            System.err.println("Eroare la obținerea recomandărilor: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return results;
     }
 }
