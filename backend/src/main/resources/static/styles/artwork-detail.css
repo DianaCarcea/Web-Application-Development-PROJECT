@@ -64,3 +64,129 @@
 .artwork-detail .meta-table {
     margin-top: 25px;
 }
+
+
+/* Containerul secțiunii */
+.recommendations-section {
+    max-width: 900px; /* Sau lățimea art-card-ului tău */
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
+
+.recommendations-section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+/* Grila de carduri (Responsive) */
+.rec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Cardul individual */
+.rec-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.rec-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.rec-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Container imagine (păstrează aspect ratio uniform) */
+.rec-image-container {
+    width: 100%;
+    height: 150px; /* Înălțime fixă pentru imagini */
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.rec-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Taie imaginea să umple containerul */
+    /* Sau folosește object-fit: contain; dacă vrei să se vadă toată */
+}
+
+/* Titlul operei recomandate */
+.rec-info {
+    padding: 0.8rem;
+}
+
+.rec-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+    color: #444;
+    /* Trunchiere text lung */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+
+#rec-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.rec-grid {
+    flex-grow: 1;
+    /* Grid-ul existent */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    min-height: 200px; /* Previne colapsarea când se încarcă */
+}
+
+.nav-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0; /* Să nu se micșoreze butoanele */
+}
+
+.nav-btn:hover:not(:disabled) {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}

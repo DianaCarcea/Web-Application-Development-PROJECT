@@ -1,0 +1,19 @@
+<div class="rec-grid" id="rec-grid-content">
+    <div class="rec-card" th:each="rec : ${recommendations}">
+        <a th:href="@{/artworks/{id}(id=${rec.id != null ? rec.id : #strings.substringAfterLast(rec.uri, '/')}, domain=${domain})}" class="rec-link">
+
+            <div class="rec-image-container">
+                <img th:if="${rec.imageLink != null}" th:src="${rec.imageLink}" th:alt="${rec.title}">
+                <img th:unless="${rec.imageLink != null}" src="/images/placeholder-art.png" alt="No image">
+            </div>
+
+            <div class="rec-info">
+                <h3 class="rec-title" th:text="${rec.title}">Titlu Opera</h3>
+            </div>
+        </a>
+    </div>
+
+    <div th:if="${#lists.isEmpty(recommendations)}" class="no-more-recs">
+        Nu mai sunt alte opere de afișat.
+    </div>
+</div>

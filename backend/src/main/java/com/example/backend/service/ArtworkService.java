@@ -30,4 +30,9 @@ public class ArtworkService {
         int offset = (page - 1) * pageSize;
         return repository.findNext(pageSize, offset, domain);
     }
+
+    public List<Artwork> getRecommendations(String uri, int offset, int pageSize, String domain) {
+
+        return repository.getRecommendationsByArtist(uri, pageSize, offset, domain);
+    }
 }

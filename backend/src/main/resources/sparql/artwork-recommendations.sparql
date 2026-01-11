@@ -1,0 +1,22 @@
+PREFIX arp: <http://arp.ro/schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+# Selectăm ?subject (care este ID-ul/URI-ul operei)
+SELECT ?subject ?title ?image
+WHERE {
+  # 1. Identificăm artistul operei de input
+  <{{INPUT_URI}}> prov:wasAttributedTo ?artist .
+
+  # 2. Găsim alte opere (subiecți) realizate de acest artist
+  # Aici ?subject este URI-ul operei recomandate (ex: http://arp.ro/resource/artwork/UUID...)
+  ?subject prov:wasAttributedTo ?artist .
+
+  # 3. Extragem detaliile pentru acest subiect
+  OPTIONAL { ?subject arp:title ?title . }
+  OPTIONAL { ?subject arp:imageLink ?image . }
+
+  # 4. Excludem opera inițială
+  FILTER (?subject != <{{INPUT_URI}}>)
+}
+LIMIT {{LIMIT}}
+OFFSET {{OFFSET}}
