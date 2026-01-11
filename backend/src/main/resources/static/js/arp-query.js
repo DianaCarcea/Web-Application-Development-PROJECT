@@ -1,5 +1,45 @@
 // arp-query.js
 
+function downloadTTL() {
+    window.location.href = "/download/ttl";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadTTLFiles();
+
+    const select = document.getElementById("ttlSelect");
+    const previewBtn = document.getElementById("previewTTLBtn");
+
+    select.addEventListener("change", () => {
+        previewBtn.disabled = !select.value;
+    });
+
+    previewBtn.addEventListener("click", () => {
+        const file = select.value;
+        if (file) {
+            window.open(`/ttl/preview/${file}`, "_blank");
+        }
+    });
+});
+
+function loadTTLFiles() {
+    fetch("/ttl/list")
+        .then(res => res.json())
+        .then(files => {
+            const select = document.getElementById("ttlSelect");
+
+            files.forEach(file => {
+                const opt = document.createElement("option");
+                opt.value = file;
+                opt.textContent = file;
+                select.appendChild(opt);
+            });
+        })
+        .catch(err => console.error("Error loading TTL files", err));
+}
+
+
+
 async function loadPredefinedQueries() {
     const response = await fetch("/predefined-queries");
     const queries = await response.json();

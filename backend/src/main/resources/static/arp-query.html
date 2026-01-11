@@ -8,22 +8,41 @@
 </head>
 <body>
 
-<h1>ArP Query Service</h1>
-<p>Predefined SPARQL queries for the ARP dataset</p>
+    <div class="ttl-header">
+        <h1>ArP Query Service</h1>
 
-<div class="query-list" id="query-buttons">
-    <!-- Butoanele vor fi generate din JS -->
-</div>
+        <div class="ttl-actions">
 
-<h3>SPARQL Query</h3>
-<textarea id="query"></textarea>
+            <div class="ttl-preview">
+                <select id="ttlSelect">
+                    <option value="" selected disabled>Choose a TTL file</option>
+                </select>
+                <button id="previewTTLBtn" disabled>👁 Preview</button>
+            </div>
 
-<button onclick="runQuery()">▶ Run query</button>
+            <button id="download-ttl-btn" onclick="downloadTTL()">
+                ⬇ Download all TTL files
+            </button>
 
-<div id="loader"></div>
+        </div>
+    </div>
 
-<h3>Result</h3>
-<div id="result"></div>
+    <p>Predefined SPARQL queries for the ARP dataset</p>
+
+    <div class="query-list" id="query-buttons">
+        <!-- Butoane generate din JS -->
+    </div>
+
+    <h3>SPARQL Query</h3>
+    <textarea id="query"></textarea>
+
+    <button onclick="runQuery()">▶ Run query</button>
+
+    <div id="loader"></div>
+
+    <h3>Result</h3>
+    <div id="result"></div>
 
 </body>
+
 </html>

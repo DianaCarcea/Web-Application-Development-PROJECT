@@ -1,0 +1,850 @@
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tgn:  <http://vocab.getty.edu/tgn/>
+PREFIX ulan: <http://vocab.getty.edu/ulan/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+<http://arp.ro/resource/agent/Colec_ie_particular__5>
+        a             arp:Museum;
+        arp:gettyId   "500222523";
+        arp:gettyUri  ulan:500222523;
+        arp:name      "Colecție particulară 5" .
+
+<http://arp.ro/resource/agent/Muzeul_Na_ional_Brukenthal___SIBIU>
+        a                 arp:Museum;
+        arp:gettyId       "500308991";
+        arp:gettyUri      ulan:500308991;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Palatul%20Brukenthal%20din%20Piata%20Mare.jpg>;
+        arp:name          "Muzeul Național Brukenthal - SIBIU";
+        arp:wikidataName  "Muzeul Brukenthal"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q850207> .
+
+<http://arp.ro/resource/agent/Biserica__Sf_ntul_Nicolae____BR_ILA>
+        a                 arp:Museum;
+        arp:gettyId       "500017677";
+        arp:gettyUri      ulan:500017677;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/View%20Berlin%20TV%20Tower%20Jan2015%20img4.jpg>;
+        arp:name          "Biserica \"Sfântul Nicolae\" - BRĂILA";
+        arp:wikidataName  "Biserica Sfântul Nicolae din Berlin"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q679052> .
+
+<http://arp.ro/resource/agent/Muzeul_de_Art____CRAIOVA>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:name          "Muzeul de Artă - CRAIOVA";
+        arp:wikidataName  "Muzeul de Artă - MdAO"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q27085> .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__3>
+        a             arp:Museum;
+        arp:gettyId   "500719626";
+        arp:gettyUri  ulan:500719626;
+        arp:name      "Colecție particulară 3" .
+
+<http://arp.ro/resource/agent/Muzeul_Na_ional_de_Art____CLUJ_NAPOCA>
+        a                 arp:Museum;
+        arp:gettyId       "500457788";
+        arp:gettyUri      ulan:500457788;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/B%C3%A1nffy%20Palace%20in%20Kluj-Napoca.PNG>;
+        arp:name          "Muzeul Național de Artă - CLUJ-NAPOCA";
+        arp:wikidataName  "Palatul Bánffy din Cluj"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q716390> .
+
+<http://arp.ro/resource/agent/Muzeul_Br_ilei___BR_ILA>
+        a                 arp:Museum;
+        arp:gettyId       "1008055";
+        arp:gettyUri      tgn:1008055;
+        arp:name          "Muzeul Brăilei - BRĂILA";
+        arp:wikidataName  "Muzeul Brăilei"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q18542175> .
+
+<http://arp.ro/resource/agent/Muzeul_Na_ional_de_Istorie_a_Rom_niei___BUCURE_TI>
+        a                 arp:Museum;
+        arp:gettyId       "500456059";
+        arp:gettyUri      ulan:500456059;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Museo%20Nacional%20de%20Historia%20de%20Ruman%C3%ADa%2C%20Bucarest%2C%20Ruman%C3%ADa%2C%202016-05-29%2C%20DD%2063.jpg>;
+        arp:name          "Muzeul Național de Istorie a României - BUCUREȘTI";
+        arp:wikidataName  "Muzeul Național de Istorie al României"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q179283> .
+
+<http://arp.ro/resource/agent/Centrul_Cultural__Petre_Ionescu___Muscel___ARGE_>
+        a             arp:Museum;
+        arp:gettyId   "500079958";
+        arp:gettyUri  ulan:500079958;
+        arp:name      "Centrul Cultural \"Petre Ionescu\"- Muscel - ARGEȘ" .
+
+<http://arp.ro/resource/agent/Muzeul_Literaturii_Rom_ne___IA_I>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/The%20National%20Museum%20of%20Romanian%20Literature%20from%20Bucharest%20%28Romania%29.jpg>;
+        arp:name          "Muzeul Literaturii Române - IAȘI";
+        arp:wikidataName  "Muzeul Literaturii Române"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q18542251> .
+
+<http://arp.ro/resource/agent/Muzeul_Municipiului_Bucure_ti___BUCURE_TI>
+        a                 arp:Museum;
+        arp:gettyId       "8725202";
+        arp:gettyUri      tgn:8725202;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Palatul%20Sutu%20-%20Poarta.jpg>;
+        arp:name          "Muzeul Municipiului București - BUCUREȘTI";
+        arp:wikidataName  "Muzeul Municipiului București"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q12736096> .
+
+<http://arp.ro/resource/agent/Biserica__Sf_ntul_Arhanghel_Mihail____BR_ILA>
+        a                 arp:Museum;
+        arp:gettyId       "500195867";
+        arp:gettyUri      ulan:500195867;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Saint%20Michael%27s%20Church%20%2820900212185%29.jpg>;
+        arp:name          "Biserica \"Sfântul Arhanghel Mihail\" - BRĂILA";
+        arp:wikidataName  "Biserica Sfântul Arhanghel Mihail din Praga"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q12028858> .
+
+<http://arp.ro/resource/agent/Complexul_Muzeal_Bucovina___SUCEAVA>
+        a                 arp:Museum;
+        arp:gettyId       "7012075";
+        arp:gettyUri      tgn:7012075;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Bukovina%20History%20Museum%20frontal%20view.jpg>;
+        arp:name          "Complexul Muzeal Bucovina - SUCEAVA";
+        arp:wikidataName  "Muzeul Bucovinei"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q12736089> .
+
+<http://arp.ro/resource/agent/Muzeul_Memorial__Octavian_Goga____CIUCEA>
+        a             arp:Museum;
+        arp:gettyId   "500668654";
+        arp:gettyUri  ulan:500668654;
+        arp:name      "Muzeul Memorial \"Octavian Goga\" - CIUCEA" .
+
+<http://arp.ro/resource/agent/Muzeul_Jude_ean_de_Istorie__i_Arheologie_Prahova___PLOIE_TI>
+        a                 arp:Museum;
+        arp:gettyId       "500456059";
+        arp:gettyUri      ulan:500456059;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Muzeul%20Jude%C8%9Bean%20de%20Istorie%20%C8%99i%20Arheologie%2C%20Ploie%C8%99ti%20%282%29.JPG>;
+        arp:name          "Muzeul Județean de Istorie și Arheologie Prahova - PLOIEȘTI";
+        arp:wikidataName  "Muzeul Județean de Istorie și Arheologie Prahova"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q18542243> .
+
+<http://arp.ro/resource/agent/M_n_stirea_Dintr_un_Lemn___comuna_Fr_nce_ti__V_LCEA>
+        a                 arp:Museum;
+        arp:gettyId       "8711874";
+        arp:gettyUri      tgn:8711874;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/RO%20VL%20Dezrobiti%20Manastirea%20dintr-un%20lemn%2043.jpg>;
+        arp:name          "Mănăstirea Dintr-un Lemn - comuna Frâncești, VÂLCEA";
+        arp:wikidataName  "Mănăstirea Dintr-un Lemn"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q3320170> .
+
+<http://arp.ro/resource/agent/Muzeul__Bogdan_Petriceicu_Hasdeu____C_MPINA>
+        a             arp:Museum;
+        arp:gettyId   "500311373";
+        arp:gettyUri  ulan:500311373;
+        arp:name      "Muzeul \"Bogdan Petriceicu Hasdeu\" - CÂMPINA" .
+
+<http://arp.ro/resource/agent/Muzeul_Jude_ean_de_Art__Prahova__Ion_Ionescu_Quintus___PLOIE_TI>
+        a             arp:Museum;
+        arp:gettyId   "7002699";
+        arp:gettyUri  tgn:7002699;
+        arp:name      "Muzeul Județean de Artă Prahova \"Ion Ionescu-Quintus\"- PLOIEȘTI" .
+
+<http://arp.ro/resource/agent/Muzeul__Vasile_P_rvan____B_RLAD>
+        a             arp:Museum;
+        arp:gettyId   "500324278";
+        arp:gettyUri  ulan:500324278;
+        arp:name      "Muzeul \"Vasile Pârvan\" - BÂRLAD" .
+
+<http://arp.ro/resource/agent/Direc_ia_Jude_ean__pentru_Cultur____Cluj>
+        a                 arp:Museum;
+        arp:name          "Direcția Județeană pentru Cultură - Cluj";
+        arp:wikidataName  "Direcția Județeană pentru Cultură, Culte și Patrimoniu Cultural Național"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q43121310> .
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tgn:  <http://vocab.getty.edu/tgn/>
+PREFIX ulan: <http://vocab.getty.edu/ulan/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+<http://arp.ro/resource/agent/Studioul_Cinematografic_BUCURE_TI_S_A____BUFTEA>
+        a             arp:Museum;
+        arp:gettyId   "8725202";
+        arp:gettyUri  tgn:8725202;
+        arp:name      "Studioul Cinematografic BUCUREȘTI S.A. - BUFTEA" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__57>
+        a             arp:Museum;
+        arp:gettyId   "500126021";
+        arp:gettyUri  ulan:500126021;
+        arp:name      "Colecție particulară 57" .
+
+<http://arp.ro/resource/agent/Muzeul_Jude_ean__Teohari_Antonescu____GIURGIU>
+        a             arp:Museum;
+        arp:gettyId   "500078551";
+        arp:gettyUri  ulan:500078551;
+        arp:name      "Muzeul Județean \"Teohari Antonescu\" - GIURGIU" .
+
+<http://arp.ro/resource/agent/Muzeul_de_Art____TIMI_OARA>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:name          "Muzeul de Artă - TIMIȘOARA";
+        arp:wikidataName  "Muzeul de Artă - MdAO"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q27085> .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__62>
+        a             arp:Museum;
+        arp:gettyId   "8990932";
+        arp:gettyUri  tgn:8990932;
+        arp:name      "Colecție particulară 62" .
+
+<http://arp.ro/resource/agent/Muzeul_Jude_ean_Mure___Sec_ia_de_Art____T_RGU_MURE_>
+        a             arp:Museum;
+        arp:gettyId   "1050206";
+        arp:gettyUri  tgn:1050206;
+        arp:name      "Muzeul Județean Mureș. Secția de Artă - TÂRGU MUREȘ" .
+
+<http://arp.ro/resource/agent/Muzeul_Na_ional_Cotroceni___BUCURE_TI>
+        a                 arp:Museum;
+        arp:gettyId       "4002938";
+        arp:gettyUri      tgn:4002938;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Bucuresti%2C%20Romania.%20MUZEUL%20NATIONAL%20COTROCENI.%20%28interior%20-%20birou%20de%20lucru%29%20%28B-II-a-A-19152%29.jpg>;
+        arp:name          "Muzeul Național Cotroceni - BUCUREȘTI";
+        arp:wikidataName  "Muzeul Național Cotroceni"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q17296950> .
+
+<http://arp.ro/resource/agent/M_n_stirea_Hurezi___HOREZU>
+        a             arp:Museum;
+        arp:gettyId   "8711874";
+        arp:gettyUri  tgn:8711874;
+        arp:name      "Mănăstirea Hurezi - HOREZU" .
+
+<http://arp.ro/resource/agent/Muzeul_Jude_ean___R_MNICU_V_LCEA>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Brasov%20%28Kronstadt%20-%20Brasso%29%20-%20city%20hall%20Lestat%20edit.jpg>;
+        arp:name          "Muzeul Județean - RÂMNICU VÂLCEA";
+        arp:wikidataName  "Muzeul Județean de Istorie Brașov"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q4959053> .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__65>
+        a             arp:Museum;
+        arp:gettyId   "500243732";
+        arp:gettyUri  ulan:500243732;
+        arp:name      "Colecție particulară 65" .
+
+<http://arp.ro/resource/agent/Muzeul_Jude_ean_Arge____PITE_TI>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Muzeul%20Jude%C5%A3ean%20Arge%C5%9F.jpg>;
+        arp:name          "Muzeul Județean Argeș - PITEȘTI";
+        arp:wikidataName  "Muzeul Județean Argeș"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q18544242> .
+
+<http://arp.ro/resource/agent/Muzeul_Na_ional_Pele____SINAIA>
+        a             arp:Museum;
+        arp:gettyId   "500305940";
+        arp:gettyUri  ulan:500305940;
+        arp:name      "Muzeul Național Peleș - SINAIA" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__60>
+        a             arp:Museum;
+        arp:gettyId   "7772290";
+        arp:gettyUri  tgn:7772290;
+        arp:name      "Colecție particulară 60" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__63>
+        a             arp:Museum;
+        arp:gettyId   "500280487";
+        arp:gettyUri  ulan:500280487;
+        arp:name      "Colecție particulară 63" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__56>
+        a             arp:Museum;
+        arp:gettyId   "2551751";
+        arp:gettyUri  tgn:2551751;
+        arp:name      "Colecție particulară 56" .
+
+<http://arp.ro/resource/agent/Complexul_Na_ional_Muzeal__Curtea_Domneasc_____T_RGOVI_TE>
+        a             arp:Museum;
+        arp:gettyId   "7004131";
+        arp:gettyUri  tgn:7004131;
+        arp:name      "Complexul Național Muzeal \"Curtea Domnească\" - TÂRGOVIȘTE" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__66>
+        a             arp:Museum;
+        arp:gettyId   "500222610";
+        arp:gettyUri  ulan:500222610;
+        arp:name      "Colecție particulară 66" .
+
+<http://arp.ro/resource/agent/Muzeul_de_Art__Popular___Prof__Dr__Nicolae_Minovici____BUCURE_TI>
+        a                 arp:Museum;
+        arp:gettyId       "500266142";
+        arp:gettyUri      ulan:500266142;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Bucharest%20-%20Dr%20Nicolae%20Minovici%20Villa.jpg>;
+        arp:name          "Muzeul de Artă Populară \"Prof. Dr. Nicolae Minovici\" - BUCUREȘTI";
+        arp:wikidataName  "Muzeul de Artă Populară Prof. Dr. Nicolae Minovici"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q12736104> .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__61>
+        a             arp:Museum;
+        arp:gettyId   "500219551";
+        arp:gettyUri  ulan:500219551;
+        arp:name      "Colecție particulară 61" .
+
+<http://arp.ro/resource/agent/M_n_stirea_Dragomirna___SUCEAVA>
+        a                 arp:Museum;
+        arp:gettyId       "8711877";
+        arp:gettyUri      tgn:8711877;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Dragomirna%20monastery%20sunset.jpg>;
+        arp:name          "Mănăstirea Dragomirna - SUCEAVA";
+        arp:wikidataName  "Mănăstirea Dragomirna"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q289153> .
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tgn:  <http://vocab.getty.edu/tgn/>
+PREFIX ulan: <http://vocab.getty.edu/ulan/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+<http://arp.ro/resource/agent/Colec_ie_particular__52>
+        a             arp:Museum;
+        arp:gettyId   "2551741";
+        arp:gettyUri  tgn:2551741;
+        arp:name      "Colecție particulară 52" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__45>
+        a             arp:Museum;
+        arp:gettyId   "2124233";
+        arp:gettyUri  tgn:2124233;
+        arp:name      "Colecție particulară 45" .
+
+<http://arp.ro/resource/agent/Muzeul__Casa_Mure_enilor____BRA_OV>
+        a             arp:Museum;
+        arp:gettyId   "500305940";
+        arp:gettyUri  ulan:500305940;
+        arp:name      "Muzeul \"Casa Mureșenilor\" - BRAȘOV" .
+
+<http://arp.ro/resource/agent/Muzeul_de_Art____IA_I>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:name          "Muzeul de Artă - IAȘI";
+        arp:wikidataName  "Muzeul de Artă - MdAO"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q27085> .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__55>
+        a             arp:Museum;
+        arp:gettyId   "2551749";
+        arp:gettyUri  tgn:2551749;
+        arp:name      "Colecție particulară 55" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__48>
+        a             arp:Museum;
+        arp:gettyId   "500278252";
+        arp:gettyUri  ulan:500278252;
+        arp:name      "Colecție particulară 48" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__50>
+        a             arp:Museum;
+        arp:gettyId   "2551734";
+        arp:gettyUri  tgn:2551734;
+        arp:name      "Colecție particulară 50" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__58>
+        a             arp:Museum;
+        arp:gettyId   "500720708";
+        arp:gettyUri  ulan:500720708;
+        arp:name      "Colecție particulară 58" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__53>
+        a             arp:Museum;
+        arp:gettyId   "2551742";
+        arp:gettyUri  tgn:2551742;
+        arp:name      "Colecție particulară 53" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__46>
+        a             arp:Museum;
+        arp:gettyId   "2551699";
+        arp:gettyUri  tgn:2551699;
+        arp:name      "Colecție particulară 46" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__41>
+        a             arp:Museum;
+        arp:gettyId   "8965195";
+        arp:gettyUri  tgn:8965195;
+        arp:name      "Colecție particulară 41" .
+
+<http://arp.ro/resource/agent/Colec_ia_de_Art__Plastic___Fr___i_Cecilia_Cu_escu_Storck____BUCURE_TI>
+        a             arp:Museum;
+        arp:gettyId   "500071464";
+        arp:gettyUri  ulan:500071464;
+        arp:name      "Colecția de Artă Plastică \"Fr. și Cecilia Cuțescu Storck\" - BUCUREȘTI" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__49>
+        a             arp:Museum;
+        arp:gettyId   "500251617";
+        arp:gettyUri  ulan:500251617;
+        arp:name      "Colecție particulară 49" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__51>
+        a             arp:Museum;
+        arp:gettyId   "2615185";
+        arp:gettyUri  tgn:2615185;
+        arp:name      "Colecție particulară 51" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__44>
+        a             arp:Museum;
+        arp:gettyId   "500284246";
+        arp:gettyUri  ulan:500284246;
+        arp:name      "Colecție particulară 44" .
+
+<http://arp.ro/resource/agent/Muzeul___rii_Cri_urilor___ORADEA>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Muzeul%20Tarii%20Crisurilor%20%28Fosta%20scoala%20de%20cadeti%29%20-%20Oradea%20%282%29.JPG>;
+        arp:name          "Muzeul Țării Crișurilor - ORADEA";
+        arp:wikidataName  "Muzeul Țării Crișurilor"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q1749810> .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__59>
+        a             arp:Museum;
+        arp:gettyId   "2615187";
+        arp:gettyUri  tgn:2615187;
+        arp:name      "Colecție particulară 59" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__54>
+        a             arp:Museum;
+        arp:gettyId   "8965197";
+        arp:gettyUri  tgn:8965197;
+        arp:name      "Colecție particulară 54" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__47>
+        a             arp:Museum;
+        arp:gettyId   "2551703";
+        arp:gettyUri  tgn:2551703;
+        arp:name      "Colecție particulară 47" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__42>
+        a             arp:Museum;
+        arp:gettyId   "2124231";
+        arp:gettyUri  tgn:2124231;
+        arp:name      "Colecție particulară 42" .
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tgn:  <http://vocab.getty.edu/tgn/>
+PREFIX ulan: <http://vocab.getty.edu/ulan/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+<http://arp.ro/resource/agent/Colec_ie_particular__38>
+        a             arp:Museum;
+        arp:gettyId   "500238404";
+        arp:gettyUri  ulan:500238404;
+        arp:name      "Colecție particulară 38" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__40>
+        a             arp:Museum;
+        arp:gettyId   "2727212";
+        arp:gettyUri  tgn:2727212;
+        arp:name      "Colecție particulară 40" .
+
+<http://arp.ro/resource/agent/Muzeul_Jude_ean_de_Istorie__i_Arheologie_Maramure____BAIA_MARE>
+        a                 arp:Museum;
+        arp:gettyId       "500456059";
+        arp:gettyUri      ulan:500456059;
+        arp:name          "Muzeul Județean de Istorie și Arheologie Maramureș - BAIA MARE";
+        arp:wikidataName  "Muzeul Județean de Istorie și Arheologie Maramureș"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q12736090> .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__33>
+        a             arp:Museum;
+        arp:gettyId   "2615176";
+        arp:gettyUri  tgn:2615176;
+        arp:name      "Colecție particulară 33" .
+
+<http://arp.ro/resource/agent/Muzeul_Civiliza_iei_Dacice__i_Romane___DEVA>
+        a                 arp:Museum;
+        arp:gettyId       "1027142";
+        arp:gettyUri      tgn:1027142;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Magna%20Curia1.JPG>;
+        arp:name          "Muzeul Civilizației Dacice și Romane - DEVA";
+        arp:wikidataName  "Muzeul Civilizației Dacice și Romane"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q6940838> .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__36>
+        a             arp:Museum;
+        arp:gettyId   "2615180";
+        arp:gettyUri  tgn:2615180;
+        arp:name      "Colecție particulară 36" .
+
+<http://arp.ro/resource/agent/Muzeul_de_Art____TULCEA>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:name          "Muzeul de Artă - TULCEA";
+        arp:wikidataName  "Muzeul de Artă - MdAO"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q27085> .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__31>
+        a             arp:Museum;
+        arp:gettyId   "500279759";
+        arp:gettyUri  ulan:500279759;
+        arp:name      "Colecție particulară 31" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__39>
+        a             arp:Museum;
+        arp:gettyId   "2124386";
+        arp:gettyUri  tgn:2124386;
+        arp:name      "Colecție particulară 39" .
+
+<http://arp.ro/resource/agent/Complexul_Muzeal__Curtea_Domneasc_____T_RGOVI_TE>
+        a             arp:Museum;
+        arp:gettyId   "7004131";
+        arp:gettyUri  tgn:7004131;
+        arp:name      "Complexul Muzeal \"Curtea Domnească\" - TÂRGOVIȘTE" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__34>
+        a             arp:Museum;
+        arp:gettyId   "500474021";
+        arp:gettyUri  ulan:500474021;
+        arp:name      "Colecție particulară 34" .
+
+<http://arp.ro/resource/agent/Muzeul_Colec_iilor_de_Art____BUCURE_TI>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/111-113%20Calea%20Victoriei%2C%20Bucharest%20%2803%29.jpg>;
+        arp:name          "Muzeul Colecțiilor de Artă - BUCUREȘTI";
+        arp:wikidataName  "Muzeul Colecțiilor de Artă"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q6940756> .
+
+<http://arp.ro/resource/agent/Muzeul_Na_ional_de_Istorie_a_Transilvaniei___CLUJ_NAPOCA>
+        a                 arp:Museum;
+        arp:gettyId       "500456059";
+        arp:gettyUri      ulan:500456059;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Transylvanian%20History%20Museum%201.JPG>;
+        arp:name          "Muzeul Național de Istorie a Transilvaniei - CLUJ-NAPOCA";
+        arp:wikidataName  "Muzeul Național de Istorie a Transilvaniei"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q1327937> .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__37>
+        a             arp:Museum;
+        arp:gettyId   "2727208";
+        arp:gettyUri  tgn:2727208;
+        arp:name      "Colecție particulară 37" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__32>
+        a             arp:Museum;
+        arp:gettyId   "500304055";
+        arp:gettyUri  ulan:500304055;
+        arp:name      "Colecție particulară 32" .
+
+<http://arp.ro/resource/agent/Arhiepiscopia_Romano_Catolic____ALBA_IULIA>
+        a                 arp:Museum;
+        arp:gettyId       "500345976";
+        arp:gettyUri      ulan:500345976;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Malta%20Mdina%20BW%202011-10-05%2013-01-34.JPG>;
+        arp:name          "Arhiepiscopia Romano-Catolică - ALBA IULIA";
+        arp:wikidataName  "Arhiepiscopia Romano-Catolică de Malta"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q664066> .
+
+<http://arp.ro/resource/agent/Muzeul_de_Art____CONSTAN_A>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:name          "Muzeul de Artă - CONSTANȚA";
+        arp:wikidataName  "Muzeul de Artă - MdAO"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q27085> .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__35>
+        a             arp:Museum;
+        arp:gettyId   "500299891";
+        arp:gettyUri  ulan:500299891;
+        arp:name      "Colecție particulară 35" .
+
+<http://arp.ro/resource/agent/Biserica__Sfin_ii__mp_ra_i_Constantin__i_Elena____BR_ILA>
+        a                 arp:Museum;
+        arp:gettyId       "500042371";
+        arp:gettyUri      ulan:500042371;
+        arp:name          "Biserica \"Sfinții Împărați Constantin și Elena\" - BRĂILA";
+        arp:wikidataName  "Biserica Sfinții Împărați Constantin și Elena"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q1429036> .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__30>
+        a             arp:Museum;
+        arp:gettyId   "500284037";
+        arp:gettyUri  ulan:500284037;
+        arp:name      "Colecție particulară 30" .
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tgn:  <http://vocab.getty.edu/tgn/>
+PREFIX ulan: <http://vocab.getty.edu/ulan/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+<http://arp.ro/resource/agent/Biserica___n_l_area_Domnului____BR_ILA>
+        a                 arp:Museum;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Ciechanowiec%20-%20cerkiew%20prawos%C5%82awna%20pw.%20Wniebowst%C4%85pienia%20Pa%C5%84skiego.JPG>;
+        arp:name          "Biserica \"Înălțarea Domnului\" - BRĂILA";
+        arp:wikidataName  "Biserica Înălțarea Domnului din Ciechanowiec"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q9187164> .
+
+<http://arp.ro/resource/agent/Muzeul_Na_ional_al_Unirii___ALBA_IULIA>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/National%20Museum%20of%20the%20Union%20%2837767622664%29.jpg>;
+        arp:name          "Muzeul Național al Unirii - ALBA IULIA";
+        arp:wikidataName  "Muzeul Național al Unirii"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q6974519> .
+
+<http://arp.ro/resource/agent/Muzeul_Municipal_R_mnicu_S_rat___R_MNICU_S_RAT>
+        a             arp:Museum;
+        arp:gettyId   "1050244";
+        arp:gettyUri  tgn:1050244;
+        arp:name      "Muzeul Municipal Râmnicu Sărat - RÂMNICU SĂRAT" .
+
+<http://arp.ro/resource/agent/Muzeul_de_Art____BRA_OV>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:name          "Muzeul de Artă - BRAȘOV";
+        arp:wikidataName  "Muzeul de Artă - MdAO"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q27085> .
+
+<http://arp.ro/resource/agent/MUZEUL_NA_IONAL_BRUKENTHAL___Sibiu>
+        a                 arp:Museum;
+        arp:gettyId       "500308991";
+        arp:gettyUri      ulan:500308991;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Palatul%20Brukenthal%20din%20Piata%20Mare.jpg>;
+        arp:name          "MUZEUL NAȚIONAL BRUKENTHAL - Sibiu";
+        arp:wikidataName  "Muzeul Brukenthal"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q850207> .
+
+<http://arp.ro/resource/agent/Complexul_Muzeal__Iulian_Antonescu____BAC_U>
+        a                 arp:Museum;
+        arp:gettyId       "500078551";
+        arp:gettyUri      ulan:500078551;
+        arp:name          "Complexul Muzeal \"Iulian Antonescu\" - BACĂU";
+        arp:wikidataName  "Complexul Muzeal Iulian Antonescu din Bacău"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q12724481> .
+
+<http://arp.ro/resource/agent/Muzeul_Na_ional_de_Art__al_Rom_niei___BUCURE_TI>
+        a                 arp:Museum;
+        arp:gettyId       "500306614";
+        arp:gettyUri      ulan:500306614;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Romania-1125%20-%20National%20Art%20Museum%20%287546247288%29.jpg>;
+        arp:name          "Muzeul Național de Artă al României - BUCUREȘTI";
+        arp:wikidataName  "Muzeul Național de Artă al României"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q1319192> .
+
+<http://arp.ro/resource/agent/Biserica__Sf__Petru__i_Pavel__i_Sf__Paraschiva____BR_ILA>
+        a             arp:Museum;
+        arp:gettyId   "500517264";
+        arp:gettyUri  ulan:500517264;
+        arp:name      "Biserica ”Sf. Petru și Pavel și Sf. Paraschiva\" - BRĂILA" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__29>
+        a             arp:Museum;
+        arp:gettyId   "2615167";
+        arp:gettyUri  tgn:2615167;
+        arp:name      "Colecție particulară 29" .
+
+<http://arp.ro/resource/agent/Muzeul_de_Art____CLUJ_NAPOCA>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:name          "Muzeul de Artă - CLUJ-NAPOCA";
+        arp:wikidataName  "Muzeul de Artă - MdAO"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q27085> .
+
+<http://arp.ro/resource/agent/Muzeul_Jude_ean_de_Istorie__i_Art____ZAL_U>
+        a                 arp:Museum;
+        arp:gettyId       "500456059";
+        arp:gettyUri      ulan:500456059;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Muzeu%20zalau.jpg>;
+        arp:name          "Muzeul Județean de Istorie și Artă - ZALĂU";
+        arp:wikidataName  "Muzeul Județean de Istorie și Artă Sălaj"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q18542244> .
+
+<http://arp.ro/resource/agent/Complexul_Muzeal_Arad___ARAD>
+        a                 arp:Museum;
+        arp:gettyId       "500278682";
+        arp:gettyUri      ulan:500278682;
+        arp:name          "Complexul Muzeal Arad - ARAD";
+        arp:wikidataName  "Complexul Muzeal Arad"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q1954844> .
+
+<http://arp.ro/resource/agent/Biserica__Sf__Nicolae___sat_Lacu_Rezi____BR_ILA>
+        a             arp:Museum;
+        arp:gettyId   "500517264";
+        arp:gettyUri  ulan:500517264;
+        arp:name      "Biserica \"Sf. Nicolae\" (sat Lacu Rezi) - BRĂILA" .
+
+<http://arp.ro/resource/agent/Memorialul_Ipote_ti___Centrul_Na_ional_de_Studii__Mihai_Eminescu____BOTO_ANI>
+        a                 arp:Museum;
+        arp:name          "Memorialul Ipotești - Centrul Național de Studii \"Mihai Eminescu\" - BOTOȘANI";
+        arp:wikidataName  "Memorialul Ipotești-Centrul Național de Studii „Mihai Eminescu”"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q42791512> .
+
+<http://arp.ro/resource/agent/Muzeul_Jude_ean_Buz_u___BUZ_U>
+        a                 arp:Museum;
+        arp:gettyId       "1122331";
+        arp:gettyUri      tgn:1122331;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/RO%20BZ%20county%20museum%201.jpg>;
+        arp:name          "Muzeul Județean Buzău - BUZĂU";
+        arp:wikidataName  "Muzeul Județean Buzău"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q18542239> .
+
+<http://arp.ro/resource/agent/Complexul_Muzeal_Na_ional__Moldova____IA_I>
+        a             arp:Museum;
+        arp:gettyId   "1050281";
+        arp:gettyUri  tgn:1050281;
+        arp:name      "Complexul Muzeal Național \"Moldova\" - IAȘI" .
+
+<http://arp.ro/resource/agent/Muzeul_Na_ional_al_Satului__Dimitrie_Gusti____BUCURE_TI>
+        a             arp:Museum;
+        arp:gettyId   "500135163";
+        arp:gettyUri  ulan:500135163;
+        arp:name      "Muzeul Național al Satului \"Dimitrie Gusti\" - BUCUREȘTI" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__28>
+        a             arp:Museum;
+        arp:gettyId   "2615166";
+        arp:gettyUri  tgn:2615166;
+        arp:name      "Colecție particulară 28" .
+
+<http://arp.ro/resource/agent/Muzeul_de_Art___Centrul_Artistic_Baia_Mare____BAIA_MARE>
+        a             arp:Museum;
+        arp:gettyId   "7002766";
+        arp:gettyUri  tgn:7002766;
+        arp:name      "Muzeul de Artă \"Centrul Artistic Baia Mare\" - BAIA MARE" .
+
+<http://arp.ro/resource/agent/Colec_ie_particular__23>
+        a             arp:Museum;
+        arp:gettyId   "500266941";
+        arp:gettyUri  ulan:500266941;
+        arp:name      "Colecție particulară 23" .
+PREFIX arp:  <http://arp.ro/schema#>
+PREFIX dct:  <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tgn:  <http://vocab.getty.edu/tgn/>
+PREFIX ulan: <http://vocab.getty.edu/ulan/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+<http://arp.ro/resource/agent/Muzeul_Jude_ean_Boto_ani___BOTO_ANI>
+        a                 arp:Museum;
+        arp:gettyId       "1050039";
+        arp:gettyUri      tgn:1050039;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Prefectura%20Veche%20Bt.jpg>;
+        arp:name          "Muzeul Județean Botoșani - BOTOȘANI";
+        arp:wikidataName  "Muzeul Județean Botoșani"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q18544120> .
+
+<http://arp.ro/resource/agent/Direc_ia_Jude_ean__pentru_Cultur____GIURGIU>
+        a                 arp:Museum;
+        arp:name          "Direcția Județeană pentru Cultură - GIURGIU";
+        arp:wikidataName  "Direcția Județeană pentru Cultură, Culte și Patrimoniu Cultural Național"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q43121310> .
+
+<http://arp.ro/resource/agent/Institutul_de_Cercet_ri_Eco_Muzeale___TULCEA>
+        a                 arp:Museum;
+        arp:gettyId       "500224919";
+        arp:gettyUri      ulan:500224919;
+        arp:name          "Institutul de Cercetări Eco-Muzeale - TULCEA";
+        arp:wikidataName  "Institutul de Cercetări Eco-Muzeale „Gavrilă Simion” Tulcea"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q131469220> .
+
+<http://arp.ro/resource/agent/Muzeul_Jude_ean___SATU_MARE>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Brasov%20%28Kronstadt%20-%20Brasso%29%20-%20city%20hall%20Lestat%20edit.jpg>;
+        arp:name          "Muzeul Județean - SATU MARE";
+        arp:wikidataName  "Muzeul Județean de Istorie Brașov"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q4959053> .
+
+<http://arp.ro/resource/agent/Biblioteca_Academiei_Rom_ne___BUCURE_TI>
+        a                 arp:Museum;
+        arp:gettyId       "500302861";
+        arp:gettyUri      ulan:500302861;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/Biblioteca%20Academiei%20Romane.jpg>;
+        arp:name          "Biblioteca Academiei Române - BUCUREȘTI";
+        arp:wikidataName  "Biblioteca Academiei Române"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q12721701> .
+
+<http://arp.ro/resource/agent/M_n_stirea_Cozia___V_LCEA>
+        a                 arp:Museum;
+        arp:gettyId       "4002991";
+        arp:gettyUri      tgn:4002991;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/2006%200610CoziaExterior20565.JPG>;
+        arp:name          "Mănăstirea Cozia - VÂLCEA";
+        arp:wikidataName  "Mănăstirea Cozia"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q3320280> .
+
+<http://arp.ro/resource/agent/Muzeul_Banatului___TIMI_OARA>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/CastelulHuniade1.jpg>;
+        arp:name          "Muzeul Banatului - TIMIȘOARA";
+        arp:wikidataName  "Muzeul Banatului"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q806121> .
+
+<http://arp.ro/resource/agent/Muzeul_Memorial__Gh__M__Tattarescu____BUCURE_TI>
+        a             arp:Museum;
+        arp:gettyId   "2445998";
+        arp:gettyUri  tgn:2445998;
+        arp:name      "Muzeul Memorial \"Gh. M. Tattarescu\" - BUCUREȘTI" .
+
+<http://arp.ro/resource/agent/Muzeul_de_Art__Vizual____GALA_I>
+        a                 arp:Museum;
+        arp:gettyId       "500305940";
+        arp:gettyUri      ulan:500305940;
+        arp:imageLink     <http://commons.wikimedia.org/wiki/Special:FilePath/MuzeulArteiVizualeGalati.JPG>;
+        arp:name          "Muzeul de Artă Vizuală - GALAȚI";
+        arp:wikidataName  "Muzeul de Artă Vizuală din Galați"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q18542196> .
+
+<http://arp.ro/resource/agent/Muzeul_Na_ional__George_Enescu____BUCURE_TI>
+        a             arp:Museum;
+        arp:gettyId   "500305940";
+        arp:gettyUri  ulan:500305940;
+        arp:name      "Muzeul Național \"George Enescu\" - BUCUREȘTI" .
+
+<http://arp.ro/resource/agent/Muzeul_Na_ional_Secuiesc___SF_NTU_GHEORGHE>
+        a                 arp:Museum;
+        arp:gettyId       "1050096";
+        arp:gettyUri      tgn:1050096;
+        arp:name          "Muzeul Național Secuiesc - SFÂNTU GHEORGHE";
+        arp:wikidataName  "Muzeul Național Secuiesc"@ro;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q1302159> .
+
+<http://arp.ro/resource/agent/Academia_Rom_n____BUCURE_TI>
+        a                 arp:Museum;
+        arp:gettyId       "500309388";
+        arp:gettyUri      ulan:500309388;
+        arp:name          "Academia Română - BUCUREȘTI";
+        arp:wikidataName  "Academia Romana"@en;
+        arp:wikidataUri   <http://www.wikidata.org/entity/Q337250> .

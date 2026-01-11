@@ -1,0 +1,200 @@
+@prefix aat:  <http://vocab.getty.edu/aat/> .
+@prefix arp:  <http://arp.ro/schema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://arp.ro/category/300053271>
+    rdfs:label "litografie"@ro;
+    rdfs:label "lithography"@en;
+    skos:exactMatch aat:300053271 .
+
+<http://arp.ro/category/300015637>
+    rdfs:label "portret"@ro;
+    rdfs:label "portrait"@en;
+    skos:exactMatch aat:300015637 .
+
+<http://arp.ro/category/300081781>
+    rdfs:label "studiu"@ro;
+    rdfs:label "study"@en;
+    skos:exactMatch aat:300081781 .
+
+<http://arp.ro/category/300028094>
+    rdfs:label "hartă"@ro;
+    rdfs:label "map"@en;
+    skos:exactMatch aat:300028094 .
+
+<http://arp.ro/category/300007595>
+    rdfs:label "templu"@ro;
+    rdfs:label "temple"@en;
+    skos:exactMatch aat:300007595 .
+
+<http://arp.ro/category/300015617>
+    rdfs:label "schiță"@ro;
+    rdfs:label "sketch"@en;
+    skos:exactMatch aat:300015617 .
+
+<http://arp.ro/category/300047090>
+    rdfs:label "sculptură"@ro;
+    rdfs:label "sculpture"@en;
+    skos:exactMatch aat:300047090 .
+
+<http://arp.ro/category/300026690>
+    rdfs:label "album"@ro;
+    rdfs:label "album"@en;
+    skos:exactMatch aat:300026690 .
+
+<http://arp.ro/category/300400626>
+    rdfs:label "urnă funerară"@ro;
+    rdfs:label "burial niche"@en;
+    skos:exactMatch aat:300400626 .
+
+<http://arp.ro/category/300053653>
+    rdfs:label "broderie"@ro;
+    rdfs:label "embroidery"@en;
+    skos:exactMatch aat:300053653 .
+
+<http://arp.ro/category/300033945>
+    rdfs:label "icoană"@ro;
+    rdfs:label "icon"@en;
+    skos:exactMatch aat:300033945 .
+
+<http://arp.ro/category/300124534>
+    rdfs:label "autoportret"@ro;
+    rdfs:label "self-portrait"@en;
+    skos:exactMatch aat:300124534 .
+
+<http://arp.ro/category/300005909>
+    rdfs:label "monument funerar"@ro;
+    rdfs:label "sepulchral monument"@en;
+    skos:exactMatch aat:300005909 .
+
+<http://arp.ro/category/300053357>
+    rdfs:label "frescă"@ro;
+    rdfs:label "fresco painting"@en;
+    skos:exactMatch aat:300053357 .
+
+<http://arp.ro/category/300014860>
+    rdfs:label "cladding"@ro;
+    rdfs:label "cladding"@en;
+    skos:exactMatch aat:300014860 .
+
+<http://arp.ro/category/300033644>
+    rdfs:label "wall painting"@ro;
+    rdfs:label "wall painting"@en;
+    skos:exactMatch aat:300033644 .
+
+<http://arp.ro/category/300264522>
+    rdfs:label "miniatură"@ro;
+    rdfs:label "manuscript illumination"@en;
+    skos:exactMatch aat:300264522 .
+
+<http://arp.ro/category/300047896>
+    rdfs:label "instalație artistică"@ro;
+    rdfs:label "installation artwork"@en;
+    skos:exactMatch aat:300047896 .
+
+<http://arp.ro/category/300047457>
+    rdfs:label "bust"@ro;
+    rdfs:label "bust"@en;
+    skos:exactMatch aat:300047457 .
+
+<http://arp.ro/category/300265418>
+    rdfs:label "structură"@ro;
+    rdfs:label "architectural structure"@en;
+    skos:exactMatch aat:300265418 .
+
+<http://arp.ro/category/300070114>
+    rdfs:label "guașă"@ro;
+    rdfs:label "gouache paint"@en;
+    skos:exactMatch aat:300070114 .
+
+<http://arp.ro/category/300177433>
+    rdfs:label "fresco"@ro;
+    rdfs:label "fresco"@en;
+    skos:exactMatch aat:300177433 .
+
+<http://arp.ro/category/300263758>
+    rdfs:label "pictură pe sticlă"@ro;
+    rdfs:label "glass painter"@en;
+    skos:exactMatch aat:300263758 .
+
+<http://arp.ro/category/300178684>
+    rdfs:label "pictură în ulei"@ro;
+    rdfs:label "oil painting"@en;
+    skos:exactMatch aat:300178684 .
+
+<http://arp.ro/category/300264383>
+    rdfs:label "sculptură"@ro;
+    rdfs:label "art of sculpture"@en;
+    skos:exactMatch aat:300264383 .
+
+<http://arp.ro/category/300008626>
+    rdfs:label "peisaj"@ro;
+    rdfs:label "landscape"@en;
+    skos:exactMatch aat:300008626 .
+
+<http://arp.ro/category/300056255>
+    rdfs:label "compoziție"@ro;
+    rdfs:label "composition"@en;
+    skos:exactMatch aat:300056255 .
+
+<http://arp.ro/category/300054216>
+    rdfs:label "pictură"@ro;
+    rdfs:label "art of painting"@en;
+    skos:exactMatch aat:300054216 .
+
+<http://arp.ro/category/300400898>
+    rdfs:label "grup statuar"@ro;
+    rdfs:label "group of sculptures"@en;
+    skos:exactMatch aat:300400898 .
+
+<http://arp.ro/category/300122621>
+    rdfs:label "pastel"@ro;
+    rdfs:label "pastel"@en;
+    skos:exactMatch aat:300122621 .
+
+<http://arp.ro/category/300184633>
+    rdfs:label "basorelief"@ro;
+    rdfs:label "bas-relief"@en;
+    skos:exactMatch aat:300184633 .
+
+<http://arp.ro/category/300033973>
+    rdfs:label "desen"@ro;
+    rdfs:label "drawing"@en;
+    skos:exactMatch aat:300033973 .
+
+<http://arp.ro/category/300389895>
+    rdfs:label "acuarelă"@ro;
+    rdfs:label "watercolor"@en;
+    skos:exactMatch aat:300389895 .
+
+<http://arp.ro/category/300182732>
+    rdfs:label "pictură murală"@ro;
+    rdfs:label "mural"@en;
+    skos:exactMatch aat:300182732 .
+
+<http://arp.ro/category/300047600>
+    rdfs:label "statuie"@ro;
+    rdfs:label "statue"@en;
+    skos:exactMatch aat:300047600 .
+
+<http://arp.ro/category/300041340>
+    rdfs:label "gravură"@ro;
+    rdfs:label "engraving"@en;
+    skos:exactMatch aat:300041340 .
+
+<http://arp.ro/category/300266034>
+    rdfs:label "machetă"@ro;
+    rdfs:label "scale model"@en;
+    skos:exactMatch aat:300266034 .
+
+<http://arp.ro/category/300003784>
+    rdfs:label "iconostas"@ro;
+    rdfs:label "iconostasis"@en;
+    skos:exactMatch aat:300003784 .
+
+<http://arp.ro/category/300133025>
+    rdfs:label "operă de artă"@ro;
+    rdfs:label "work of art"@en;
+    skos:exactMatch aat:300133025 .
+

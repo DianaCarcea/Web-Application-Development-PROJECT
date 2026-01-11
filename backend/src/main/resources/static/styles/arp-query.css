@@ -162,3 +162,85 @@ tr:nth-child(even) {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
+.ttl-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.ttl-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.ttl-preview {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Dropdown */
+.ttl-preview select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+
+
+.ttl-preview button {
+    background-color: #2e8b57;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 14px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.ttl-preview button:hover:not(:disabled) {
+    background-color: #256f45;
+}
+
+.ttl-preview button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+
+#download-ttl-btn {
+    background-color: #cc0000; /* roșu sugestiv pentru download */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+#download-ttl-btn:hover {
+    background-color: #990000;
+}
+
+@media (max-width: 600px) {
+    .ttl-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .ttl-actions {
+        justify-content: flex-start;
+        gap: 10px;
+    }
+}
