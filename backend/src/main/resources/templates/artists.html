@@ -23,6 +23,7 @@
 
     <section id="artist-dropdown">
         <form id="artistForm">
+            <input type="hidden" id="domainInput" th:value="${domain}" />
             <label for="artistSelect">Select an artist:</label>
             <select id="artistSelect" required>
                 <option value="" disabled selected>Choose an artist</option>
@@ -38,7 +39,7 @@
     <section id="artists">
         <div class="grid artworks-grid">
             <div class="card" th:each="artist : ${artists}">
-                <a th:href="@{/artists/{id}/artworks(id=${artist.id})}">
+                <a th:href="@{/artists/{id}/artworks(id=${artist.id}, domain=${domain})}">
                                 <img th:src="${artist.imageLink != null
                           ? artist.imageLink
                           : '/images/no-artist.png'}"
@@ -52,14 +53,14 @@
 
 <div class="pagination">
     <a th:if="${currentPage > 1}"
-       th:href="@{/artists(page=${currentPage - 1})}" class="btn-nav">
+       th:href="@{/artists(page=${currentPage - 1}, domain=${domain})}" class="btn-nav">
         ← Back
     </a>
 
     <span>Page [[${currentPage}]] of [[${totalPages}]]</span>
 
     <a th:if="${currentPage < totalPages}"
-       th:href="@{/artists(page=${currentPage + 1})}" class="btn-nav">
+       th:href="@{/artists(page=${currentPage + 1}, domain=${domain})}" class="btn-nav">
         Next →
     </a>
 </div>

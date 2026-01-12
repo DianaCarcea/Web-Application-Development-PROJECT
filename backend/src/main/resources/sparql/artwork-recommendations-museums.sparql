@@ -1,0 +1,21 @@
+PREFIX arp: <http://arp.ro/schema#>
+
+SELECT ?subject (SAMPLE(?titleVal) as ?title) (SAMPLE(?imageVal) as ?image)
+WHERE {
+
+  # 1. Identificăm LOCAȚIA operei de input
+  <{{INPUT_URI}}> arp:currentLocation ?location .
+
+  # 2. Găsim alte opere care se află la ACEEAȘI locație
+  ?subject arp:currentLocation ?location .
+
+  # 3. Extragem detaliile (titlu și imagine)
+  OPTIONAL { ?subject arp:title ?titleVal . }
+  OPTIONAL { ?subject arp:imageLink ?imageVal . }
+
+  # 4. Excludem opera inițială
+  FILTER (?subject != <{{INPUT_URI}}>)
+}
+GROUP BY ?subject
+LIMIT {{LIMIT}}
+OFFSET {{OFFSET}}

@@ -20,6 +20,10 @@ public class WikidataArtistFetcher {
     private static final String INPUT_FILE = "output.ttl";
     private static final String OUTPUT_FILE = "artists_wikidata_getty.ttl";
 
+//    private static final String INPUT_FILE = "artworks_arp.ttl";
+//    private static final String OUTPUT_FILE = "artists_wikidata_getty_int.ttl";
+
+
     // Endpoint oficial Getty
     private static final String GETTY_SPARQL_ENDPOINT = "http://vocab.getty.edu/sparql";
 

@@ -25,14 +25,17 @@ public class HomeController {
     public String home(Model model) {
         model.addAttribute("artworks", artworkService.getHomepageArtworks(1, 30, "ro"));
         model.addAttribute("wikidataArtworks", artworkService.getHomepageArtworks(1, 30,"int"));
-        List<Artist> allArtists = artistService.getAllArtistsWithFirstArtwork();
 
-        int maxHomepageArtists = 60;
-        List<Artist> homepageArtists = allArtists.size() > maxHomepageArtists
-                ? allArtists.subList(0, maxHomepageArtists)
-                : allArtists;
+        List<Artist> allArtists = artistService.getAllArtistsWithFirstArtworkHome("ro", 1, 15);
+        List<Artist> allArtistsInt = artistService.getAllArtistsWithFirstArtworkHome("int", 1, 15);
 
-        model.addAttribute("artists", homepageArtists);
+//        int maxHomepageArtists = 60;
+//        List<Artist> homepageArtists = allArtists.size() > maxHomepageArtists
+//                ? allArtists.subList(0, maxHomepageArtists)
+//                : allArtists;
+
+        model.addAttribute("artists", allArtists);
+        model.addAttribute("artistsWiki", allArtistsInt);
         return "home";
     }
 

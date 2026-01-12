@@ -305,22 +305,25 @@ public class SparqlToTTLArp {
         boolean artistFound = false;
         String artistNames = getLiteral(sol, "artistNames");
 
-        if (!artistNames.isEmpty()) {
-            String[] artists = artistNames.split("\\|");
-            for (String artistName : artists) {
-                if (artistName.isBlank()) continue;
-                artistFound = true;
-                String artistUri = NS_RES_AGENT + sanitizeURI(artistName);
-                Resource artistRes = model.createResource(artistUri);
+        if (artistNames.isEmpty())
+            artistNames = "unknown";
 
-                if (!model.contains(artistRes, RDF.type)) {
-                    artistRes.addProperty(RDF.type, model.createResource(NS_ARP + "Artist"));
-                    artistRes.addProperty(model.createProperty(NS_ARP + "name"), artistName);
-                }
+//        if (!artistNames.isEmpty()) {
+        String[] artists = artistNames.split("\\|");
+        for (String artistName : artists) {
+            if (artistName.isBlank()) continue;
+            artistFound = true;
+            String artistUri = NS_RES_AGENT + sanitizeURI(artistName);
+            Resource artistRes = model.createResource(artistUri);
 
-                artRes.addProperty(model.createProperty(NS_PROV + "wasAttributedTo"), artistRes);
-                addQualifiedAssociation(model, creationRes, artistRes);
+            if (!model.contains(artistRes, RDF.type)) {
+                artistRes.addProperty(RDF.type, model.createResource(NS_ARP + "Artist"));
+                artistRes.addProperty(model.createProperty(NS_ARP + "name"), artistName);
             }
+
+            artRes.addProperty(model.createProperty(NS_PROV + "wasAttributedTo"), artistRes);
+            addQualifiedAssociation(model, creationRes, artistRes);
+//            }
         }
 
         if (!artistFound) {

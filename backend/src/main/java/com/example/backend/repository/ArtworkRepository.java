@@ -4,6 +4,7 @@ import com.example.backend.model.*;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.RDFNode;
 import org.springframework.stereotype.Repository;
 
 import java.io.InputStream;
@@ -205,7 +206,7 @@ public class ArtworkRepository {
         }
     }
 
-    public List<Artwork> findByArtist(String artistUri) {
+    public List<Artwork> findByArtist(String artistUri, String domain) {
         // Încarci template-ul SPARQL din fișier
         String sparqlTemplate = loadSparql("/sparql/artworks-by-artist.sparql");
 
@@ -214,7 +215,16 @@ public class ArtworkRepository {
         Query query = QueryFactory.create(sparql);
         List<Artwork> artworks = new ArrayList<>();
 
-        try (QueryExecution qexec = QueryExecutionFactory.create(query, artworkModel)) {
+        Model modelChosen;
+        if(Objects.equals(domain, "ro")) {
+            modelChosen = artworkModel;
+        } else if(Objects.equals(domain, "int")) {
+            modelChosen = wikiModel;
+        } else {
+            modelChosen = ModelFactory.createUnion(artworkModel, wikiModel);
+        }
+
+        try (QueryExecution qexec = QueryExecutionFactory.create(query, modelChosen)) {
             ResultSet rs = qexec.execSelect();
             while (rs.hasNext()) {
                 QuerySolution sol = rs.nextSolution();
@@ -478,6 +488,128 @@ public class ArtworkRepository {
             }
         } catch (Exception e) {
             System.err.println("Eroare la obținerea recomandărilor: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return results;
+    }
+
+    public List<Artwork> getRecommendationsByMuseums(String uri, int pageSize, int offset, String domain) {
+
+        // 1. Încarcă și pregătește query-ul pentru LOCAȚIE
+        // --- MODIFICARE AICI: Numele fișierului ---
+        String sparql = loadSparql("/sparql/artwork-recommendations-museums.sparql")
+                .replace("{{INPUT_URI}}", uri)
+                .replace("{{LIMIT}}", String.valueOf(pageSize))
+                .replace("{{OFFSET}}", String.valueOf(offset));
+
+        List<Artwork> results = new ArrayList<>();
+
+        // 2. Alege modelul
+        Model modelChosen;
+        if(Objects.equals(domain, "ro")) {
+            modelChosen = artworkModel;
+        } else {
+            modelChosen = wikiModel;
+        }
+
+        // 3. Execută Query-ul
+        try (QueryExecution qexec = QueryExecutionFactory.create(sparql, modelChosen)) {
+            ResultSet rs = qexec.execSelect();
+
+            while (rs.hasNext()) {
+                QuerySolution sol = rs.nextSolution();
+
+                // Creăm un obiect Artwork nou
+                Artwork a = new Artwork();
+
+                a.uri = sol.getResource("subject").getURI();
+
+                // Extragere ID (safe check pt cazul cand se termina cu /)
+                if (a.uri.endsWith("/")) {
+                    a.uri = a.uri.substring(0, a.uri.length() - 1);
+                }
+                a.id = a.uri.substring(a.uri.lastIndexOf("/") + 1);
+
+                // Folosim helper-ul tău pentru titlu
+                a.title = getLiteral(sol, "title");
+
+                // Pentru imagine e bine să verifici dacă e resursă sau literal
+                // (Dacă helper-ul tău getLiteral face asta deja, poți folosi getLiteral(sol, "image"))
+                if (sol.contains("image")) {
+                    RDFNode imgNode = sol.get("image");
+                    if (imgNode.isResource()) {
+                        a.imageLink = imgNode.asResource().getURI();
+                    } else {
+                        a.imageLink = imgNode.asLiteral().getString();
+                    }
+                }
+
+                results.add(a);
+            }
+        } catch (Exception e) {
+            System.err.println("Eroare la obținerea recomandărilor (Locație): " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return results;
+    }
+
+    public List<Artwork> getRecommendationsByCategory(String uri, int offset, int limit, String domain) {
+
+        // 1. Încarcă query-ul pentru CATEGORIE
+        String sparql = loadSparql("/sparql/artwork-recommendations-category.sparql")
+                .replace("{{INPUT_URI}}", uri)
+                .replace("{{LIMIT}}", String.valueOf(limit))
+                .replace("{{OFFSET}}", String.valueOf(offset));
+
+        List<Artwork> results = new ArrayList<>();
+
+        // 2. Alege modelul
+        Model modelChosen;
+        if(Objects.equals(domain, "ro")) {
+            modelChosen = artworkModel;
+        } else {
+            modelChosen = wikiModel;
+        }
+
+        // 3. Execută Query-ul
+        try (QueryExecution qexec = QueryExecutionFactory.create(sparql, modelChosen)) {
+            ResultSet rs = qexec.execSelect();
+
+            while (rs.hasNext()) {
+                QuerySolution sol = rs.nextSolution();
+                Artwork a = new Artwork();
+
+                a.uri = sol.getResource("subject").getURI();
+
+                // ID Safe
+                if (a.uri.endsWith("/")) {
+                    a.uri = a.uri.substring(0, a.uri.length() - 1);
+                }
+                a.id = a.uri.substring(a.uri.lastIndexOf("/") + 1);
+
+                // Titlu
+                if (sol.contains("title")) {
+                    a.title = sol.getLiteral("title").getString();
+                } else {
+                    a.title = "Fără titlu";
+                }
+
+                // Imagine
+                if (sol.contains("image")) {
+                    RDFNode imgNode = sol.get("image");
+                    if (imgNode.isResource()) {
+                        a.imageLink = imgNode.asResource().getURI();
+                    } else {
+                        a.imageLink = imgNode.asLiteral().getString();
+                    }
+                }
+
+                results.add(a);
+            }
+        } catch (Exception e) {
+            System.err.println("Eroare la recomandări categorie: " + e.getMessage());
             e.printStackTrace();
         }
 

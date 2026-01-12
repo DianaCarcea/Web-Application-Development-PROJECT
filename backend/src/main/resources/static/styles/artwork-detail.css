@@ -147,7 +147,23 @@
 
 
 
-#rec-wrapper {
+#rec-wrapper-artist {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+#rec-wrapper-museum {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+#rec-wrapper-category {
     position: relative;
     display: flex;
     align-items: center;

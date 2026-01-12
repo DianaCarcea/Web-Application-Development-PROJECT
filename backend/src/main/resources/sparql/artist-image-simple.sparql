@@ -1,0 +1,7 @@
+PREFIX arp: <http://arp.ro/schema#>
+
+SELECT ?image WHERE {
+  # Caută direct imaginea atașată acestui URI
+  <{{ARTIST_URI}}> arp:imageLink ?image .
+}
+LIMIT 1

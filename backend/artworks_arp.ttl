@@ -11,7 +11,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label                 "Crearea operei Toynbee tiles";
         prov:generated             <http://arp.ro/resource/artwork/Q2447023>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -22,16 +22,12 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q22951281>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Interchange";
-        arp:startedAtTime          "1955"^^xsd:gYear;
+        arp:startedAtTime          "1955-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q22951281>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Willem_de_Kooning>;
                                      prov:hadRole  arp:Artist
                                    ] .
-
-<http://arp.ro/resource/agent/Philippe_M_aille_Collection>
-        a         arp:Museum;
-        arp:name  "Philippe Méaille Collection" .
 
 <http://arp.ro/resource/artwork/Q28027474>
         a                     arp:Artwork;
@@ -65,25 +61,26 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q28114063>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Babylonokia";
-        arp:startedAtTime          "2012"^^xsd:gYear;
+        arp:startedAtTime          "2012-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q28114063>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/artwork/Q4565963>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Sentrum>;
-        arp:description      "permanent work of art in Oslo, Norway";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Ibsen%20Sitat%20-%20Sentrum%2C%20Oslo%2C%20Norway%20-%20panoramio%20%284%29.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Ibsen quotes";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q4565963"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q4565963> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Sentrum>;
+        arp:description       "permanent work of art in Oslo, Norway";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Ibsen%20Sitat%20-%20Sentrum%2C%20Oslo%2C%20Norway%20-%20panoramio%20%284%29.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Ibsen quotes";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q4565963"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q4565963> .
 
 <http://arp.ro/resource/artwork/Q18207282>
         a                     arp:Artwork;
@@ -104,17 +101,18 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "Frank Gehry" .
 
 <http://arp.ro/resource/artwork/Q28172765>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "Traditional Odia art";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Jhoti%20chita.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Jhoti chita";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q28172765"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q28172765> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "Traditional Odia art";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Jhoti%20chita.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Jhoti chita";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q28172765"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q28172765> .
 
 <http://arp.ro/resource/agent/Peale_Museum>
         a         arp:Museum;
@@ -137,7 +135,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label                 "Crearea operei dado";
         prov:generated             <http://arp.ro/resource/artwork/Q284053>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -173,19 +171,28 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasAttributedTo  <http://arp.ro/resource/agent/Noah_Kalina>;
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q8760683> .
 
-<http://arp.ro/resource/activity/creation_Q720426>
+<http://arp.ro/resource/activity/creation_Q59343>
         a                          arp:Creation;
-        rdfs:label                 "Crearea operei Four Times of the Day";
-        arp:startedAtTime          "1736"^^xsd:gYear;
-        prov:generated             <http://arp.ro/resource/artwork/Q720426>;
+        rdfs:label                 "Crearea operei Eight Views of Pyongyang";
+        prov:generated             <http://arp.ro/resource/artwork/Q59343>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/William_Hogarth>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/agent/Historical_Museum_of_the_Palatinate>
         a         arp:Museum;
         arp:name  "Historical Museum of the Palatinate" .
+
+<http://arp.ro/resource/activity/creation_Q720426>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Four Times of the Day";
+        arp:startedAtTime          "1736-01-01"^^xsd:date;
+        prov:generated             <http://arp.ro/resource/artwork/Q720426>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/William_Hogarth>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
 
 <http://arp.ro/resource/artwork/Q16115202>
         a                     arp:Artwork;
@@ -208,19 +215,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Babylonian Map of the pop World";
         arp:materialsUsed          "clay";
-        arp:startedAtTime          "-0550"^^xsd:gYear;
+        arp:startedAtTime          "-0550-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q279559>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
-                                     prov:hadRole  arp:Artist
-                                   ] .
-
-<http://arp.ro/resource/activity/creation_Q59343>
-        a                          arp:Creation;
-        rdfs:label                 "Crearea operei Eight Views of Pyongyang";
-        prov:generated             <http://arp.ro/resource/artwork/Q59343>;
-        prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -259,20 +257,20 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a         arp:Artist;
         arp:name  "Andreas Schlüter" .
 
+<http://arp.ro/resource/agent/Art_Institute_of_Chicago>
+        a         arp:Museum;
+        arp:name  "Art Institute of Chicago" .
+
 <http://arp.ro/resource/activity/event_Q20386392_1>
         a                  arp:TransferOfCustody;
         rdfs:label         "service entry";
         arp:startedAtTime  "2018"^^xsd:gYear;
         prov:used          <http://arp.ro/resource/artwork/Q20386392> .
 
-<http://arp.ro/resource/agent/Art_Institute_of_Chicago>
-        a         arp:Museum;
-        arp:name  "Art Institute of Chicago" .
-
 <http://arp.ro/resource/activity/creation_Q105947532>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Everydays: the First 5000 Days";
-        arp:startedAtTime          "2021"^^xsd:gYear;
+        arp:startedAtTime          "2021-02-16"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q105947532>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Mike_Winkelmann>;
@@ -288,7 +286,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label                 "Crearea operei artist's book";
         prov:generated             <http://arp.ro/resource/artwork/Q1062404>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -301,25 +299,26 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "Ansuino da Forlì" .
 
 <http://arp.ro/resource/artwork/Q25230552>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Biblioth_que_nationale_de_France>;
-        arp:description      "carved ivory relief panel from the Byzantine empire";
-        arp:dimensions       "24.6 x 15.5 centimetre";
-        arp:imageLink        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Triptych_Harbaville_Louvre_OA3247_recto.jpg/1280px-Triptych_Harbaville_Louvre_OA3247_recto.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Romanos Ivory";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q25230552"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q25230552> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Biblioth_que_nationale_de_France>;
+        arp:description       "carved ivory relief panel from the Byzantine empire";
+        arp:dimensions        "24.6 x 15.5 centimetre";
+        arp:imageLink         "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Triptych_Harbaville_Louvre_OA3247_recto.jpg/1280px-Triptych_Harbaville_Louvre_OA3247_recto.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Romanos Ivory";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q25230552"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q25230552> .
 
 <http://arp.ro/resource/activity/creation_Q50299500>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Colossal statue of Amenhotep III and Tiye";
         prov:generated             <http://arp.ro/resource/artwork/Q50299500>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -349,10 +348,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Lycurgus Cup";
         arp:materialsUsed          "dichroic glass; silver";
-        arp:startedAtTime          "0350"^^xsd:gYear;
+        arp:startedAtTime          "0350-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q3000066>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -360,7 +359,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Zeitpyramide";
         arp:materialsUsed          "concrete";
-        arp:startedAtTime          "1993"^^xsd:gYear;
+        arp:startedAtTime          "1993-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q186556>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Manfred_Laber>;
@@ -368,42 +367,48 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                    ] .
 
 <http://arp.ro/resource/artwork/Q8083959>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "cloak of featherwork worn by men and women of high rank in Ancient Hawaii";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Haalelea%27s%20Feather%20Cape.png"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "ʻahuʻula";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q8083959"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q8083959> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "cloak of featherwork worn by men and women of high rank in Ancient Hawaii";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Haalelea%27s%20Feather%20Cape.png"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "ʻahuʻula";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q8083959"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q8083959> .
 
 <http://arp.ro/resource/artwork/Q20386392>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art" , "architectural structure";
-        arp:currentLocation  <http://arp.ro/resource/agent/Zabeel_Park>;
-        arp:description      "architectural landmark in Dubai";
-        arp:dimensions       "150 x 93 metre";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/DONIS%20Dubai%20Frame%20Nighttime.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Dubai Frame";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q20386392"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q20386392> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art" , "architectural structure";
+        arp:currentLocation   <http://arp.ro/resource/agent/Zabeel_Park>;
+        arp:description       "architectural landmark in Dubai";
+        arp:dimensions        "150 x 93 metre";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/DONIS%20Dubai%20Frame%20Nighttime.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Dubai Frame";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q20386392"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q20386392> .
 
 <http://arp.ro/resource/activity/creation_Q6035565>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Head of an Akkadian Ruler (Sargon, King of Akkad)";
         arp:materialsUsed          "bronze";
-        arp:startedAtTime          "-2299"^^xsd:gYear;
+        arp:startedAtTime          "-2299-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q6035565>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
+
+<http://arp.ro/resource/agent/Collector_Edgar_Kaufmann_Jr_>
+        a         arp:Collector;
+        arp:name  "Edgar Kaufmann, Jr." .
 
 <http://arp.ro/resource/artwork/Q1339914>
         a                     arp:Artwork;
@@ -422,26 +427,36 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasAttributedTo  <http://arp.ro/resource/agent/Bertil_Almqvist>;
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q1339914> .
 
-<http://arp.ro/resource/agent/Collector_Edgar_Kaufmann_Jr_>
-        a         arp:Collector;
-        arp:name  "Edgar Kaufmann, Jr." .
+<http://arp.ro/resource/agent/Auguste_Rodin>
+        a         arp:Artist;
+        arp:name  "Auguste Rodin" .
 
 <http://arp.ro/resource/agent/T_ebechovick_muzeum_betl_m_>
         a         arp:Museum;
         arp:name  "Třebechovické muzeum betlémů" .
 
-<http://arp.ro/resource/agent/Auguste_Rodin>
-        a         arp:Artist;
-        arp:name  "Auguste Rodin" .
-
 <http://arp.ro/resource/agent/Egyptian_Museum>
         a         arp:Museum;
         arp:name  "Egyptian Museum" .
 
+<http://arp.ro/resource/artwork/Q99429586>
+        a                     arp:Artwork;
+        arp:category          "bronze sculpture";
+        arp:classification    "statue" , "bronze sculpture" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Tintagel_Castle>;
+        arp:description       "bronze sculpture by Rubin Eynon";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Gallos%20sculpture%20front.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Gallos";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q99429586"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/Rubin_Eynon>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q99429586> .
+
 <http://arp.ro/resource/activity/creation_Q3332083>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Migrant Mother, Nipomo, California";
-        arp:startedAtTime          "1936"^^xsd:gYear;
+        arp:startedAtTime          "1936-03-06"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q3332083>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Dorothea_Lange>;
@@ -462,20 +477,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasAttributedTo  <http://arp.ro/resource/agent/Walter_De_Maria>;
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q3523204> .
 
-<http://arp.ro/resource/artwork/Q99429586>
-        a                     arp:Artwork;
-        arp:category          "bronze sculpture";
-        arp:classification    "statue" , "bronze sculpture" , "work of art";
-        arp:currentLocation   <http://arp.ro/resource/agent/Tintagel_Castle>;
-        arp:description       "bronze sculpture by Rubin Eynon";
-        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Gallos%20sculpture%20front.jpg"^^xsd:anyURI;
-        arp:inventoryNumber   "unknown";
-        arp:title             "Gallos";
-        arp:wikidataLink      "https://www.wikidata.org/wiki/Q99429586"^^xsd:anyURI;
-        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasAttributedTo  <http://arp.ro/resource/agent/Rubin_Eynon>;
-        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q99429586> .
-
 <http://arp.ro/resource/agent/Palais-Royal>
         a         arp:Museum;
         arp:name  "Palais-Royal" .
@@ -483,10 +484,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q1399430>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Tribuna of the Uffizi";
-        arp:startedAtTime          "1580"^^xsd:gYear;
+        arp:startedAtTime          "1580-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q1399430>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -509,10 +510,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei wedding dress of Catherine Middleton";
         arp:materialsUsed          "satin; gazar; organza; tulle; lace";
-        arp:startedAtTime          "2011"^^xsd:gYear;
+        arp:startedAtTime          "2011-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q599>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -526,17 +527,18 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "Albrecht Dürer" .
 
 <http://arp.ro/resource/artwork/Q1106387>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "Gospel Book" , "work of art" , "illuminated manuscript";
-        arp:currentLocation  <http://arp.ro/resource/agent/Germanisches_Nationalmuseum>;
-        arp:description      "11th-century illuminated Gospel Book at the Germanisches Nationalmuseum, Nuremberg, Germany";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Meister%20des%20Codex%20Aureus%20Epternacensis%20001.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "KG1138";
-        arp:title            "Codex Aureus of Echternach";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q1106387"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q1106387> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "Gospel Book" , "work of art" , "illuminated manuscript";
+        arp:currentLocation   <http://arp.ro/resource/agent/Germanisches_Nationalmuseum>;
+        arp:description       "11th-century illuminated Gospel Book at the Germanisches Nationalmuseum, Nuremberg, Germany";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Meister%20des%20Codex%20Aureus%20Epternacensis%20001.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "KG1138";
+        arp:title             "Codex Aureus of Echternach";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q1106387"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q1106387> .
 
 <http://arp.ro/resource/agent/Salvador_Dal_>
         a         arp:Artist;
@@ -547,26 +549,27 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "London" .
 
 <http://arp.ro/resource/artwork/Q3517517>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "temple" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Ellesiya_Temple_Nubian_Hall_room_15>;
-        arp:description      "ancient Egyptian rock-cut temple";
-        arp:dimensions       "850 x 460 centimetre";
-        arp:hasOwnership     [ a                       arp:TransferOfCustody;
-                               arp:startedAtTime       "1966-01-01"^^xsd:date;
-                               prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Museo_Egizio_In_Turin_IT_>
-                             ];
-        arp:hasOwnership     [ a                       arp:TransferOfCustody;
-                               arp:endedAtTime         "1966-01-01"^^xsd:date;
-                               prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Egypt>
-                             ];
-        arp:imageLink        "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Tempio%20di%20Ellesiya%208SA0459.tif&width=800"^^xsd:anyURI;
-        arp:inventoryNumber  "S. 18016";
-        arp:title            "Temple of Ellesyia";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q3517517"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q3517517> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "temple" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Ellesiya_Temple_Nubian_Hall_room_15>;
+        arp:description       "ancient Egyptian rock-cut temple";
+        arp:dimensions        "850 x 460 centimetre";
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                arp:endedAtTime         "1966-01-01"^^xsd:date;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Egypt>
+                              ];
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                arp:startedAtTime       "1966-01-01"^^xsd:date;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Museo_Egizio_In_Turin_IT_>
+                              ];
+        arp:imageLink         "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Tempio%20di%20Ellesiya%208SA0459.tif&width=800"^^xsd:anyURI;
+        arp:inventoryNumber   "S. 18016";
+        arp:title             "Temple of Ellesyia";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q3517517"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q3517517> .
 
 <http://arp.ro/resource/agent/Christo_and_Jeanne-Claude>
         a         arp:Artist;
@@ -575,7 +578,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q247262>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei white dress of Marilyn Monroe";
-        arp:startedAtTime          "1955"^^xsd:gYear;
+        arp:startedAtTime          "1955-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q247262>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/William_Travilla>;
@@ -589,25 +592,26 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q733890>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Santa Prassede";
-        arp:startedAtTime          "0780"^^xsd:gYear;
+        arp:startedAtTime          "0780-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q733890>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/artwork/Q2447023>
-        a                    arp:Artwork;
-        arp:category         "street art";
-        arp:classification   "work of art" , "street art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "messages of unknown origin found embedded in asphalt of streets";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Toynbee%20tile%20at%20franklin%20square%202002.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Toynbee tiles";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q2447023"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q2447023> .
+        a                     arp:Artwork;
+        arp:category          "street art";
+        arp:classification    "work of art" , "street art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "messages of unknown origin found embedded in asphalt of streets";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Toynbee%20tile%20at%20franklin%20square%202002.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Toynbee tiles";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q2447023"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q2447023> .
 
 <http://arp.ro/resource/agent/National_Archives_and_Records_Administration>
         a         arp:Museum;
@@ -631,13 +635,27 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:materialsUsed          "stone";
         prov:generated             <http://arp.ro/resource/artwork/Q3343234>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/agent/British_Museum>
         a         arp:Museum;
         arp:name  "British Museum" .
+
+<http://arp.ro/resource/artwork/Q247262>
+        a                     arp:Artwork;
+        arp:category          "fashion style from cinema";
+        arp:classification    "fashion style from cinema" , "cocktail dress" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "dress worn by Marilyn Monroe in The Seven Year Itch";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Marilyn%20Monroe%20-%20Seven%20Year%20Itch.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "white dress of Marilyn Monroe";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q247262"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/William_Travilla>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q247262> .
 
 <http://arp.ro/resource/artwork/Q7577141>
         a                     arp:Artwork;
@@ -654,63 +672,54 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasAttributedTo  <http://arp.ro/resource/agent/Diebold_Schilling_the_Elder>;
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q7577141> .
 
-<http://arp.ro/resource/artwork/Q247262>
-        a                     arp:Artwork;
-        arp:category          "fashion style from cinema";
-        arp:classification    "fashion style from cinema" , "cocktail dress" , "work of art";
-        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description       "dress worn by Marilyn Monroe in The Seven Year Itch";
-        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Marilyn%20Monroe%20-%20Seven%20Year%20Itch.jpg"^^xsd:anyURI;
-        arp:inventoryNumber   "unknown";
-        arp:title             "white dress of Marilyn Monroe";
-        arp:wikidataLink      "https://www.wikidata.org/wiki/Q247262"^^xsd:anyURI;
-        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasAttributedTo  <http://arp.ro/resource/agent/William_Travilla>;
-        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q247262> .
-
 <http://arp.ro/resource/activity/creation_Q4010435>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei pink dress of Marilyn Monroe";
         arp:materialsUsed          "satin";
-        arp:startedAtTime          "1953"^^xsd:gYear;
+        arp:startedAtTime          "1953-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q4010435>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/artwork/Q18814207>
-        a                    arp:Artwork;
-        arp:category         "Groepsschuilplaats Type P";
-        arp:classification   "bunker" , "Groepsschuilplaats Type P" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Diefdijk%20bij%20A2%20Doorgezaagde%20bunker.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Bunker 599";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q18814207"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q18814207> .
+        a                     arp:Artwork;
+        arp:category          "Groepsschuilplaats Type P";
+        arp:classification    "bunker" , "Groepsschuilplaats Type P" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Diefdijk%20bij%20A2%20Doorgezaagde%20bunker.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Bunker 599";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q18814207"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q18814207> .
 
 <http://arp.ro/resource/activity/creation_Q938131>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei meat dress of Lady Gaga";
         arp:materialsUsed          "flank steak";
-        arp:startedAtTime          "2010"^^xsd:gYear;
+        arp:startedAtTime          "2010-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q938131>;
-        prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Nicola_Formichetti>;
-                                     prov:hadRole  arp:Artist
-                                   ];
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Franc_Fernandez>;
                                      prov:hadRole  arp:Artist
+                                   ];
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Nicola_Formichetti>;
+                                     prov:hadRole  arp:Artist
                                    ] .
+
+<http://arp.ro/resource/agent/unknown>
+        a         arp:Artist;
+        arp:name  "unknown" .
 
 <http://arp.ro/resource/activity/creation_Q95434613>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei L'Arc de Triomphe, Wrapped";
         arp:materialsUsed          "textile";
-        arp:startedAtTime          "2021"^^xsd:gYear;
+        arp:startedAtTime          "2021-09-18"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q95434613>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Christo_and_Jeanne-Claude>;
@@ -720,7 +729,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q49817158>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Art-Language the journal of conceptual art";
-        arp:startedAtTime          "1969"^^xsd:gYear;
+        arp:startedAtTime          "1969-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q49817158>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Art_Language>;
@@ -752,18 +761,28 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a         arp:Museum;
         arp:name  "Rock and Roll Hall of Fame" .
 
+<http://arp.ro/resource/activity/creation_Q30603202>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Nicolaus Copernicus Monument";
+        prov:generated             <http://arp.ro/resource/artwork/Q30603202>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
 <http://arp.ro/resource/artwork/Q282129>
-        a                    arp:Artwork;
-        arp:category         "genre of painting";
-        arp:classification   "genre of painting" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "very small painting";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Jean%20Fouquet%20-%20Self-portrait%20-%20WGA08041.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "miniature";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q282129"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q282129> .
+        a                     arp:Artwork;
+        arp:category          "genre of painting";
+        arp:classification    "genre of painting" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "very small painting";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Jean%20Fouquet%20-%20Self-portrait%20-%20WGA08041.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "miniature";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q282129"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q282129> .
 
 <http://arp.ro/resource/artwork/Q157012>
         a                     arp:Artwork;
@@ -787,10 +806,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Speyer wine bottle";
         arp:materialsUsed          "Roman glass";
-        arp:startedAtTime          "0400"^^xsd:gYear;
+        arp:startedAtTime          "0400-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q17069410>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -802,10 +821,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Leyre Casket";
         arp:materialsUsed          "ivory";
-        arp:startedAtTime          "1004"^^xsd:gYear;
+        arp:startedAtTime          "1004-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q5705112>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -822,7 +841,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label                 "Crearea operei Sleeping Ariadne";
         prov:generated             <http://arp.ro/resource/artwork/Q7539835>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -845,34 +864,36 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "Wolfgang von Kempelen" .
 
 <http://arp.ro/resource/artwork/Q721657>
-        a                    arp:Artwork;
-        arp:category         "archaeological find";
-        arp:classification   "archaeological find" , "work of art" , "cauldron";
-        arp:currentLocation  <http://arp.ro/resource/agent/National_Museum_of_Denmark>;
-        arp:description      "iron age silver cauldron found in Denmark";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Gundestrupkarret%20F.I.7074b.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "C6562-76";
-        arp:title            "Gundestrup cauldron";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q721657"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q721657> .
+        a                     arp:Artwork;
+        arp:category          "archaeological find";
+        arp:classification    "archaeological find" , "work of art" , "cauldron";
+        arp:currentLocation   <http://arp.ro/resource/agent/National_Museum_of_Denmark>;
+        arp:description       "iron age silver cauldron found in Denmark";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Gundestrupkarret%20F.I.7074b.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "C6562-76";
+        arp:title             "Gundestrup cauldron";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q721657"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q721657> .
 
 <http://arp.ro/resource/agent/Collector_Osijek>
         a         arp:Collector;
         arp:name  "Osijek" .
 
 <http://arp.ro/resource/artwork/Q3754883>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "Painted forest";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Bosque%20de%20Oma%20%2810%29.JPG"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Oma forest";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q3754883"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q3754883> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "Painted forest";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Bosque%20de%20Oma%20%2810%29.JPG"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Oma forest";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q3754883"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q3754883> .
 
 <http://arp.ro/resource/agent/Collector_Museo_Egizio_In_Turin_IT_>
         a         arp:Collector;
@@ -893,60 +914,64 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q17986845> .
 
 <http://arp.ro/resource/artwork/Q18785534>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Erriadh>;
-        arp:description      "street art in Tunisia";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Rodolphe-Cintorino-The-Hood.JPG"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Djerbahood";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q18785534"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q18785534> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Erriadh>;
+        arp:description       "street art in Tunisia";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Rodolphe-Cintorino-The-Hood.JPG"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Djerbahood";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q18785534"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q18785534> .
 
 <http://arp.ro/resource/artwork/Q44320547>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "sculpture in Hong Kong";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/HK%20TST%20Hong%20Kong%20Cultural%20Centre%20Flying%20Frenchman%207.JPG"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "The Flying Frenchman";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q44320547"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q44320547> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "sculpture in Hong Kong";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/HK%20TST%20Hong%20Kong%20Cultural%20Centre%20Flying%20Frenchman%207.JPG"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "The Flying Frenchman";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q44320547"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q44320547> .
 
 <http://arp.ro/resource/artwork/Q6035565>
-        a                    arp:Artwork;
-        arp:category         "funerary mask";
-        arp:classification   "bronze sculpture" , "work of art" , "funerary mask";
-        arp:currentLocation  <http://arp.ro/resource/agent/Iraq>;
-        arp:description      "life-sized bronze head from the Akkadian Period";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Sargon%20of%20Akkad.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Head of an Akkadian Ruler (Sargon, King of Akkad)";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q6035565"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q6035565> .
+        a                     arp:Artwork;
+        arp:category          "funerary mask";
+        arp:classification    "bronze sculpture" , "work of art" , "funerary mask";
+        arp:currentLocation   <http://arp.ro/resource/agent/Iraq>;
+        arp:description       "life-sized bronze head from the Akkadian Period";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Sargon%20of%20Akkad.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Head of an Akkadian Ruler (Sargon, King of Akkad)";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q6035565"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q6035565> .
 
 <http://arp.ro/resource/agent/Evoluon>
         a         arp:Museum;
         arp:name  "Evoluon" .
 
 <http://arp.ro/resource/artwork/Q5189523>
-        a                    arp:Artwork;
-        arp:category         "votive crown";
-        arp:classification   "votive crown" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Metropolitan_Museum_of_Art>;
-        arp:description      "gold highlighted in The MET collection";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Crown%20of%20the%20Virgin%20of%20the%20Immaculate%20Conception%2C%20known%20as%20the%20Crown%20of%20the%20Andes%20MET%20DP365520.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "2015.437";
-        arp:title            "Crown of the Andes";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q5189523"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q5189523> .
+        a                     arp:Artwork;
+        arp:category          "votive crown";
+        arp:classification    "votive crown" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Metropolitan_Museum_of_Art>;
+        arp:description       "gold highlighted in The MET collection";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Crown%20of%20the%20Virgin%20of%20the%20Immaculate%20Conception%2C%20known%20as%20the%20Crown%20of%20the%20Andes%20MET%20DP365520.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "2015.437";
+        arp:title             "Crown of the Andes";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q5189523"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q5189523> .
 
 <http://arp.ro/resource/agent/Wemding>
         a         arp:Museum;
@@ -967,38 +992,36 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q77715187> .
 
 <http://arp.ro/resource/artwork/Q1399430>
-        a                    arp:Artwork;
-        arp:category         "exhibition space";
-        arp:classification   "exhibition space" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Uffizi_Gallery>;
-        arp:description      "room 18 on the first floor in the Uffizi";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Palazzo%20della%20camera%20di%20commercio%20a%20Firenze%2C%20terrazza%20panoramica%2C%20vista%20uffizi%2C%20tribuna.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Tribuna of the Uffizi";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q1399430"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q1399430> .
+        a                     arp:Artwork;
+        arp:category          "exhibition space";
+        arp:classification    "exhibition space" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Uffizi_Gallery>;
+        arp:description       "room 18 on the first floor in the Uffizi";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Palazzo%20della%20camera%20di%20commercio%20a%20Firenze%2C%20terrazza%20panoramica%2C%20vista%20uffizi%2C%20tribuna.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Tribuna of the Uffizi";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q1399430"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q1399430> .
 
 <http://arp.ro/resource/agent/Collector_Diana_Princess_of_Wales>
         a         arp:Collector;
         arp:name  "Diana, Princess of Wales" .
 
 <http://arp.ro/resource/artwork/Q55606908>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Metropolitan_Museum_of_Art>;
-        arp:description      "chair";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Chair%20of%20Reniseneb%20MET%20DT536.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "68.58";
-        arp:title            "Chair of Reniseneb";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q55606908"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q55606908> .
-
-<http://arp.ro/resource/agent/Mike_Winkelmann>
-        a         arp:Artist;
-        arp:name  "Mike Winkelmann" .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Metropolitan_Museum_of_Art>;
+        arp:description       "chair";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Chair%20of%20Reniseneb%20MET%20DT536.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "68.58";
+        arp:title             "Chair of Reniseneb";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q55606908"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q55606908> .
 
 <http://arp.ro/resource/agent/Bono_da_Ferrara>
         a         arp:Artist;
@@ -1008,37 +1031,42 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a         arp:Collector;
         arp:name  "Syracuse University" .
 
+<http://arp.ro/resource/agent/Mike_Winkelmann>
+        a         arp:Artist;
+        arp:name  "Mike Winkelmann" .
+
 <http://arp.ro/resource/activity/creation_Q5422663>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Eye miniature";
         prov:generated             <http://arp.ro/resource/artwork/Q5422663>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/activity/creation_Q4010442>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Green Versace dress of Jennifer Lopez";
-        arp:startedAtTime          "1999"^^xsd:gYear;
+        arp:startedAtTime          "1999-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q4010442>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/artwork/Q2284769>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "Seal of God, or Seal of Truth, according to John Dee";
-        arp:imageLink        "https://upload.wikimedia.org/wikipedia/commons/6/61/Sloane3188-john_dee.png"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Sigillum Dei";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q2284769"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q2284769> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "Seal of God, or Seal of Truth, according to John Dee";
+        arp:imageLink         "https://upload.wikimedia.org/wikipedia/commons/6/61/Sloane3188-john_dee.png"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Sigillum Dei";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q2284769"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q2284769> .
 
 <http://arp.ro/resource/agent/San_Polo>
         a         arp:Museum;
@@ -1047,10 +1075,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q1476013>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei plastic flamingo";
-        arp:startedAtTime          "1957"^^xsd:gYear;
+        arp:startedAtTime          "1957-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q1476013>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -1081,13 +1109,13 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:description       "painting by Willem de Kooning";
         arp:dimensions        "200.7 x 175.3 centimetre";
         arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                arp:startedAtTime       "2015-01-01"^^xsd:date;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Kenneth_C_Griffin>
+                              ];
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
                                 arp:endedAtTime         "1989-01-01"^^xsd:date;
                                 arp:startedAtTime       "1956-01-01"^^xsd:date;
                                 prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Edgar_Kaufmann_Jr_>
-                              ];
-        arp:hasOwnership      [ a                       arp:TransferOfCustody;
-                                arp:startedAtTime       "2015-01-01"^^xsd:date;
-                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Kenneth_C_Griffin>
                               ];
         arp:imageLink         "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Interchange-colour-img_0526.jpg&width=800"^^xsd:anyURI;
         arp:inventoryNumber   "unknown";
@@ -1101,7 +1129,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei El Peix d'Or";
         arp:materialsUsed          "stainless steel";
-        arp:startedAtTime          "1992"^^xsd:gYear;
+        arp:startedAtTime          "1992-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q28027474>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Frank_Gehry>;
@@ -1119,49 +1147,51 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:used          <http://arp.ro/resource/artwork/Q186556> .
 
 <http://arp.ro/resource/artwork/Q51061>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "Marian icon";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Our%20Lady%20of%20Philerme%20icon.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Our Lady of Philerme";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q51061"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q51061> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "Marian icon";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Our%20Lady%20of%20Philerme%20icon.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Our Lady of Philerme";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q51061"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q51061> .
 
 <http://arp.ro/resource/activity/creation_Q28172765>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Jhoti chita";
         prov:generated             <http://arp.ro/resource/artwork/Q28172765>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/artwork/Q3603733>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art" , "dress";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "dress worn by Geri Halliwell at the 1997 Brit Awards";
-        arp:hasOwnership     [ a                       arp:TransferOfCustody;
-                               prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Geri_Horner>
-                             ];
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/UnionJackLasVegas%20%28cropped%29.png"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Union Jack dress";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q3603733"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q3603733> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art" , "dress";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "dress worn by Geri Halliwell at the 1997 Brit Awards";
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Geri_Horner>
+                              ];
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/UnionJackLasVegas%20%28cropped%29.png"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Union Jack dress";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q3603733"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q3603733> .
 
 <http://arp.ro/resource/activity/creation_Q1617054>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Hezilo chandelier";
         prov:generated             <http://arp.ro/resource/artwork/Q1617054>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -1199,7 +1229,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Les Deux Plateaux";
         arp:materialsUsed          "terrazzo; rock asphalt; metal; water";
-        arp:startedAtTime          "1986"^^xsd:gYear;
+        arp:startedAtTime          "1986-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q3232046>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Daniel_Buren>;
@@ -1215,35 +1245,37 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "Jean Verame" .
 
 <http://arp.ro/resource/artwork/Q2265769>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Spijkenisse>;
-        arp:description      "bridges in Netherlands";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/20%20Euro%20Bruecke.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Spijkenisse's euro-bridges";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q2265769"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q2265769> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Spijkenisse>;
+        arp:description       "bridges in Netherlands";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/20%20Euro%20Bruecke.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Spijkenisse's euro-bridges";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q2265769"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q2265769> .
 
 <http://arp.ro/resource/artwork/Q4010435>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art" , "dress";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "dress in the 1953 film Gentlemen Prefer Blondes";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Marilyn%20Monroe%20in%20Gentlemen%20Prefer%20Blondes%20trailer1.png"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "pink dress of Marilyn Monroe";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q4010435"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q4010435> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art" , "dress";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "dress in the 1953 film Gentlemen Prefer Blondes";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Marilyn%20Monroe%20in%20Gentlemen%20Prefer%20Blondes%20trailer1.png"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "pink dress of Marilyn Monroe";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q4010435"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q4010435> .
 
 <http://arp.ro/resource/activity/creation_Q16115202>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Fićo tramples a tank!";
-        arp:startedAtTime          "2011"^^xsd:gYear;
+        arp:startedAtTime          "2011-06-27"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q16115202>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/group_of_authors>;
@@ -1255,20 +1287,21 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "Erriadh" .
 
 <http://arp.ro/resource/artwork/Q2827841>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "vase" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Basilica_of_Saint-Denis>;
-        arp:description      "ancient Egyptian vase";
-        arp:hasOwnership     [ a                       arp:TransferOfCustody;
-                               prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_French_State>
-                             ];
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Aigle%20de%20Suger.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "MR 422";
-        arp:title            "Suger's Eagle";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q2827841"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q2827841> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "vase" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Basilica_of_Saint-Denis>;
+        arp:description       "ancient Egyptian vase";
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_French_State>
+                              ];
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Aigle%20de%20Suger.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "MR 422";
+        arp:title             "Suger's Eagle";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q2827841"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q2827841> .
 
 <http://arp.ro/resource/artwork/Q30908922>
         a                     arp:Artwork;
@@ -1291,7 +1324,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q4010433>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Black Versace dress of Elizabeth Hurley";
-        arp:startedAtTime          "1994"^^xsd:gYear;
+        arp:startedAtTime          "1994-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q4010433>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Versace>;
@@ -1299,17 +1332,18 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                    ] .
 
 <http://arp.ro/resource/artwork/Q12875810>
-        a                    arp:Artwork;
-        arp:category         "sculpture";
-        arp:classification   "work of art" , "bust" , "sculpture";
-        arp:currentLocation  <http://arp.ro/resource/agent/Museo_Pio-Clementino_-_Sala_rotonda>;
-        arp:description      "bust of Zeus from the 1st century BC found in Otricoli";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Zeus%20Otricoli%20Pio-Clementino%20Inv257.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "MV.257.0.0";
-        arp:title            "Zeus of Otricoli";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q12875810"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q12875810> .
+        a                     arp:Artwork;
+        arp:category          "sculpture";
+        arp:classification    "work of art" , "bust" , "sculpture";
+        arp:currentLocation   <http://arp.ro/resource/agent/Museo_Pio-Clementino_-_Sala_rotonda>;
+        arp:description       "bust of Zeus from the 1st century BC found in Otricoli";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Zeus%20Otricoli%20Pio-Clementino%20Inv257.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "MV.257.0.0";
+        arp:title             "Zeus of Otricoli";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q12875810"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q12875810> .
 
 <http://arp.ro/resource/agent/Piero_Manzoni>
         a         arp:Artist;
@@ -1350,7 +1384,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label                 "Crearea operei miniature";
         prov:generated             <http://arp.ro/resource/artwork/Q282129>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -1358,21 +1392,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Amber Room";
         arp:materialsUsed          "gold leaf; gemstone; mirror; amber";
-        arp:startedAtTime          "1712"^^xsd:gYear;
+        arp:startedAtTime          "1712-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q157012>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Andreas_Schl_ter>;
-                                     prov:hadRole  arp:Artist
-                                   ] .
-
-<http://arp.ro/resource/activity/creation_Q5254472>
-        a                          arp:Creation;
-        rdfs:label                 "Crearea operei Delphos gown";
-        arp:materialsUsed          "silk";
-        arp:startedAtTime          "1907"^^xsd:gYear;
-        prov:generated             <http://arp.ro/resource/artwork/Q5254472>;
-        prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -1383,6 +1406,17 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/agent/Metropolitan_Museum_of_Art>
         a         arp:Museum;
         arp:name  "Metropolitan Museum of Art" .
+
+<http://arp.ro/resource/activity/creation_Q5254472>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Delphos gown";
+        arp:materialsUsed          "silk";
+        arp:startedAtTime          "1907-01-01"^^xsd:date;
+        prov:generated             <http://arp.ro/resource/artwork/Q5254472>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
 
 <http://arp.ro/resource/agent/Jacopo_Tintoretto>
         a         arp:Artist;
@@ -1396,46 +1430,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei The Lightning Field";
         arp:materialsUsed          "steel";
-        arp:startedAtTime          "1977"^^xsd:gYear;
+        arp:startedAtTime          "1977-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q3330442>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Walter_De_Maria>;
-                                     prov:hadRole  arp:Artist
-                                   ] .
-
-<http://arp.ro/resource/activity/creation_Q7410402>
-        a                          arp:Creation;
-        rdfs:label                 "Crearea operei Samson Slaying a Philistine";
-        arp:materialsUsed          "marble";
-        arp:startedAtTime          "1562"^^xsd:gYear;
-        prov:generated             <http://arp.ro/resource/artwork/Q7410402>;
-        prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Giambologna>;
-                                     prov:hadRole  arp:Artist
-                                   ] .
-
-<http://arp.ro/resource/artwork/Q5705112>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "Bible" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Museum_of_Navarre>;
-        arp:description      "carved ivory reliquary casket";
-        arp:dimensions       "23.7 x 23.6 centimetre";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Arqueta%20de%20Leyre%20%2839993630023%29.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Leyre Casket";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q5705112"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q5705112> .
-
-<http://arp.ro/resource/activity/creation_Q3925522>
-        a                          arp:Creation;
-        rdfs:label                 "Crearea operei Pulpit of Sant' Andrea, Pistoia";
-        arp:materialsUsed          "porphyry; marble";
-        arp:startedAtTime          "1298"^^xsd:gYear;
-        prov:generated             <http://arp.ro/resource/artwork/Q3925522>;
-        prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Giovanni_Pisano>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -1443,13 +1441,40 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a         arp:Museum;
         arp:name  "Zabeel Park" .
 
-<http://arp.ro/resource/activity/creation_Q25230552>
+<http://arp.ro/resource/activity/creation_Q7410402>
         a                          arp:Creation;
-        rdfs:label                 "Crearea operei Romanos Ivory";
-        arp:materialsUsed          "ivory";
-        prov:generated             <http://arp.ro/resource/artwork/Q25230552>;
+        rdfs:label                 "Crearea operei Samson Slaying a Philistine";
+        arp:materialsUsed          "marble";
+        arp:startedAtTime          "1562-01-01"^^xsd:date;
+        prov:generated             <http://arp.ro/resource/artwork/Q7410402>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/Giambologna>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/artwork/Q5705112>
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "Bible" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Museum_of_Navarre>;
+        arp:description       "carved ivory reliquary casket";
+        arp:dimensions        "23.7 x 23.6 centimetre";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Arqueta%20de%20Leyre%20%2839993630023%29.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Leyre Casket";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q5705112"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q5705112> .
+
+<http://arp.ro/resource/activity/creation_Q3925522>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Pulpit of Sant' Andrea, Pistoia";
+        arp:materialsUsed          "porphyry; marble";
+        arp:startedAtTime          "1298-01-01"^^xsd:date;
+        prov:generated             <http://arp.ro/resource/artwork/Q3925522>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Giovanni_Pisano>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -1458,7 +1483,17 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label                 "Crearea operei Our Lady of Philerme";
         prov:generated             <http://arp.ro/resource/artwork/Q51061>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
+                                     prov:hadRole  arp:Artist
+                                   ] .
+
+<http://arp.ro/resource/activity/creation_Q25230552>
+        a                          arp:Creation;
+        rdfs:label                 "Crearea operei Romanos Ivory";
+        arp:materialsUsed          "ivory";
+        prov:generated             <http://arp.ro/resource/artwork/Q25230552>;
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -1467,7 +1502,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label                 "Crearea operei Kumulipo";
         prov:generated             <http://arp.ro/resource/artwork/Q1246476>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -1476,49 +1511,51 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "Iraq" .
 
 <http://arp.ro/resource/artwork/Q7539835>
-        a                    arp:Artwork;
-        arp:category         "sculpture";
-        arp:classification   "sculpture" , "statue" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Vatican_Museums>;
-        arp:description      "statue";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Sleeping%20Ariadne.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Sleeping Ariadne";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q7539835"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q7539835> .
+        a                     arp:Artwork;
+        arp:category          "sculpture";
+        arp:classification    "sculpture" , "statue" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Vatican_Museums>;
+        arp:description       "statue";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Sleeping%20Ariadne.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Sleeping Ariadne";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q7539835"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q7539835> .
 
 <http://arp.ro/resource/artwork/Q50299500>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Egyptian_Museum>;
-        arp:description      "Colossal statue of Egyptian pharaoh Amenhotep III and Queen Tiye";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Statues%20of%20Amon-Ophis%20III%20%26%20Queen%20Tiyi%20%289797291265%29.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Colossal statue of Amenhotep III and Tiye";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q50299500"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q50299500> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Egyptian_Museum>;
+        arp:description       "Colossal statue of Egyptian pharaoh Amenhotep III and Queen Tiye";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Statues%20of%20Amon-Ophis%20III%20%26%20Queen%20Tiyi%20%289797291265%29.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Colossal statue of Amenhotep III and Tiye";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q50299500"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q50299500> .
 
 <http://arp.ro/resource/activity/creation_Q721657>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Gundestrup cauldron";
         arp:materialsUsed          "silver";
-        arp:startedAtTime          "-0149"^^xsd:gYear;
+        arp:startedAtTime          "-0149-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q721657>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/activity/creation_Q20386392>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Dubai Frame";
-        arp:startedAtTime          "2018"^^xsd:gYear;
+        arp:startedAtTime          "2018-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q20386392>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -1530,7 +1567,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Madonna and Child with Saints";
         arp:materialsUsed          "canvas";
-        arp:startedAtTime          "1549"^^xsd:gYear;
+        arp:startedAtTime          "1549-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q28952743>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Jacopo_Tintoretto>;
@@ -1538,23 +1575,24 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                    ] .
 
 <http://arp.ro/resource/artwork/Q111947723>
-        a                    arp:Artwork;
-        arp:category         "protest art";
-        arp:classification   "protest art" , "work of art" , "mirror";
-        arp:currentLocation  <http://arp.ro/resource/agent/Bronx_Zoo>;
-        arp:description      "1963 Bronx Zoo exhibit";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Bronx%20Zoo%20exhibit.png"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "The Most Dangerous Animal in the World";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q111947723"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q111947723> .
+        a                     arp:Artwork;
+        arp:category          "protest art";
+        arp:classification    "protest art" , "work of art" , "mirror";
+        arp:currentLocation   <http://arp.ro/resource/agent/Bronx_Zoo>;
+        arp:description       "1963 Bronx Zoo exhibit";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Bronx%20Zoo%20exhibit.png"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "The Most Dangerous Animal in the World";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q111947723"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q111947723> .
 
 <http://arp.ro/resource/activity/creation_Q99429586>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Gallos";
         arp:materialsUsed          "bronze";
-        arp:startedAtTime          "2015"^^xsd:gYear;
+        arp:startedAtTime          "2015-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q99429586>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Rubin_Eynon>;
@@ -1564,7 +1602,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q5801988>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Monument to Christopher Columbus";
-        arp:startedAtTime          "1877"^^xsd:gYear;
+        arp:startedAtTime          "1877-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q5801988>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Charles_Henri_Joseph_Cordier>;
@@ -1580,17 +1618,18 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "Diebold Schilling the Elder" .
 
 <http://arp.ro/resource/artwork/Q1062404>
-        a                    arp:Artwork;
-        arp:category         "book form";
-        arp:classification   "art genre" , "work of art" , "book form";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "work of art realized in the form of a book";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Diskussiya-kniga-khudozhnika.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "artist's book";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q1062404"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q1062404> .
+        a                     arp:Artwork;
+        arp:category          "book form";
+        arp:classification    "art genre" , "work of art" , "book form";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "work of art realized in the form of a book";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Diskussiya-kniga-khudozhnika.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "artist's book";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q1062404"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q1062404> .
 
 <http://arp.ro/resource/agent/Michelangelo>
         a         arp:Artist;
@@ -1604,16 +1643,6 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a         arp:Collector;
         arp:name  "John Ohl" .
 
-<http://arp.ro/resource/activity/creation_Q2848904>
-        a                          arp:Creation;
-        rdfs:label                 "Crearea operei Andre the Giant Has a Posse";
-        arp:startedAtTime          "1989"^^xsd:gYear;
-        prov:generated             <http://arp.ro/resource/artwork/Q2848904>;
-        prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Shepard_Fairey>;
-                                     prov:hadRole  arp:Artist
-                                   ] .
-
 <http://arp.ro/resource/agent/Collector_Military_Preparedness_Museum>
         a         arp:Collector;
         arp:name  "Military Preparedness Museum" .
@@ -1623,7 +1652,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label                 "Crearea operei black dress of Rita Hayworth";
         prov:generated             <http://arp.ro/resource/artwork/Q4010432>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -1632,34 +1661,36 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "Syracuse University campus" .
 
 <http://arp.ro/resource/artwork/Q5422663>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "Miniature paintings of eyes";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Eye%20miniature00.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Eye miniature";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q5422663"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q5422663> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "Miniature paintings of eyes";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Eye%20miniature00.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Eye miniature";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q5422663"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q5422663> .
 
 <http://arp.ro/resource/agent/Chez_Ninon>
         a         arp:Artist;
         arp:name  "Chez Ninon" .
 
 <http://arp.ro/resource/artwork/Q4010442>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art" , "dress";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "dress by Donatella Versace worn at the 42nd Grammy Awards ceremony on February 23, 2000";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Green%20Versace%20dress%20of%20Jennifer%20Lopez%203.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Green Versace dress of Jennifer Lopez";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q4010442"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q4010442> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art" , "dress";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "dress by Donatella Versace worn at the 42nd Grammy Awards ceremony on February 23, 2000";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Green%20Versace%20dress%20of%20Jennifer%20Lopez%203.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Green Versace dress of Jennifer Lopez";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q4010442"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q4010442> .
 
 <http://arp.ro/resource/agent/Museum_of_Navarre>
         a         arp:Museum;
@@ -1669,7 +1700,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Senster";
         arp:materialsUsed          "Doppler radar; steel; computer";
-        arp:startedAtTime          "1968"^^xsd:gYear;
+        arp:startedAtTime          "1968-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q1231464>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Edward_Ihnatowicz>;
@@ -1677,20 +1708,21 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                    ] .
 
 <http://arp.ro/resource/artwork/Q3000066>
-        a                    arp:Artwork;
-        arp:category         "cage cup";
-        arp:classification   "cage cup" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/London>;
-        arp:description      "4th-century Roman cup with unusual properties";
-        arp:hasOwnership     [ a                       arp:TransferOfCustody;
-                               prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_British_Museum>
-                             ];
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Front%20of%204th%20century%20CE%20Roman%20Lycurgus%20Cup%2C%20British%20Museum%20%281958%2C1202.1%29.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "1958";
-        arp:title            "Lycurgus Cup";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q3000066"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q3000066> .
+        a                     arp:Artwork;
+        arp:category          "cage cup";
+        arp:classification    "cage cup" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/London>;
+        arp:description       "4th-century Roman cup with unusual properties";
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_British_Museum>
+                              ];
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Front%20of%204th%20century%20CE%20Roman%20Lycurgus%20Cup%2C%20British%20Museum%20%281958%2C1202.1%29.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "1958";
+        arp:title             "Lycurgus Cup";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q3000066"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q3000066> .
 
 <http://arp.ro/resource/artwork/Q275924>
         a                     arp:Artwork;
@@ -1699,9 +1731,12 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:currentLocation   <http://arp.ro/resource/agent/Peale_Museum>;
         arp:description       "chess automaton hoax";
         arp:hasOwnership      [ a                       arp:TransferOfCustody;
-                                arp:endedAtTime         "1811-01-01"^^xsd:date;
-                                arp:startedAtTime       "1804-01-01"^^xsd:date;
-                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Johann_Nepomuk_Maelzel>
+                                arp:endedAtTime         "1815-01-01"^^xsd:date;
+                                arp:startedAtTime       "1811-01-01"^^xsd:date;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Eug_ne_de_Beauharnais>
+                              ];
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_John_Kearsley_Mitchell>
                               ];
         arp:hasOwnership      [ a                       arp:TransferOfCustody;
                                 arp:startedAtTime       "1838-01-01"^^xsd:date;
@@ -1713,22 +1748,19 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                 prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Johann_Nepomuk_Maelzel>
                               ];
         arp:hasOwnership      [ a                       arp:TransferOfCustody;
-                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_John_Kearsley_Mitchell>
-                              ];
-        arp:hasOwnership      [ a                       arp:TransferOfCustody;
-                                arp:endedAtTime         "1804-01-01"^^xsd:date;
-                                arp:startedAtTime       "1769-01-01"^^xsd:date;
-                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Wolfgang_von_Kempelen>
-                              ];
-        arp:hasOwnership      [ a                       arp:TransferOfCustody;
                                 arp:endedAtTime         "1854-07-05"^^xsd:date;
                                 arp:startedAtTime       "1840-01-01"^^xsd:date;
                                 prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Peale_Museum>
                               ];
         arp:hasOwnership      [ a                       arp:TransferOfCustody;
-                                arp:endedAtTime         "1815-01-01"^^xsd:date;
-                                arp:startedAtTime       "1811-01-01"^^xsd:date;
-                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Eug_ne_de_Beauharnais>
+                                arp:endedAtTime         "1811-01-01"^^xsd:date;
+                                arp:startedAtTime       "1804-01-01"^^xsd:date;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Johann_Nepomuk_Maelzel>
+                              ];
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                arp:endedAtTime         "1804-01-01"^^xsd:date;
+                                arp:startedAtTime       "1769-01-01"^^xsd:date;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Wolfgang_von_Kempelen>
                               ];
         arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Racknitz%20-%20The%20Turk%201.jpg"^^xsd:anyURI;
         arp:inventoryNumber   "unknown";
@@ -1742,7 +1774,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Pink Chanel suit of Jacqueline Bouvier Kennedy";
         arp:materialsUsed          "bouclé";
-        arp:startedAtTime          "1961"^^xsd:gYear;
+        arp:startedAtTime          "1961-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q3514020>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Chanel>;
@@ -1754,23 +1786,24 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                    ] .
 
 <http://arp.ro/resource/artwork/Q599>
-        a                    arp:Artwork;
-        arp:category         "dress";
-        arp:classification   "dress" , "wedding dress" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Buckingham_Palace>;
-        arp:description      "dress worn by Catherine Middleton on the day of her wedding to Prince William, Duke of Cambridge, in 2011";
-        arp:imageLink        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/William_Catherine_balcony_wave.jpg/1200px-William_Catherine_balcony_wave.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "wedding dress of Catherine Middleton";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q599"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q599> .
+        a                     arp:Artwork;
+        arp:category          "wedding dress";
+        arp:classification    "dress" , "wedding dress" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Buckingham_Palace>;
+        arp:description       "dress worn by Catherine Middleton on the day of her wedding to Prince William, Duke of Cambridge, in 2011";
+        arp:imageLink         "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/William_Catherine_balcony_wave.jpg/1200px-William_Catherine_balcony_wave.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "wedding dress of Catherine Middleton";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q599"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q599> .
 
 <http://arp.ro/resource/activity/creation_Q128910>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei The Last Supper";
         arp:materialsUsed          "gesso; tempera";
-        arp:startedAtTime          "1490"^^xsd:gYear;
+        arp:startedAtTime          "1490-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q128910>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Leonardo_da_Vinci>;
@@ -1780,10 +1813,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q4565963>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Ibsen quotes";
-        arp:startedAtTime          "2008"^^xsd:gYear;
+        arp:startedAtTime          "2008-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q4565963>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -1806,10 +1839,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Portland Vase";
         arp:materialsUsed          "cameo glass";
-        arp:startedAtTime          "0100"^^xsd:gYear;
+        arp:startedAtTime          "0100-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q609292>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -1847,7 +1880,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                     arp:Artwork;
         arp:category          "version, edition or translation";
         arp:classification    "version, edition or translation" , "work of art" , "journal";
-        arp:currentLocation   <http://arp.ro/resource/agent/Philippe_M_aille_Collection>;
+        arp:currentLocation   <http://arp.ro/resource/agent/Ch_teau_de_Montsoreau-Museum_of_Contemporary_Art>;
         arp:description       "British and American Journal";
         arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Art-LanguageV3No1-1974.jpg"^^xsd:anyURI;
         arp:inventoryNumber   "unknown";
@@ -1894,18 +1927,19 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q4010433> .
 
 <http://arp.ro/resource/artwork/Q609292>
-        a                    arp:Artwork;
-        arp:category         "archaeological artefact";
-        arp:classification   "work of art" , "vase" , "archaeological artefact";
-        arp:currentLocation  <http://arp.ro/resource/agent/British_Museum>;
-        arp:description      "Roman cameo glass vase";
-        arp:dimensions       "24.5 x 1.8 centimetre";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Portland%20Vase%20BM%20Gem4036%20n4.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "GR 1945";
-        arp:title            "Portland Vase";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q609292"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q609292> .
+        a                     arp:Artwork;
+        arp:category          "archaeological artefact";
+        arp:classification    "work of art" , "vase" , "archaeological artefact";
+        arp:currentLocation   <http://arp.ro/resource/agent/British_Museum>;
+        arp:description       "Roman cameo glass vase";
+        arp:dimensions        "24.5 x 1.8 centimetre";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Portland%20Vase%20BM%20Gem4036%20n4.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "GR 1945";
+        arp:title             "Portland Vase";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q609292"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q609292> .
 
 <http://arp.ro/resource/artwork/Q4929048>
         a                     arp:Artwork;
@@ -1922,17 +1956,32 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q4929048> .
 
 <http://arp.ro/resource/artwork/Q28114063>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "artwork";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Babylonokia.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Babylonokia";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q28114063"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q28114063> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "artwork";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Babylonokia.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Babylonokia";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q28114063"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q28114063> .
+
+<http://arp.ro/resource/artwork/Q30603202>
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "sculpture of commemoration";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Chicago%2C%20June%202015%20-%20071.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Nicolaus Copernicus Monument";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q30603202"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q30603202> .
 
 <http://arp.ro/resource/agent/Nichiren>
         a         arp:Artist;
@@ -1945,20 +1994,8 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q3087562>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Ovetari Chapel";
-        arp:startedAtTime          "1457"^^xsd:gYear;
+        arp:startedAtTime          "1457-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q3087562>;
-        prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Bono_da_Ferrara>;
-                                     prov:hadRole  arp:Artist
-                                   ];
-        prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Andrea_Mantegna>;
-                                     prov:hadRole  arp:Artist
-                                   ];
-        prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Ansuino_da_Forl_>;
-                                     prov:hadRole  arp:Artist
-                                   ];
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Giovanni_d_Alemagna>;
                                      prov:hadRole  arp:Artist
@@ -1969,6 +2006,18 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                    ];
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Antonio_Vivarini>;
+                                     prov:hadRole  arp:Artist
+                                   ];
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Bono_da_Ferrara>;
+                                     prov:hadRole  arp:Artist
+                                   ];
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Ansuino_da_Forl_>;
+                                     prov:hadRole  arp:Artist
+                                   ];
+        prov:qualifiedAssociation  [ a             prov:Association;
+                                     prov:agent    <http://arp.ro/resource/agent/Andrea_Mantegna>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -1982,17 +2031,18 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                    ] .
 
 <http://arp.ro/resource/artwork/Q5254472>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "type of pleated woman's dress";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Museo%20del%20Traje%20-%20MT111885%20-%20Vestido%20Delphos.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Delphos gown";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q5254472"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q5254472> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "type of pleated woman's dress";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Museo%20del%20Traje%20-%20MT111885%20-%20Vestido%20Delphos.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Delphos gown";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q5254472"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q5254472> .
 
 <http://arp.ro/resource/activity/event_Q77715187_1>
         a                  arp:TransferOfCustody;
@@ -2023,7 +2073,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Probošt's crib";
         arp:materialsUsed          "wood";
-        arp:startedAtTime          "1906"^^xsd:gYear;
+        arp:startedAtTime          "1906-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q3500294>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Josef_Friml>;
@@ -2042,7 +2092,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Battle of the Centaurs";
         arp:materialsUsed          "marble";
-        arp:startedAtTime          "1492"^^xsd:gYear;
+        arp:startedAtTime          "1492-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q2313006>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Michelangelo>;
@@ -2050,30 +2100,32 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                    ] .
 
 <http://arp.ro/resource/artwork/Q3343234>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Mus_e_du_quai_Branly>;
-        arp:description      "carved stone figurine";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Nomoli-Mende-Sierra%20Leone.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Nomoli figurine";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q3343234"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q3343234> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Mus_e_du_quai_Branly>;
+        arp:description       "carved stone figurine";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Nomoli-Mende-Sierra%20Leone.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Nomoli figurine";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q3343234"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q3343234> .
 
 <http://arp.ro/resource/artwork/Q1246476>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "Hawaiian chant";
-        arp:imageLink        "https://papahanakuaola.org/wp-content/uploads/2021/09/kumulipo.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Kumulipo";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q1246476"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q1246476> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "Hawaiian chant";
+        arp:imageLink         "https://papahanakuaola.org/wp-content/uploads/2021/09/kumulipo.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Kumulipo";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q1246476"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q1246476> .
 
 <http://arp.ro/resource/agent/Andrea_Mantegna>
         a         arp:Artist;
@@ -2086,7 +2138,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q17986845>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Mae West Lips Sofa";
-        arp:startedAtTime          "1938"^^xsd:gYear;
+        arp:startedAtTime          "1938-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q17986845>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Salvador_Dal_>;
@@ -2097,7 +2149,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Bust of Maurice Haquette";
         arp:materialsUsed          "bronze";
-        arp:startedAtTime          "1883"^^xsd:gYear;
+        arp:startedAtTime          "1883-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q24943510>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Auguste_Rodin>;
@@ -2115,10 +2167,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q3399457>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Portrait of Terentius Neo";
-        arp:startedAtTime          "0079"^^xsd:gYear;
+        arp:startedAtTime          "0079-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q3399457>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -2161,14 +2213,14 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Comedian";
         arp:materialsUsed          "banana";
-        arp:startedAtTime          "2019"^^xsd:gYear;
+        arp:startedAtTime          "2019-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q77715187>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Maurizio_Cattelan>;
+                                     prov:agent    <http://arp.ro/resource/agent/David_Datuna>;
                                      prov:hadRole  arp:Artist
                                    ];
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/David_Datuna>;
+                                     prov:agent    <http://arp.ro/resource/agent/Maurizio_Cattelan>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -2180,7 +2232,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Artist's Shit";
         arp:materialsUsed          "human feces; can";
-        arp:startedAtTime          "1961"^^xsd:gYear;
+        arp:startedAtTime          "1961-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q1757822>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Piero_Manzoni>;
@@ -2191,10 +2243,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Chair of Reniseneb";
         arp:materialsUsed          "ebony; ivory; wood";
-        arp:startedAtTime          "-1449"^^xsd:gYear;
+        arp:startedAtTime          "-1449-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q55606908>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -2203,22 +2255,19 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label  "renovation";
         prov:used   <http://arp.ro/resource/artwork/Q3275446> .
 
-<http://arp.ro/resource/agent/Shepard_Fairey>
-        a         arp:Artist;
-        arp:name  "Shepard Fairey" .
-
 <http://arp.ro/resource/artwork/Q4010432>
-        a                    arp:Artwork;
-        arp:category         "strapless dress";
-        arp:classification   "fashion style from cinema" , "strapless dress" , "sheath dress" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "iconic dress worn by Rita Hayworth in the film Gilda";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Gilda%20trailer%20rita%20hayworth3%20crop.JPG"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "black dress of Rita Hayworth";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q4010432"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q4010432> .
+        a                     arp:Artwork;
+        arp:category          "fashion style from cinema";
+        arp:classification    "fashion style from cinema" , "strapless dress" , "sheath dress" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "iconic dress worn by Rita Hayworth in the film Gilda";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Gilda%20trailer%20rita%20hayworth3%20crop.JPG"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "black dress of Rita Hayworth";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q4010432"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q4010432> .
 
 <http://arp.ro/resource/artwork/Q105947532>
         a                     arp:Artwork;
@@ -2300,7 +2349,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q275924>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei The Turk";
-        arp:startedAtTime          "1769"^^xsd:gYear;
+        arp:startedAtTime          "1769-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q275924>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Wolfgang_von_Kempelen>;
@@ -2312,7 +2361,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label                 "Crearea operei Ca Cappello";
         prov:generated             <http://arp.ro/resource/artwork/Q2932195>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -2328,21 +2377,21 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Tower of the Sun";
         arp:materialsUsed          "steel reinforced concrete";
-        arp:startedAtTime          "1970"^^xsd:gYear;
+        arp:startedAtTime          "1970-02-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q3275446>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/activity/creation_Q2015169>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Vase of Entemena";
-        arp:materialsUsed          "silver; copper";
-        arp:startedAtTime          "-2399"^^xsd:gYear;
+        arp:materialsUsed          "copper; silver";
+        arp:startedAtTime          "-2399-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q2015169>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -2350,10 +2399,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei crystal skull";
         arp:materialsUsed          "quartz";
-        arp:startedAtTime          "1881"^^xsd:gYear;
+        arp:startedAtTime          "1881-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q254170>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -2364,7 +2413,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q22814370>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Rainbow Village";
-        arp:startedAtTime          "2008"^^xsd:gYear;
+        arp:startedAtTime          "2008-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q22814370>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Huang_Yung-fu>;
@@ -2372,20 +2421,21 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                    ] .
 
 <http://arp.ro/resource/artwork/Q302371>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "wedding dress" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Royal_Collection>;
-        arp:description      "dress worn by Lady Diana Spencer on the day of her wedding to Charles, Prince of Wales, in 1981";
-        arp:hasOwnership     [ a                       arp:TransferOfCustody;
-                               prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Diana_Princess_of_Wales>
-                             ];
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Diana%20Spencer%20wedding%20dress.png"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "wedding dress of Lady Diana Spencer";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q302371"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q302371> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "wedding dress" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Royal_Collection>;
+        arp:description       "dress worn by Lady Diana Spencer on the day of her wedding to Charles, Prince of Wales, in 1981";
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Diana_Princess_of_Wales>
+                              ];
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Diana%20Spencer%20wedding%20dress.png"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "wedding dress of Lady Diana Spencer";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q302371"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q302371> .
 
 <http://arp.ro/resource/agent/William_Hogarth>
         a         arp:Artist;
@@ -2408,17 +2458,18 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "Hildesheim Cathedral" .
 
 <http://arp.ro/resource/artwork/Q1476013>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "type of lawn ornament";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/At%20the%20junction%20of%20Bee%20Caves%20Road%20and%20Capital%20of%20Texas%20Highway%2C%20is%20this%20flock%20of%20plastic%20pink%20flamingos%20-%20at%20a%20local%20nursery%20in%20Austin%20%282458613657%29.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "plastic flamingo";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q1476013"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q1476013> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "type of lawn ornament";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/At%20the%20junction%20of%20Bee%20Caves%20Road%20and%20Capital%20of%20Texas%20Highway%2C%20is%20this%20flock%20of%20plastic%20pink%20flamingos%20-%20at%20a%20local%20nursery%20in%20Austin%20%282458613657%29.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "plastic flamingo";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q1476013"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q1476013> .
 
 <http://arp.ro/resource/agent/Manfred_Laber>
         a         arp:Artist;
@@ -2432,10 +2483,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Zeus of Otricoli";
         arp:materialsUsed          "marble";
-        arp:startedAtTime          "-0100"^^xsd:gYear;
+        arp:startedAtTime          "-0100-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q12875810>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -2450,7 +2501,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q18709203>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Tree of 40 Fruit";
-        arp:startedAtTime          "2008"^^xsd:gYear;
+        arp:startedAtTime          "2008-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q18709203>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Sam_Van_Aken>;
@@ -2472,17 +2523,18 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q110343765> .
 
 <http://arp.ro/resource/artwork/Q254170>
-        a                    arp:Artwork;
-        arp:category         "sculpture";
-        arp:classification   "sculpture" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/British_Museum>;
-        arp:description      "human skull stone carvings made of clear quartz, claimed to be pre-Columbian Mesoamerican";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Crystal%20skull%20british%20museum%20random9834672.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "Am1898";
-        arp:title            "crystal skull";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q254170"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q254170> .
+        a                     arp:Artwork;
+        arp:category          "sculpture";
+        arp:classification    "sculpture" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/British_Museum>;
+        arp:description       "human skull stone carvings made of clear quartz, claimed to be pre-Columbian Mesoamerican";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Crystal%20skull%20british%20museum%20random9834672.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "Am1898";
+        arp:title             "crystal skull";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q254170"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q254170> .
 
 <http://arp.ro/resource/agent/Giambologna>
         a         arp:Artist;
@@ -2511,24 +2563,26 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q3087562> .
 
 <http://arp.ro/resource/artwork/Q1617054>
-        a                    arp:Artwork;
-        arp:category         "wheel chandelier";
-        arp:classification   "wheel chandelier" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Hildesheim_Cathedral>;
-        arp:description      "11th-century Romanesque wheel chandelier, part of the treasures of the Cathedral in Hildesheim, Germany";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Hildesheim%20Dom%20Heziloleuchter.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Hezilo chandelier";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q1617054"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q1617054> .
+        a                     arp:Artwork;
+        arp:category          "wheel chandelier";
+        arp:classification    "wheel chandelier" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Hildesheim_Cathedral>;
+        arp:description       "11th-century Romanesque wheel chandelier, part of the treasures of the Cathedral in Hildesheim, Germany";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Hildesheim%20Dom%20Heziloleuchter.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Hezilo chandelier";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q1617054"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q1617054> .
 
 <http://arp.ro/resource/activity/creation_Q111947723>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei The Most Dangerous Animal in the World";
+        arp:startedAtTime          "1963-04-26"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q111947723>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -2537,17 +2591,18 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "Edvard Munch" .
 
 <http://arp.ro/resource/artwork/Q284053>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "architectural element";
-        arp:imageLink        "https://www.ludeka.com.br/image/cache/data/componentes/D-06/d6-26mm-branco-800x800.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "dado";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q284053"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q284053> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "architectural element";
+        arp:imageLink         "https://www.ludeka.com.br/image/cache/data/componentes/D-06/d6-26mm-branco-800x800.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "dado";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q284053"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q284053> .
 
 <http://arp.ro/resource/agent/Collector_Geri_Horner>
         a         arp:Collector;
@@ -2556,7 +2611,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q8760683>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Everyday";
-        arp:startedAtTime          "2000"^^xsd:gYear;
+        arp:startedAtTime          "2000-01-10"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q8760683>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Noah_Kalina>;
@@ -2591,6 +2646,20 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasAttributedTo  <http://arp.ro/resource/agent/Josef_Probo_t> , <http://arp.ro/resource/agent/Josef_Kapuci_n> , <http://arp.ro/resource/agent/Josef_Friml>;
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q3500294> .
 
+<http://arp.ro/resource/artwork/Q279559>
+        a                     arp:Artwork;
+        arp:category          "world map";
+        arp:classification    "archaeological artefact" , "work of art" , "world map" , "antique map";
+        arp:currentLocation   <http://arp.ro/resource/agent/British_Museum>;
+        arp:description       "6th century BCE Babylonian clay tablet written in Akkadian with a labeled depiction of the known world";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/BabylonianWorldMap2.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "92687";
+        arp:title             "Babylonian Map of the pop World";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q279559"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q279559> .
+
 <http://arp.ro/resource/artwork/Q2313006>
         a                     arp:Artwork;
         arp:category          "sculpture";
@@ -2606,36 +2675,23 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasAttributedTo  <http://arp.ro/resource/agent/Michelangelo>;
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q2313006> .
 
-<http://arp.ro/resource/artwork/Q279559>
-        a                    arp:Artwork;
-        arp:category         "world map";
-        arp:classification   "archaeological artefact" , "work of art" , "world map" , "antique map";
-        arp:currentLocation  <http://arp.ro/resource/agent/British_Museum>;
-        arp:description      "6th century BCE Babylonian clay tablet written in Akkadian with a labeled depiction of the known world";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/BabylonianWorldMap2.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "92687";
-        arp:title            "Babylonian Map of the pop World";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q279559"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q279559> .
-
 <http://arp.ro/resource/activity/creation_Q18814207>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Bunker 599";
-        arp:startedAtTime          "2010"^^xsd:gYear;
+        arp:startedAtTime          "2010-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q18814207>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/activity/creation_Q3754883>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Oma forest";
-        arp:startedAtTime          "1984"^^xsd:gYear;
+        arp:startedAtTime          "1984-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q3754883>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -2680,18 +2736,19 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "Victoria and Albert Museum" .
 
 <http://arp.ro/resource/artwork/Q3399457>
-        a                    arp:Artwork;
-        arp:category         "fresco";
-        arp:classification   "fresco" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Pompeii>;
-        arp:description      "portrait fresco, Pompeii";
-        arp:dimensions       "58 x 53 centimetre";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20de%20Paquius%20Proculus%20et%20son%20%C3%A9pouse.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Portrait of Terentius Neo";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q3399457"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q3399457> .
+        a                     arp:Artwork;
+        arp:category          "fresco";
+        arp:classification    "fresco" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Pompeii>;
+        arp:description       "portrait fresco, Pompeii";
+        arp:dimensions        "58 x 53 centimetre";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20de%20Paquius%20Proculus%20et%20son%20%C3%A9pouse.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Portrait of Terentius Neo";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q3399457"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q3399457> .
 
 <http://arp.ro/resource/agent/Antonio_Vivarini>
         a         arp:Artist;
@@ -2701,17 +2758,17 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Crown of the Andes";
         arp:materialsUsed          "Colombian emerald; gold";
-        arp:startedAtTime          "1715"^^xsd:gYear;
+        arp:startedAtTime          "1715-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q5189523>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/activity/creation_Q471379>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei The Scream";
-        arp:startedAtTime          "1893"^^xsd:gYear;
+        arp:startedAtTime          "1893-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q471379>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Edvard_Munch>;
@@ -2719,17 +2776,18 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                    ] .
 
 <http://arp.ro/resource/artwork/Q17069410>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "wine bottle" , "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Historical_Museum_of_the_Palatinate>;
-        arp:description      "Oldest unopened bottle of wine";
-        arp:imageLink        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Roemerwein_in_Speyer.jpg/1092px-Roemerwein_in_Speyer.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Speyer wine bottle";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q17069410"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q17069410> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "wine bottle" , "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Historical_Museum_of_the_Palatinate>;
+        arp:description       "Oldest unopened bottle of wine";
+        arp:imageLink         "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Roemerwein_in_Speyer.jpg/1092px-Roemerwein_in_Speyer.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Speyer wine bottle";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q17069410"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q17069410> .
 
 <http://arp.ro/resource/agent/Josef_Friml>
         a         arp:Artist;
@@ -2755,6 +2813,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         prov:wasAttributedTo  <http://arp.ro/resource/agent/Walter_De_Maria>;
         prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q3330442> .
 
+<http://arp.ro/resource/agent/Ch_teau_de_Montsoreau-Museum_of_Contemporary_Art>
+        a         arp:Museum;
+        arp:name  "Château de Montsoreau-Museum of Contemporary Art" .
+
 <http://arp.ro/resource/artwork/Q3925522>
         a                     arp:Artwork;
         arp:category          "sculpture";
@@ -2772,7 +2834,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q110343765>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Can't Help Myself";
-        arp:startedAtTime          "2016"^^xsd:gYear;
+        arp:startedAtTime          "2016-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q110343765>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Sun_Yuan_Peng_Yu>;
@@ -2797,7 +2859,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label                 "Crearea operei Sigillum Dei";
         prov:generated             <http://arp.ro/resource/artwork/Q2284769>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -2821,17 +2883,17 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label                 "Crearea operei ʻahuʻula";
         prov:generated             <http://arp.ro/resource/artwork/Q8083959>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/activity/creation_Q18785534>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Djerbahood";
-        arp:startedAtTime          "2014"^^xsd:gYear;
+        arp:startedAtTime          "2014-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q18785534>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -2840,7 +2902,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label                 "Crearea operei The Flying Frenchman";
         prov:generated             <http://arp.ro/resource/artwork/Q44320547>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -2860,7 +2922,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 <http://arp.ro/resource/activity/creation_Q3523204>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei The Vertical Earth Kilometer";
-        arp:startedAtTime          "1977"^^xsd:gYear;
+        arp:startedAtTime          "1977-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q3523204>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Walter_De_Maria>;
@@ -2868,20 +2930,21 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                    ] .
 
 <http://arp.ro/resource/artwork/Q2932195>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art" , "palace";
-        arp:currentLocation  <http://arp.ro/resource/agent/San_Polo>;
-        arp:description      "building in Venice, Italy";
-        arp:hasOwnership     [ a                       arp:TransferOfCustody;
-                               prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Ca_Foscari_University_of_Venice>
-                             ];
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Ca%27%20Cappello%20Layard%20Carnelutti%20%28Venice%29.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Ca Cappello";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q2932195"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q2932195> .
+        a                     arp:Artwork;
+        arp:category          "palace";
+        arp:classification    "work of art" , "palace";
+        arp:currentLocation   <http://arp.ro/resource/agent/San_Polo>;
+        arp:description       "building in Venice, Italy";
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_Ca_Foscari_University_of_Venice>
+                              ];
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Ca%27%20Cappello%20Layard%20Carnelutti%20%28Venice%29.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Ca Cappello";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q2932195"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q2932195> .
 
 <http://arp.ro/resource/agent/Collector_Kenneth_C_Griffin>
         a         arp:Collector;
@@ -2919,7 +2982,7 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Praying Hands";
         arp:materialsUsed          "ink; paper";
-        arp:startedAtTime          "1500"^^xsd:gYear;
+        arp:startedAtTime          "1500-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q699552>;
         prov:qualifiedAssociation  [ a             prov:Association;
                                      prov:agent    <http://arp.ro/resource/agent/Albrecht_D_rer>;
@@ -2927,33 +2990,35 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
                                    ] .
 
 <http://arp.ro/resource/artwork/Q3275446>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "art museum" , "work of art" , "tower";
-        arp:currentLocation  <http://arp.ro/resource/agent/Natural_and_Cultural_Gardens>;
-        arp:description      "building by Tarō Okamoto";
-        arp:imageLink        "https://upload.wikimedia.org/wikipedia/en/8/8e/Tower_of_the_Sun_-_frontal_view.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Tower of the Sun";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q3275446"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q3275446> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "art museum" , "work of art" , "tower";
+        arp:currentLocation   <http://arp.ro/resource/agent/Natural_and_Cultural_Gardens>;
+        arp:description       "building by Tarō Okamoto";
+        arp:imageLink         "https://upload.wikimedia.org/wikipedia/en/8/8e/Tower_of_the_Sun_-_frontal_view.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Tower of the Sun";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q3275446"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q3275446> .
 
 <http://arp.ro/resource/artwork/Q2015169>
-        a                    arp:Artwork;
-        arp:category         "votive offering";
-        arp:classification   "work of art" , "votive offering" , "archaeological artefact" , "vase";
-        arp:currentLocation  <http://arp.ro/resource/agent/Room_236_display_case_6>;
-        arp:description      "silver vase dedicated to Ningirsu by Entemena";
-        arp:hasOwnership     [ a                       arp:TransferOfCustody;
-                               prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_French_State>
-                             ];
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Incised%20Silver%20Vase%20from%20Archaic%20Period%20of%20Sumer%2C%202900-2340%20BC.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "AO 2674";
-        arp:title            "Vase of Entemena";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q2015169"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q2015169> .
+        a                     arp:Artwork;
+        arp:category          "votive offering";
+        arp:classification    "work of art" , "votive offering" , "archaeological artefact" , "vase";
+        arp:currentLocation   <http://arp.ro/resource/agent/Room_236_display_case_6>;
+        arp:description       "silver vase dedicated to Ningirsu by Entemena";
+        arp:hasOwnership      [ a                       arp:TransferOfCustody;
+                                prov:wasAssociatedWith  <http://arp.ro/resource/agent/Collector_French_State>
+                              ];
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Incised%20Silver%20Vase%20from%20Archaic%20Period%20of%20Sumer%2C%202900-2340%20BC.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "AO 2674";
+        arp:title             "Vase of Entemena";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q2015169"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q2015169> .
 
 <http://arp.ro/resource/agent/Willem_de_Kooning>
         a         arp:Artist;
@@ -2969,22 +3034,23 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         rdfs:label                 "Crearea operei Union Jack dress";
         prov:generated             <http://arp.ro/resource/artwork/Q3603733>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
 <http://arp.ro/resource/artwork/Q59343>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art";
-        arp:currentLocation  <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description      "Scenic places in Pyongyang, North Korea";
-        arp:imageLink        "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Montage_of_Pyongyang,_North_Korea.png&width=800"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Eight Views of Pyongyang";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q59343"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q59343> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art";
+        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
+        arp:description       "Scenic places in Pyongyang, North Korea";
+        arp:imageLink         "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Montage_of_Pyongyang,_North_Korea.png&width=800"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Eight Views of Pyongyang";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q59343"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q59343> .
 
 <http://arp.ro/resource/agent/Leonardo_da_Vinci>
         a         arp:Artist;
@@ -2994,26 +3060,12 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei wedding dress of Lady Diana Spencer";
         arp:materialsUsed          "silk fabric; Carrickmacross lace; taffeta; tulle; nacre; lace; pearl";
-        arp:startedAtTime          "1981"^^xsd:gYear;
+        arp:startedAtTime          "1981-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q302371>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
-
-<http://arp.ro/resource/artwork/Q2848904>
-        a                     arp:Artwork;
-        arp:category          "work of art";
-        arp:classification    "work of art";
-        arp:currentLocation   <http://arp.ro/resource/agent/Unknown_Location>;
-        arp:description       "Street art campaign by Shepard Fairey";
-        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/OBEY%20war%20hier%20-%20panoramio.jpg"^^xsd:anyURI;
-        arp:inventoryNumber   "unknown";
-        arp:title             "Andre the Giant Has a Posse";
-        arp:wikidataLink      "https://www.wikidata.org/wiki/Q2848904"^^xsd:anyURI;
-        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasAttributedTo  <http://arp.ro/resource/agent/Shepard_Fairey>;
-        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q2848904> .
 
 <http://arp.ro/resource/agent/Chanel>
         a         arp:Artist;
@@ -3023,23 +3075,20 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Codex Aureus of Echternach";
         arp:materialsUsed          "parchment";
-        arp:startedAtTime          "1100"^^xsd:gYear;
+        arp:startedAtTime          "1100-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q1106387>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
-
-<http://arp.ro/resource/agent/Unknown_Artist>
-        a         arp:Artist;
-        arp:name  "Unknown Artist" .
 
 <http://arp.ro/resource/activity/creation_Q2265769>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Spijkenisse's euro-bridges";
+        arp:startedAtTime          "2011-10-26"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q2265769>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -3047,10 +3096,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Temple of Ellesyia";
         arp:materialsUsed          "sandstone";
-        arp:startedAtTime          "-2000"^^xsd:gYear;
+        arp:startedAtTime          "-2000-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q3517517>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -3062,10 +3111,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         a                          arp:Creation;
         rdfs:label                 "Crearea operei Suger's Eagle";
         arp:materialsUsed          "silver-gilt; porphyry";
-        arp:startedAtTime          "1140"^^xsd:gYear;
+        arp:startedAtTime          "1140-01-01"^^xsd:date;
         prov:generated             <http://arp.ro/resource/artwork/Q2827841>;
         prov:qualifiedAssociation  [ a             prov:Association;
-                                     prov:agent    <http://arp.ro/resource/agent/Unknown_Artist>;
+                                     prov:agent    <http://arp.ro/resource/agent/unknown>;
                                      prov:hadRole  arp:Artist
                                    ] .
 
@@ -3074,14 +3123,15 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
         arp:name  "Royal Collection" .
 
 <http://arp.ro/resource/artwork/Q733890>
-        a                    arp:Artwork;
-        arp:category         "work of art";
-        arp:classification   "work of art" , "minor basilica" , "church building";
-        arp:currentLocation  <http://arp.ro/resource/agent/Monti>;
-        arp:description      "medieval church in Rome";
-        arp:imageLink        "http://commons.wikimedia.org/wiki/Special:FilePath/Basilica%20di%20Santa%20Prassede%20-%20esterno.jpg"^^xsd:anyURI;
-        arp:inventoryNumber  "unknown";
-        arp:title            "Santa Prassede";
-        arp:wikidataLink     "https://www.wikidata.org/wiki/Q733890"^^xsd:anyURI;
-        dct:license          <http://creativecommons.org/publicdomain/zero/1.0/>;
-        prov:wasGeneratedBy  <http://arp.ro/resource/activity/creation_Q733890> .
+        a                     arp:Artwork;
+        arp:category          "work of art";
+        arp:classification    "work of art" , "minor basilica" , "church building";
+        arp:currentLocation   <http://arp.ro/resource/agent/Monti>;
+        arp:description       "medieval church in Rome";
+        arp:imageLink         "http://commons.wikimedia.org/wiki/Special:FilePath/Basilica%20di%20Santa%20Prassede%20-%20esterno.jpg"^^xsd:anyURI;
+        arp:inventoryNumber   "unknown";
+        arp:title             "Santa Prassede";
+        arp:wikidataLink      "https://www.wikidata.org/wiki/Q733890"^^xsd:anyURI;
+        dct:license           <http://creativecommons.org/publicdomain/zero/1.0/>;
+        prov:wasAttributedTo  <http://arp.ro/resource/agent/unknown>;
+        prov:wasGeneratedBy   <http://arp.ro/resource/activity/creation_Q733890> .

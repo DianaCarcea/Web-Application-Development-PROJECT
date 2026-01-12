@@ -21,24 +21,30 @@ public class ArtistController {
     @GetMapping("/artists")
     public String showAllArtists(
             Model model,
-            @RequestParam(value = "page", defaultValue = "1") int page
+            @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(name = "domain", defaultValue = "int") String domain
     ) {
-        List<Artist> allArtists = service.getAllArtistsWithFirstArtwork();
+        int pageSize = 23; // Numărul de artiști per pagină
 
-        int pageSize = 23; // number of artists per page
-        int totalArtists = allArtists.size();
+        // 1. Obținem DOAR artiștii pentru pagina curentă (folosind LIMIT și OFFSET din SPARQL)
+        // Aici apelăm metoda nouă creată în pașii anteriori
+        List<Artist> pagedArtists = service.getAllArtistsWithFirstArtworkHome(domain, page, pageSize);
+
+        // 2. Obținem TOȚI artiștii pentru Dropdown și pentru a calcula numărul total de pagini
+        // Aici apelăm metoda veche (fără limită) sau o metodă simplificată doar cu nume/id
+        List<Artist> allArtistsForDropdown = service.getAllArtistsWithFirstArtwork(domain);
+        // ^ Asigură-te că metoda asta există în continuare în Service (poate fi cea veche care făcea findAll)
+
+        // 3. Calculăm totalurile pe baza listei complete
+        int totalArtists = allArtistsForDropdown.size();
         int totalPages = (int) Math.ceil((double) totalArtists / pageSize);
 
-        // sublist pentru grid (paginare)
-        int fromIndex = (page - 1) * pageSize;
-        int toIndex = Math.min(fromIndex + pageSize, totalArtists);
-        List<Artist> pagedArtists = allArtists.subList(fromIndex, toIndex);
-
-        // toate artiștii pentru dropdown
-        model.addAttribute("artistsForDropdown", allArtists);
-        model.addAttribute("artists", pagedArtists);
+        // 4. Setăm atributele în Model
+        model.addAttribute("artistsForDropdown", allArtistsForDropdown); // Lista completă pt <select>
+        model.addAttribute("artists", pagedArtists);                   // Lista scurtă (23) pt Grid
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", totalPages);
+        model.addAttribute("domain", domain);
 
         return "artists";
     }

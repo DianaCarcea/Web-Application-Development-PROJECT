@@ -26,6 +26,7 @@ public class RDFConfig {
         Model model = ModelFactory.createDefaultModel();
 //        RDFDataMgr.read(model, "artists_wikidata.ttl");
         RDFDataMgr.read(model, "artists_wikidata_getty.ttl");
+        RDFDataMgr.read(model, "artists_wikidata_getty_int.ttl");
         return model;
     }
 

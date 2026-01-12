@@ -1,0 +1,21 @@
+PREFIX arp: <http://arp.ro/schema#>
+
+SELECT ?subject (SAMPLE(?titleVal) as ?title) (SAMPLE(?imageVal) as ?image)
+WHERE {
+
+  # 1. Identificăm CATEGORIA operei curente
+  <{{INPUT_URI}}> arp:category ?category .
+
+  # 2. Căutăm alte opere care au EXACT aceeași categorie
+  ?subject arp:category ?category .
+
+  # 3. Extragem detaliile (titlu și imagine)
+  OPTIONAL { ?subject arp:title ?titleVal . }
+  OPTIONAL { ?subject arp:imageLink ?imageVal . }
+
+  # 4. Excludem opera inițială
+  FILTER (?subject != <{{INPUT_URI}}>)
+}
+GROUP BY ?subject
+LIMIT {{LIMIT}}
+OFFSET {{OFFSET}}

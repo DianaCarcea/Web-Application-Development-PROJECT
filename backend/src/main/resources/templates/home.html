@@ -22,19 +22,36 @@
 
 <nav class="jump-to">
     <span>Jump to:</span>
-    <a href="#artists">Artists</a>
+    <a href="#artistsInt">International Artists</a>
+    <a href="#artistsRo">Romanian Artists</a>
     <a href="#int-art">International Arts & Culture</a>
     <a href="#ro-art">Romanian Arts & Culture</a>
 </nav>
 
 <main>
-    <section id="artists">
-        <h2>Artists
-            <a href="/artists" class="details-link">(see more)</a>
+
+    <section id="artistsInt">
+        <h2>International Artists
+            <a href="/artists?domain=int" class="details-link">(see more)</a>
+        </h2>
+        <div class="grid artworks-grid">
+            <div class="card" th:each="artist : ${artistsWiki}">
+                <a th:href="@{/artists/{id}/artworks(id=${artist.id}, domain='int')}">
+                    <img th:src="${artist.imageLink != null ? artist.imageLink : '/images/no-artist.png'}"
+                         th:alt="${artist.name}">
+                </a>
+                <h3 th:text="${artist.name}"></h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="artistsRo">
+        <h2>Romanian Artists
+            <a href="/artists?domain=ro" class="details-link">(see more)</a>
         </h2>
         <div class="grid artworks-grid">
             <div class="card" th:each="artist : ${artists}">
-                <a th:href="@{/artists/{id}/artworks(id=${artist.id})}">
+                <a th:href="@{/artists/{id}/artworks(id=${artist.id}, domain='ro')}">
                     <img th:src="${artist.imageLink != null ? artist.imageLink : '/images/no-artist.png'}"
                          th:alt="${artist.name}">
                 </a>

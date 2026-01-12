@@ -22,8 +22,8 @@ public class ArtworkService {
     public Artwork getArtworkByUri(String uri, String domain) {
         return repository.findByUri(uri, domain);
     }
-    public List<Artwork> getArtworkByArtist(String artistUri) {
-        return repository.findByArtist(artistUri);
+    public List<Artwork> getArtworkByArtist(String artistUri, String domain) {
+        return repository.findByArtist(artistUri, domain);
     }
 
     public List<Artwork> getHomepageArtworks(int page, int pageSize, String domain) {
@@ -34,5 +34,13 @@ public class ArtworkService {
     public List<Artwork> getRecommendations(String uri, int offset, int pageSize, String domain) {
 
         return repository.getRecommendationsByArtist(uri, pageSize, offset, domain);
+    }
+
+    public List<Artwork> getRecommendationsMuseums(String uri, int offset, int pageSize, String domain) {
+        return repository.getRecommendationsByMuseums(uri, pageSize, offset, domain);
+    }
+
+    public List<Artwork> getRecommendationsCategory(String uri, int offset, int limit, String domain) {
+        return repository.getRecommendationsByCategory(uri, offset, limit, domain);
     }
 }

@@ -56,7 +56,12 @@ public class ArtworkController {
 
 
         List<Artwork> recommendations = artworkService.getRecommendations(uri, offset, limit, domain);
+        List<Artwork> recommendationsMuseums = artworkService.getRecommendationsMuseums(uri, offset, limit, domain);
+        List<Artwork> recommendationsCategory = artworkService.getRecommendationsCategory(uri, offset, limit, domain);
+
         model.addAttribute("recommendations", recommendations);
+        model.addAttribute("recommendationsMuseums", recommendationsMuseums);
+        model.addAttribute("recommendationsCategory", recommendationsCategory);
 
         return "artwork-detail";
     }
@@ -68,9 +73,9 @@ public class ArtworkController {
 
         String artistUri = "http://arp.ro/resource/agent/" + artistId;
 
-        Artist artist = artistService.getArtistByUri(artistUri);
+        Artist artist = artistService.getArtistByUri(artistUri, domain);
 
-        List<Artwork> artworks = artworkService.getArtworkByArtist(artistUri);
+        List<Artwork> artworks = artworkService.getArtworkByArtist(artistUri, domain);
 
         model.addAttribute("artist", artist);
         model.addAttribute("artworks", artworks);
@@ -109,6 +114,11 @@ public class ArtworkController {
 
         // 2. Le punem în model
         model.addAttribute("recommendations", recommendations);
+        List<Artwork> recommendationsMuseums = artworkService.getRecommendationsMuseums(uri, offset, limit, domain);
+        model.addAttribute("recommendationsMuseums", recommendationsMuseums);
+        List<Artwork> recommendationsCategory = artworkService.getRecommendationsCategory(uri, offset, limit, domain);
+        model.addAttribute("recommendationsCategory", recommendationsCategory);
+
         model.addAttribute("domain", domain);
 
         // 3. RETURNĂM NUMELE FIȘIERULUI NOU
