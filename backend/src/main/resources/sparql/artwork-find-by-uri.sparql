@@ -42,7 +42,7 @@ SELECT
        # Format rezultat: Nume::Start::Sfârșit | Nume2::Start2::Sfârșit2 ...
        (GROUP_CONCAT(
           DISTINCT CONCAT(
-            COALESCE(?ownerName, STR(?ownerUri)),
+            COALESCE(?name, STR(?ownerUri)),
             "||",
             COALESCE(STR(?ownStart), ""),
             "||",
@@ -114,7 +114,7 @@ WHERE {
       OPTIONAL { ?ownership arp:endedAtTime ?ownEnd }
       OPTIONAL {
         ?ownership prov:wasAssociatedWith ?ownerUri .
-        OPTIONAL { ?ownerUri arp:name ?ownerName }
+        OPTIONAL { ?ownerUri arp:name ?name }
       }
     }
 

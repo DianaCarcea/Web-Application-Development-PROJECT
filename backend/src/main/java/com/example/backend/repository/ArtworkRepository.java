@@ -180,7 +180,7 @@ public class ArtworkRepository {
                     String[] parts = entry.split("\\|\\|", -1);
 
                     Collector o = new Collector();
-                    o.ownerName = parts.length > 0 ? parts[0] : "?";
+                    o.name = parts.length > 0 ? parts[0] : "?";
                     o.startedAt = parts.length > 1 && !parts[1].isEmpty() ? parts[1] : null;
                     o.endedAt = parts.length > 2 && !parts[2].isEmpty() ? parts[2] : null;
 
@@ -287,7 +287,7 @@ public class ArtworkRepository {
                         String[] parts = entry.split("\\|\\|", -1);
 
                         Collector o = new Collector();
-                        o.ownerName = parts.length > 0 ? parts[0] : "?";
+                        o.name = parts.length > 0 ? parts[0] : "?";
                         o.startedAt = parts.length > 1 && !parts[1].isEmpty() ? parts[1] : null;
                         o.endedAt = parts.length > 2 && !parts[2].isEmpty() ? parts[2] : null;
 
@@ -419,7 +419,7 @@ public class ArtworkRepository {
                         String[] parts = entry.split("\\|\\|", -1);
 
                         Collector o = new Collector();
-                        o.ownerName = parts.length > 0 ? parts[0] : "?";
+                        o.name = parts.length > 0 ? parts[0] : "?";
                         o.startedAt = parts.length > 1 && !parts[1].isEmpty() ? parts[1] : null;
                         o.endedAt = parts.length > 2 && !parts[2].isEmpty() ? parts[2] : null;
 
