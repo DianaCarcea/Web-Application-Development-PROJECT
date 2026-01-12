@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/html"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Scholarly HTML</title>
+  <title>Technical Raport</title>
   <link rel="stylesheet" href="./Scholarly HTML_files/scholarly.min.css">
   <script src="./Scholarly HTML_files/scholarly.min.js.descărcare"></script>
 </head>
@@ -13,161 +13,13 @@
     <img src="./Scholarly HTML_files/scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
     <div class="status">Community Draft</div>
   </div>
-  <h1>Scholarly HTML</h1>
+  <h1>ArP (Artwork Provenance)<br> - Technical Raport
+  </h1>
 </header>
 
 <div role="contentinfo">
   <ol role="directory">
-    <li><a href="#abstract"><span>1. </span>Abstract</a></li>
-    <li><a href="#introduction"><span>2. </span>Introduction</a></li>
-    <li><a href="#problem"><span>3. </span>Problem statement</a></li>
-    <li><a href="#solution"><span>4. </span>Proposed solution and social impact</a></li>
-    <li>
-      <a href="#architecture">
-        <span>5. </span>System Architecture and API Design
-      </a>
-      <ol role="directory">
 
-        <li>
-          <a href="#context-level-1">
-            <span>5.1 </span>System Context (Level 1)
-          </a>
-        </li>
-
-        <li>
-          <a href="#containers-level-2">
-            <span>5.2 </span>System Containers (Level 2)
-          </a>
-        </li>
-
-        <li>
-          <a href="#components-level-3">
-            <span>5.3 </span>Backend Components (Level 3)
-          </a>
-        </li>
-
-        <li>
-          <a href="#code-level-4">
-            <span>5.4 </span>Implementation Details (Level 4)
-          </a>
-        </li>
-
-        <li>
-          <a href="#exposed-endpoints">
-            <span>5.5 </span>Exposed Endpoints and Resources
-          </a>
-          <ol role="directory">
-
-            <li>
-              <a href="#entity-management-endpoints">
-                <span>5.5.1 </span>Entity Management Endpoints
-              </a>
-            </li>
-
-            <li>
-              <a href="#technical-semantic-endpoints">
-                <span>5.5.2 </span>Technical &amp; Semantic Endpoints
-              </a>
-            </li>
-
-          </ol>
-        </li>
-
-        <li>
-          <a href="#openapi-spec">
-            <span>5.6 </span>OpenAPI Specification
-          </a>
-        </li>
-
-      </ol>
-    </li>
-
-    <li><a href="#data_model"><span>6. </span>Internal Data Structures and Application Models</a>
-      <ol role="directory">
-        <li><a href="#domain">
-          <span>6.1 </span>Domain Model Overview</a></li>
-        <li><a href="#java-models">
-          <span>6.2 </span>Java Application Models</a></li>
-        <li><a href="#mapping">
-          <span>6.3 </span>Mapping RDF Data to Application Objects</a>
-          <ol role="directory">
-            <li><a href="#local-mapping">
-              <span>6.3.1 </span>Local Repository Mapping (Structured Parsing)</a></li>
-            <li><a href="#wikidata-mapping">
-              <span>6.3.2 </span>Wikidata Federated Mapping (Data Normalization)</a></li>
-          </ol>
-
-        </li>
-        <li><a href="#repository-service">
-          <span>6.4 </span>Repository and Service Layer Design</a>
-          <ol role="directory">
-            <li><a href="#repository-layer">
-              <span>6.4.1 </span>The Repository Layer (Semantic Data Access)</a></li>
-            <li><a href="#service-layer">
-              <span>6.4.2 </span>The Service Layer (Orchestration & Context Switching)</a></li>
-          </ol>
-
-        </li>
-      </ol>
-
-    </li>
-
-    <li><a href="#rdf-knowledge-modeling"><span>7. </span>RDF Knowledge Modeling and Semantic Vocabularies</a>
-      <ol role="directory">
-        <li><a href="#adopted-vocabularies">
-          <span>7.1 </span>Adopted Semantic Vocabularies (PROV-O, SKOS, DCTerms, etc.)</a></li>
-        <li><a href="#custom-vocabulary">
-          <span>7.2 </span>The Custom ARP Ontology</a></li>
-        <li><a href="#data-transformation">
-          <span>7.3 </span>Data Transformation and Resource Identification</a></li>
-        <li><a href="#provenance-modeling">
-          <span>7.4 </span>Provenance Modeling with PROV-O</a></li>
-        <li><a href="#expressiveness-shacl">
-          <span>7.5 </span>Expressiveness and Validation (SHACL)</a></li>
-      </ol>
-    </li>
-
-    <li><a href="#integration-external-sources"><span>8. </span>Integration of External Knowledge Sources and Linked Data Principles</a>
-      <ol role="directory">
-        <li><a href="#wikidata-integration">
-          <span>8.1 </span>Integration with Wikidata</a></li>
-        <li><a href="#getty-integration">
-          <span>8.2 </span>Getty vocabulary</a></li>
-        <li><a href="#non-trivial-sparql">
-          <span>8.3 </span>Non-trivial SPARQL Queries</a></li>
-        <li><a href="#linked-data-conformance">
-          <span>8.4 </span>Compliance with Linked Data Principles</a>
-          <ol role="directory">
-            <li><a href="#http-uris">
-              <span>8.4.1 </span>Use of HTTP URIs as Global Identifiers</a></li>
-            <li><a href="#structured-rdf">
-              <span>8.4.2 </span>Provision of Structured RDF Descriptions</a></li>
-            <li><a href="#sparql-access">
-              <span>8.4.3 </span>Access to Data via SPARQL Queries</a></li>
-            <li><a href="#external-linking">
-              <span>8.4.4 </span>Linking to External Knowledge Bases</a></li>
-            <li><a href="#conclusion-compliance">
-              <span>8.4.5 </span>Summary of Alignment</a></li>
-          </ol>
-
-        </li>
-      </ol>
-
-    </li>
-    <li><a href="#conclusion"><span>9. </span>Conclusion and Future Directions</a>
-      <ol role="directory">
-        <li><a href="#overall-impression">
-          <span>9.1 </span>Overall Impression and Technical Impact</a></li>
-        <li><a href="#user-impact-usability">
-          <span>9.2 </span>Impact on End Users and Usability</a></li>
-        <li><a href="#business-value">
-          <span>9.3 </span>Business Aspects and Sustainability</a></li>
-        <li><a href="#future-development">
-          <span>9.4 </span>Further Directions of Development</a></li>
-      </ol>
-    </li>
-
-    <li><a href="#biblio-references"><span>10. </span>References</a></li>
   </ol>
 
   <dl>
@@ -189,7 +41,7 @@
 
 
 <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
-  <h2><span>1. </span>Abstract</h2>
+  <h2>Abstract</h2>
   <p>
     This technical report presents a <a href="#ref-semantic_web">Semantic Web</a>–based platform for the exploration and
     management of provenance information related to artistic works from Romania’s cultural
@@ -209,7 +61,7 @@
 
 <section id="introduction" role="doc-introduction">
   <!-- review? -->
-  <h2><span>2. </span>Introduction</h2>
+  <h2>Introduction</h2>
   <p>
     The digitization of cultural heritage has led to the publication of large volumes of
     open data by cultural institutions and international initiatives such as
@@ -240,7 +92,7 @@
 </section>
 <section id="problem">
   <!-- review? -->
-  <h2><span>3. </span>Problem statement</h2>
+  <h2>Problem statement</h2>
   <p>
     Despite the availability of open cultural heritage data, existing platforms exhibit important
     limitations when it comes to integrated exploration of artwork provenance.
@@ -262,7 +114,7 @@
 
 <section id="solution">
 
-  <h2><span>4. </span>Proposed solution and social impact</h2>
+  <h2>Proposed solution and social impact</h2>
   <p>
     This project proposes a web-based platform that semantically integrates
     <a href="#ref-romanian_dataset">Romanian cultural
@@ -284,7 +136,7 @@
 </section>
 
 <section id="architecture">
-  <h2><span>5. </span>System Architecture and API Design</h2>
+  <h2>System Architecture and API Design</h2>
 
   <p>
     This chapter details the architectural design of the <strong>ArP Digital Catalog</strong>, utilizing the <strong>C4 Model</strong> to visualize the system's interactions, containers, components, and data structures.
@@ -292,7 +144,7 @@
   </p>
 
   <section id="context-level-1">
-    <h3><span>5.1 </span>System Context (Level 1)</h3>
+    <h3>System Context (Level 1)</h3>
     <p>
       The <strong>System Context Diagram</strong> illustrates the high-level landscape of the application. It highlights the boundary between the internal <em>ArP Environment</em> and the <em>External Data Sources</em> required for data enrichment.
     </p>
@@ -317,7 +169,7 @@
   </section>
 
   <section id="containers-level-2">
-    <h3><span>5.2 </span>System Containers (Level 2)</h3>
+    <h3>System Containers (Level 2)</h3>
     <p>
       The <strong>Container Diagram</strong> zooms into the <em>ArP Ecosystem</em>, differentiating between the runtime web application and the offline data processing tools.
     </p>
@@ -337,7 +189,7 @@
   </section>
 
   <section id="components-level-3">
-    <h3><span>5.3 </span>Backend Components (Level 3)</h3>
+    <h3>Backend Components (Level 3)</h3>
     <p>
       To support the dual requirement of serving both humans and machines, the backend adopts a <strong>Hybrid Architecture</strong>.
       The <strong>Component Diagram</strong> below illustrates the internal layering of the <em>Spring Boot Application</em>.
@@ -365,13 +217,13 @@
   </section>
 
   <section id="code-level-4">
-    <h3><span>5.4 </span>Implementation Details (Level 4)</h3>
+    <h3>Implementation Details (Level 4)</h3>
     <p>
       The <strong>Class Diagram (Level 4)</strong> provides a comprehensive view of the codebase structure, illustrating the relationships between the Data Ingestion modules, the Spring Boot Backend components, and the Domain Model.
     </p>
 
     <figure style="text-align:center; margin: 20px 0;">
-      <img src="/image/C4.png" alt="Implementation Class Diagram" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+      <img src="image/C4.png" alt="Implementation Class Diagram" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
       <figcaption>Figure 5.4: Implementation Class Diagram</figcaption>
     </figure>
 
@@ -403,13 +255,13 @@
   </section>
 
   <section id="exposed-endpoints">
-    <h3><span>5.5 </span>Exposed Endpoints and Resources</h3>
+    <h3>Exposed Endpoints and Resources</h3>
     <p>
       The REST API is organized around resource-oriented controllers using standard HTTP verbs. A global filtering parameter, <code>domain</code> (<code>ro</code>/<code>int</code>), is consistently implemented across endpoints.
     </p>
 
     <section id="entity-management-endpoints">
-      <h4><span>5.5.1 </span>Entity Management Endpoints</h4>
+      <h4>Entity Management Endpoints</h4>
       <ul>
         <li>
           <strong>Artist API (<code>/api/artists</code>):</strong>
@@ -430,7 +282,7 @@
     </section>
 
     <section id="technical-semantic-endpoints">
-      <h4><span>5.5.2 </span> Technical &amp; Semantic Endpoints</h4>
+      <h4> Technical &amp; Semantic Endpoints</h4>
       <ul>
         <li>
           <strong>SPARQL Endpoint (<code>/sparql</code>):</strong>
@@ -445,7 +297,7 @@
   </section>
 
   <section id="openapi-spec">
-    <h3><span>5.6 </span> OpenAPI Specification</h3>
+    <h3> OpenAPI Specification</h3>
     <p>
       The system implements the <strong>OpenAPI 3.0 Specification</strong> using <code>springdoc-openapi</code>.
       The API contract is generated dynamically at runtime by introspecting controller annotations (<code>@Tag</code>, <code>@Operation</code>).
@@ -457,7 +309,7 @@
 
 <section id="data_model">
 
-  <h2><span>6. </span>Internal Data Structures and Application Models</h2>
+  <h2>Internal Data Structures and Application Models</h2>
   <p>
     The application implements a data model strictly aligned with the W3C <a href="#prov">PROV-O</a>
     (Provenance Ontology) standards. Instead of an arbitrary database schema,
@@ -470,7 +322,7 @@
 
   <section id="domain">
 
-    <h3><span>6.1 </span>Domain Model Overview</h3>
+    <h3>Domain Model Overview</h3>
     <p>
       The domain model is built upon three abstract base classes that enforce a
       generic structure across the system:
@@ -497,7 +349,7 @@
   </section>
 
   <section id="java-models">
-    <h3><span>6.2 </span>Java Application Models</h3>
+    <h3>Java Application Models</h3>
     <p>
       The domain entities are implemented as <a href="#pojo"><strong>Java POJOs</strong></a> (Plain Old Java Objects).
       The main <a href="#dto">Data Transfer Object (DTO)</a> is the <code>Artwork</code> class, which extends the
@@ -551,7 +403,7 @@
 
   <section id="mapping">
 
-    <h3><span>6.3 </span>Mapping RDF Data to Application Objects</h3>
+    <h3>Mapping RDF Data to Application Objects</h3>
     <p>
       Since the application interacts with a Semantic Knowledge Graph rather than a relational database,
       standard ORM (Object-Relational Mapping) frameworks are not applicable. Instead, the system
@@ -560,7 +412,7 @@
     </p>
     <section id="#local-mapping">
 
-      <h4><span>6.3.1 </span> Local Repository Mapping (Structured Parsing)</h4>
+      <h4> Local Repository Mapping (Structured Parsing)</h4>
       <p>
         In the <code>ArtworkRepository</code>, the mapping logic transforms semantic triples into Java objects
         by iterating through the <code>QuerySolution</code> results. To overcome the limitation of SPARQL
@@ -579,7 +431,7 @@
 
     <section id="#wikidata-mapping">
 
-      <h4><span>6.3.2 </span> Wikidata Federated Mapping (Data Normalization)</h4>
+      <h4> Wikidata Federated Mapping (Data Normalization)</h4>
       <p>
         The <code>WikidataArtworkRepository</code> interacts with the live Wikidata SPARQL service. The mapping layer here
         includes extensive <strong>Data Normalization</strong> logic to handle the heterogeneity of crowd-sourced data:
@@ -625,7 +477,7 @@
   </section>
 
   <section id="repository-service">
-    <h3><span>6.4 </span>Repository and Service Layer Design</h3>
+    <h3>Repository and Service Layer Design</h3>
     <p>
       The system architecture strictly follows the <strong>Service-Repository pattern</strong> facilitated by the
       Spring Boot framework. This design ensures a clear separation of concerns: the Controller layer handles HTTP
@@ -633,7 +485,7 @@
       the complexity of Semantic Web technologies.
     </p>
     <section id="repository-layer">
-      <h4><span>6.4.1 </span>The Repository Layer (Semantic Data Access)</h4>
+      <h4>The Repository Layer (Semantic Data Access)</h4>
       <p>
         The application defines specialized repositories (e.g., <code>ArtworkRepository</code>, <code>WikidataArtworkRepository</code>)
         that abstract the underlying data sources. A key architectural decision was the externalization of <a href="#ref-sparql"><strong>SPARQL queries</strong></a>.
@@ -655,7 +507,7 @@
 
     <section id="service-layer">
 
-      <h4><span>6.4.2 </span>The Service Layer (Orchestration & Context Switching)</h4>
+      <h4>The Service Layer (Orchestration & Context Switching)</h4>
       <p>
         The Service Layer (represented by <code>ArtworkService</code> and <code>WikidataArtworkService</code>) acts as a facade,
         orchestrating data flow and handling <strong>Model Selection</strong>.
@@ -689,14 +541,14 @@
 
 
 <section id="rdf-knowledge-modeling">
-  <h2><span>7. </span>RDF Knowledge Modeling and Semantic Vocabularies</h2>
+  <h2>RDF Knowledge Modeling and Semantic Vocabularies</h2>
   <p>
     The core of the developed system is a robust semantic data model capable of representing the complexity of artworks, their historical context, and provenance relations.
     The modeling strategy follows a hybrid approach: reusing standard W3C vocabularies for interoperability and defining a custom domain-specific ontology (ARP) to capture the particularities of the Romanian national heritage.
   </p>
 
   <section id="adopted-vocabularies">
-    <h3><span>7.1 </span>Adopted Semantic Vocabularies</h3>
+    <h3>Adopted Semantic Vocabularies</h3>
     <p>
       To ensure integration into the Linked Open Data (LOD) ecosystem, the system extensively uses standardized prefixes and definitions:
     </p>
@@ -720,7 +572,7 @@
   </section>
 
   <section id="custom-vocabulary">
-    <h3><span>7.2 </span>The Custom ARP Ontology</h3>
+    <h3>The Custom ARP Ontology</h3>
     <p>
       Since generic standards do not fully cover the specific workflow of the Romanian museum domain (e.g., the specific role of a "Registrar" in cataloging, the distinction between private collectors and public museums), a custom ontology named <strong>ARP (Artwork Provenance)</strong> was defined.
     </p>
@@ -830,7 +682,7 @@ arp:TransferOfCustody a owl:Class ;
   </section>
 
   <section id="data-transformation">
-    <h3><span>7.3 </span>Data Transformation and Resource Identification</h3>
+    <h3>Data Transformation and Resource Identification</h3>
     <p>
       The knowledge graph is populated through a dual-channel <a href="#ref-etl">ETL</a> (Extract-Transform-Load) process, consolidating data from heterogeneous sources into a unified RDF format.
     </p>
@@ -888,7 +740,7 @@ arp:TransferOfCustody a owl:Class ;
 
 
   <section id="provenance-modeling">
-    <h3><span>7.4 </span>Provenance Modeling with PROV-O</h3>
+    <h3>Provenance Modeling with PROV-O</h3>
     <p>
       A distinct feature of this project is the explicit modeling of provenance using the <a href="#prov">W3C PROV-O</a> standard.
       Instead of treating an artwork as a static object with simple string attributes, the system models it as the output of a dynamic process (Activity) performed by an Agent.
@@ -957,7 +809,7 @@ arp:TransferOfCustody a owl:Class ;
   </section>
 
   <section id="expressiveness-shacl">
-    <h3><span>7.5 </span>Expressiveness and Validation (SHACL)</h3>
+    <h3>Expressiveness and Validation (SHACL)</h3>
     <p>
       To guarantee the consistency and quality of the RDF data, a validation mechanism was implemented using  <a href="#shacl"><strong>SHACL</strong></a>(Shapes Constraint Language) .
       Unlike rigid XML schemas, <a href="#shacl"><strong>SHACL</strong></a> allows for logical graph validation.
@@ -1015,7 +867,7 @@ if (!report.conforms()) {
   </p>
 
   <section id="wikidata-integration">
-    <h3><span>8.1 </span>Integration with Wikidata</h3>
+    <h3>Integration with Wikidata</h3>
     <p>
       Wikidata serves as the primary hub for enriching the knowledge graph with international context. The system implements a dedicated <a href="#ref-etl">ETL</a> process via the <code>SparqlToTTLArp.java</code> component to ingest popular artworks and their provenance history.
     </p>
@@ -1057,7 +909,7 @@ if (!report.conforms()) {
   </section>
 
   <section id="getty-integration">
-    <h3><span>8.2 </span>Getty Vocabulary Integration (AAT, ULAN, TGN)</h3>
+    <h3>Getty Vocabulary Integration (AAT, ULAN, TGN)</h3>
     <p>
       To ensure semantic interoperability and standardize terminology, the system aligns its controlled vocabularies with the <a href="#ref-getty">Getty Research Institute</a> standards.
       This is critical for cross-language retrieval (e.g., searching for "wood" retrieves "lemn").
@@ -1112,7 +964,7 @@ if (!report.conforms()) {
   </section>
 
   <section id="non-trivial-sparql">
-    <h3><span>8.3 </span>Non-trivial SPARQL Queries and the ArP Query Service</h3>
+    <h3>Non-trivial SPARQL Queries and the ArP Query Service</h3>
     <p>
       To democratize access to the semantic data, the system exposes a dedicated web interface, the <strong>ArP Query Service</strong>.
       This Single Page Application (SPA) allows users to execute SPARQL queries against the integrated dataset without needing deep technical knowledge, thanks to a library of <strong>Predefined Queries</strong> injected dynamically from the backend via <code>PredefinedQueryLoader.java</code>.
@@ -1229,7 +1081,7 @@ ORDER BY ?artwork
     </p>
 
     <section id="http-uris">
-      <h4><span>8.4.1 </span> Use of HTTP URIs as Global Identifiers</h4>
+      <h4> Use of HTTP URIs as Global Identifiers</h4>
       <p>
         All domain entities managed by the system—artworks, artists, cultural institutions, and creative activities—are identified using stable, HTTP-based URIs.
         These are consistent across the RDF datasets and serve as global identifiers.
@@ -1266,7 +1118,7 @@ ORDER BY ?artwork
     </section>
 
     <section id="structured-rdf">
-      <h4><span>8.4.2 </span> Provision of Structured RDF Descriptions</h4>
+      <h4> Provision of Structured RDF Descriptions</h4>
       <p>
         Information is represented using the <strong>Resource Description Framework (RDF)</strong>, encoded in Turtle (<code>.ttl</code>) format.
         The RDF descriptions capture descriptive metadata (titles, dimensions) and provenance (authorship, creation activities).
@@ -1281,7 +1133,7 @@ ORDER BY ?artwork
     </section>
 
     <section id="sparql-access">
-      <h4><span>8.4.3 </span> Access to Data via SPARQL Queries</h4>
+      <h4> Access to Data via SPARQL Queries</h4>
       <p>
         While the HTTP URIs are primarily used as identifiers within the prototype's internal graph, the associated data is fully accessible via the <strong>SPARQL Endpoint</strong> exposed by the application.
       </p>
@@ -1291,7 +1143,7 @@ ORDER BY ?artwork
     </section>
 
     <section id="external-linking">
-      <h4><span>8.4.4 </span> Linking to External Knowledge Bases</h4>
+      <h4> Linking to External Knowledge Bases</h4>
       <p>
         The system establishes explicit semantic links between internal resources and the Linked Open Data cloud, specifically <strong>Wikidata</strong> and <a href="#ref-getty"><strong>Getty Vocabularies</strong></a>.
         Entities are enriched using properties such as:
@@ -1307,7 +1159,7 @@ ORDER BY ?artwork
     </section>
 
     <section id="conclusion-compliance">
-      <h4><span>8.4.5 </span> Summary of Alignment</h4>
+      <h4>Summary of Alignment</h4>
       <p>
         Although public dereferenceability (content negotiation on the open web) is not implemented in the current academic prototype, the underlying data model and URI design fully support such an extension.
         Therefore, the solution conforms to  <a href="#ref-linkeddata">Linked Data</a> principles at the semantic and architectural level, meeting the requirements for a <strong>4-Star Linked Data</strong> system (URIs, RDF, SPARQL) with strong elements of the <strong>5th Star</strong> (External Linking).
@@ -1323,7 +1175,7 @@ ORDER BY ?artwork
     </p>
 
     <section id="overall-impression">
-      <h3><span>9.1 </span> Overall Impression and Technical Impact</h3>
+      <h3> Overall Impression and Technical Impact</h3>
       <p>
         The project validates the "Hybrid Architecture" approach. The decision to decouple the semantic persistence layer (Jena TDB) from the presentation logic (Spring MVC) proved crucial for maintainability.
         Technically, the most significant achievement is the automated reconciliation pipeline (ETL) which successfully maps heterogeneous XML (LIDO) and JSON (Wikidata) sources into a unified ontology, enriched with Getty vocabulary links.
@@ -1331,7 +1183,7 @@ ORDER BY ?artwork
     </section>
 
     <section id="user-impact-usability">
-      <h3><span>9.2 </span> Impact on End Users and Usability</h3>
+      <h3> Impact on End Users and Usability</h3>
       <p>
         For the end-user (researchers, curators, and art enthusiasts), the system transforms the search experience.
         Instead of navigating disjointed databases, users can now perform <strong>semantic discovery</strong> navigating seamlessly from a Romanian painting to the international movement it belongs to, or tracing the provenance chain of an artwork through time.
@@ -1340,7 +1192,7 @@ ORDER BY ?artwork
     </section>
 
     <section id="business-value">
-      <h3><span>9.3 </span> Business Aspects and Sustainability</h3>
+      <h3> Business Aspects and Sustainability</h3>
       <p>
         From a business perspective, the solution offers high value with low recurring costs:
       </p>
@@ -1352,7 +1204,7 @@ ORDER BY ?artwork
     </section>
 
     <section id="future-development">
-      <h3><span>9.4 </span> Further Directions of Development</h3>
+      <h3> Further Directions of Development</h3>
       <p>
         While the current prototype meets all core requirements of a 4-Star Linked Data system, several avenues for future development are identified:
       </p>
@@ -1369,7 +1221,7 @@ ORDER BY ?artwork
 
 
 <section id="biblio-references">
-  <h2><span>10. </span>References</h2>
+  <h2>References</h2>
 
   <dl>
 
