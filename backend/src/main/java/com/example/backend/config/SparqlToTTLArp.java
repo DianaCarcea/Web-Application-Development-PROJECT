@@ -207,20 +207,20 @@ public class SparqlToTTLArp {
         if (!rawData.isEmpty()) {
             for (String entry : rawData.split("\\|")) {
                 String[] parts = entry.split("::", -1);
-                // Format: OwnerName::Start::End
+                // Format: name::Start::End
                 if (parts.length > 0 && !parts[0].isBlank()) {
-                    String ownerName = parts[0];
+                    String name = parts[0];
                     String startDate = (parts.length > 1) ? parts[1] : "";
                     String endDate = (parts.length > 2) ? parts[2] : "";
 
                     // 1. Creăm Agentul (Collector)
                     // Folosim prefixul "Collector_" în URI pentru a-l distinge
-                    String collectorUri = NS_RES_AGENT + "Collector_" + sanitizeURI(ownerName);
+                    String collectorUri = NS_RES_AGENT + "Collector_" + sanitizeURI(name);
                     Resource collectorRes = model.createResource(collectorUri);
 
                     if (!model.contains(collectorRes, RDF.type)) {
                         collectorRes.addProperty(RDF.type, model.createResource(NS_ARP + "Collector"));
-                        collectorRes.addProperty(model.createProperty(NS_ARP + "name"), ownerName);
+                        collectorRes.addProperty(model.createProperty(NS_ARP + "name"), name);
                     }
 
                     // 2. Creăm Blank Node pentru hasOwnership

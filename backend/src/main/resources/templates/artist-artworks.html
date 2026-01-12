@@ -133,7 +133,7 @@
                                 <table>
                                     <tr th:each="o : ${art.ownershipHistory}">
                                         <td>
-                                            <strong th:text="${o.ownerName}">Owner</strong>
+                                            <strong th:text="${o.name}">Owner</strong>
                                             <span th:if="${o.startedAt != null}">
                         (<span th:text="${o.startedAt}"></span>
                         <span th:if="${o.endedAt != null}"> – <span th:text="${o.endedAt}"></span></span>)
