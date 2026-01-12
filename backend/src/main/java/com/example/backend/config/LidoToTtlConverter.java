@@ -28,7 +28,7 @@ public class LidoToTtlConverter {
     public static void main(String[] args) {
 
         String inputPath = "src/main/resources/rdf/inp-clasate-arp-2014-02-02.xml";
-        String outputPath = "output.ttl";
+        String outputPath = "artworks_arp.ttl";
 
         try {
             File xmlFile = new File(inputPath);

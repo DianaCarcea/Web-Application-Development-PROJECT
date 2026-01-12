@@ -17,10 +17,10 @@ public class WikidataArtistFetcher {
 
     private static final int BATCH_SIZE = 50;
 
-    private static final String INPUT_FILE = "output.ttl";
+    private static final String INPUT_FILE = "artworks_arp.ttl";
     private static final String OUTPUT_FILE = "artists_wikidata_getty.ttl";
 
-//    private static final String INPUT_FILE = "artworks_arp.ttl";
+//    private static final String INPUT_FILE = "artworks_arp_int.ttl";
 //    private static final String OUTPUT_FILE = "artists_wikidata_getty_int.ttl";
 
 

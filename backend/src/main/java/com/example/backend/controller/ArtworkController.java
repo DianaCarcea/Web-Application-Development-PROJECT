@@ -23,15 +23,20 @@ public class ArtworkController {
         this.artistService = artistService;
     }
 
-    @GetMapping("/artworks")
-    public String showAllArtworks(
+    @GetMapping("/artworks-next")
+    public String showWikiHome(
+            @RequestParam(defaultValue = "1") int page,
             @RequestParam(name = "domain", defaultValue = "int") String domain,
             Model model) {
 
-        List<Artwork> artworks = artworkService.getHomepageArtworks(1, 30, domain);
-        model.addAttribute("domain", domain);
+        int pageSize = 30;
+
+        List<Artwork> artworks = artworkService.getHomepageArtworks(page, pageSize, domain);
+
         model.addAttribute("artworks", artworks);
-        model.addAttribute("currentPage", 1);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("domain",domain);
+
         return "artwork";
     }
 
@@ -83,22 +88,6 @@ public class ArtworkController {
         return "artist-artworks";
     }
 
-    @GetMapping("/artworks-next")
-    public String showWikiHome(
-            @RequestParam(defaultValue = "1") int page,
-            @RequestParam(name = "domain", defaultValue = "int") String domain,
-            Model model) {
-
-        int pageSize = 30;
-
-        List<Artwork> artworks = artworkService.getHomepageArtworks(page, pageSize, domain);
-
-        model.addAttribute("artworks", artworks);
-        model.addAttribute("currentPage", page);
-        model.addAttribute("domain",domain);
-
-        return "artwork";
-    }
 
     @GetMapping("/artworks/recommendations-fragment")
     public String getRecommendationsFragment(

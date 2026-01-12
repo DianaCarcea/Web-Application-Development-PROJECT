@@ -1,5 +1,11 @@
 package com.example.backend.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
@@ -17,8 +23,21 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 @RestController
+@Tag(name = "Data Export", description = "Endpoints for managing and downloading raw RDF data (Turtle .ttl files)")
 public class DownloadController {
 
+    @Operation(
+            summary = "List Available TTL Files",
+            description = "Scans the server's data folder and returns a list of all available Turtle (.ttl) files."
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "List of filenames",
+            content = @Content(
+                    mediaType = "application/json",
+                    schema = @Schema(example = "[\"artists.ttl\", \"artworks.ttl\", \"museums.ttl\"]")
+            )
+    )
     @GetMapping("/ttl/list")
     public List<String> listTTLFiles() throws IOException {
 
@@ -31,8 +50,28 @@ public class DownloadController {
                 .toList();
     }
 
+    @Operation(
+            summary = "Preview TTL File Content",
+            description = "Returns the raw text content of a specific .ttl file. Useful for inspecting data without downloading."
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "File content returned successfully",
+            content = @Content(mediaType = "text/plain")
+    )
+    @ApiResponse(
+            responseCode = "400",
+            description = "Invalid file request (file must end with .ttl)"
+    )
+    @ApiResponse(
+            responseCode = "404",
+            description = "File not found on server"
+    )
     @GetMapping(value = "/ttl/preview/{file}", produces = "text/plain; charset=UTF-8")
-    public ResponseEntity<String> previewTTL(@PathVariable String file) throws IOException {
+    public ResponseEntity<String> previewTTL(
+            @Parameter(description = "The name of the file to preview (e.g., 'artworks.ttl')", required = true)
+            @PathVariable String file
+    ) throws IOException {
 
         if (!file.endsWith(".ttl")) {
             return ResponseEntity.badRequest().body("Invalid file type");
@@ -51,6 +90,18 @@ public class DownloadController {
         }
     }
 
+    @Operation(
+            summary = "Download All Data (ZIP)",
+            description = "Compresses all available .ttl files into a single ZIP archive and initiates a file download."
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "ZIP file generated successfully",
+            content = @Content(
+                    mediaType = "application/octet-stream",
+                    schema = @Schema(type = "string", format = "binary") // This enables the "Download" button in Swagger UI
+            )
+    )
     @GetMapping("/download/ttl")
     public ResponseEntity<ByteArrayResource> downloadAllTTL() throws IOException {
 

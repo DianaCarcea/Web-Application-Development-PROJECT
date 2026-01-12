@@ -16,7 +16,7 @@ import java.util.List;
 public class WikidataMuseumFetcher {
 
     private static final int BATCH_SIZE = 20;
-    private static final String INPUT_FILE = "artworks_arp.ttl";
+    private static final String INPUT_FILE = "artworks_arp_int.ttl";
     private static final String OUTPUT_FILE = "museums_wikidata_getty_int.ttl";
 
     // Endpoint oficial Getty

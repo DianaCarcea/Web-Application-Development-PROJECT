@@ -28,8 +28,8 @@ public class GettyCategoryFetcher {
     }
 
     public static void main(String[] args) throws Exception {
-        Set<String> categoriesRo = extractCategoriesFromTTL("output.ttl");
-        Set<String> categoriesEn = extractCategoriesFromTTL("artworks_arp.ttl");
+        Set<String> categoriesRo = extractCategoriesFromTTL("artworks_arp.ttl");
+        Set<String> categoriesEn = extractCategoriesFromTTL("artworks_arp_int.ttl");
         String outputTTL = "getty-categories.ttl";
 
         Map<String, CategoryData> categoriesByAat = new HashMap<>();

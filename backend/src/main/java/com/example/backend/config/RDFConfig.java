@@ -17,7 +17,7 @@ public class RDFConfig {
     @Bean
     public Model artworkModel() {
         Model model = ModelFactory.createDefaultModel();
-        RDFDataMgr.read(model, "output.ttl");
+        RDFDataMgr.read(model, "artworks_arp.ttl");
         return model;
     }
 
@@ -32,7 +32,7 @@ public class RDFConfig {
     @Bean
     public Model wikiModel() {
         Model model = ModelFactory.createDefaultModel();
-        RDFDataMgr.read(model, "artworks_arp.ttl");
+        RDFDataMgr.read(model, "artworks_arp_int.ttl");
         return model;
     }
 
@@ -40,8 +40,8 @@ public class RDFConfig {
     public Dataset dataset() {
         Dataset ds = DatasetFactory.createTxnMem();
 
-        RDFDataMgr.read(ds, "output.ttl");
         RDFDataMgr.read(ds, "artworks_arp.ttl");
+        RDFDataMgr.read(ds, "artworks_arp_int.ttl");
         RDFDataMgr.read(ds, "getty-materials.ttl");
         RDFDataMgr.read(ds, "getty-categories.ttl");
         RDFDataMgr.read(ds, "museums_wikidata_getty.ttl");

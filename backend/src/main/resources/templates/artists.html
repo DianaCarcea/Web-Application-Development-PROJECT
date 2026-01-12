@@ -11,7 +11,7 @@
 <body>
 
 <nav class="top-nav">
-    <a href="javascript:history.back()" class="nav-back">< Back</a>
+    <a href="javascript:history.back()" class="nav-back">&lt; Back</a>
     <a href="/" class="nav-home">Discover</a>
 </nav>
 
@@ -45,7 +45,7 @@
                           : '/images/no-artist.png'}"
                          th:alt="${artist.name}">
                 </a>
-                <h3 th:text="${artist.name}"></h3>
+                <h3 th:text="${artist.name}">Artist Name</h3>
             </div>
         </div>
     </section>

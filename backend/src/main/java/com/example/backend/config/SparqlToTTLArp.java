@@ -36,7 +36,7 @@ public class SparqlToTTLArp {
         System.out.println("S-au găsit " + qIds.size() + " opere: " + qIds);
 
         if (!qIds.isEmpty()) {
-            saveArtworksAsTurtle(qIds, "artworks_arp.ttl");
+            saveArtworksAsTurtle(qIds, "artworks_arp_int.ttl");
         }
     }
 

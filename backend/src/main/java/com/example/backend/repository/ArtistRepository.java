@@ -41,6 +41,7 @@ public class ArtistRepository {
 
             QuerySolution sol = rs.nextSolution();
             Artist artist = new Artist();
+
             artist.uri = artistUri;
             artist.name = sol.contains("name") ? sol.getLiteral("name").getString() : "";
             artist.wikidataLabel = sol.contains("wikidataName") ? sol.getLiteral("wikidataName").getString() : "";
@@ -50,6 +51,11 @@ public class ArtistRepository {
             if(imageArtist != null) {
                 artist.imageLink = imageArtist;
             }
+            // ID compatibil URL
+
+            String[] parts = artistUri.split("/");
+
+            artist.id = parts[parts.length - 1];
             return artist;
         }
     }
