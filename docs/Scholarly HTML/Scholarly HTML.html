@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037) -->
+<html xmlns="http://www.w3.org/1999/html"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Scholarly HTML</title>
+  <link rel="stylesheet" href="./Scholarly HTML_files/scholarly.min.css">
+  <script src="./Scholarly HTML_files/scholarly.min.js.descărcare"></script>
+</head>
+<body prefix="schema: http://schema.org">
+<header>
+  <div class="banner">
+    <img src="./Scholarly HTML_files/scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
+    <div class="status">Community Draft</div>
+  </div>
+  <h1>Scholarly HTML</h1>
+</header>
+
+<div role="contentinfo">
+  <ol role="directory">
+    <li><a href="#abstract"><span>1. </span>Abstract</a></li>
+    <li><a href="#introduction"><span>2. </span>Introduction</a></li>
+    <li><a href="#problem"><span>3. </span>Problem statement</a></li>
+    <li><a href="#solution"><span>4. </span>Proposed solution and social impact</a></li>
+    <li>
+      <a href="#architecture">
+        <span>5. </span>System Architecture and API Design
+      </a>
+      <ol role="directory">
+
+        <li>
+          <a href="#context-level-1">
+            <span>5.1 </span>System Context (Level 1)
+          </a>
+        </li>
+
+        <li>
+          <a href="#containers-level-2">
+            <span>5.2 </span>System Containers (Level 2)
+          </a>
+        </li>
+
+        <li>
+          <a href="#components-level-3">
+            <span>5.3 </span>Backend Components (Level 3)
+          </a>
+        </li>
+
+        <li>
+          <a href="#code-level-4">
+            <span>5.4 </span>Implementation Details (Level 4)
+          </a>
+        </li>
+
+        <li>
+          <a href="#exposed-endpoints">
+            <span>5.5 </span>Exposed Endpoints and Resources
+          </a>
+          <ol role="directory">
+
+            <li>
+              <a href="#entity-management-endpoints">
+                <span>5.5.1 </span>Entity Management Endpoints
+              </a>
+            </li>
+
+            <li>
+              <a href="#technical-semantic-endpoints">
+                <span>5.5.2 </span>Technical &amp; Semantic Endpoints
+              </a>
+            </li>
+
+          </ol>
+        </li>
+
+        <li>
+          <a href="#openapi-spec">
+            <span>5.6 </span>OpenAPI Specification
+          </a>
+        </li>
+
+      </ol>
+    </li>
+
+    <li><a href="#data_model"><span>6. </span>Internal Data Structures and Application Models</a>
+      <ol role="directory">
+        <li><a href="#domain">
+          <span>6.1 </span>Domain Model Overview</a></li>
+        <li><a href="#java-models">
+          <span>6.2 </span>Java Application Models</a></li>
+        <li><a href="#mapping">
+          <span>6.3 </span>Mapping RDF Data to Application Objects</a>
+          <ol role="directory">
+            <li><a href="#local-mapping">
+              <span>6.3.1 </span>Local Repository Mapping (Structured Parsing)</a></li>
+            <li><a href="#wikidata-mapping">
+              <span>6.3.2 </span>Wikidata Federated Mapping (Data Normalization)</a></li>
+          </ol>
+
+        </li>
+        <li><a href="#repository-service">
+          <span>6.4 </span>Repository and Service Layer Design</a>
+          <ol role="directory">
+            <li><a href="#repository-layer">
+              <span>6.4.1 </span>The Repository Layer (Semantic Data Access)</a></li>
+            <li><a href="#service-layer">
+              <span>6.4.2 </span>The Service Layer (Orchestration & Context Switching)</a></li>
+          </ol>
+
+        </li>
+      </ol>
+
+    </li>
+
+    <li><a href="#rdf-knowledge-modeling"><span>7. </span>RDF Knowledge Modeling and Semantic Vocabularies</a>
+      <ol role="directory">
+        <li><a href="#adopted-vocabularies">
+          <span>7.1 </span>Adopted Semantic Vocabularies (PROV-O, SKOS, DCTerms, etc.)</a></li>
+        <li><a href="#custom-vocabulary">
+          <span>7.2 </span>The Custom ARP Ontology</a></li>
+        <li><a href="#data-transformation">
+          <span>7.3 </span>Data Transformation and Resource Identification</a></li>
+        <li><a href="#provenance-modeling">
+          <span>7.4 </span>Provenance Modeling with PROV-O</a></li>
+        <li><a href="#expressiveness-shacl">
+          <span>7.5 </span>Expressiveness and Validation (SHACL)</a></li>
+      </ol>
+    </li>
+
+    <li><a href="#integration-external-sources"><span>8. </span>Integration of External Knowledge Sources and Linked Data Principles</a>
+      <ol role="directory">
+        <li><a href="#wikidata-integration">
+          <span>8.1 </span>Integration with Wikidata</a></li>
+        <li><a href="#getty-integration">
+          <span>8.2 </span>Getty vocabulary</a></li>
+        <li><a href="#non-trivial-sparql">
+          <span>8.3 </span>Non-trivial SPARQL Queries</a></li>
+        <li><a href="#linked-data-conformance">
+          <span>8.4 </span>Compliance with Linked Data Principles</a>
+          <ol role="directory">
+            <li><a href="#http-uris">
+              <span>8.4.1 </span>Use of HTTP URIs as Global Identifiers</a></li>
+            <li><a href="#structured-rdf">
+              <span>8.4.2 </span>Provision of Structured RDF Descriptions</a></li>
+            <li><a href="#sparql-access">
+              <span>8.4.3 </span>Access to Data via SPARQL Queries</a></li>
+            <li><a href="#external-linking">
+              <span>8.4.4 </span>Linking to External Knowledge Bases</a></li>
+            <li><a href="#conclusion-compliance">
+              <span>8.4.5 </span>Summary of Alignment</a></li>
+          </ol>
+
+        </li>
+      </ol>
+
+    </li>
+    <li><a href="#conclusion"><span>9. </span>Conclusion and Future Directions</a>
+      <ol role="directory">
+        <li><a href="#overall-impression">
+          <span>9.1 </span>Overall Impression and Technical Impact</a></li>
+        <li><a href="#user-impact-usability">
+          <span>9.2 </span>Impact on End Users and Usability</a></li>
+        <li><a href="#business-value">
+          <span>9.3 </span>Business Aspects and Sustainability</a></li>
+        <li><a href="#future-development">
+          <span>9.4 </span>Further Directions of Development</a></li>
+      </ol>
+    </li>
+
+    <li><a href="#biblio-references"><span>10. </span>References</a></li>
+  </ol>
+
+  <dl>
+    <dt>Authors</dt>
+    <dd>
+      Carcea Diana
+      &amp;
+      Carcea Răzvan
+    </dd>
+
+    <dt>License</dt>
+    <dd>
+      <a href="https://opensource.org/licenses">OSI Approved Licenses</a><br>
+      <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a>
+    </dd>
+  </dl>
+
+</div>
+
+
+<section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+  <h2><span>1. </span>Abstract</h2>
+  <p>
+    This technical report presents a <a href="#ref-semantic_web">Semantic Web</a>–based platform for the exploration and
+    management of provenance information related to artistic works from Romania’s cultural
+    heritage. The system integrates open cultural data provided by
+    <a href="#ref-europeana">Europeana</a> with complementary
+    structured knowledge retrieved from <a href="#ref-wikidata">Wikidata</a>,
+    including information about artists, artworks,
+    and cultural institutions. By relying on <a href="#ref-rdf">RDF</a> data modeling,
+    <a href="#ref-sparql">SPARQL querying</a>, and <a href="#ref-linkeddata">Linked Data</a>
+    principles, the platform enables semantic integration of heterogeneous sources and supports
+    advanced functionalities such as contextual navigation, structured visualization, and
+    data-driven exploration of artworks. The proposed solution aims to enhance accessibility,
+    interoperability, and reuse of open cultural heritage data, contributing to its educational,
+    social, and research-oriented value.
+  </p>
+</section>
+
+<section id="introduction" role="doc-introduction">
+  <!-- review? -->
+  <h2><span>2. </span>Introduction</h2>
+  <p>
+    The digitization of cultural heritage has led to the publication of large volumes of
+    open data by cultural institutions and international initiatives such as
+    <a href="#ref-europeana">Europeana</a>
+    and <a href="#ref-wikidata">Wikidata</a>.
+    These platforms provide public access to information about
+    artworks, artists, and museums, supporting research, education, and cultural
+    dissemination. As a result, cultural heritage data has become increasingly available,
+    but also highly fragmented across multiple sources and formats.
+  </p>
+  <p>
+    Although such datasets are openly accessible, they are often published in heterogeneous
+    representations and with limited semantic alignment. This fragmentation restricts the
+    ability to explore cultural heritage in an integrated manner and makes it difficult to
+    analyze relationships such as artwork provenance, artistic movements, or institutional
+    context. Addressing these challenges requires approaches capable of integrating distributed
+    datasets and enabling meaningful semantic connections between them.
+  </p>
+  <p>
+    <a href="#ref-semantic_web">Semantic Web</a>
+    technologies offer a standardized framework for representing, interlinking,
+    and querying cultural heritage data. Through the use of
+    <a href="#ref-rdf">RDF</a>, shared vocabularies,
+    and <a href="#ref-sparql">SPARQL</a>, heterogeneous cultural datasets can be integrated into coherent knowledge
+    graphs that support complex exploration scenarios and reuse across applications.
+  </p>
+
+</section>
+<section id="problem">
+  <!-- review? -->
+  <h2><span>3. </span>Problem statement</h2>
+  <p>
+    Despite the availability of open cultural heritage data, existing platforms exhibit important
+    limitations when it comes to integrated exploration of artwork provenance.
+    <a href="#ref-europeana">Europeana</a> provides access
+    to <a href="#ref-romanian_dataset">Romanian cultural
+    heritage datasets</a> primarily in XML-based formats, where information
+    about artists, institutions, and provenance relationships is often incomplete or weakly
+    structured. Conversely, <a href="#ref-wikidata">Wikidata</a>
+    offers rich, well-structured knowledge about artists and
+    cultural entities, but does not comprehensively cover national heritage collections.
+  </p>
+  <p>
+    The lack of semantic interoperability between these datasets hinders unified exploration and
+    limits users’ ability to obtain a coherent view of artworks within their cultural, historical,
+    and institutional context. As a consequence, users are required to navigate multiple disconnected
+    platforms, reducing both usability and the potential for meaningful data reuse
+  </p>
+</section>
+
+<section id="solution">
+
+  <h2><span>4. </span>Proposed solution and social impact</h2>
+  <p>
+    This project proposes a web-based platform that semantically integrates
+    <a href="#ref-romanian_dataset">Romanian cultural
+      heritage</a> artworks sourced from
+    <a href="#ref-europeana">Europeana</a>
+    with complementary data retrieved from <a href="#ref-wikidata">Wikidata</a>.
+    The collected data is transformed into <a href="#ref-rdf">RDF</a>
+    and modeled using established semantic vocabularies, enabling
+    <a href="#ref-sparql">SPARQL</a>-based access and semantic
+    navigation across artworks, artists, and institutions.
+  </p>
+  <p>
+    The platform aims to deliver social and educational impact by improving access to structured
+    cultural knowledge and by supporting contextual exploration of artistic heritage.
+    Through a user-oriented interface and features such as artwork-centric navigation and
+    recommendations, the system encourages cultural discovery and facilitates the reuse of open
+    cultural data.
+  </p>
+</section>
+
+<section id="architecture">
+  <h2><span>5. </span>System Architecture and API Design</h2>
+
+  <p>
+    This chapter details the architectural design of the <strong>ArP Digital Catalog</strong>, utilizing the <strong>C4 Model</strong> to visualize the system's interactions, containers, components, and data structures.
+    The architecture is designed to function as a semantic aggregator, orchestrating data flow between external open-data sources and end-users through a hybrid web interface.
+  </p>
+
+  <section id="context-level-1">
+    <h3><span>5.1 </span>System Context (Level 1)</h3>
+    <p>
+      The <strong>System Context Diagram</strong> illustrates the high-level landscape of the application. It highlights the boundary between the internal <em>ArP Environment</em> and the <em>External Data Sources</em> required for data enrichment.
+    </p>
+
+    <figure style="text-align:center; margin: 20px 0;">
+      <img src="image/C1.png" alt="System Context Diagram - ArP Digital Catalog" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+      <figcaption>Figure 5.1: System Context Diagram</figcaption>
+    </figure>
+
+    <p>The system serves two distinct types of actors:</p>
+    <ul>
+      <li><strong>Web Visitor:</strong> A human user accessing the system via a browser to discover artists and artworks through the graphical interface (HTML).</li>
+      <li><strong>Developer / API Client:</strong> A technical consumer accessing the system programmatically to retrieve structured JSON data or execute direct SPARQL queries.</li>
+    </ul>
+
+    <p>To fulfill its role, the ArP Digital Catalog integrates with several <strong>External Systems</strong>:</p>
+    <ul>
+      <li><strong>Wikidata API:</strong> Used via SPARQL to extract metadata for international artworks and fill gaps in local Romanian records.</li>
+      <li><strong>Getty Vocabularies:</strong> Accessed to standardize technical terms (materials, categories) using AAT, ULAN, and TGN identifiers.</li>
+      <li><strong>Wikimedia Commons & Google Images:</strong> Utilized for resolving and scraping visual assets (images) for the cataloged items.</li>
+    </ul>
+  </section>
+
+  <section id="containers-level-2">
+    <h3><span>5.2 </span>System Containers (Level 2)</h3>
+    <p>
+      The <strong>Container Diagram</strong> zooms into the <em>ArP Ecosystem</em>, differentiating between the runtime web application and the offline data processing tools.
+    </p>
+
+    <figure style="text-align:center; margin: 20px 0;">
+      <img src="image/C2.png" alt="Container Diagram - ArP Digital Catalog Ecosystem" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+      <figcaption>Figure 5.2: Container Diagram</figcaption>
+    </figure>
+
+    <p>The ecosystem is composed of four main containers:</p>
+    <ul>
+      <li><strong>Spring Boot Application:</strong> The core Java 21 monolith. It handles business logic, performs server-side rendering (Spring MVC), and exposes the REST API.</li>
+      <li><strong>RDF File Storage:</strong> The persistent storage layer consisting of static Turtle (<code>.ttl</code>) files (e.g., <code>artworks_arp.ttl</code>, <code>artists.ttl</code>). These files act as the reliable source of truth.</li>
+      <li><strong>ETL & Ingestion Modules:</strong> A set of standalone Java console applications (<code>LidoToTtlConverter</code>, <code>GettyFetchers</code>). These tools transform raw local XML (LIDO) and remote SPARQL data into the standardized RDF files.</li>
+      <li><strong>In-Memory Knowledge Graph (Apache Jena):</strong> A high-performance semantic graph. It is initialized at startup by reading the RDF File Storage, enabling fast, read-only SPARQL operations during runtime.</li>
+    </ul>
+  </section>
+
+  <section id="components-level-3">
+    <h3><span>5.3 </span>Backend Components (Level 3)</h3>
+    <p>
+      To support the dual requirement of serving both humans and machines, the backend adopts a <strong>Hybrid Architecture</strong>.
+      The <strong>Component Diagram</strong> below illustrates the internal layering of the <em>Spring Boot Application</em>.
+    </p>
+
+    <figure style="text-align:center; margin: 20px 0;">
+      <img src="image/C3.png" alt="Component Diagram - Spring Boot Backend" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+      <figcaption>Figure 5.3: Component Diagram</figcaption>
+    </figure>
+
+    <p>The internal components interact as follows:</p>
+
+    <h4>5.3.1 Presentation Layer (Hybrid)</h4>
+    <ul>
+      <li><strong>Web Controllers:</strong> (e.g., <code>ArtworkController</code>) Serve HTML views using Thymeleaf. They handle page loads and deliver HTML fragments for AJAX requests (e.g., recommendation sliders).</li>
+      <li><strong>API Controllers:</strong> (e.g., <code>ApiArtistController</code>, <code>SparqlController</code>) Bypass the view resolver to serve raw JSON and handle binary exports (ZIP).</li>
+    </ul>
+
+    <h4>5.3.2 Business & Data Access Layer</h4>
+    <ul>
+      <li><strong>Services:</strong> (<code>ArtistService</code>, <code>ArtworkService</code>) Contain business logic such as pagination calculations and domain filtering (switching between Romanian and International datasets).</li>
+      <li><strong>Repositories:</strong> (<code>ArtworkRepository</code>) The data access layer. Unlike traditional ORMs, these components load <code>.sparql</code> templates, execute them against the <strong>Apache Jena Dataset</strong>, and manually map the resulting <code>ResultSet</code> into Domain POJOs.</li>
+      <li><strong>Configuration:</strong> (<code>RDFConfig</code>, <code>PredefinedQueryLoader</code>) Responsible for bootstrapping the application by loading the TTL files into memory at startup.</li>
+    </ul>
+  </section>
+
+  <section id="code-level-4">
+    <h3><span>5.4 </span>Implementation Details (Level 4)</h3>
+    <p>
+      The <strong>Class Diagram (Level 4)</strong> provides a comprehensive view of the codebase structure, illustrating the relationships between the Data Ingestion modules, the Spring Boot Backend components, and the Domain Model.
+    </p>
+
+    <figure style="text-align:center; margin: 20px 0;">
+      <img src="/image/C4.png" alt="Implementation Class Diagram" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+      <figcaption>Figure 5.4: Implementation Class Diagram</figcaption>
+    </figure>
+
+    <p>The diagram highlights three key architectural areas:</p>
+
+    <h4>5.4.1 Domain Model (Top-Left)</h4>
+    <p>
+      The system models the cultural domain using a robust inheritance hierarchy.
+      The base <code>Entity</code> class (containing <code>id</code>, <code>uri</code>) is extended by <code>Artwork</code>.
+      Similarly, the <code>Agent</code> class is the parent for <code>Person</code>, <code>Museum</code>, and specialized roles like <code>Artist</code>, <code>Collector</code>, <code>Registrar</code>, and <code>Validator</code>.
+      This structure directly mirrors the RDF ontology used in the Knowledge Graph.
+    </p>
+
+    <h4>5.4.2 MVC Layers (Middle)</h4>
+    <p>
+      The diagram visualizes the dependency flow in the Spring Boot application:
+    </p>
+    <ul>
+      <li><strong>Controllers:</strong> Classes like <code>ApiArtworkController</code> and <code>ArtworkController</code> handle HTTP requests and delegate logic to services.</li>
+      <li><strong>Services:</strong> <code>ArtworkService</code> and <code>ArtistService</code> encapsulate business rules and act as intermediaries.</li>
+      <li><strong>Repositories:</strong> <code>ArtworkRepository</code> and <code>ArtistRepository</code> are responsible for interacting with the <code>Apache Jena</code> models. They use helper methods like <code>loadSparql()</code> to execute queries and populate the domain objects.</li>
+    </ul>
+
+    <h4>5.4.3 ETL & Utilities (Bottom)</h4>
+    <p>
+      The bottom section displays the standalone tools used for data ingestion, such as <code>LidoToTtlConverter</code> (for local XML processing) and <code>WikidataArtistFetcher</code> / <code>GettyCategoryFetcher</code> (for remote data enrichment).
+      Utility classes like <code>ImageOrchestrator</code> and <code>WikimediaUtils</code> assist in resolving external assets.
+    </p>
+  </section>
+
+  <section id="exposed-endpoints">
+    <h3><span>5.5 </span>Exposed Endpoints and Resources</h3>
+    <p>
+      The REST API is organized around resource-oriented controllers using standard HTTP verbs. A global filtering parameter, <code>domain</code> (<code>ro</code>/<code>int</code>), is consistently implemented across endpoints.
+    </p>
+
+    <section id="entity-management-endpoints">
+      <h4><span>5.5.1 </span>Entity Management Endpoints</h4>
+      <ul>
+        <li>
+          <strong>Artist API (<code>/api/artists</code>):</strong>
+          <ul>
+            <li><code>GET /api/artists</code>: Returns a paginated list of artists.</li>
+            <li><code>GET /api/artists/{id}</code>: Retrieves detailed metadata for a specific artist.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Artwork API (<code>/api/artworks</code>):</strong>
+          <ul>
+            <li><code>GET /api/artworks</code>: Retrieves a paginated list of artworks.</li>
+            <li><code>GET /api/artworks/{id}</code>: Returns the full artwork entity with embedded recommendations.</li>
+            <li><code>GET /api/artworks/recommendations</code>: Specialized endpoint for AJAX lazy loading.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section id="technical-semantic-endpoints">
+      <h4><span>5.5.2 </span> Technical &amp; Semantic Endpoints</h4>
+      <ul>
+        <li>
+          <strong>SPARQL Endpoint (<code>/sparql</code>):</strong>
+          Accepts raw SPARQL <code>SELECT</code> queries via <code>POST</code> and returns results in standard JSON format.
+        </li>
+        <li>
+          <strong>Data Export (<code>/download/ttl</code>):</strong>
+          Aggregates all available Turtle (<code>.ttl</code>) files into a downloadable ZIP archive.
+        </li>
+      </ul>
+    </section>
+  </section>
+
+  <section id="openapi-spec">
+    <h3><span>5.6 </span> OpenAPI Specification</h3>
+    <p>
+      The system implements the <strong>OpenAPI 3.0 Specification</strong> using <code>springdoc-openapi</code>.
+      The API contract is generated dynamically at runtime by introspecting controller annotations (<code>@Tag</code>, <code>@Operation</code>).
+      An interactive <strong>Swagger UI</strong> interface is automatically exposed at <code>/swagger-ui.html</code> for testing.
+    </p>
+  </section>
+
+</section>
+
+<section id="data_model">
+
+  <h2><span>6. </span>Internal Data Structures and Application Models</h2>
+  <p>
+    The application implements a data model strictly aligned with the W3C <a href="#prov">PROV-O</a>
+    (Provenance Ontology) standards. Instead of an arbitrary database schema,
+    the internal Java classes mirror the semantic triplets used in the Knowledge
+    Graph: Entities (what was created), Agents (who influenced the entity),
+    and Activities (how the entity was modified). This alignment ensures a
+    seamless transition between the RDF layer and the Object-Oriented application
+    logic.
+  </p>
+
+  <section id="domain">
+
+    <h3><span>6.1 </span>Domain Model Overview</h3>
+    <p>
+      The domain model is built upon three abstract base classes that enforce a
+      generic structure across the system:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Entity:</strong> Represents physical or digital artifacts. In the context of this project,
+        it serves as the parent for the <code>Artwork</code> class.
+      </li>
+      <li>
+        <strong>Agent:</strong> Represents entities that bear responsibility for an activity.
+        This is the superclass for <code>Museum</code> and <code>Person</code>. The <code>Person</code>
+        class is further specialized into <code>Artist</code>, <code>Registrar</code>,
+        <code>Validator</code>, and <code>Collector</code>.
+      </li>
+      <li>
+        <strong>Activity:</strong> Represents dynamic events that affect the entity's state.
+        The primary implementation used is <code>Creation</code>, which captures the temporal
+        and technical context of an artwork's origin.
+      </li>
+    </ul>
+
+  </section>
+
+  <section id="java-models">
+    <h3><span>6.2 </span>Java Application Models</h3>
+    <p>
+      The domain entities are implemented as <a href="#pojo"><strong>Java POJOs</strong></a> (Plain Old Java Objects).
+      The main <a href="#dto">Data Transfer Object (DTO)</a> is the <code>Artwork</code> class, which extends the
+      generic <code>Entity</code> class. This structure allows the application to handle data
+      uniformly across the view layer while preserving the specific attributes required for detailed views.
+    </p>
+    <p>
+      Key implementation details include:
+    </p>
+    <ul>
+      <li><strong>Inheritance Strategy:</strong> The Java classes utilize inheritance to avoid code duplication.
+        For instance, <code>Artist</code> extends <code>Person</code>, which in turn extends <code>Agent</code>, inheriting standard fields like URI and Name.</li>
+      <li><strong>Complex Types:</strong> The <code>ownershipHistory</code> is modeled as a <code>List&lt;Collector&gt;</code>,
+        where each <code>Collector</code> object stores the owner's name, start date, and end date of the possession.</li>
+      <li><strong>Flexibility:</strong> Fields like <code>materialsUsed</code> or <code>techniques</code> are stored as
+        <code>List&lt;String&gt;</code> to accommodate the variability of cultural metadata retrieved via SPARQL <code>GROUP_CONCAT</code> functions.</li>
+      <li><strong>Unified Data Representation:</strong> The model acts as a hybrid aggregator, encapsulating fields specific
+        to the local heritage (e.g., <code>cimecLink</code>) alongside fields retrieved from external sources (e.g., <code>wikidataLink</code>).</li>
+    </ul>
+
+    <figure style="text-align:center; margin: 20px 0;">
+      <img src="image/uml_class.png"
+           alt="UML Class Diagram showing the Java implementation of the data model"
+           style="width: 100%; display: block;">
+      <figcaption style="font-style: italic; color: #555; margin-top: 8px;">
+        Figure 1. The UML Class Diagram of the Java Application Models.
+      </figcaption>
+    </figure>
+
+    <p>
+      Below is a snippet of the central <code>Artwork</code> class, illustrating the aggregation of related agents and activities:
+    </p>
+    <pre><code class="language-java">public class Artwork extends Entity {
+    public String inventoryNumber;
+    public String category;
+
+    // Specific external and internal identifiers
+    public String cimecLink;
+    public String wikidataLink;
+
+    // Aggregation of related entities
+    public Creation creation;
+    public Registrar registrar;
+    public Validator validator;
+
+    // Handling multi-valued properties and provenance
+    public List&lt;String&gt; materialsUsed;
+    public List&lt;Collector&gt; ownershipHistory = new ArrayList<>();
+}</code></pre>
+  </section>
+
+  <section id="mapping">
+
+    <h3><span>6.3 </span>Mapping RDF Data to Application Objects</h3>
+    <p>
+      Since the application interacts with a Semantic Knowledge Graph rather than a relational database,
+      standard ORM (Object-Relational Mapping) frameworks are not applicable. Instead, the system
+      implements a dual <strong>manual mapping strategy</strong> to handle data retrieval from both
+      the local Jena Knowledge Graph and the remote Wikidata SPARQL endpoint.
+    </p>
+    <section id="#local-mapping">
+
+      <h4><span>6.3.1 </span> Local Repository Mapping (Structured Parsing)</h4>
+      <p>
+        In the <code>ArtworkRepository</code>, the mapping logic transforms semantic triples into Java objects
+        by iterating through the <code>QuerySolution</code> results. To overcome the limitation of SPARQL
+        <code>SELECT</code> queries returning flat tabular data, the application implements specific parsing logic:
+      </p>
+      <ul>
+        <li><strong>List Aggregation:</strong> Multi-valued properties (e.g., <code>classifications</code>, <code>materials</code>)
+          are retrieved as concatenated strings using the SPARQL <code>GROUP_CONCAT</code> function. The Java application
+          splits these raw strings (delimited by <code>;</code>) to populate <code>List&lt;String&gt;</code> fields.</li>
+        <li><strong>Provenance Reconstruction:</strong> The most complex mapping task involves the ownership history.
+          The query retrieves provenance events as composite strings in the format <code>"OwnerName||StartDate||EndDate"</code>.
+          The application parses these tokens programmatically to instantiate <code>Collector</code> objects, handling
+          null values and sorting the history chronologically in memory.</li>
+      </ul>
+    </section>
+
+    <section id="#wikidata-mapping">
+
+      <h4><span>6.3.2 </span> Wikidata Federated Mapping (Data Normalization)</h4>
+      <p>
+        The <code>WikidataArtworkRepository</code> interacts with the live Wikidata SPARQL service. The mapping layer here
+        includes extensive <strong>Data Normalization</strong> logic to handle the heterogeneity of crowd-sourced data:
+      </p>
+      <ul>
+        <li><strong>Date Standardization:</strong> <a href="#ref-wikidata">Wikidata</a> dates (`inception`, `pointInTime`) vary in format (ISO timestamps vs. simple years).
+          The repository implements Regex-based parsing to extract the year uniformly.</li>
+        <li><strong>Dimensional Parsing:</strong> Physical dimensions are often returned as separate values and units (e.g., "50" and "cm").
+          The mapping logic concatenates these into a human-readable <code>dimensions</code> string.</li>
+        <li><strong>Advanced Image Orchestration:</strong> Standard queries often yield missing or incompatible image URLs (e.g., TIFF files).
+          The application employs an <code>ImageOrchestrator</code> with a "Waterfall" discovery strategy:
+          <ul>
+            <li>It prioritizes the <strong>Wikipedia PageImages API</strong> for accuracy, falling back to a <strong>Google Images Scraper</strong> and <strong>Wikimedia Commons</strong> search if necessary.</li>
+            <li><strong>Transcoding:</strong> It detects unsupported formats (like .tif) and dynamically rewrites the URL (appending <code>width=800</code>) to force Wikimedia to serve a browser-compatible JPG thumbnail.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p>
+        The following code snippet demonstrates the parsing logic used to reconstruct the provenance chain from a raw SPARQL result:
+      </p>
+      <pre><code class="language-java">// Extracting and parsing the Ownership History from a flat SPARQL string
+  if (sol.contains("ownershipHistory")) {
+      String raw = sol.getLiteral("ownershipHistory").getString();
+
+      for (String entry : raw.split(";;")) {
+          // Splitting the composite token "Name||Start||End"
+          String[] parts = entry.split("\\|\\|", -1);
+
+          Collector o = new Collector();
+          o.name = parts.length > 0 ? parts[0] : "?";
+          o.startedAt = parts.length > 1 && !parts[1].isEmpty() ? parts[1] : "?";
+          o.endedAt = parts.length > 2 && !parts[2].isEmpty() ? parts[2] : "?";
+
+          artwork.ownershipHistory.add(o);
+      }
+      // Sorting logic to ensure chronological order
+      artwork.ownershipHistory.sort(comparator);
+  }</code></pre>
+
+    </section>
+
+  </section>
+
+  <section id="repository-service">
+    <h3><span>6.4 </span>Repository and Service Layer Design</h3>
+    <p>
+      The system architecture strictly follows the <strong>Service-Repository pattern</strong> facilitated by the
+      Spring Boot framework. This design ensures a clear separation of concerns: the Controller layer handles HTTP
+      requests, the Service layer manages business logic and model selection, and the Repository layer encapsulates
+      the complexity of Semantic Web technologies.
+    </p>
+    <section id="repository-layer">
+      <h4><span>6.4.1 </span>The Repository Layer (Semantic Data Access)</h4>
+      <p>
+        The application defines specialized repositories (e.g., <code>ArtworkRepository</code>, <code>WikidataArtworkRepository</code>)
+        that abstract the underlying data sources. A key architectural decision was the externalization of <a href="#ref-sparql"><strong>SPARQL queries</strong></a>.
+        Instead of hardcoding complex SPARQL strings within Java classes, the system loads them dynamically from external
+        <code>.sparql</code> resources (e.g., <code>/sparql/artwork-find-all.sparql</code>). This approach enhances maintainability,
+        allowing queries to be tested and optimized independently of the compilation process.
+      </p>
+      <p>
+        The repositories implement two distinct access strategies:
+      </p>
+      <ul>
+        <li><strong>In-Memory Graph Access:</strong> For the Romanian Heritage dataset, the repository queries a local
+          <a href="#jena">Apache Jena</a> <code>Model</code> loaded at startup.</li>
+        <li><strong>Federated Querying (SPARQL Client):</strong> For the International dataset, the <code>WikidataArtworkRepository</code>
+          acts as an HTTP client, constructing and executing requests against the public <code>https://query.wikidata.org/sparql</code> endpoint
+          using <code>QueryExecutionHTTP</code>.</li>
+      </ul>
+    </section>
+
+    <section id="service-layer">
+
+      <h4><span>6.4.2 </span>The Service Layer (Orchestration & Context Switching)</h4>
+      <p>
+        The Service Layer (represented by <code>ArtworkService</code> and <code>WikidataArtworkService</code>) acts as a facade,
+        orchestrating data flow and handling <strong>Model Selection</strong>.
+      </p>
+      <p>
+        A distinctive feature of the business logic is the dynamic <strong>Context Switching</strong> based on the user's intent.
+        Methods such as <code>getHomepageArtworks</code> accept a <code>domain</code> parameter. Based on this value (`"ro"` or `"int"`),
+        the service routes the request to the appropriate repository and data model. This abstraction allows the Controller
+        to remain agnostic of the underlying data source, processing lists of <code>Artwork</code> DTOs uniformly regardless of whether
+        they originated from a local ontology or the global Wikidata knowledge graph.
+      </p>
+
+      <p>
+        Additionally, this layer handles presentation logic such as:
+      </p>
+      <ul>
+        <li><strong>Pagination:</strong> Calculating SPARQL <code>LIMIT</code> and <code>OFFSET</code> based on page numbers.</li>
+        <li><strong>Contextual Recommendations:</strong> The system encourages exploration by suggesting artworks that share:
+          <ul>
+            <li><strong>Authorship:</strong> Other works created by the same <strong>Artist</strong>.</li>
+            <li><strong>Institutional Context:</strong> Artworks housed in the same <strong>Museum</strong> or location.</li>
+            <li><strong>Thematic Classification:</strong> Artworks falling under the same <strong>Category</strong>.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+  </section>
+
+</section>
+
+
+<section id="rdf-knowledge-modeling">
+  <h2><span>7. </span>RDF Knowledge Modeling and Semantic Vocabularies</h2>
+  <p>
+    The core of the developed system is a robust semantic data model capable of representing the complexity of artworks, their historical context, and provenance relations.
+    The modeling strategy follows a hybrid approach: reusing standard W3C vocabularies for interoperability and defining a custom domain-specific ontology (ARP) to capture the particularities of the Romanian national heritage.
+  </p>
+
+  <section id="adopted-vocabularies">
+    <h3><span>7.1 </span>Adopted Semantic Vocabularies</h3>
+    <p>
+      To ensure integration into the Linked Open Data (LOD) ecosystem, the system extensively uses standardized prefixes and definitions:
+    </p>
+    <ul>
+      <li>
+        <a href="#prov"><strong>PROV-O (The PROV Ontology):</strong></a> The backbone of the model, used to describe the lineage, creation, and custody transfer of artworks.
+        Prefix: <code>prov: &lt;http://www.w3.org/ns/prov#&gt;</code>.
+      </li>
+      <li>
+        <a href="#dublin_core"><strong>Dublin Core Terms (DCTerms):</strong></a> Used for general descriptive metadata, such as licensing (<code>dct:license</code>) and identifiers.
+        Prefix: <code>dct: &lt;http://purl.org/dc/terms/&gt;</code>.
+      </li>
+      <li>
+        <a href="#foaf"><strong>FOAF (Friend of a Friend):</strong></a> Used for modeling agents (people, organizations).
+        Prefix: <code>foaf: &lt;http://xmlns.com/foaf/0.1/&gt;</code>.
+      </li>
+      <li>
+        <a href="#rdfs"><strong>RDFS</strong></a> & <a href="#owl"><strong>OWL:</strong></a> The fundamental languages used for defining classes, properties, and ontological hierarchies.
+      </li>
+    </ul>
+  </section>
+
+  <section id="custom-vocabulary">
+    <h3><span>7.2 </span>The Custom ARP Ontology</h3>
+    <p>
+      Since generic standards do not fully cover the specific workflow of the Romanian museum domain (e.g., the specific role of a "Registrar" in cataloging, the distinction between private collectors and public museums), a custom ontology named <strong>ARP (Artwork Provenance)</strong> was defined.
+    </p>
+    <p>
+      The ontology extends the three core classes of the W3C PROV standard: <strong>Entity</strong>, <strong>Agent</strong>, and <strong>Activity</strong>, using the inheritance mechanism (<code>rdfs:subClassOf</code>). The defined namespace is <code>http://arp.ro/schema#</code>.
+    </p>
+
+    <figure style="text-align:center; margin: 20px 0;">
+      <img src="image/arp_schema.png" alt="ARP Ontology Schema visualized in Stardog Designer" style="max-width: 100%; height: auto; border: 1px solid #ddd; padding: 5px;">
+      <figcaption style="font-style: italic; color: #555; margin-top: 8px;">
+        Figure 2. The ARP Ontology Class Hierarchy and <a href="#prov">PROV-O</a> Mapping (Visualized in <a href="https://cloud.stardog.com/share/5c1a283783a46850">Stardog Explorer</a>)
+      </figcaption>
+    </figure>
+
+    <h4>Class Hierarchy and Semantics</h4>
+    <p>
+      The following definitions illustrate how the custom classes map to the standard <a href="#prov">PROV</a> model, explaining the specific purpose of each derived concept within the system:
+    </p>
+
+    <pre><code>
+# =========================================================
+# 1. ENTITIES (Digital or Physical Objects)
+# Base Class: prov:Entity
+# =========================================================
+
+arp:Artwork a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:comment "The core entity of the system. Represents the physical cultural heritage object (painting, drawing, etc.)." .
+
+arp:Collection a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:comment "A logical grouping of artworks (e.g., 'The Royal Collection'). Can act as a container for provenance context." .
+
+
+# =========================================================
+# 2. AGENTS (Who is responsible?)
+# Base Class: prov:Agent
+# =========================================================
+
+# --- Intermediate Base Classes ---
+arp:Agent a owl:Class ;
+    rdfs:subClassOf prov:Agent ;
+    rdfs:label "Agent" .
+
+arp:Person a owl:Class ;
+    rdfs:subClassOf arp:Agent, prov:Person ;
+    rdfs:label "Person" ;
+    rdfs:comment "A human agent. Inherits properties from both local Agent and PROV Person." .
+
+arp:Organization a owl:Class ;
+    rdfs:subClassOf arp:Agent, prov:Organization ;
+    rdfs:label "Organization" .
+
+# --- Specific Roles (Inheriting from arp:Person) ---
+arp:Artist a owl:Class ;
+    rdfs:subClassOf arp:Person ;
+    rdfs:comment "The creator of the artwork." .
+
+arp:Collector a owl:Class ;
+    rdfs:subClassOf arp:Person ;
+    rdfs:label "Collector" ;
+    rdfs:comment "A private individual who owns or previously owned the artwork." .
+
+arp:Restorer a owl:Class ;
+    rdfs:subClassOf arp:Person ;
+    rdfs:label "Restorer" .
+
+# --- Cataloging Roles (System Specific) ---
+arp:Registrar a owl:Class ;
+    rdfs:subClassOf arp:Person ;
+    rdfs:label "Registrar / Cataloguer" ;
+    rdfs:comment "The museum employee who creates the initial digital record." .
+
+arp:Validator a owl:Class ;
+    rdfs:subClassOf arp:Person ;
+    rdfs:label "Validator" ;
+    rdfs:comment "The expert who verifies the accuracy of the catalog record." .
+
+# --- Specific Organizations ---
+arp:Museum a owl:Class ;
+    rdfs:subClassOf arp:Organization ;
+    rdfs:label "Museum" .
+
+
+# =========================================================
+# 3. ACTIVITIES (Dynamic Events)
+# Base Class: prov:Activity
+# =========================================================
+
+arp:Creation a owl:Class ;
+    rdfs:subClassOf prov:Create ;
+    rdfs:comment "The event of bringing the artwork into existence. Links the Artist to the Artwork." .
+
+arp:Restoration a owl:Class ;
+    rdfs:subClassOf prov:Modify ;
+    rdfs:comment "An event where the artwork was physically altered for conservation purposes." .
+
+arp:Exhibition a owl:Class ;
+    rdfs:subClassOf prov:Publish ;
+    rdfs:comment "A public event where the artwork was displayed. Adds value to the object's history." .
+
+arp:TransferOfCustody a owl:Class ;
+    rdfs:subClassOf prov:Activity ;  # Can also map to prov:RightsAssignment
+    rdfs:comment "Represents the sale, donation, or transfer of the object between Agents (e.g., from Collector to Museum)." .
+        </code></pre>
+
+  </section>
+
+  <section id="data-transformation">
+    <h3><span>7.3 </span>Data Transformation and Resource Identification</h3>
+    <p>
+      The knowledge graph is populated through a dual-channel <a href="#ref-etl">ETL</a> (Extract-Transform-Load) process, consolidating data from heterogeneous sources into a unified RDF format.
+    </p>
+
+    <h4>A. Ingestion from National Heritage (LIDO XML)</h4>
+    <p>
+      The primary dataset, <code>artworks_arp.ttl</code>, is generated by parsing legacy <a href="#lido">LIDO</a> XML files provided by CIMEC via <a href="#ref-romanian_dataset">Europeana</a>.
+      The transformation logic is encapsulated in <code>LidoToTtlConverter.java</code>, which maps XML tags to ARP ontology properties.
+    </p>
+
+    <h4>B. Ingestion from Wikidata (SPARQL)</h4>
+    <p>
+      To enrich the system with international context, a secondary dataset <code>artworks_arp_int.ttl</code> is generated using <code>SparqlToTTLArp.java</code>.
+      This component:
+    </p>
+    <ol>
+      <li>Executes SPARQL queries against the <strong>Wikidata Query Service</strong> to fetch popular artworks (<code>wd:Q838948</code>).</li>
+      <li>Extracts metadata (labels, dimensions, materials, significant events).</li>
+      <li>Programmatically constructs an RDF model using <a href="#jena"><strong>Apache Jena</strong></a>, ensuring the resulting Turtle file adheres strictly to the ARP ontology structure.</li>
+    </ol>
+
+    <h4>C. Resource Identification Strategy (URI Policy)</h4>
+    <p>
+      Regardless of the source (<a href="#lido">LIDO</a> or <a href="#ref-wikidata">Wikidata</a>), the system enforces a strict URI policy to ensure global uniqueness and dereferenceability within the <code>http://arp.ro/resource/</code> namespace.
+      The implementation sanitizes input strings to generate valid IRIs.
+    </p>
+
+    <table border="1">
+      <thead>
+      <tr>
+        <th>Entity Type</th>
+        <th>URI Pattern</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><strong>Artwork</strong></td>
+        <td><code>http://arp.ro/resource/artwork/{ID}</code></td>
+        <td>Unique ID (CIMEC RecID or Wikidata Q-ID).</td>
+      </tr>
+      <tr>
+        <td><strong>Agent</strong></td>
+        <td><code>http://arp.ro/resource/agent/{Sanitized_Name}</code></td>
+        <td>Uniform ID for Artists, Museums, and Organizations.</td>
+      </tr>
+      <tr>
+        <td><strong>Activity</strong></td>
+        <td><code>http://arp.ro/resource/activity/creation_{Artwork_ID}</code></td>
+        <td>Synthesized ID linking the creation event to the artwork.</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <section id="provenance-modeling">
+    <h3><span>7.4 </span>Provenance Modeling with PROV-O</h3>
+    <p>
+      A distinct feature of this project is the explicit modeling of provenance using the <a href="#prov">W3C PROV-O</a> standard.
+      Instead of treating an artwork as a static object with simple string attributes, the system models it as the output of a dynamic process (Activity) performed by an Agent.
+      This approach enables the representation of complex institutional hierarchies and creation contexts using real data extracted from the national heritage records.
+    </p>
+
+    <h4>Defining the Agents</h4>
+    <p>
+      Before establishing relationships to artworks, the agents involved (creators, custodians, administrative bodies) are instantiated with specific ARP classes.
+      The following snippet from the generated <code>artworks_arp.ttl</code> dataset illustrates the distinction between an individual Artist, a Museum, and an administrative Organization:
+    </p>
+
+    <pre><code>
+&lt;http://arp.ro/resource/agent/Preziosi__Amedeo&gt; a arp:Artist ;
+    arp:name "Preziosi, Amedeo" .
+
+&lt;http://arp.ro/resource/agent/Muzeul_Na_ional_de_Art__al_Rom_niei___BUCURE_TI&gt; a arp:Museum ;
+    arp:name "Muzeul Național de Artă al României - BUCUREȘTI" .
+
+&lt;http://arp.ro/resource/agent/Institutul_Na_ional_al_Patrimoniului&gt; a arp:Organization ;
+    arp:name "Institutul Național al Patrimoniului" ;
+    foaf:homepage "http://www.patrimoniu.ro"^^xsd:anyURI ;
+    # Modeling institutional delegation (The Institute acts on behalf of the Museum)
+    prov:actedOnBehalfOf &lt;http://arp.ro/resource/agent/Muzeul_Na_ional_de_Art__al_Rom_niei___BUCURE_TI&gt; .
+        </code></pre>
+
+    <h4>The Entity-Activity-Agent Triad</h4>
+    <p>
+      The fundamental unit of provenance in the system is the connection between the <strong>Artwork (Entity)</strong> and its <strong>Author (Agent)</strong> mediated by a <strong>Creation Event (Activity)</strong>.
+      The code below demonstrates this triad for the artwork <em>"Călugări de la Mănăstirea Bistrița"</em>, showing how the system captures not just <em>who</em> painted it, but <em>how</em> and <em>when</em> (technique, date):
+    </p>
+
+    <figure>
+      <figcaption>TTL Example: The <a href="#prov">PROV-O</a> Triad Implementation</figcaption>
+      <pre><code>
+# 1. THE ENTITY (The Artwork)
+&lt;http://arp.ro/resource/artwork/0019570B3EDB4B25A71491C51005D89E&gt; a arp:Artwork ;
+    arp:title "Călugări de la Mănăstirea Bistrița" ;
+    # Direct shortcut (PROV) for simple queries
+    prov:wasAttributedTo &lt;http://arp.ro/resource/agent/Preziosi__Amedeo&gt; ;
+    # Link to the generating activity for deep provenance
+    prov:wasGeneratedBy &lt;http://arp.ro/resource/activity/creation_0019570B3EDB4B25A71491C51005D89E&gt; .
+
+# 2. THE ACTIVITY (The Creation)
+&lt;http://arp.ro/resource/activity/creation_0019570B3EDB4B25A71491C51005D89E&gt; a arp:Creation ;
+    rdfs:label "Crearea operei Călugări de la Mănăstirea Bistrița" ;
+    arp:startedAtTime "1869"^^xsd:gYear ;
+    arp:technique "desenare" ;
+
+    # Inverse relation to the artwork
+    prov:generated &lt;http://arp.ro/resource/artwork/0019570B3EDB4B25A71491C51005D89E&gt; ;
+
+    # Qualified Association (Role details)
+    prov:qualifiedAssociation [
+        a prov:Association ;
+        prov:agent &lt;http://arp.ro/resource/agent/Preziosi__Amedeo&gt; ;
+        prov:hadRole arp:Artist
+    ] .
+            </code></pre>
+
+    </figure>
+
+    <p>
+      This detailed structure allows for semantic queries that go beyond simple metadata matching (e.g., "Find all artworks created using the 'drawing' technique in 1869" by querying the intermediate <code>arp:Creation</code> node).
+    </p>
+  </section>
+
+  <section id="expressiveness-shacl">
+    <h3><span>7.5 </span>Expressiveness and Validation (SHACL)</h3>
+    <p>
+      To guarantee the consistency and quality of the RDF data, a validation mechanism was implemented using  <a href="#shacl"><strong>SHACL</strong></a>(Shapes Constraint Language) .
+      Unlike rigid XML schemas, <a href="#shacl"><strong>SHACL</strong></a> allows for logical graph validation.
+    </p>
+
+    <h4>Defining Constraints (Shapes)</h4>
+    <p>
+      In the file <code>arp-shapes.ttl</code>, strict rules were defined for system entities. For example, an Artist must have a name, and a Creation must be associated with at least one Artwork and one Artist.
+    </p>
+    <pre><code>
+arp:ArtworkShape
+    a sh:NodeShape ;
+    sh:targetClass arp:Artwork ;
+    sh:property [
+          sh:path arp:title ;
+          sh:datatype xsd:string ;
+          sh:minCount 1 ;
+          sh:message "An artwork must have exactly one title." ;
+      ] ;
+    sh:property [
+          sh:path arp:currentLocation ;
+          sh:or ( [ sh:class arp:Museum ] [ sh:class arp:Collector ] ) ;
+          sh:message "Location must be a Museum or a Collector." ;
+      ] .
+        </code></pre>
+
+    <h4>Java Validation Implementation</h4>
+    <p>
+      The system includes an automated validation component (<code>ValidateRDF.java</code>) utilizing the <a href="#jena"><strong>Apache Jena</strong></a> <a href="#shacl"><strong>SHACL</strong></a>  library.
+      This component loads the data models (both the Romanian dataset <code>artworks_arp.ttl</code> and the international dataset <code>artworks_arp_int.ttl</code>) and verifies them against the defined shapes.
+    </p>
+    <pre><code>
+// Snippet from ValidateRDF.java
+Model artworkModel = rdfConfig.artworkModel(); // Loads artworks_arp.ttl
+Model shapesModel = RDFDataMgr.loadModel("src/main/resources/rdf/arp-shapes.ttl");
+
+ValidationReport report = ShaclValidator.get().validate(shapesModel.getGraph(), artworkModel.getGraph());
+
+System.out.println("Artwork Model Conforms? " + report.conforms());
+if (!report.conforms()) {
+    report.getEntries().forEach(System.out::println);
+}
+        </code></pre>
+    <p>
+      This approach ensures that data integrated from external sources (<a href="#ref-wikidata">Wikidata</a>, <a href="#cimec">CIMEC</a>) complies with the internal model before being exposed through the SPARQL API.
+    </p>
+  </section>
+</section>
+
+<section id="integration-external-sources">
+  <h2><span>8. </span>Integration of External Knowledge Sources and Linked Data Principles</h2>
+  <p>
+    To transition from a siloed dataset to a truly semantic application, the system integrates robustly with the Linked Open Data (LOD) cloud.
+    This is achieved not merely by manual linking, but through automated ingestion pipelines that reconcile local entities with global authorities like <strong>Wikidata</strong> and the <a href="#ref-getty"><strong>Getty Vocabularies</strong></a> (AAT, ULAN, TGN).
+  </p>
+
+  <section id="wikidata-integration">
+    <h3><span>8.1 </span>Integration with Wikidata</h3>
+    <p>
+      Wikidata serves as the primary hub for enriching the knowledge graph with international context. The system implements a dedicated <a href="#ref-etl">ETL</a> process via the <code>SparqlToTTLArp.java</code> component to ingest popular artworks and their provenance history.
+    </p>
+
+    <h4>The Ingestion Pipeline</h4>
+    <p>
+      The integration logic follows a specific workflow to map Wikidata's generic structure to the custom ARP ontology:
+    </p>
+    <ol>
+      <li>
+        <strong>Selection:</strong> The system executes a federated SPARQL query to identify the top 100 most referenced artworks (<code>wd:Q838948</code>) on Wikidata.
+      </li>
+      <li>
+        <strong>Metadata Extraction:</strong> It extracts granular details including dimensions, inventory numbers, and deep ownership history.
+      </li>
+      <li>
+        <strong>Ontology Mapping:</strong>
+        <ul>
+          <li>Wikidata Entities -> <code>arp:Artwork</code></li>
+          <li>Property <code>wdt:P170</code> (creator) -> <code>prov:wasAttributedTo</code></li>
+          <li>Property <code>wdt:P127</code> (owned by) -> parsed into <code>arp:TransferOfCustody</code> events.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h4>Provenance Reconstruction</h4>
+    <p>
+      A key technical achievement is the reconstruction of the ownership chain. Wikidata often stores owners as a list. The <code>processOwnershipHistory</code> method in the Java fetcher iterates through these qualifiers to generate distinct, time-bound provenance events:
+    </p>
+    <pre><code>
+// Example of generated provenance from Wikidata ingestion
+&lt;http://arp.ro/resource/artwork/Q12418&gt; arp:hasOwnership [
+    a arp:TransferOfCustody ;
+    prov:wasAssociatedWith &lt;http://arp.ro/resource/agent/Collector_Napoleon&gt; ;
+    arp:startedAtTime "1797-01-01"^^xsd:date ;
+    arp:endedAtTime "1815-01-01"^^xsd:date
+] .
+        </code></pre>
+  </section>
+
+  <section id="getty-integration">
+    <h3><span>8.2 </span>Getty Vocabulary Integration (AAT, ULAN, TGN)</h3>
+    <p>
+      To ensure semantic interoperability and standardize terminology, the system aligns its controlled vocabularies with the <a href="#ref-getty">Getty Research Institute</a> standards.
+      This is critical for cross-language retrieval (e.g., searching for "wood" retrieves "lemn").
+    </p>
+
+    <h4>A. Concept Alignment (Materials & Categories) - Getty AAT</h4>
+    <p>
+      The components <code>GettyCategoryFetcher.java</code> and <code>GettyMaterialsFetcher.java</code> implement a bridge between Romanian labels and the <a href="#ref-aat"><strong>Art & Architecture Thesaurus (AAT)</strong></a>.
+    </p>
+    <ul>
+      <li>
+        <strong>Mechanism:</strong> The system extracts Romanian terms (e.g., "ulei", "litografie") from the local dataset.
+      </li>
+      <li>
+        <strong>Translation & Reconciliation:</strong> It uses Wikidata as a pivot to translate terms to English and retrieve the corresponding Getty AAT ID property (<code>wdt:P1014</code>).
+      </li>
+      <li>
+        <a href="#ref-skos"><strong>SKOS</strong></a> <strong>Linking:</strong> The result is a SKOS mapping file (<code>getty-materials.ttl</code>) linking local URIs to global concepts.
+      </li>
+    </ul>
+    <pre><code>
+&lt;http://arp.ro/material/lemn&gt;
+    rdfs:label "lemn"@ro ;
+    rdfs:label "wood"@en ;
+    skos:exactMatch aat:300011914 .
+        </code></pre>
+
+    <h4>B. Agent Reconciliation (Museums & Artists) - Getty ULAN/TGN</h4>
+    <p>
+      The <code>WikidataMuseumFetcher.java</code> class implements a sophisticated fallback strategy to link institutions to the <a href="#ref-ulan"><strong>Union List of Artist Names (ULAN)</strong></a> or the <a href="#ref-tgn"><strong>Thesaurus of Geographic Names (TGN)</strong></a>.
+    </p>
+    <ol>
+      <li>
+        <strong>Primary Strategy:</strong> Query Wikidata for the museum. If a ULAN ID exists there, it is harvested.
+      </li>
+      <li>
+        <strong>Fallback Strategy:</strong> If absent in Wikidata, the system queries the <strong>Getty SPARQL Endpoint</strong> (<code>http://vocab.getty.edu/sparql</code>) directly, searching for the museum's name using Lucene indexes.
+      </li>
+    </ol>
+    <p>
+      This ensures that Romanian museums are linked to standard identifiers, facilitating global data interoperability.    </p>
+    <pre><code>
+&lt;http://arp.ro/resource/agent/Muzeul_Na_ional_Brukenthal___SIBIU&gt;
+    a                 arp:Museum;
+    arp:gettyId       "500308991";
+    arp:gettyUri      ulan:500308991;
+    arp:imageLink     &lt;http://commons.wikimedia.org/wiki/Special:FilePath/Palatul%20Brukenthal%20din%20Piata%20Mare.jpg&gt;;
+    arp:name          "Muzeul Național Brukenthal - SIBIU";
+    arp:wikidataName  "Muzeul Brukenthal"@ro;
+    arp:wikidataUri   &lt;http://www.wikidata.org/entity/Q850207&gt; .
+        </code></pre>
+  </section>
+
+  <section id="non-trivial-sparql">
+    <h3><span>8.3 </span>Non-trivial SPARQL Queries and the ArP Query Service</h3>
+    <p>
+      To democratize access to the semantic data, the system exposes a dedicated web interface, the <strong>ArP Query Service</strong>.
+      This Single Page Application (SPA) allows users to execute SPARQL queries against the integrated dataset without needing deep technical knowledge, thanks to a library of <strong>Predefined Queries</strong> injected dynamically from the backend via <code>PredefinedQueryLoader.java</code>.
+    </p>
+
+    <p>
+      The implemented queries go beyond simple data retrieval. They perform <strong>semantic aggregations</strong> and <strong>concept-based filtering</strong> by leveraging the  <a href="#ref-skos"><strong>SKOS</strong></a> alignment with <a href="#ref-getty">Getty vocabularies</a> established in the previous stages.
+    </p>
+
+    <h4>Query 1: Statistical Aggregation by Material (Getty AAT Alignment)</h4>
+    <p>
+      This query demonstrates the power of  <a href="#ref-linkeddata">Linked Data</a>. Instead of counting raw strings (where "ulei" and "oil" might be counted separately), it groups artworks by their resolved <a href="#ref-aat"><strong>Getty AAT Code</strong></a>.
+      It performs a join between the Artwork graph and the Vocabulary graph (<code>skos:exactMatch</code>).
+    </p>
+    <pre><code>
+PREFIX arp:  &lt;http://arp.ro/schema#&gt;
+PREFIX aat:  &lt;http://vocab.getty.edu/aat/&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+PREFIX prov: &lt;http://www.w3.org/ns/prov#&gt;
+
+SELECT ?material_ro ?material_en (COUNT(DISTINCT ?artwork) AS ?numArtworks) ?aatCode
+WHERE {
+  # 1. Connect Creation Event to Artwork
+  ?creation arp:materialsUsed ?material ;
+            prov:generated ?artwork .
+
+  # 2. Semantic Join: Map local string to Getty AAT Concept
+  ?mapping skos:exactMatch ?aatCode ;
+           rdfs:label ?labelRo .
+
+  FILTER(LANG(?labelRo) = "ro")
+
+  # 3. Fuzzy Matching: Ensure the raw string contains the vocabulary label
+  FILTER(
+    CONTAINS(LCASE(STR(?material)), LCASE(STR(?labelRo)))
+  )
+
+  # 4. Bilingual Label Handling
+  BIND(STR(?labelRo) AS ?material_ro)
+  OPTIONAL {
+    ?mapping rdfs:label ?labelEn .
+    FILTER(LANG(?labelEn) = "en")
+  }
+  BIND(IF(BOUND(?labelEn), STR(?labelEn), STR(?labelRo)) AS ?material_en)
+}
+GROUP BY ?material_ro ?material_en ?aatCode
+ORDER BY DESC(?numArtworks)
+        </code></pre>
+
+    <h4>Query 2: Institutional Analysis with External URIs</h4>
+    <p>
+      This query aggregates artwork holdings by Museum, but explicitly retrieves the external identifiers (<strong>Wikidata URI</strong> and <strong>Getty URI</strong>).
+      This allows a researcher to immediately jump from the local dataset to the global knowledge base for any given museum.
+    </p>
+    <pre><code>
+PREFIX arp:  &lt;http://arp.ro/schema#&gt;
+
+SELECT ?museum ?museumName ?wikidataUri (COUNT(DISTINCT ?artwork) AS ?numArtworks) ?gettyUri
+WHERE {
+  # 1. Link Artwork to Location
+  ?artwork a arp:Artwork ;
+           arp:currentLocation ?museum .
+
+  # 2. Retrieve Museum Metadata (including External Links)
+  ?museum a arp:Museum .
+
+  OPTIONAL { ?museum arp:name ?museumName }
+  OPTIONAL { ?museum arp:gettyUri ?gettyUri }
+  OPTIONAL { ?museum arp:wikidataUri ?wikidataUri }
+}
+GROUP BY ?museum ?museumName ?gettyUri ?wikidataUri
+ORDER BY DESC(?numArtworks)
+        </code></pre>
+
+    <h4>Query 3: Concept-Based Filtering (e.g., "Marble")</h4>
+    <p>
+      Unlike a keyword search, this query filters artworks based on a specific <a href="#ref-getty">Getty</a> Concept ID (e.g., <code>aat:300011443</code> for "marble").
+      This ensures high recall, finding relevant artworks regardless of whether the local record uses the Romanian term "marmură" or the English "marble".
+    </p>
+    <pre><code>
+SELECT DISTINCT ?artworkUri ?title ?material_ro ?material_en ?aatCode
+WHERE {
+  ?artwork a arp:Artwork ;
+           arp:title ?title .
+
+  ?creation arp:materialsUsed ?material ;
+            prov:generated ?artwork .
+
+  # Filter specifically by the Getty Concept ID for Marble
+  ?mapping skos:exactMatch ?aatCode .
+  FILTER(?aatCode = aat:300011443)
+
+  # Retrieve labels for display
+  ?mapping rdfs:label ?labelRo .
+  FILTER(LANG(?labelRo) = "ro")
+
+  BIND(?artwork AS ?artworkUri)
+}
+ORDER BY ?artwork
+        </code></pre>
+
+    <p>
+      These queries are executed via the <code>SparqlController</code>, which ensures transactional read-access (<code>Txn.executeRead</code>) to the <a href="#jena">Apache Jena</a> dataset, returning results in the standard JSON format.
+      On the client side, the <code>arp-query.js</code> script (specifically the <code>renderTable</code> function) consumes this JSON to dynamically generate an HTML visualization.
+      Crucially, the script inspects the metadata of each result binding; if a value is flagged as a <code>uri</code>, it is automatically rendered as a clickable hyperlink, while literals are displayed as plain text, ensuring a navigable experience consistent with <a href="#ref-linkeddata">Linked Data</a> principles.
+    </p>
+  </section>
+
+  <section id="linked-data-conformance">
+    <h3>8.4 Conformance to Linked Data Principles</h3>
+    <p>
+      This project strictly adheres to the core principles of  <a href="#ref-linkeddata">Linked Data</a> as proposed by Tim Berners-Lee, ensuring interoperability, reusability, and semantic integration of cultural heritage data.
+      The solution conforms to these principles through the following architectural decisions:
+    </p>
+
+    <section id="http-uris">
+      <h4><span>8.4.1 </span> Use of HTTP URIs as Global Identifiers</h4>
+      <p>
+        All domain entities managed by the system—artworks, artists, cultural institutions, and creative activities—are identified using stable, HTTP-based URIs.
+        These are consistent across the RDF datasets and serve as global identifiers.
+      </p>
+      <p>
+        For the national heritage dataset, the system explicitly reuses the authoritative identifiers provided by the <a href="#cimec"><strong>Institute for Cultural Memory (CIMEC)</strong></a>.
+        These are extracted directly from the <code>lido:lidoRecID</code> XML tag (e.g., <code>0019570B3EDB...</code>) to guarantee persistent identification.
+      </p>
+      <p>Examples of identifiers generated by the system include:</p>
+      <ul>
+        <li><strong>Artworks:</strong> <code>http://arp.ro/resource/artwork/{CIMEC_ID}</code> (or <code>{Wikidata_ID}</code> for international works).</li>
+        <li><strong>Agents:</strong> <code>http://arp.ro/resource/agent/{Sanitized_Name}</code></li>
+        <li><strong>Activities:</strong> <code>http://arp.ro/resource/activity/creation_{CIMEC_ID}</code> (linking the activity inextricably to the object).</li>
+      </ul>
+
+      <p>
+        <strong>Technical Note on URI Normalization:</strong>
+        The placeholder <code>{Sanitized_Name}</code> refers to the output of a deterministic normalization algorithm implemented in the <a href="#ref-etl">ETL</a> pipeline.
+        Since standard URIs cannot contain whitespace or specific reserved characters (as per <a href="#rfc_3986"><strong>RFC 3986</strong></a>), the system creates "slugified" identifiers by:
+      </p>
+      <ol>
+        <li>Trimming leading/trailing whitespace;</li>
+        <li>Replacing all non-alphanumeric characters (including diacritics and punctuation) with underscores (<code>_</code>);</li>
+        <li>Collapsing consecutive underscores into a single separator.</li>
+      </ol>
+      <p>
+        For example, the raw input string <em>"Grigorescu, Nicolae"</em> is transformed into the valid URI segment <code>Grigorescu_Nicolae</code>.
+        This ensures that the generated IRIs are syntactically valid and safe for transmission over HTTP without requiring aggressive percent-encoding (e.g., avoiding <code>%20</code>).
+      </p>
+
+      <p>
+        By adopting this URI scheme, the system ensures that each entity is uniquely identifiable and referenceable, a prerequisite for semantic linking.
+      </p>
+    </section>
+
+    <section id="structured-rdf">
+      <h4><span>8.4.2 </span> Provision of Structured RDF Descriptions</h4>
+      <p>
+        Information is represented using the <strong>Resource Description Framework (RDF)</strong>, encoded in Turtle (<code>.ttl</code>) format.
+        The RDF descriptions capture descriptive metadata (titles, dimensions) and provenance (authorship, creation activities).
+        The system leverages established vocabularies to ensure machine readability:
+      </p>
+      <ul>
+        <li><a href="#prov"><strong>PROV-O:</strong></a> For provenance relationships (<code>prov:wasAttributedTo</code>, <code>prov:wasGeneratedBy</code>).</li>
+        <li><a href="#dublin_core"><strong>Dublin Core (DCT):</strong></a> For general descriptive metadata.</li>
+        <li> <a href="#ref-skos"><strong>SKOS:</strong></a> For semantic mappings to Getty AAT.</li>
+        <li><strong>ARP Namespace:</strong> A custom namespace to represent domain-specific concepts (e.g., <code>arp:Registrar</code>).</li>
+      </ul>
+    </section>
+
+    <section id="sparql-access">
+      <h4><span>8.4.3 </span> Access to Data via SPARQL Queries</h4>
+      <p>
+        While the HTTP URIs are primarily used as identifiers within the prototype's internal graph, the associated data is fully accessible via the <strong>SPARQL Endpoint</strong> exposed by the application.
+      </p>
+      <p>
+        The application acts as a semantic data layer, executing SPARQL queries over the <a href="#jena">Apache Jena</a> models. This mechanism allows software agents (and the frontend SPA) to retrieve structured information by querying these URIs, fulfilling the intent of  <a href="#ref-linkeddata">Linked Data</a> access in a controlled environment.
+      </p>
+    </section>
+
+    <section id="external-linking">
+      <h4><span>8.4.4 </span> Linking to External Knowledge Bases</h4>
+      <p>
+        The system establishes explicit semantic links between internal resources and the Linked Open Data cloud, specifically <strong>Wikidata</strong> and <a href="#ref-getty"><strong>Getty Vocabularies</strong></a>.
+        Entities are enriched using properties such as:
+      </p>
+      <ul>
+        <li><code>arp:wikidataUri</code> – linking to Wikidata Entities.</li>
+        <li><code>skos:exactMatch</code> – linking materials/categories to Getty AAT.</li>
+        <li><code>arp:gettyUri</code> – linking museums/artists to ULAN/TGN.</li>
+      </ul>
+      <p>
+        By reusing external identifiers rather than duplicating information, the project promotes data reuse and context enrichment.
+      </p>
+    </section>
+
+    <section id="conclusion-compliance">
+      <h4><span>8.4.5 </span> Summary of Alignment</h4>
+      <p>
+        Although public dereferenceability (content negotiation on the open web) is not implemented in the current academic prototype, the underlying data model and URI design fully support such an extension.
+        Therefore, the solution conforms to  <a href="#ref-linkeddata">Linked Data</a> principles at the semantic and architectural level, meeting the requirements for a <strong>4-Star Linked Data</strong> system (URIs, RDF, SPARQL) with strong elements of the <strong>5th Star</strong> (External Linking).
+      </p>
+    </section>
+  </section>
+
+  <section id="conclusion">
+    <h2>9. Conclusion and Future Directions</h2>
+    <p>
+      The development of the <strong>ArP (Artwork Provenance)</strong> system demonstrates the practical viability of transitioning from siloed, legacy metadata to a dynamic, interconnected <strong>Knowledge Graph</strong>.
+      By integrating robust Java technologies (Spring Boot, Apache Jena) with Semantic Web standards (RDF, SPARQL, PROV-O), the solution successfully bridges the gap between the national Romanian heritage and the global Linked Open Data cloud.
+    </p>
+
+    <section id="overall-impression">
+      <h3><span>9.1 </span> Overall Impression and Technical Impact</h3>
+      <p>
+        The project validates the "Hybrid Architecture" approach. The decision to decouple the semantic persistence layer (Jena TDB) from the presentation logic (Spring MVC) proved crucial for maintainability.
+        Technically, the most significant achievement is the automated reconciliation pipeline (ETL) which successfully maps heterogeneous XML (LIDO) and JSON (Wikidata) sources into a unified ontology, enriched with Getty vocabulary links.
+      </p>
+    </section>
+
+    <section id="user-impact-usability">
+      <h3><span>9.2 </span> Impact on End Users and Usability</h3>
+      <p>
+        For the end-user (researchers, curators, and art enthusiasts), the system transforms the search experience.
+        Instead of navigating disjointed databases, users can now perform <strong>semantic discovery</strong> navigating seamlessly from a Romanian painting to the international movement it belongs to, or tracing the provenance chain of an artwork through time.
+        The <strong>ArP Query Service</strong> democratizes access to this complex data, allowing non-technical users to execute "non-trivial" queries (e.g., statistical aggregations by material or museum) via a user-friendly web interface.
+      </p>
+    </section>
+
+    <section id="business-value">
+      <h3><span>9.3 </span> Business Aspects and Sustainability</h3>
+      <p>
+        From a business perspective, the solution offers high value with low recurring costs:
+      </p>
+      <ul>
+        <li><strong>Interoperability:</strong> By adhering to international standards (CIDOC-CRM alignment via PROV-O, Getty integration), the data becomes compatible with Europeana and other aggregators, increasing the visibility of Romanian heritage.</li>
+        <li><strong>Cost-Efficiency:</strong> The use of open-source technologies (Java, RDF, SPARQL) eliminates licensing costs associated with proprietary museum management software.</li>
+        <li><strong>Data Quality:</strong> The implementation of SHACL validation ensures that the repository remains a "single source of truth" with guaranteed structural integrity.</li>
+      </ul>
+    </section>
+
+    <section id="future-development">
+      <h3><span>9.4 </span> Further Directions of Development</h3>
+      <p>
+        While the current prototype meets all core requirements of a 4-Star Linked Data system, several avenues for future development are identified:
+      </p>
+      <ul>
+        <li><strong>Full 5-Star Deployment:</strong> Implementing content negotiation to make URIs fully dereferenceable on the public web (serving HTML/RDF based on the `Accept` header).</li>
+        <li><strong>Visual Analytics:</strong> Integrating a graph visualization library (e.g., Cytoscape.js or D3.js) to visually render the provenance node networks directly in the browser.</li>
+        <li><strong>Crowdsourcing Module:</strong> Adding an authenticated "Curator Mode" where experts can manually correct mappings or add new relationships directly through the interface, turning the platform into a collaborative tool.</li>
+        <li><strong>Federated Queries:</strong> Expanding the SPARQL endpoint to execute live federated queries against DBpedia or Europeana SPARQL endpoints, ensuring real-time data freshness.</li>
+      </ul>
+    </section>
+  </section>
+
+</section>
+
+
+<section id="biblio-references">
+  <h2><span>10. </span>References</h2>
+
+  <dl>
+
+    <dt id="ref-semantic_web">Semantic Web</dt>
+    <dd property="schema:citation" typeof="schema:schema:WebPage" resource="https://www.w3.org/2001/sw/">
+      <cite property="schema:name"><a href="https://www.w3.org/2001/sw/">
+        W3C Semantic Web Activity</a></cite>
+    </dd>
+
+    <dt id="ref-europeana">Europeana</dt>
+    <dd>
+      <span property="schema:citation" typeof="schema:WebPage"
+            resource="https://data.europa.eu/data/combined?locale=en">
+        <cite property="schema:name">
+          <a href="https://data.europa.eu/data/combined?locale=en">
+            The official portal for European data
+          </a>
+        </cite>
+      </span>
+    </dd>
+
+    <dt id="ref-romanian_dataset">Romanian cultural heritage datasets</dt>
+    <dd>
+      <span property="schema:citation" typeof="schema:WebPage"
+            resource="https://data.europa.eu/data/datasets/1cb042cd-5ee6-450f-ba71-684ae702b1f7?locale=en">
+        <cite property="schema:name">
+          <a href="https://data.europa.eu/data/datasets/1cb042cd-5ee6-450f-ba71-684ae702b1f7?locale=en">
+            Classified cultural goods: art
+          </a>
+        </cite>,
+        by
+        <span property="schema:author" typeof="schema:Organization">
+          <span property="schema:name">data.gov.ro</span>,
+          <link property="schema:url" href="https://data.gov.ro">
+        </span>
+        <time property="schema:datePublished"
+              datetime="2014-11-21">21 November 2014</time>
+      </span>
+    </dd>
+
+    <dt id="ref-wikidata">Wikidata</dt>
+    <dd property="schema:citation" typeof="schema:schema:WebPage" resource="https://www.wikidata.org/wiki/Wikidata:Main_Page">
+      <cite property="schema:name"><a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">
+        The free knowledge base platform</a></cite>
+    </dd>
+
+    <dt id="ref-sparql">SPARQL querying</dt>
+    <dd property="schema:citation" typeof="schema:schema:WebPage" resource="https://www.w3.org/TR/sparql12-query/">
+      <cite property="schema:name"><a href="https://www.w3.org/TR/sparql12-query/">
+        SPARQL 1.2 Query Language</a></cite>,
+      by
+      <span property="schema:author" typeof="schema:Organization">
+          <span property="schema:name">W3C</span>,
+          <link property="schema:url" href="https://data.gov.ro">
+        </span>
+      <time property="schema:datePublished"
+            datetime="2026-01-09">09 January 2026</time>
+    </dd>
+
+
+    <dt id="ref-linkeddata">Linked Data</dt>
+    <dd property="schema:citation" typeof="schema:schema:WebPage" resource="https://www.w3.org/wiki/LinkedData">
+      <cite property="schema:name"><a href="https://www.w3.org/wiki/LinkedData">
+        Linked Data principles</a></cite>
+    </dd>
+
+    <dt id="ref-rdf">RDF</dt>
+    <dd property="schema:citation" typeof="schema:schema:WebPage" resource="https://www.w3.org/RDF/">
+      <cite property="schema:name"><a href="https://www.w3.org/RDF/">
+        Resource Description Framework</a></cite>
+    </dd>
+
+    <dt id="pojo">Java POJOs</dt>
+    <dd property="schema:citation" typeof="schema:schema:WebPage" resource="https://www.baeldung.com/java-pojo-class">
+      <cite property="schema:name"><a href="https://www.baeldung.com/java-pojo-class">
+        Plain Old Java Object</a></cite>
+    </dd>
+
+    <dt id="dto">Data Transfer Object (DTO)</dt>
+    <dd property="schema:citation" typeof="schema:schema:WebPage" resource="https://www.baeldung.com/java-dto-pattern">
+      <cite property="schema:name"><a href="https://www.baeldung.com/java-dto-pattern">
+        The DTO Pattern (Data Transfer Object)</a></cite>
+    </dd>
+
+    <dt id="jena">Apache Jena</dt>
+    <dd property="schema:citation" typeof="schema:schema:WebPage" resource="https://jena.apache.org/">
+      <cite property="schema:name"><a href="https://jena.apache.org/">
+        Java framework for building Semantic Web and Linked Data applications</a></cite>
+    </dd>
+
+
+
+    <dt id="prov">PROV-O</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://www.w3.org/TR/prov-o/">
+      <cite property="schema:name"><a href="https://www.w3.org/TR/prov-o/"> Provenance Ontology</a></cite>
+    </dd>
+
+    <dt id="dublin_core">Dublin Core Terms</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://www.w3.org/TR/prov-dc/">
+      <cite property="schema:name"><a href="https://www.w3.org/TR/prov-dc/">Dublin Core to PROV Mapping</a></cite>,
+      by
+      <span property="schema:publisher" typeof="schema:Organization">
+                <span property="schema:name">W3C</span>,
+      </span>
+      <time property="schema:datePublished"
+            datetime="2013-04-30">30 April 2013</time>
+
+    </dd>
+
+    <dt id="foaf">FOAF</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://en.wikipedia.org/wiki/FOAF">
+      <cite property="schema:name"><a href="https://en.wikipedia.org/wiki/FOAF">Friend of a friend - ontology</a></cite>
+
+    </dd>
+
+    <dt id="rdfs">RDFS</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://www.w3.org/wiki/RDFS">
+      <cite property="schema:name"><a href="https://www.w3.org/wiki/RDFS">RDF Schema (RDFS)</a></cite>
+
+    </dd>
+
+    <dt id="owl">OWL</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://www.w3.org/OWL/">
+      <cite property="schema:name"><a href="https://www.w3.org/OWL/">Web Ontology Language (OWL)</a></cite>
+
+    </dd>
+
+    <dt id="red-skos">SKOS</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://www.w3.org/TR/skos-reference/">
+      <cite property="schema:name"><a href="https://www.w3.org/TR/skos-reference/">Simple Knowledge Organization System (SKOS)</a></cite>
+
+    </dd>
+
+
+    <dt id="shacl">SHACL</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://www.w3.org/TR/shacl/">
+      <cite property="schema:name"><a href="https://www.w3.org/TR/shacl/">Shapes Constraint Language</a></cite>,
+      by
+      <span property="schema:publisher" typeof="schema:Organization">
+                <span property="schema:name">W3C</span>,
+      </span>
+      <time property="schema:datePublished"
+            datetime="2017-06-20">20 July 2017</time>
+
+    </dd>
+
+    <dt id="ref-getty">Getty Vocabularies</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://vocab.getty.edu/">
+      <cite property="schema:name"><a href="https://vocab.getty.edu/">The Getty Vocabularies</a></cite>,
+      by
+      <span property="schema:publisher" typeof="schema:Organization">
+                <span property="schema:name"><a href="https://www.getty.edu/research-institute/">Getty Research Institute</a></span>,
+      </span>
+      <time property="schema:copyrightYear">2024</time>
+
+    </dd>
+
+    <dt id="ref-aat">Art & Architecture Thesaurus (AAT)s</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://www.getty.edu/research/tools/vocabularies/aat/">
+      <cite property="schema:name"><a href="https://www.getty.edu/research/tools/vocabularies/aat/">Art & Architecture Thesaurus® Online</a></cite>,
+    </dd>
+
+    <dt id="ref-ulan">Union List of Artist Names (ULAN)</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://www.getty.edu/research/tools/vocabularies/ulan/">
+      <cite property="schema:name"><a href="https://www.getty.edu/research/tools/vocabularies/ulan/">Union List of Artist Names® Online</a></cite>,
+    </dd>
+
+    <dt id="ref-tgn">Thesaurus of Geographic Names (TGN)</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://www.getty.edu/research/tools/vocabularies/tgn/index.html">
+      <cite property="schema:name"><a href="https://www.getty.edu/research/tools/vocabularies/tgn/index.html">Getty Thesaurus of Geographic Names® Online</a></cite>,
+    </dd>
+
+
+    <dt id="ref-etl">ETL</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://en.wikipedia.org/wiki/Extract,_transform,_load">
+      <cite property="schema:name"><a href="https://en.wikipedia.org/wiki/Extract,_transform,_load">Extract, transform, load (ETL)</a></cite>,
+    </dd>
+
+
+    <dt id="cimec">CIMEC</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://cimec.ro/">
+      <cite property="schema:name"><a href="https://cimec.ro/"> Institute for Cultural Memory (CIMEC)</a></cite>
+
+    </dd>
+
+
+    <dt id="rfc_3986">RFC 3986</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://datatracker.ietf.org/doc/html/rfc3986">
+      <cite property="schema:name"><a href="https://datatracker.ietf.org/doc/html/rfc3986"> Uniform Resource Identifier (URI): Generic Syntax</a></cite>
+
+    </dd>
+
+    <dt id="lido">LIDO</dt>
+    <dd property="schema:citation" typeof="schema:WebSite" resource="https://lido-schema.org/schema/v1.1/lido-v1.1.html">
+      <cite property="schema:name"><a href="https://lido-schema.org/schema/v1.1/lido-v1.1.html"> Lightweight Information Describing Objects Version 1.1</a></cite>,
+      by
+      <span property="schema:publisher" typeof="schema:Organization">
+                <span property="schema:name">ICOM-CIDOC LIDO Working Group</span>,
+      </span>
+      <time property="schema:datePublished"
+            datetime="2021-12-20">2021-12-20</time>
+
+    </dd>
+
+  </dl>
+</section>
+</body>
+</html>
