@@ -1,19 +1,74 @@
-<div class="rec-grid" id="rec-grid-content">
-    <div class="rec-card" th:each="rec : ${recommendations}">
-        <a th:href="@{/artworks/{id}(id=${rec.id != null ? rec.id : #strings.substringAfterLast(rec.uri, '/')}, domain=${domain})}" class="rec-link">
+<div th:fragment="singleCard(rec)" class="rec-card" th:if="${rec != null}">
 
-            <div class="rec-image-container">
-                <img th:if="${rec.imageLink != null}" th:src="${rec.imageLink}" th:alt="${rec.title}">
-                <img th:unless="${rec.imageLink != null}" src="/images/placeholder-art.png" alt="No image">
-            </div>
+    <a th:href="@{/artworks/{id}(id=${rec?.id != null ? rec.id : #strings.substringAfterLast(rec.uri, '/')}, domain=${domain})}" class="rec-link">
 
-            <div class="rec-info">
-                <h3 class="rec-title" th:text="${rec.title}">Titlu Opera</h3>
-            </div>
-        </a>
-    </div>
+        <div class="rec-image-container">
+            <img th:if="${rec.imageLink != null}" th:src="${rec.imageLink}" th:alt="${rec.title}">
+            <img th:unless="${rec.imageLink != null}" src="/images/placeholder-art.png" alt="No image">
+        </div>
 
-    <div th:if="${#lists.isEmpty(recommendations)}" class="no-more-recs">
+        <div class="rec-info">
+            <h3 class="rec-title" th:text="${rec.title}">Titlu Opera</h3>
+        </div>
+    </a>
+</div>
+
+
+<div class="rec-grid" th:fragment="recGrid(items)">
+    <th:block th:if="${items != null}">
+        <th:block th:each="rec : ${items}">
+            <div th:replace="~{::singleCard(rec=${rec})}"></div>
+        </th:block>
+    </th:block>
+
+    <div th:if="${items == null or #lists.isEmpty(items)}" class="no-more-recs">
         Nu mai sunt alte opere de afișat.
     </div>
+</div>
+
+
+<div id="ajax-response-container" style="display:none;">
+
+    <div id="ajax-source-artist">
+        <div class="rec-grid">
+            <th:block th:if="${recommendations != null}">
+                <th:block th:each="rec : ${recommendations}">
+                    <div th:replace="~{::singleCard(rec=${rec})}"></div>
+                </th:block>
+            </th:block>
+
+            <div th:if="${recommendations == null or #lists.isEmpty(recommendations)}" class="no-more-recs">
+                Nu mai sunt alte opere de afișat.
+            </div>
+        </div>
+    </div>
+
+    <div id="ajax-source-museum">
+        <div class="rec-grid">
+            <th:block th:if="${recommendationsMuseums != null}">
+                <th:block th:each="rec : ${recommendationsMuseums}">
+                    <div th:replace="~{::singleCard(rec=${rec})}"></div>
+                </th:block>
+            </th:block>
+
+            <div th:if="${recommendationsMuseums == null or #lists.isEmpty(recommendationsMuseums)}" class="no-more-recs">
+                Nu mai sunt alte opere de afișat.
+            </div>
+        </div>
+    </div>
+
+    <div id="ajax-source-category">
+        <div class="rec-grid">
+            <th:block th:if="${recommendationsCategory != null}">
+                <th:block th:each="rec : ${recommendationsCategory}">
+                    <div th:replace="~{::singleCard(rec=${rec})}"></div>
+                </th:block>
+            </th:block>
+
+            <div th:if="${recommendationsCategory == null or #lists.isEmpty(recommendationsCategory)}" class="no-more-recs">
+                Nu mai sunt alte opere de afișat.
+            </div>
+        </div>
+    </div>
+
 </div>
