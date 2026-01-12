@@ -3,7 +3,6 @@ package com.example.backend.controller;
 import com.example.backend.model.Artist;
 import com.example.backend.service.ArtistService;
 import com.example.backend.service.ArtworkService;
-import com.example.backend.service.WikidataArtworkService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +15,7 @@ public class HomeController {
     private final ArtworkService artworkService;
     private final ArtistService artistService;
 
-    public HomeController(ArtworkService artworkService, WikidataArtworkService wikidataArtworkService,ArtistService artistService) {
+    public HomeController(ArtworkService artworkService, ArtistService artistService) {
         this.artworkService = artworkService;
         this.artistService = artistService;
     }
@@ -28,11 +27,6 @@ public class HomeController {
 
         List<Artist> allArtists = artistService.getAllArtistsWithFirstArtworkHome("ro", 1, 15);
         List<Artist> allArtistsInt = artistService.getAllArtistsWithFirstArtworkHome("int", 1, 15);
-
-//        int maxHomepageArtists = 60;
-//        List<Artist> homepageArtists = allArtists.size() > maxHomepageArtists
-//                ? allArtists.subList(0, maxHomepageArtists)
-//                : allArtists;
 
         model.addAttribute("artists", allArtists);
         model.addAttribute("artistsWiki", allArtistsInt);

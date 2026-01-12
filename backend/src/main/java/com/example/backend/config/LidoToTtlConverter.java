@@ -26,7 +26,7 @@ public class LidoToTtlConverter {
     private static final Set<String> writtenValidators = new HashSet<>();
 
     public static void main(String[] args) {
-        // Asigură-te că path-ul este corect
+
         String inputPath = "src/main/resources/rdf/inp-clasate-arp-2014-02-02.xml";
         String outputPath = "output.ttl";
 
@@ -40,7 +40,6 @@ public class LidoToTtlConverter {
             doc.getDocumentElement().normalize();
 
             NodeList nList = doc.getElementsByTagName("lido:lido");
-            // Scriem cu UTF-8
             try (PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outputPath), StandardCharsets.UTF_8))) {
 
                 // HEADER
@@ -78,7 +77,6 @@ public class LidoToTtlConverter {
                         extractMaterialsAndTechniques(lidoRecord, listMaterials, listTechniques);
 
                         // B. Clasificări (Listă completă: IMAGE, artă plastică, fine arts...)
-                        // Se vor duce la Operă
                         List<String> clasificari = getClassificationValues(lidoRecord);
 
                         // --- 3. EXTRAGERE DATE EXTINSE ---
@@ -205,12 +203,11 @@ public class LidoToTtlConverter {
             sb.append("    arp:startedAtTime ").append(getFormattedDateLiteral(data)).append(" ;\n");
         }
 
-        // [NOU] Iterăm prin LISTA de tehnici și le punem la Activitate
         for (String tehnica : listTechniques) {
             sb.append("    arp:technique \"").append(escape(tehnica)).append("\" ;\n");
         }
 
-        // [MODIFICARE] Scriem Materialele
+        //Scriem Materialele
         for (String material : listMaterials) {
             sb.append("    arp:materialsUsed \"").append(escape(material)).append("\" ;\n");
         }
@@ -291,7 +288,7 @@ public class LidoToTtlConverter {
 
     // --- Helpers ---
 
-    // [NOU] Metodă specială pentru a extrage TOATE clasificările din structura complexă lido:classificationWrap
+    // Metodă specială pentru a extrage TOATE clasificările din structura complexă lido:classificationWrap
     private static List<String> getClassificationValues(Element element) {
         List<String> results = new ArrayList<>();
         NodeList wraps = element.getElementsByTagName("lido:classificationWrap");
@@ -384,10 +381,6 @@ public class LidoToTtlConverter {
         return cultureList;
     }
 
-//    private static String escape(String val) {
-//        if (val == null) return "";
-//        return val.replace("\"", "\\\"").replace("\\", "\\\\").replace("\n", " ").trim();
-//    }
 
     private static void extractMaterialsAndTechniques(Element element, List<String> materials, List<String> techniques) {
         NodeList eventMatTechList = element.getElementsByTagName("lido:eventMaterialsTech");
@@ -408,9 +401,6 @@ public class LidoToTtlConverter {
                     } else if ("technique".equalsIgnoreCase(type)) {
                         techniques.add(value);
                     } else {
-                        // Dacă nu are etichetă sau e altceva, putem decide unde să îl punem
-                        // De regulă, îl tratăm ca tehnică sau material generic.
-                        // Aici îl punem la tehnici ca fallback:
                         techniques.add(value);
                     }
                 }
@@ -441,8 +431,8 @@ public class LidoToTtlConverter {
     private static String escape(String val) {
         if (val == null) return "";
         return val
-                .replace("\\", "\\\\")   // 1️⃣ backslash primul
-                .replace("\"", "\\\"")   // 2️⃣ ghilimele
+                .replace("\\", "\\\\")
+                .replace("\"", "\\\"")
                 .replace("\n", " ")
                 .trim();
     }

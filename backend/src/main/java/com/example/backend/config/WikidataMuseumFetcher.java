@@ -45,7 +45,7 @@ public class WikidataMuseumFetcher {
 
         String ARP_NS = "http://arp.ro/schema#";
         model.setNsPrefix("arp", ARP_NS);
-        // Adaugam prefixe pentru ambele tipuri Getty ca sa arate frumos in TTL
+        // Adaugam prefixe pentru ambele tipuri Getty
         model.setNsPrefix("ulan", "http://vocab.getty.edu/ulan/");
         model.setNsPrefix("tgn", "http://vocab.getty.edu/tgn/");
 
@@ -68,7 +68,7 @@ public class WikidataMuseumFetcher {
 
         String wdSparqlTemplate = loadSparql("/sparql/wikidata_museum_query.sparql");
 
-        // --- MODIFICARE CHEIE: Template Getty Universal (ULAN + TGN) ---
+        // Template Getty Universal (ULAN + TGN) ---
         String gettySparqlTemplate =
                 "PREFIX luc: <http://www.ontotext.com/owlim/lucene#> " +
                         "PREFIX gvp: <http://vocab.getty.edu/ontology#> " +
@@ -143,7 +143,7 @@ public class WikidataMuseumFetcher {
         if (!batchModel.isEmpty()) {
             appendBatchToFile(batchModel, firstBatch);
         }
-        System.out.println("✅ Gata! Vezi fisierul: " + OUTPUT_FILE);
+        System.out.println("fisierul: " + OUTPUT_FILE);
     }
 
     private QuerySolution executeSearch(String template, String name, String endpoint) {

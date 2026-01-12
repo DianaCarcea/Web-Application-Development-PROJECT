@@ -13,9 +13,9 @@ public class Artwork extends Entity{
     public String wikidataLink;
     public String license;
 
-    public List<String> cultures; // poate fi mai multe valori
-    public List<String> techniques; // din Creation
-    public List<String> materialsUsed; // din Restoration
+    public List<String> cultures;
+    public List<String> techniques;
+    public List<String> materialsUsed;
     public Creation creation;
     public Registrar registrar;
     public String recordedAt;

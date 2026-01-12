@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -33,7 +32,7 @@ public class ArtworkController {
         model.addAttribute("domain", domain);
         model.addAttribute("artworks", artworks);
         model.addAttribute("currentPage", 1);
-        return "artwork"; // Thymeleaf va încărca artwork.html
+        return "artwork";
     }
 
     @GetMapping("/artworks/{id}")
@@ -109,10 +108,8 @@ public class ArtworkController {
             @RequestParam(value = "domain", defaultValue = "int") String domain,
             Model model) {
 
-        // 1. Luăm datele
         List<Artwork> recommendations = artworkService.getRecommendations(uri, offset, limit, domain);
 
-        // 2. Le punem în model
         model.addAttribute("recommendations", recommendations);
         List<Artwork> recommendationsMuseums = artworkService.getRecommendationsMuseums(uri, offset, limit, domain);
         model.addAttribute("recommendationsMuseums", recommendationsMuseums);
@@ -121,8 +118,6 @@ public class ArtworkController {
 
         model.addAttribute("domain", domain);
 
-        // 3. RETURNĂM NUMELE FIȘIERULUI NOU
-        // Spring va randa tot conținutul din rec-fragment.html
         return "rec-fragment";
     }
 }

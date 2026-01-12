@@ -16,7 +16,7 @@ import java.util.List;
 public class WikidataArtistFetcher {
 
     private static final int BATCH_SIZE = 50;
-    // Asigura-te ca fisierul de intrare este corect
+
     private static final String INPUT_FILE = "output.ttl";
     private static final String OUTPUT_FILE = "artists_wikidata_getty.ttl";
 
@@ -148,7 +148,7 @@ public class WikidataArtistFetcher {
         if (!batchModel.isEmpty()) {
             appendBatchToFile(batchModel, firstBatch);
         }
-        System.out.println("✅ Gata! Vezi fisierul: " + OUTPUT_FILE);
+        System.out.println("fisierul: " + OUTPUT_FILE);
     }
 
     private QuerySolution executeSearch(String template, String name, String endpoint) {
@@ -196,7 +196,7 @@ public class WikidataArtistFetcher {
         }
     }
 
-    // Functie specifica pentru artisti: "Grigorescu, Nicolae" -> "Nicolae Grigorescu"
+    // artisti: "Grigorescu, Nicolae" -> "Nicolae Grigorescu"
     private String formatArtistName(String rawName) {
         if (rawName == null) return "";
         String clean = rawName.trim();

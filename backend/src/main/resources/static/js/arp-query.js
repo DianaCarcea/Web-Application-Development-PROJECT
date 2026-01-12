@@ -1,4 +1,3 @@
-// arp-query.js
 
 function downloadTTL() {
     window.location.href = "/download/ttl";
@@ -97,7 +96,6 @@ async function runQuery() {
     const loader = document.getElementById("loader");
     const resultContainer = document.getElementById("result");
 
-    // Arată loader-ul și golește rezultatul anterior
     loader.style.display = "block";
     resultContainer.innerHTML = "";
 
@@ -116,7 +114,6 @@ async function runQuery() {
     } catch (err) {
         resultContainer.innerHTML = "<p style='color:red'>Error: " + err.message + "</p>";
     } finally {
-        // Ascunde loader-ul după ce rezultatul a venit
         loader.style.display = "none";
     }
 }

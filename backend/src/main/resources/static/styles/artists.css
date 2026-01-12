@@ -1,4 +1,3 @@
-/* --- Dropdown Container --- */
 #artist-dropdown {
     display: flex;
     flex-wrap: wrap;
@@ -9,14 +8,12 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* --- Label --- */
 #artist-dropdown label {
     font-weight: 600;
     font-size: 1.2rem;
     color: #1f2937;
 }
 
-/* --- Select Box --- */
 #artistSelect {
     padding: 0.5rem 1rem;
     font-size: 1rem;
@@ -32,13 +29,11 @@
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* --- Focus State --- */
 #artistSelect:focus {
     border-color: #3b82f6;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
-/* --- Submit Button --- */
 #artist-dropdown button {
     background-color: #3b82f6;
     color: #ffffff;

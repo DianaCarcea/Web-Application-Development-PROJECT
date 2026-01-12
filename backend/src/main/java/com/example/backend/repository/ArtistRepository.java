@@ -60,8 +60,6 @@ public class ArtistRepository {
         String ttlQueryStr = loadSparql("/sparql/artist-first-artwork.sparql");
         Query ttlQuery = QueryFactory.create(ttlQueryStr);
 
-//        Model combinedModel = ModelFactory.createUnion(artistModel, artworkModel);
-
         Model modelChosen;
         if(Objects.equals(domain, "ro")) {
             modelChosen = artworkModel;
@@ -81,12 +79,9 @@ public class ArtistRepository {
                 String artistUri = artistRes.getURI();
                 String imageArtist = getArtistImage(artistUri);
 
-
-                // ID compatibil URL
                 String[] parts = artistUri.split("/");
                 String artistId = parts[parts.length - 1];
 
-                // Nume: Wikidata > name > fallback
                 String name =
                         sol.contains("wikidataName") ? sol.getLiteral("wikidataName").getString()
                                 : sol.contains("name") ? sol.getLiteral("name").getString()
@@ -120,15 +115,6 @@ public class ArtistRepository {
     }
 
 
-    private String toWikidataName(String original) {
-        // "Brâncuși, Constantin" → "Constantin Brancusi"
-        String[] parts = original.split(",\\s*");
-        String name = parts.length == 2 ? parts[1] + " " + parts[0] : original;
-
-        return java.text.Normalizer.normalize(name, java.text.Normalizer.Form.NFD)
-                .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
-    }
-
     private String loadSparql(String path) {
         try (InputStream is = getClass().getResourceAsStream(path)) {
             return new String(is.readAllBytes(), StandardCharsets.UTF_8);
@@ -148,16 +134,12 @@ public class ArtistRepository {
 
         Query ttlQuery = QueryFactory.create(ttlQueryStr);
 
-//        Model combinedModel = ModelFactory.createUnion(artistModel, artworkModel);
-
         Model modelChosen;
         if(Objects.equals(domain, "ro")) {
             modelChosen = artworkModel;
         } else {
             modelChosen = wikiModel;
         }
-        //        Model combinedModel = ModelFactory.createUnion(artistModel, artworkModel);
-
 
         try (QueryExecution qexec = QueryExecutionFactory.create(ttlQuery, modelChosen)) {
             ResultSet rs = qexec.execSelect();
@@ -176,7 +158,7 @@ public class ArtistRepository {
                 String[] parts = artistUri.split("/");
                 String artistId = parts[parts.length - 1];
 
-                // Nume: Wikidata > name > fallback
+                // Wikidata > name > fallback
                 String name =
                         sol.contains("wikidataName") ? sol.getLiteral("wikidataName").getString()
                                 : sol.contains("name") ? sol.getLiteral("name").getString()
@@ -212,7 +194,6 @@ public class ArtistRepository {
 
     public String getArtistImage(String artistUri) {
 
-        // 1. Încarcă query-ul simplu
         String sparql = loadSparql("/sparql/artist-image-simple.sparql")
                 .replace("{{ARTIST_URI}}", artistUri);
 
@@ -222,11 +203,9 @@ public class ArtistRepository {
             if (rs.hasNext()) {
                 QuerySolution sol = rs.nextSolution();
 
-                // Verificăm dacă am găsit variabila ?image
                 if (sol.contains("image")) {
                     RDFNode node = sol.get("image");
 
-                    // Returnăm string-ul indiferent dacă e Resursă sau Literal
                     if (node.isResource()) {
                         return node.asResource().getURI();
                     } else {
@@ -238,6 +217,6 @@ public class ArtistRepository {
             e.printStackTrace();
         }
 
-        return null; // Nu are imagine
+        return null;
     }
 }

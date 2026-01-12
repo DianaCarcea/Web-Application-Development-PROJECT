@@ -15,9 +15,7 @@ public class ArtistService {
         this.repository = repository;
     }
 
-//    public List<Artist> getAllArtists() {
-//        return repository.findAll();
-//    }
+
     public Artist getArtistByUri(String artistUri, String domain) {
         return repository.findByUri(artistUri, domain);
     }
@@ -29,12 +27,11 @@ public class ArtistService {
 
     public List<Artist> getAllArtistsWithFirstArtworkHome(String domain, int page, int pageSize) {
 
-        // Calculăm offset-ul: (Pagina 1 -> 0, Pagina 2 -> 20, etc.)
+        // (Pagina 1 -> 0, Pagina 2 -> 20, etc.)
         int offset = (page - 1) * pageSize;
         if (offset < 0) offset = 0;
 
         return repository.findAllArtistWithFirstArtworkHome(domain, pageSize, offset);
     }
-
 
 }

@@ -16,11 +16,11 @@ public class WikimediaUtils {
 
     private static final String WIKI_API_URL = "https://en.wikipedia.org/w/api.php";
     private static final String COMMONS_API_URL = "https://commons.wikimedia.org/w/api.php";
-    // User-Agent obligatoriu pentru Wikimedia
+    // User-Agent Wikimedia
     private static final String USER_AGENT = "Java:ArtCatalogApp/1.0 (contact@example.com)";
     private static final String WIKIDATA_API_URL = "https://www.wikidata.org/w/api.php";
 
-    // --- METODA 1: Wikipedia PageImages (De obicei returnează link bun) ---
+    // --- METODA 1: Wikipedia PageImages ---
     public static String searchWikipediaPageImage(String query) {
         try {
             String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
@@ -52,8 +52,7 @@ public class WikimediaUtils {
         return null;
     }
 
-    // --- METODA 2: Commons Search (REPARATĂ) ---
-    // Aceasta era sursa problemei. Acum returnează FORȚAT link-ul de redirect.
+    // --- METODA 2: Commons Search ---
     public static String searchCommonsFile(String query) {
         try {
             String encodedQuery = URLEncoder.encode(query + " filetype:jpg|png", StandardCharsets.UTF_8);
@@ -72,20 +71,15 @@ public class WikimediaUtils {
             JsonNode searchResults = rootNode.path("query").path("search");
             if (!searchResults.isArray() || searchResults.isEmpty()) return null;
 
-            // 1. Luăm titlul exact (ex: "File:Interchange-colour-img_0526.jpg")
             String rawTitle = searchResults.get(0).path("title").asText();
 
-            // 2. Eliminăm "File:" din față
             String cleanFilename = rawTitle.replace("File:", "").trim();
 
-            // 3. Codificăm numele pentru URL (spațiile devin %20)
             String encodedFilename = URLEncoder.encode(cleanFilename, StandardCharsets.UTF_8);
 
-            // 4. Returnăm URL-ul magic de Redirect
-            // Browserul va primi acest link și va fi trimis automat la poza .jpg
             String redirectUrl = "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/" + encodedFilename + "&width=800";
 
-            System.out.println("✅ Commons Search: Generat link redirect: " + redirectUrl);
+            System.out.println("link redirect: " + redirectUrl);
             return redirectUrl;
 
         } catch (Exception e) {
@@ -93,7 +87,6 @@ public class WikimediaUtils {
         }
         return null;
     }
-
 
 
     // Helper intern pentru request HTTP
@@ -118,22 +111,15 @@ public class WikimediaUtils {
     }
 
 
-    /**
-     * Cleans the query to improve Wikidata matching chances.
-     * Removes text after " - ", ",", or "(" which often confuses the strict search.
-     */
     private static String cleanQuery(String query) {
         if (query == null) return "";
 
-        // 1. Remove text after hyphen (e.g. "Museum Name - CITY" -> "Museum Name")
         if (query.contains(" - ")) {
             query = query.split(" - ")[0];
         }
-        // 2. Remove text after comma (e.g. "Museum Name, Country" -> "Museum Name")
         if (query.contains(",")) {
             query = query.split(",")[0];
         }
-        // 3. Remove parentheses (e.g. "Museum Name (City)" -> "Museum Name")
         if (query.contains("(")) {
             query = query.split("\\(")[0];
         }
@@ -141,25 +127,16 @@ public class WikimediaUtils {
         return query.trim();
     }
 
-    /**
-     * Caută o entitate pe Wikidata după nume și returnează ID-ul (ex: Q19675).
-     * @param query Numele muzeului sau entității (ex: "Louvre Museum")
-     * @return ID-ul Wikidata (ex: "Q19675") sau null dacă nu găsește nimic.
-     */
     public static String searchWikidataId(String query) {
         try {
             if (query == null || query.trim().isEmpty()) return null;
 
             // STEP 1: Smart Cleaning
-            // "Muzeul Național de Artă al României - BUCUREȘTI" -> "Muzeul Național de Artă al României"
             String cleanedQuery = cleanQuery(query);
-
-            // System.out.println("🔍 Searching Wikidata for cleaned query: " + cleanedQuery);
 
             String encodedQuery = URLEncoder.encode(cleanedQuery, StandardCharsets.UTF_8);
 
             // STEP 2: Construct API URL
-            // Using 'wbsearchentities' is correct, but cleaning the input makes it robust.
             String urlString = WIKIDATA_API_URL + "?action=wbsearchentities"
                     + "&search=" + encodedQuery
                     + "&language=en"
@@ -176,9 +153,8 @@ public class WikimediaUtils {
                 }
             }
 
-            // Fallback: If cleaned search fails, try the original query just in case
             if (!cleanedQuery.equals(query)) {
-                return searchWikidataId(query); // Recursive retry with original
+                return searchWikidataId(query);
             }
 
         } catch (Exception e) {
@@ -187,13 +163,9 @@ public class WikimediaUtils {
         return null;
     }
 
-    /**
-     * Helper care returnează URL-ul complet RDF sau Web.
-     */
     public static String searchWikidataUrl(String query) {
         String id = searchWikidataId(query);
         if (id != null) {
-            // Returnează URL-ul entității (bun pentru RDF)
             return "http://www.wikidata.org/entity/" + id;
         }
         return null;
@@ -201,15 +173,11 @@ public class WikimediaUtils {
 
     // Test rapid
     public static void main(String[] args) {
-        // Test Cases
         System.out.println(searchWikidataId("Muzeul Național de Artă al României"));
-        // Expected: Q1377755
 
         System.out.println(searchWikidataUrl("Muzeul Național de Artă al României - BUCUREȘTI"));
-        // Expected: Q1377755 (Now works because of cleaning)
 
         System.out.println(searchWikidataUrl("Louvre Museum, Paris"));
-        // Expected: http://www.wikidata.org/entity/Q19675
     }
 
 }

@@ -4,7 +4,6 @@ import com.example.backend.config.PredefinedQueryLoader;
 import com.example.backend.config.RDFConfig;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.RDFNode;
-import org.apache.jena.sparql.resultset.ResultsFormat;
 import org.apache.jena.system.Txn;
 import org.apache.jena.query.Dataset;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ public class SparqlController {
     @Autowired
     private  RDFConfig rdfConfig;
 
-    // Endpoint pentru rularea SPARQL pe dataset-ul complet
     @PostMapping("/sparql")
     public Map<String, Object> runQuery(@RequestBody String sparql) {
         Dataset dataset = rdfConfig.dataset(); // folosim dataset-ul cu toate TTL-urile

@@ -1,6 +1,6 @@
 .top-nav {
     display: flex;
-    justify-content: flex-start; /* Back și Discover pe stânga */
+    justify-content: flex-start;
     gap: 1rem;
     padding: 1rem;
     font-family: Arial, sans-serif;

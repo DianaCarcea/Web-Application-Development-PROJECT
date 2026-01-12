@@ -28,14 +28,12 @@ public class GettyCategoryFetcher {
     }
 
     public static void main(String[] args) throws Exception {
-        Set<String> categoriesRo = extractCategoriesFromTTL("output.ttl"); // română
-        Set<String> categoriesEn = extractCategoriesFromTTL("artworks_arp.ttl"); // engleză
+        Set<String> categoriesRo = extractCategoriesFromTTL("output.ttl");
+        Set<String> categoriesEn = extractCategoriesFromTTL("artworks_arp.ttl");
         String outputTTL = "getty-categories.ttl";
 
-        // Folosim Map cu cheie codul AAT pentru unicitate
         Map<String, CategoryData> categoriesByAat = new HashMap<>();
 
-        // Procesează categoriile în română
         for (String ro : categoriesRo) {
             String roLower = ro.toLowerCase();
             String en = getEnglishLabel(roLower);
@@ -52,13 +50,12 @@ public class GettyCategoryFetcher {
             }
         }
 
-        // Procesează categoriile în engleză
         for (String en : categoriesEn) {
             String ro = getRomanianLabel(en);
             String aatCode = queryGettyCode(en);
             if (aatCode != null) {
                 categoriesByAat.putIfAbsent(aatCode, new CategoryData(
-                        ro != null ? ro : en, // dacă nu găsim română, folosim engleza
+                        ro != null ? ro : en,
                         en
                 ));
                 System.out.printf("✔ %s → %s (%s)%n", en, ro != null ? ro : en, aatCode);

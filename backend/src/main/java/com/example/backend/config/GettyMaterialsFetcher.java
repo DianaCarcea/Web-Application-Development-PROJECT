@@ -19,7 +19,6 @@ public class GettyMaterialsFetcher {
 
     public static void main(String[] args) throws Exception {
 
-        // SINGURA sursă de adevăr
         Map<String, String> translations = getTranslations();
 
         try (PrintWriter out = new PrintWriter(new FileOutputStream("getty-materials.ttl"))) {
@@ -53,7 +52,6 @@ public class GettyMaterialsFetcher {
         System.out.println("✔ getty-materials.ttl generat cu succes!");
     }
 
-    // URI safe (FĂRĂ spații / diacritice)
     private static String toUriSafe(String input) {
         return input
                 .toLowerCase()

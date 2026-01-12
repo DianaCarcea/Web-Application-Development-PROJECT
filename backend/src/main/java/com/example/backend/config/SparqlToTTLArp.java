@@ -391,17 +391,14 @@ public class SparqlToTTLArp {
         return new String(is.readAllBytes(), StandardCharsets.UTF_8);
     }
 
-    /**
-     * Caută prima dată validă dintr-o listă de candidați, extrage anul și îl adaugă în model.
-     */
     private static void setCreationYear(Model model, Resource res, String... potentialDates) {
         for (String dateStr : potentialDates) {
             if (dateStr != null && !dateStr.isEmpty()) {
 
-                // Elimină ora dacă există (ex: 1990-05-20T14:30:00Z → 1990-05-20)
+                // dacă există (ex: 1990-05-20T14:30:00Z → 1990-05-20)
                 String dateOnly = dateStr.split("T")[0];
 
-                // Acceptă YYYY-MM-DD sau -YYYY-MM-DD
+                // YYYY-MM-DD sau -YYYY-MM-DD
                 if (dateOnly.matches("-?\\d{4}-\\d{2}-\\d{2}")) {
                     res.addProperty(
                             model.createProperty(NS_ARP + "startedAtTime"),
