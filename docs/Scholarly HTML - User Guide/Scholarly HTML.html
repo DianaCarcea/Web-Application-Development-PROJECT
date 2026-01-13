@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037) -->
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>User Guide</title>
+  <link rel="stylesheet" href="./Scholarly HTML_files/scholarly.min.css">
+  <script src="./Scholarly HTML_files/scholarly.min.js.descărcare"></script>
+</head>
+<body prefix="schema: http://schema.org">
+<header>
+  <div class="banner">
+    <img src="./Scholarly HTML_files/scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
+    <div class="status">Community Draft</div>
+  </div>
+  <h1>ArP (Artwork Provenance)<br> - User Guide</h1>
+</header>
+
+<div role="contentinfo">
+  <ol role="directory">
+
+  </ol>
+
+  <dl>
+    <dt>Authors</dt>
+    <dd>
+      Carcea Diana
+      &amp;
+      Carcea Răzvan
+    </dd>
+
+    <dt>License</dt>
+    <dd>
+      <a href="https://opensource.org/licenses">OSI Approved Licenses</a><br>
+      <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a>
+    </dd>
+  </dl>
+
+</div>
+
+
+<section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+  <h2>Abstract</h2>
+  <p>
+    This document serves as the official <strong>User Guide</strong> for the ArP (Artwork Provenance) platform.
+    It provides a comprehensive walkthrough of the application's interface, features, and navigation flow.
+    Targeting researchers, museum visitors, and art enthusiasts, this guide explains how to discover artworks,
+    visualize provenance data, and execute semantic queries without technical knowledge.
+    The document concludes with three practical case studies demonstrating the system's utility in real-world scenarios.
+  </p>
+</section>
+
+<section id="introduction" role="doc-introduction">
+  <h2>Introduction</h2>
+  <p>
+    <strong>ArP (Artwork Provenance)</strong> is a semantic web application designed to interconnect Romanian cultural heritage
+    with the global art ecosystem. Unlike traditional museum catalogs which are often isolated, ArP links local artists
+    and artworks to international databases like <strong>Wikidata</strong> and <strong>Getty Vocabularies</strong>.
+  </p>
+  <p>
+    The platform allows users to:
+  </p>
+  <ul>
+    <li>Browse a unified catalog of Romanian and International artworks.</li>
+    <li>View detailed provenance histories (who owned a painting and when).</li>
+    <li>Discover connections between artists based on movements, locations, and time periods.</li>
+    <li>Perform advanced searches using the underlying Knowledge Graph.</li>
+  </ul>
+</section>
+
+<section id="getting-started">
+  <h2>Getting Started</h2>
+  <p>
+    The ArP platform is a web-based application, meaning it requires no installation on the client side (the user's device).
+    It is accessible via any modern web browser (Chrome, Firefox, Edge, Safari).
+  </p>
+
+  <h3>3.1 Prerequisites</h3>
+  <p>
+    Before accessing the interface, ensure the application server is running.
+    (For technical instructions on how to clone and launch the server, please refer to the project's
+    <a href="https://github.com/DianaCarcea/Web-Application-Development-PROJECT" target="_blank">README.md</a> file).
+  </p>
+
+  <h3>3.2 Accessing the Application</h3>
+  <p>
+    Once the server is active, navigate to the following URL in your browser: <strong><code>http://localhost:8080</code></strong>
+  </p>
+
+  <p>
+    Upon loading, you will be greeted by the <strong>Home Page (Dashboard)</strong>, which highlights featured artists and provides quick access to the main catalogs.
+  </p>
+</section>
+
+<section id="interface">
+  <h2>The Homepage (Discovery Dashboard)</h2>
+
+  <p>
+    The homepage acts as a thematic discovery hub, allowing users to explore the collection based on the origin of the resources (Romanian Heritage vs. International Context).
+    Key features include:
+  </p>
+  <ul>
+    <li>
+      <strong>ArP Query Service:</strong> A dedicated button in the top-right corner provides direct access to the advanced SPARQL interface for executing semantic queries.
+    </li>
+    <li>
+      <strong>Quick Navigation ("Jump to"):</strong> A sticky navigation bar allows users to instantly scroll to specific categories: International Artists, Romanian Artists, or their respective Artworks.
+    </li>
+    <li>
+      <strong>Thematic Grids:</strong> The content is divided into four main sections:
+      <ul>
+        <li><strong>International & Romanian Artists:</strong> Displays cards with artist portraits. Clicking a card navigates to the list of artworks created by that specific artist.</li>
+        <li><strong>Arts & Culture (Ro/Int):</strong> Displays a curated selection of artworks. Clicking an artwork card opens the detailed metadata view.</li>
+      </ul>
+    </li>
+    <li>
+      <strong>"See More" Links:</strong> Each section title includes a link (e.g., <em>"see the details"</em>) that redirects the user to the full, paginated catalog for that category.
+    </li>
+  </ul>
+
+  <figure typeof="sa:image">
+    <img src="image/home_page.png" alt="ArP Discovery Homepage" width="100%">
+    <figcaption>Figure 1. The ArP Discovery Dashboard showing the separation between National and International domains.</figcaption>
+  </figure>
+
+  </section>
+
+
+  <section id="case-studies">
+    <h2>Case Studies (Scenarios)</h2>
+    <p>
+      This section illustrates four practical scenarios demonstrating how different user typologies interact with the ArP platform, ranging from basic browsing to advanced semantic querying.    </p>
+
+    <article id="scenario-1">
+      <h3>5.1 Scenario 1: Exploring an Artist's Complete Portfolio</h3>
+      <p>
+        <strong>User Goal:</strong> A user is interested in a specific painter (e.g., <em>Preziosi, Amedeo</em>) and wants to view every artwork attributed to him available in the database to study his stylistic evolution.
+      </p>
+      <p><strong>Workflow:</strong></p>
+      <ol>
+        <li>
+          From the <strong>Home Page</strong>, the user identifies the "Romanian Artists" section.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S1_step1.png" alt="ArP Homepage highlighting Romanian Artists section" width="100%">
+          </figure>
+        </li>
+
+        <li>
+          They click on the <em>"(see more)"</em> link to access the full <strong>Artist Catalog</strong>.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S1_step2.png" alt="Artist Catalog view" width="100%">
+          </figure>
+        </li>
+
+        <li>
+          Using the <strong>Quick Select</strong> dropdown or the pagination controls, the user locates "Preziosi, Amedeo" and clicks "View Artworks".
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S1_step3.png" alt="Selecting Amedeo Preziosi from the dropdown" width="100%">
+          </figure>
+        </li>
+
+        <li>
+          <strong>Result:</strong> The system displays a grid containing all artworks linked to this artist via the <code>schema:artist</code> property. The user can now scroll through the entire collection in one place.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S1_step4.png" alt="Grid view of artworks by Amedeo Preziosi" width="100%">
+          </figure>
+        </li>
+      </ol>
+    </article>
+
+    <article id="scenario-2">
+      <h3>5.2 Scenario 2: Artwork Analysis and Contextual Discovery</h3>
+      <p>
+        <strong>User Goal:</strong> A researcher is analyzing a specific painting (e.g., <em>"Oriental"</em>) and wants to see its technical details, while also discovering similar works suggested by the system.
+      </p>
+      <p><strong>Workflow:</strong></p>
+      <ol>
+        <li>
+          The user selects the painting from the artist's portfolio.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S2_step1.png" alt="Selecting the Oriental painting from the portfolio" width="100%">
+          </figure>
+        </li>
+
+        <li>
+          The <strong>Artwork Detail Page</strong> opens, presenting metadata: Artist, Creation Date, Dimensions, Inventory Number, Material, etc.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S2_step2.png" alt="Artwork Detail Page displaying technical metadata" width="100%">
+          </figure>
+        </li>
+
+        <li>The user scrolls down to the <strong>Recommendations Section</strong>.</li>
+
+        <li>
+          <strong>Result:</strong> The system uses the semantic graph to offer three distinct discovery paths:
+          <ul>
+            <li>
+              <em>"Other artworks by Artist"</em> (works by the same creator).
+              <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+                <img src="image/S2_step3.png" alt="Recommendations slider showing other works by the artist" width="100%">
+              </figure>
+            </li>
+            <li>
+              <em>"Other artworks from Museum"</em> (works located in the same physical institution).
+              <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+                <img src="image/S2_step4.png" alt="Recommendations slider showing works from the same museum" width="100%">
+              </figure>
+            </li>
+            <li>
+              <em>"Other artworks in Category"</em> (works sharing the same classification, e.g., "Painting").
+              <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+                <img src="image/S2_step5.png" alt="Recommendations slider showing works in the same category" width="100%">
+              </figure>
+            </li>
+          </ul>
+        </li>
+
+        <li>The user clicks a recommendation to seamlessly navigate to a related artwork.</li>
+      </ol>
+    </article>
+
+    <article id="scenario-3">
+      <h3>5.3 Scenario 3: Advanced Filtering by Material (Getty AAT)</h3>
+      <p>
+        <strong>User Goal:</strong> A conservator needs a list of all artworks created using a specific material (e.g., <em>Marble</em>), strictly identified by its standardized <strong>Getty Art & Architecture Thesaurus (AAT)</strong> code, to ensure terminological precision.
+      </p>
+      <p><strong>Workflow (ArP Query Service):</strong></p>
+      <ol>
+        <li>
+          The user accesses the <strong>ArP Query Service</strong> (SPARQL Endpoint) by clicking the dedicated button located in the top-right corner of the Home Page.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S3_step1.png" alt="Navigation to the SPARQL Endpoint from the Homepage" width="100%">
+          </figure>
+        </li>
+
+        <li>
+          From the list of predefined query templates, the user selects the <strong>"Artworks by Material (Getty AAT)"</strong> option.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S3_step2.png" alt="Selecting the Material query template from the list" width="100%">
+          </figure>
+        </li>
+
+        <li>
+          The <strong>SPARQL Query</strong> editor automatically populates with the code required to filter artworks by their Getty AAT ID. In this example, the query is pre-configured for <em>Marble</em> (identified by the code <code>aat:300011443</code>).
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S3_step3.png" alt="SPARQL editor showing the pre-loaded query for Marble" width="100%">
+          </figure>
+        </li>
+
+        <li>
+          The user executes the command by clicking the <strong>Run Query</strong> button.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S3_step4.png" alt="Clicking the Run Query button" width="100%">
+          </figure>
+        </li>
+
+        <li>
+          <strong>Result:</strong> The system displays the output in the <strong>Results</strong> section below. The data is presented in a tabular format containing columns for the <code>artworkUri</code> (resource reference), <code>title</code>, <code>material_ro</code>, <code>material_en</code>, and the specific <code>aatCode</code>.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S3_step5.png" alt="Tabular results showing artworks made of Marble" width="100%">
+          </figure>
+        </li>
+
+      </ol>
+    </article>
+
+    <article id="scenario-4">
+      <h3>5.4 Scenario 4: Institutional Analytics and Aggregation</h3>
+      <p>
+        <strong>User Goal:</strong> A data analyst wants to see the distribution of artworks across museums and then retrieve the full inventory for a specific museum using its unique Getty ID.
+      </p>
+      <p><strong>Workflow (ArP Query Service):</strong></p>
+      <ol>
+        <li>
+          From the list of predefined templates, select <strong>"Count Artworks by Museum"</strong>.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S4_step1.png" alt="Selecting the Count Artworks by Museum template" width="100%">
+          </figure>
+        </li>
+
+        <li>
+          Execute the aggregation query by clicking the <strong>Run Query</strong> button.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S4_step2.png" alt="Running the aggregation query" width="100%">
+          </figure>
+        </li>
+
+        <li>
+          The <strong>Results</strong> table displays the museum URI, name, a clickable Wikidata link, the total count of artworks, and the <strong>Getty URI</strong>. From here, note the Getty ID (e.g., <code>500306614</code> for <em>The National Museum of Art of Romania</em>).
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S4_step3.png" alt="Statistical results showing artwork counts per museum" width="100%">
+          </figure>
+        </li>
+
+        <li>
+          Select a new query template: <strong>"Artworks by Museum (Getty Code)"</strong>.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S4_step4.png" alt="Selecting the Artworks by Museum (Getty Code) template" width="100%">
+          </figure>
+        </li>
+
+        <li>
+          In the <code>gettyId</code> field within the SPARQL editor, enter the ID retrieved in the previous step (e.g., <code>500306614</code>) and run the query.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S4_step5.png" alt="Inputting the specific Getty ID into the query editor" width="100%">
+          </figure>
+        </li>
+
+        <li>
+          <strong>Result:</strong> The system generates a complete table listing all artworks currently hosted by the selected museum.
+          <figure typeof="sa:image" style="margin-left: 0; margin-right: 0;">
+            <img src="image/S4_step6.png" alt="Final inventory list for the selected museum" width="100%">
+          </figure>
+        </li>
+
+      </ol>
+    </article>
+  </section>
+
+<section id="video-demo">
+  <h2>Video Demonstration</h2>
+  <p>
+    A comprehensive video demonstration showcasing the main functionalities and usage scenarios of the ArP platform is available at the following link:
+    <a href="https://www.youtube.com/watch?v=LJwkH9yU0rY" target="_blank">Watch on YouTube</a>
+  </p>
+</section>
+
+</body>
+</html>
