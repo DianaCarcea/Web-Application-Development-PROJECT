@@ -9,6 +9,8 @@
 
 The platform integrates Linked Open Data sources—primarily **Wikidata** and **Getty Vocabularies (AAT, ULAN, TGN)**—to enrich local records (CIMEC) with global context. It exposes a dual interface: a human-friendly web catalog and a machine-readable Semantic API.
 
+Demo for application : https://www.youtube.com/watch?v=LJwkH9yU0rY
+
 ## 🚀 Key Features
 * **Semantic Data Integration:** ETL pipeline transforming LIDO XML to RDF (PROV-O compliant).
 * **Hybrid Architecture:** Serves both HTML (Thymeleaf) and JSON/Linked Data.
